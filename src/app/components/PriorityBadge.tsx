@@ -13,3 +13,4 @@ const CONFIG = {
     icon: Crown,
     bg: 'bg-amber-100',
     text: 'text-amber-700',
+    border: 'border-amber-300',
