@@ -33,3 +33,4 @@ function AccordionTrigger({
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
+        data-slot="accordion-trigger"
