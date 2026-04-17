@@ -145,3 +145,4 @@ function AlertDialogCancel({
 export {
   AlertDialog,
   AlertDialogPortal,
+  AlertDialogOverlay,
