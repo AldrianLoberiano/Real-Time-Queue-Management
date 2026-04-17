@@ -55,3 +55,4 @@ or initiating processes. They communicate interactivity and should have clear, a
   * Visual Style : Outlined with the primary color, transparent background
   * Usage : Can appear alongside a primary button for less important actions
 * Tertiary Button
+  * Purpose : Used for the least important actions
