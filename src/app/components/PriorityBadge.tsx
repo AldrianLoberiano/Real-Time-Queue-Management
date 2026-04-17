@@ -8,3 +8,4 @@ interface PriorityBadgeProps {
 }
 
 const CONFIG = {
+  vip: {
