@@ -16,3 +16,4 @@ function AccordionItem({
   className,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+  return (
