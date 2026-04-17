@@ -14,3 +14,4 @@ function Accordion({
 
 function AccordionItem({
   className,
+  ...props
