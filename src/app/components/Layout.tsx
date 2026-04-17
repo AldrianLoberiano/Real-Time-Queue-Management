@@ -39,3 +39,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 const active = location.pathname === href || (href !== '/' && location.pathname.startsWith(href));
                 return (
                   <Link
+                    key={href}
