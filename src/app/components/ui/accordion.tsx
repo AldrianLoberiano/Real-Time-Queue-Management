@@ -46,3 +46,4 @@ function AccordionTrigger({
     </AccordionPrimitive.Header>
   );
 }
+
