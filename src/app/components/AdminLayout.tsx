@@ -189,3 +189,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <span className="text-sky-700 text-xs font-medium">Administrator</span>
             </div>
           </div>
+        </header>
