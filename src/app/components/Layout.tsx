@@ -121,3 +121,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
               {/* Mobile menu */}
               <button
+                className="md:hidden p-2 text-blue-200 hover:text-white rounded-lg hover:bg-white/10"
