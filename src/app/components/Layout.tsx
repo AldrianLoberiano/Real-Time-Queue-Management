@@ -107,3 +107,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                                 <p className="text-sm text-gray-700">{n.message}</p>
                                 <p className="text-xs text-gray-400 mt-0.5">{n.timestamp.toLocaleTimeString()}</p>
                               </div>
+                              <button onClick={() => dismissNotification(n.id)} className="text-gray-300 hover:text-gray-500 mt-0.5">
