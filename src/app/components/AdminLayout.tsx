@@ -29,3 +29,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo */}
+      <div className="p-6 border-b border-white/10">
