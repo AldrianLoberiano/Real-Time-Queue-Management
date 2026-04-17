@@ -67,3 +67,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </div>
 
               {/* Notifications */}
+              <div className="relative">
