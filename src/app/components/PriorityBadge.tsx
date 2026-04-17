@@ -50,3 +50,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
   const iconSizes = { sm: 10, md: 12, lg: 14 };
 
   return (
+    <span className={`inline-flex items-center rounded-full border font-medium ${cfg.bg} ${cfg.text} ${cfg.border} ${sizeClasses[size]}`}>
