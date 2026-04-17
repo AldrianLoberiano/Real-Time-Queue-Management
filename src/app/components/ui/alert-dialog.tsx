@@ -97,3 +97,4 @@ function AlertDialogTitle({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
   return (
+    <AlertDialogPrimitive.Title
