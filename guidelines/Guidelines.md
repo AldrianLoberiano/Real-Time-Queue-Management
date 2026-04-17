@@ -38,3 +38,4 @@ For example:
 
 
 ## Button
+The Button component is a fundamental interactive element in our design system, designed to trigger actions or navigate
