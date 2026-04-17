@@ -60,3 +60,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         {NAV_ITEMS.map(({ href, label, icon: Icon, exact }) => {
           const active = isActive(href, exact);
           return (
+            <Link
