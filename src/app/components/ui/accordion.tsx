@@ -40,3 +40,4 @@ function AccordionTrigger({
         )}
         {...props}
       >
+        {children}
