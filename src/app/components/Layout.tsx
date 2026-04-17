@@ -139,3 +139,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               exit={{ height: 0, opacity: 0 }}
               className="md:hidden border-t border-white/10 overflow-hidden"
             >
+              <div className="px-4 py-3 space-y-1">
