@@ -62,3 +62,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           return (
             <Link
               key={href}
+              to={href}
