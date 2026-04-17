@@ -133,3 +133,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             />
             <motion.aside
               initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
