@@ -53,3 +53,4 @@ function AlertDescription({
 }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="alert-description"
