@@ -78,3 +78,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       {notifications.length}
                     </span>
                   )}
+                </button>
