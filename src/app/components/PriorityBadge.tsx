@@ -67,3 +67,4 @@ export function PriorityDot({ type }: { type: PriorityType }) {
 }
 
 export function getPriorityColor(type: PriorityType): string {
+  return CONFIG[type].dot.replace('bg-', '');
