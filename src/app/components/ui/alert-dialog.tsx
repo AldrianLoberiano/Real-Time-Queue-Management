@@ -51,3 +51,4 @@ function AlertDialogContent({
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
+      <AlertDialogPrimitive.Content
