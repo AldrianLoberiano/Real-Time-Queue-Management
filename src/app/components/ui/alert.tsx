@@ -54,3 +54,4 @@ function AlertDescription({
   return (
     <div
       data-slot="alert-description"
+      className={cn(
