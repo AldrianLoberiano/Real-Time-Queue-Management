@@ -35,3 +35,4 @@ const CONFIG = {
     dot: 'bg-blue-500',
     pill: 'bg-blue-500 text-white',
   },
+};
