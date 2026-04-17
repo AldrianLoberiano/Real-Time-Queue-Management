@@ -36,3 +36,4 @@ function Badge({
 
   return (
     <Comp
+      data-slot="badge"
