@@ -12,3 +12,4 @@ const NAV_ITEMS = [
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3, exact: false },
 ];
 
+export function AdminLayout({ children }: { children: React.ReactNode }) {
