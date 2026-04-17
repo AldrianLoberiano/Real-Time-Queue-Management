@@ -192,3 +192,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         </header>
 
         {/* Page */}
+        <main className="flex-1 p-6 lg:p-8">
