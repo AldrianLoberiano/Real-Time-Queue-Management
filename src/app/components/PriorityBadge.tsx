@@ -22,3 +22,4 @@ const CONFIG = {
     icon: Heart,
     bg: 'bg-violet-100',
     text: 'text-violet-700',
+    border: 'border-violet-300',
