@@ -160,3 +160,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Page content */}
+      <main className="flex-1">
