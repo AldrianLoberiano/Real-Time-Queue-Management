@@ -26,3 +26,4 @@ const badgeVariants = cva(
 );
 
 function Badge({
+  className,
