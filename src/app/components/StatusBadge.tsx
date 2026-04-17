@@ -19,3 +19,4 @@ const CONFIG = {
     classes: 'bg-green-100 text-green-700 border-green-300',
   },
   done: {
+    label: 'Done',
