@@ -88,3 +88,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       className="absolute right-0 top-12 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 overflow-hidden"
                     >
                       <div className="p-3 border-b border-gray-100 flex items-center justify-between">
+                        <span className="text-sm font-semibold text-gray-700">Notifications</span>
