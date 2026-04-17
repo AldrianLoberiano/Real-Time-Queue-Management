@@ -143,3 +143,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {navLinks.map(({ href, label, icon: Icon }) => (
                   <Link
                     key={href}
+                    to={href}
