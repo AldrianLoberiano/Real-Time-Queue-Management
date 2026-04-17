@@ -77,3 +77,4 @@ function AlertDialogHeader({
 }
 
 function AlertDialogFooter({
+  className,
