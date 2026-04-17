@@ -58,3 +58,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       {/* Nav */}
       <nav className="flex-1 p-4 space-y-1">
         {NAV_ITEMS.map(({ href, label, icon: Icon, exact }) => {
+          const active = isActive(href, exact);
