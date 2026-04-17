@@ -15,3 +15,4 @@ const CONFIG = {
   },
   serving: {
     label: 'Serving',
+    icon: PlayCircle,
