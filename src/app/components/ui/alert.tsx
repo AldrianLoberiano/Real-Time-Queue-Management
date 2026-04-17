@@ -59,3 +59,4 @@ function AlertDescription({
         className,
       )}
       {...props}
+    />
