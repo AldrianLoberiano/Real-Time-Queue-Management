@@ -19,3 +19,4 @@ const CONFIG = {
   },
   senior: {
     label: 'Senior',
+    icon: Heart,
