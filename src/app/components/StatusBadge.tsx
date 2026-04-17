@@ -25,3 +25,4 @@ const CONFIG = {
   },
   skipped: {
     label: 'Skipped',
+    icon: SkipForward,
