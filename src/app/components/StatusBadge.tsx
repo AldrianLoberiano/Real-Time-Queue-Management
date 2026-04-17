@@ -32,3 +32,4 @@ const CONFIG = {
 
 export function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
   const cfg = CONFIG[status];
+  const Icon = cfg.icon;
