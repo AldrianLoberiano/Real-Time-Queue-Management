@@ -30,3 +30,4 @@ const CONFIG = {
     label: 'Regular',
     icon: User,
     bg: 'bg-blue-100',
+    text: 'text-blue-700',
