@@ -28,3 +28,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Users size={20} className="text-white" />
               </div>
               <div>
+                <span className="text-white font-semibold text-lg leading-none">QueueSmart</span>
