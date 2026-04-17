@@ -42,3 +42,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
   const Icon = cfg.icon;
 
   const sizeClasses = {
+    sm: 'px-2 py-0.5 text-xs gap-1',
