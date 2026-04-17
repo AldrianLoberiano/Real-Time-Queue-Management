@@ -93,4 +93,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
                           <X size={14} />
                         </button>
                       </div>
+                      <div className="max-h-64 overflow-y-auto">
                         {notifications.length === 0 ? (
