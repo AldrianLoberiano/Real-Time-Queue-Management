@@ -56,3 +56,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
     </span>
   );
 }
+
