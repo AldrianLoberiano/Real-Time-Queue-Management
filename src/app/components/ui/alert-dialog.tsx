@@ -58,3 +58,4 @@ function AlertDialogContent({
           className,
         )}
         {...props}
+      />
