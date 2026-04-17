@@ -75,3 +75,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <ChevronRight size={14} className={`opacity-0 group-hover:opacity-100 transition-opacity ${active ? 'opacity-100' : ''}`} />
             </Link>
           );
+        })}
