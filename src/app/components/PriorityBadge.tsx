@@ -27,3 +27,4 @@ const CONFIG = {
     pill: 'bg-violet-500 text-white',
   },
   regular: {
+    label: 'Regular',
