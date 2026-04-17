@@ -107,3 +107,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           Sign Out
         </button>
       </div>
+    </div>
