@@ -31,3 +31,4 @@ function Alert({
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />
+  );
