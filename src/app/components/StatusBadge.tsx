@@ -13,3 +13,4 @@ const CONFIG = {
     icon: Clock,
     classes: 'bg-yellow-100 text-yellow-700 border-yellow-300',
   },
+  serving: {
