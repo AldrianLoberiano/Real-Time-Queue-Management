@@ -15,3 +15,4 @@ function Avatar({
       className={cn(
         "relative flex size-10 shrink-0 overflow-hidden rounded-full",
         className,
+      )}
