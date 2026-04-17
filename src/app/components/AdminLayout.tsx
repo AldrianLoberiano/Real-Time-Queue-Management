@@ -176,3 +176,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             {/* Notifications indicator */}
             {notifications.length > 0 && (
               <div className="relative">
+                <Bell size={20} className="text-gray-500" />
