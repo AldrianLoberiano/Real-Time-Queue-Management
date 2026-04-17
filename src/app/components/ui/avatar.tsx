@@ -41,3 +41,4 @@ function AvatarFallback({
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
+      className={cn(
