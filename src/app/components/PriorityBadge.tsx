@@ -34,3 +34,4 @@ const CONFIG = {
     border: 'border-blue-300',
     dot: 'bg-blue-500',
     pill: 'bg-blue-500 text-white',
+  },
