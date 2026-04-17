@@ -53,3 +53,4 @@ function AccordionContent({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
+    <AccordionPrimitive.Content
