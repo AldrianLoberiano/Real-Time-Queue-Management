@@ -133,3 +133,4 @@ function AlertDialogAction({
 function AlertDialogCancel({
   className,
   ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {
