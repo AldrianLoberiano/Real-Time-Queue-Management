@@ -18,3 +18,4 @@ const CONFIG = {
     pill: 'bg-amber-500 text-white',
   },
   senior: {
+    label: 'Senior',
