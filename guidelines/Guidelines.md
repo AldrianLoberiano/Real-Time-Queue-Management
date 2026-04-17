@@ -47,3 +47,4 @@ or initiating processes. They communicate interactivity and should have clear, a
 
 ### Variants
 * Primary Button
+  * Purpose : Used for the main action in a section or page
