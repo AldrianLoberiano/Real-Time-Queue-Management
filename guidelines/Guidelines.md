@@ -33,3 +33,4 @@ For example:
 * Chips should always come in sets of 3 or more
 * Don't use a dropdown if there are 2 or fewer options
 
+You can also create sub sections and add more specific details
