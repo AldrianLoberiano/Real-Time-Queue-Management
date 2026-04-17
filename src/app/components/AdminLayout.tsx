@@ -164,3 +164,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
+          </div>
