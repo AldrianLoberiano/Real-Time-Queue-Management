@@ -48,3 +48,4 @@ function AccordionTrigger({
 }
 
 function AccordionContent({
+  className,
