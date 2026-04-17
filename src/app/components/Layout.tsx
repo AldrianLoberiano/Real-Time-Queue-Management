@@ -55,3 +55,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </nav>
 
             {/* Right side */}
+            <div className="flex items-center gap-3">
