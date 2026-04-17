@@ -45,3 +45,4 @@ function AvatarFallback({
         "bg-muted flex size-full items-center justify-center rounded-full",
         className,
       )}
+      {...props}
