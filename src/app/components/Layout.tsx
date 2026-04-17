@@ -20,3 +20,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen" style={{ background: '#f1f5f9' }}>
       {/* Header */}
       <header style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)' }} className="shadow-lg sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
