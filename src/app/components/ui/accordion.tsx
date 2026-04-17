@@ -39,3 +39,4 @@ function AccordionTrigger({
           className,
         )}
         {...props}
+      >
