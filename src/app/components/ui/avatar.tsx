@@ -21,3 +21,4 @@ function Avatar({
   );
 }
 
+function AvatarImage({
