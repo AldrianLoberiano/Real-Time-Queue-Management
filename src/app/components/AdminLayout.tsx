@@ -135,3 +135,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
