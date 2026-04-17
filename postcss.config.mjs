@@ -7,3 +7,4 @@
  * This file only exists for adding additional PostCSS plugins, if needed.
  * For example:
  *
+ * import postcssNested from 'postcss-nested'
