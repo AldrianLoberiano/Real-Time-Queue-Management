@@ -7,3 +7,4 @@ interface StatusBadgeProps {
   size?: 'sm' | 'md';
 }
 
+const CONFIG = {
