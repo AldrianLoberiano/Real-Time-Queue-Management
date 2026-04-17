@@ -188,3 +188,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <ShieldCheck size={14} className="text-sky-600" />
               <span className="text-sky-700 text-xs font-medium">Administrator</span>
             </div>
+          </div>
