@@ -29,3 +29,4 @@ function Badge({
   className,
   variant,
   asChild = false,
+  ...props
