@@ -110,3 +110,4 @@ function AlertDialogDescription({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
   return (
+    <AlertDialogPrimitive.Description
