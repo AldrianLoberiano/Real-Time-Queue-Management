@@ -8,3 +8,4 @@ export default function App() {
     <QueueProvider>
       <RouterProvider router={router} />
     </QueueProvider>
+  );
