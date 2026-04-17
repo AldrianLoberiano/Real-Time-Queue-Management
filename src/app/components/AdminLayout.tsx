@@ -23,3 +23,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     navigate('/admin/login');
   };
 
+  const isActive = (href: string, exact: boolean) =>
