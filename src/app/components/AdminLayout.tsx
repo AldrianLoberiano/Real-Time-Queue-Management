@@ -19,3 +19,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
+    adminLogout();
