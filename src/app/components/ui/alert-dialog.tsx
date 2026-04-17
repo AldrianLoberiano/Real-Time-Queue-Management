@@ -120,3 +120,4 @@ function AlertDialogDescription({
 
 function AlertDialogAction({
   className,
+  ...props
