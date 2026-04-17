@@ -21,3 +21,4 @@ function AccordionItem({
       data-slot="accordion-item"
       className={cn("border-b last:border-b-0", className)}
       {...props}
+    />
