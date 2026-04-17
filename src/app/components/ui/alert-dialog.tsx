@@ -123,3 +123,4 @@ function AlertDialogAction({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {
   return (
+    <AlertDialogPrimitive.Action
