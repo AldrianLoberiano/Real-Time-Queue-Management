@@ -30,3 +30,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div>
                 <span className="text-white font-semibold text-lg leading-none">QueueSmart</span>
                 <p className="text-blue-300 text-xs">Real-Time Queue Manager</p>
+              </div>
