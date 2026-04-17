@@ -115,3 +115,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       {/* Desktop sidebar */}
       <aside
         className="hidden lg:flex flex-col w-64 sticky top-0 h-screen shrink-0"
+        style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%)' }}
