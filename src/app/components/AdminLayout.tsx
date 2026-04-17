@@ -42,3 +42,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Quick stats */}
+      <div className="p-4 border-b border-white/10">
