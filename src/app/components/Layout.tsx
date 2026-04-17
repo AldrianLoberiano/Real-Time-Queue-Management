@@ -145,3 +145,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     key={href}
                     to={href}
                     onClick={() => setMenuOpen(false)}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm ${
