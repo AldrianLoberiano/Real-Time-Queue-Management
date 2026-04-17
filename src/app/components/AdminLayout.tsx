@@ -121,3 +121,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Mobile sidebar overlay */}
+      <AnimatePresence>
