@@ -12,3 +12,4 @@
  *
  * Otherwise, you can leave this file empty.
  */
+export default {}
