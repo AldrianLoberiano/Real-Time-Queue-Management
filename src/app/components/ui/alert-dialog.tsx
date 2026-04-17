@@ -101,3 +101,4 @@ function AlertDialogTitle({
       data-slot="alert-dialog-title"
       className={cn("text-lg font-semibold", className)}
       {...props}
+    />
