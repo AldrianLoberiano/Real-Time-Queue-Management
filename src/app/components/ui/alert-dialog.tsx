@@ -45,3 +45,4 @@ function AlertDialogOverlay({
 }
 
 function AlertDialogContent({
+  className,
