@@ -27,3 +27,4 @@ function AccordionItem({
 
 function AccordionTrigger({
   className,
+  children,
