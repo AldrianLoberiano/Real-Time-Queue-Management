@@ -64,3 +64,4 @@ function AlertDialogContent({
 }
 
 function AlertDialogHeader({
+  className,
