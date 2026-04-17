@@ -54,3 +54,4 @@ function AccordionContent({
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
     <AccordionPrimitive.Content
+      data-slot="accordion-content"
