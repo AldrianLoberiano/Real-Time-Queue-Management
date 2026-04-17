@@ -34,3 +34,4 @@ For example:
 * Don't use a dropdown if there are 2 or fewer options
 
 You can also create sub sections and add more specific details
+For example:
