@@ -40,4 +40,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 return (
                   <Link
                     key={href}
+                    to={href}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all ${
