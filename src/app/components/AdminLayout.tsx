@@ -34,3 +34,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)' }}>
             <ShieldCheck size={20} className="text-white" />
           </div>
+          <div>
