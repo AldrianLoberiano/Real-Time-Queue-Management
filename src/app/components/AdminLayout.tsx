@@ -56,3 +56,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Nav */}
+      <nav className="flex-1 p-4 space-y-1">
