@@ -6,3 +6,4 @@ import { useQueue } from '../context/QueueContext';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
