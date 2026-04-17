@@ -50,3 +50,4 @@ function AlertDialogContent({
 }: React.ComponentProps<typeof AlertDialogPrimitive.Content>) {
   return (
     <AlertDialogPortal>
+      <AlertDialogOverlay />
