@@ -37,3 +37,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div>
             <p className="text-white font-bold leading-none">QueueSmart</p>
             <p className="text-blue-400 text-xs">Admin Panel</p>
+          </div>
