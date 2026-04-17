@@ -84,3 +84,4 @@
     }
   },
   "pnpm": {
+    "overrides": {
