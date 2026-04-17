@@ -38,3 +38,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {navLinks.map(({ href, label, icon: Icon }) => {
                 const active = location.pathname === href || (href !== '/' && location.pathname.startsWith(href));
                 return (
+                  <Link
