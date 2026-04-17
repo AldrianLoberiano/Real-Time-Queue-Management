@@ -66,3 +66,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <span>{waitingItems.length} waiting</span>
               </div>
 
+              {/* Notifications */}
