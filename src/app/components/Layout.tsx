@@ -63,3 +63,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   {currentlyServing ? currentlyServing.number : '–'} serving
                 </span>
                 <span className="text-blue-400">|</span>
+                <span>{waitingItems.length} waiting</span>
