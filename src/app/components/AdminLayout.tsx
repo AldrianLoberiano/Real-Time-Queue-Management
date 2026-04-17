@@ -4,3 +4,4 @@ import {
   LayoutDashboard, BarChart3, ShieldCheck, LogOut, Menu, X,
   Users, Bell, ChevronRight,
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
