@@ -195,3 +195,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         <main className="flex-1 p-6 lg:p-8">
           {children}
         </main>
+      </div>
