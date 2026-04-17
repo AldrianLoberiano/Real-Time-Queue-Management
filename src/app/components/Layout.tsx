@@ -134,3 +134,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
+              initial={{ height: 0, opacity: 0 }}
