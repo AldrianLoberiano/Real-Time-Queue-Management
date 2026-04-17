@@ -73,3 +73,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   className="relative p-2 rounded-lg text-blue-200 hover:bg-white/10 hover:text-white transition-all"
                 >
                   {notifications.length > 0 ? <Bell size={18} /> : <BellOff size={18} />}
+                  {notifications.length > 0 && (
