@@ -157,3 +157,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <Menu size={20} />
             </button>
             <div>
+              <h1 className="text-gray-900 font-bold">
