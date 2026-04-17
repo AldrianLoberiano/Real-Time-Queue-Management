@@ -70,3 +70,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div className="relative">
                 <button
                   onClick={() => setShowNotifs(!showNotifs)}
+                  className="relative p-2 rounded-lg text-blue-200 hover:bg-white/10 hover:text-white transition-all"
