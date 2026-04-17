@@ -45,3 +45,4 @@ function AccordionTrigger({
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
+}
