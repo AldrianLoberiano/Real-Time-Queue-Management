@@ -98,3 +98,4 @@ function AlertDialogTitle({
 }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
   return (
     <AlertDialogPrimitive.Title
+      data-slot="alert-dialog-title"
