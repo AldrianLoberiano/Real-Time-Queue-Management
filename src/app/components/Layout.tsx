@@ -62,3 +62,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   {currentlyServing ? currentlyServing.number : '–'} serving
                 </span>
+                <span className="text-blue-400">|</span>
