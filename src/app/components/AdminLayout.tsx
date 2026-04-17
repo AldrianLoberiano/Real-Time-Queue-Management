@@ -141,3 +141,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             >
               <SidebarContent />
             </motion.aside>
+          </>
