@@ -98,3 +98,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Logout */}
+      <div className="p-4 border-t border-white/10">
