@@ -17,3 +17,4 @@ function Avatar({
         className,
       )}
       {...props}
+    />
