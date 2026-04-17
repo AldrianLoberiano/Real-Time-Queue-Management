@@ -39,3 +39,4 @@ export function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
   return (
     <span className={`inline-flex items-center rounded-full border font-medium ${cfg.classes} ${sizeClass}`}>
       <Icon size={iconSize} />
+      {cfg.label}
