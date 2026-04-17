@@ -65,3 +65,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-blue-400">|</span>
                 <span>{waitingItems.length} waiting</span>
               </div>
+
