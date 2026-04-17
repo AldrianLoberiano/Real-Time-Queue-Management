@@ -12,3 +12,4 @@ const CONFIG = {
     label: 'Waiting',
     icon: Clock,
     classes: 'bg-yellow-100 text-yellow-700 border-yellow-300',
+  },
