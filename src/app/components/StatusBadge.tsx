@@ -4,3 +4,4 @@ import type { StatusType } from '../context/QueueContext';
 
 interface StatusBadgeProps {
   status: StatusType;
+  size?: 'sm' | 'md';
