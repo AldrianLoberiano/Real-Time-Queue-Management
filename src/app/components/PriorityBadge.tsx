@@ -47,3 +47,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
     lg: 'px-3 py-1.5 text-base gap-2',
   };
 
+  const iconSizes = { sm: 10, md: 12, lg: 14 };
