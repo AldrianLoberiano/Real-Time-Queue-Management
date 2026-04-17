@@ -169,3 +169,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <p>© 2026 QueueSmart — Real-Time Queue Management System</p>
       </footer>
     </div>
+  );
