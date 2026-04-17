@@ -50,3 +50,4 @@ function AccordionTrigger({
 function AccordionContent({
   className,
   children,
+  ...props
