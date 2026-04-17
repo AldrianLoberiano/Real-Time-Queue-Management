@@ -50,3 +50,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           </div>
           <div className="rounded-lg p-3 text-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
             <p className="text-blue-300 text-xs mb-1">Serving</p>
+            <p className="text-white font-bold text-xl">{currentlyServing ? '1' : '0'}</p>
