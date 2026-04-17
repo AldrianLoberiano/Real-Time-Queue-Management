@@ -65,3 +65,4 @@ function AlertDialogContent({
 
 function AlertDialogHeader({
   className,
+  ...props
