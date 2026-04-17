@@ -108,3 +108,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         </button>
       </div>
     </div>
+  );
