@@ -37,3 +37,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map(({ href, label, icon: Icon }) => {
                 const active = location.pathname === href || (href !== '/' && location.pathname.startsWith(href));
+                return (
