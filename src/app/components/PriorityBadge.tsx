@@ -12,3 +12,4 @@ const CONFIG = {
     label: 'VIP',
     icon: Crown,
     bg: 'bg-amber-100',
+    text: 'text-amber-700',
