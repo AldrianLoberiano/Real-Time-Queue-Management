@@ -72,3 +72,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             >
               <Icon size={18} />
               <span className="flex-1 text-sm font-medium">{label}</span>
+              <ChevronRight size={14} className={`opacity-0 group-hover:opacity-100 transition-opacity ${active ? 'opacity-100' : ''}`} />
