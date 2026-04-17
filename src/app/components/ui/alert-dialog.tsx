@@ -31,3 +31,4 @@ function AlertDialogPortal({
 function AlertDialogOverlay({
   className,
   ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Overlay>) {
