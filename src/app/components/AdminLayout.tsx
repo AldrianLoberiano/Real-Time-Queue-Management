@@ -143,3 +143,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             </motion.aside>
           </>
         )}
+      </AnimatePresence>
