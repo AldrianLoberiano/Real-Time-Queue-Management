@@ -161,3 +161,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 {NAV_ITEMS.find(n => isActive(n.href, n.exact))?.label ?? 'Admin'}
               </h1>
               <p className="text-gray-400 text-xs">
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
