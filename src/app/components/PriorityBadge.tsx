@@ -6,3 +6,4 @@ interface PriorityBadgeProps {
   type: PriorityType;
   size?: 'sm' | 'md' | 'lg';
 }
+
