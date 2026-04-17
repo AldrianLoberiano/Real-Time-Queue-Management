@@ -40,4 +40,5 @@ function AlertDialogOverlay({
         className,
       )}
       {...props}
+    />
   );
