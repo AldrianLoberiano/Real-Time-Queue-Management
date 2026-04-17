@@ -36,3 +36,4 @@ const CONFIG = {
     pill: 'bg-blue-500 text-white',
   },
 };
+
