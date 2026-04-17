@@ -32,4 +32,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <p className="text-blue-300 text-xs">Real-Time Queue Manager</p>
               </div>
             </Link>
+
             {/* Desktop nav */}
