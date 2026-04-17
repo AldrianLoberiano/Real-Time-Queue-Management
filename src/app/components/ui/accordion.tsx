@@ -13,3 +13,4 @@ function Accordion({
 }
 
 function AccordionItem({
+  className,
