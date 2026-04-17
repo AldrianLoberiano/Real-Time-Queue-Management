@@ -20,3 +20,4 @@ const alertVariants = cva(
 );
 
 function Alert({
+  className,
