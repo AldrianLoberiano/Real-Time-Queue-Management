@@ -65,3 +65,4 @@ export function PriorityDot({ type }: { type: PriorityType }) {
     />
   );
 }
+
