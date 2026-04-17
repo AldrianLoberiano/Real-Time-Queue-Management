@@ -12,3 +12,4 @@
     "@emotion/styled": "11.14.1",
     "@mui/icons-material": "7.3.5",
     "@mui/material": "7.3.5",
+    "@popperjs/core": "2.11.8",
