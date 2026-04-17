@@ -125,3 +125,4 @@ function AlertDialogAction({
   return (
     <AlertDialogPrimitive.Action
       className={cn(buttonVariants(), className)}
+      {...props}
