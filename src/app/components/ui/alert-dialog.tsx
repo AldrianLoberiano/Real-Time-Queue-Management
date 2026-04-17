@@ -15,3 +15,4 @@ function AlertDialog({
 function AlertDialogTrigger({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
+  return (
