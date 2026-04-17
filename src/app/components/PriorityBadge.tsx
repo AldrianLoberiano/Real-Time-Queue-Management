@@ -21,3 +21,4 @@ const CONFIG = {
     label: 'Senior',
     icon: Heart,
     bg: 'bg-violet-100',
+    text: 'text-violet-700',
