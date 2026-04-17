@@ -4,3 +4,4 @@ import { Users, Monitor, ShieldCheck, Menu, X, Bell, BellOff } from 'lucide-reac
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../context/QueueContext';
 
+export function Layout({ children }: { children: React.ReactNode }) {
