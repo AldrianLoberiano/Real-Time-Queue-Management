@@ -29,3 +29,4 @@ const CONFIG = {
     classes: 'bg-red-100 text-red-600 border-red-300',
   },
 };
+
