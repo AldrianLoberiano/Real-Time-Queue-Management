@@ -31,3 +31,4 @@ const CONFIG = {
     icon: User,
     bg: 'bg-blue-100',
     text: 'text-blue-700',
+    border: 'border-blue-300',
