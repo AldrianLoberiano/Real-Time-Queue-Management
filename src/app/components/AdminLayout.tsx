@@ -95,3 +95,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <span>Display Screen</span>
           </Link>
         </div>
+      </nav>
