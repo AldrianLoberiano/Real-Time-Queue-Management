@@ -93,3 +93,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                           <X size={14} />
                         </button>
                       </div>
+                        {notifications.length === 0 ? (
