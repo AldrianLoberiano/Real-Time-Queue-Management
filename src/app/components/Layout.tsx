@@ -111,3 +111,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                                 <X size={12} />
                               </button>
                             </div>
+                          ))
