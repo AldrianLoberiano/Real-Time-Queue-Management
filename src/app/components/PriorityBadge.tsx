@@ -11,3 +11,4 @@ const CONFIG = {
   vip: {
     label: 'VIP',
     icon: Crown,
+    bg: 'bg-amber-100',
