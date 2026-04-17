@@ -97,3 +97,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         {notifications.length === 0 ? (
                           <p className="text-center text-gray-400 text-sm py-6">No notifications</p>
                         ) : (
+                          notifications.map(n => (
