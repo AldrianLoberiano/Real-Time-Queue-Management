@@ -40,3 +40,4 @@ const CONFIG = {
 export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
   const cfg = CONFIG[type];
   const Icon = cfg.icon;
+
