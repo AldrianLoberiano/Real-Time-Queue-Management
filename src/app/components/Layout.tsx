@@ -92,3 +92,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <button onClick={() => setShowNotifs(false)} className="text-gray-400 hover:text-gray-600">
                           <X size={14} />
                         </button>
+                      </div>
