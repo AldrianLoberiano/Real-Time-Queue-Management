@@ -27,3 +27,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     exact ? location.pathname === href : location.pathname.startsWith(href);
 
   const SidebarContent = () => (
+    <div className="flex flex-col h-full">
