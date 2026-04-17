@@ -80,3 +80,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   )}
                 </button>
                 <AnimatePresence>
+                  {showNotifs && (
