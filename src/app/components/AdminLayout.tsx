@@ -78,3 +78,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         })}
 
         <div className="pt-2 border-t border-white/10">
+          <Link
