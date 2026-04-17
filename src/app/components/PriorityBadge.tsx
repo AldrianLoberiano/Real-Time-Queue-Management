@@ -32,3 +32,4 @@ const CONFIG = {
     bg: 'bg-blue-100',
     text: 'text-blue-700',
     border: 'border-blue-300',
+    dot: 'bg-blue-500',
