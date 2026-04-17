@@ -22,3 +22,4 @@ const CONFIG = {
     label: 'Done',
     icon: CheckCircle,
     classes: 'bg-gray-100 text-gray-600 border-gray-300',
+  },
