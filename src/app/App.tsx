@@ -6,3 +6,4 @@ import { QueueProvider } from './context/QueueContext';
 export default function App() {
   return (
     <QueueProvider>
+      <RouterProvider router={router} />
