@@ -32,3 +32,4 @@ function AccordionTrigger({
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
   return (
     <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
