@@ -35,3 +35,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-1">
+              {navLinks.map(({ href, label, icon: Icon }) => {
