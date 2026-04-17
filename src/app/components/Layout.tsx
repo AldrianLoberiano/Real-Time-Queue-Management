@@ -135,3 +135,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {menuOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
