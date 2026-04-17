@@ -28,3 +28,4 @@ For example:
 
 * Use a base font-size of 14px
 * Date formats should always be in the format “Jun 10”
+* The bottom toolbar should only ever have a maximum of 4 items
