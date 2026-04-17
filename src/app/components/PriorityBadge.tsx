@@ -26,3 +26,4 @@ const CONFIG = {
     dot: 'bg-violet-500',
     pill: 'bg-violet-500 text-white',
   },
+  regular: {
