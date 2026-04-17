@@ -173,3 +173,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <span className="text-green-600 text-xs font-medium">Live System</span>
             </div>
 
+            {/* Notifications indicator */}
