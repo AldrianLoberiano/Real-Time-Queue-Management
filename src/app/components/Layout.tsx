@@ -50,3 +50,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Icon size={16} />
                     {label}
                   </Link>
+                );
