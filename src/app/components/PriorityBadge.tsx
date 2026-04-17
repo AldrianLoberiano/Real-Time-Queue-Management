@@ -4,3 +4,4 @@ import type { PriorityType } from '../context/QueueContext';
 
 interface PriorityBadgeProps {
   type: PriorityType;
+  size?: 'sm' | 'md' | 'lg';
