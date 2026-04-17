@@ -24,3 +24,4 @@ const CONFIG = {
     text: 'text-violet-700',
     border: 'border-violet-300',
     dot: 'bg-violet-500',
+    pill: 'bg-violet-500 text-white',
