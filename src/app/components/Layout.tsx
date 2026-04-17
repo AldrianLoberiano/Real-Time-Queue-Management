@@ -16,3 +16,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { href: '/admin', label: 'Admin', icon: ShieldCheck },
   ];
 
+  return (
