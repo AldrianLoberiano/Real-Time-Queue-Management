@@ -153,3 +153,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <button
               onClick={() => setSidebarOpen(true)}
               className="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            >
