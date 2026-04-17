@@ -40,3 +40,4 @@ function Badge({
       className={cn(badgeVariants({ variant }), className)}
       {...props}
     />
+  );
