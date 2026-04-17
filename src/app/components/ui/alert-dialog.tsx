@@ -107,3 +107,4 @@ function AlertDialogTitle({
 
 function AlertDialogDescription({
   className,
+  ...props
