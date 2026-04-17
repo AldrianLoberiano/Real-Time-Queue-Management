@@ -9,3 +9,4 @@ interface StatusBadgeProps {
 
 const CONFIG = {
   waiting: {
+    label: 'Waiting',
