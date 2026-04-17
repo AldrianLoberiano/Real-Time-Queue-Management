@@ -47,3 +47,4 @@ function AccordionTrigger({
   );
 }
 
+function AccordionContent({
