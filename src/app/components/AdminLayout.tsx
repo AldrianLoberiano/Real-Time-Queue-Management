@@ -65,3 +65,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               to={href}
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${
+                active
