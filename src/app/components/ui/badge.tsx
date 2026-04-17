@@ -35,3 +35,4 @@ function Badge({
   const Comp = asChild ? Slot : "span";
 
   return (
+    <Comp
