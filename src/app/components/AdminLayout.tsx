@@ -14,3 +14,4 @@ const NAV_ITEMS = [
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const navigate = useNavigate();
