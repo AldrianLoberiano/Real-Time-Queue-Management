@@ -11,3 +11,4 @@ function Avatar({
 }: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
+      data-slot="avatar"
