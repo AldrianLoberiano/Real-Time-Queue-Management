@@ -140,3 +140,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               className="md:hidden border-t border-white/10 overflow-hidden"
             >
               <div className="px-4 py-3 space-y-1">
+                {navLinks.map(({ href, label, icon: Icon }) => (
