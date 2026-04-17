@@ -54,3 +54,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
       <Icon size={iconSizes[size]} />
       {cfg.label}
     </span>
+  );
