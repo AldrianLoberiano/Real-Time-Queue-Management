@@ -16,3 +16,4 @@ const CONFIG = {
   serving: {
     label: 'Serving',
     icon: PlayCircle,
+    classes: 'bg-green-100 text-green-700 border-green-300',
