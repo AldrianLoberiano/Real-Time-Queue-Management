@@ -137,3 +137,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
+              className="md:hidden border-t border-white/10 overflow-hidden"
