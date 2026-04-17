@@ -152,3 +152,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100"
