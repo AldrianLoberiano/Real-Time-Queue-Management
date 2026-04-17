@@ -119,3 +119,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </AnimatePresence>
               </div>
 
+              {/* Mobile menu */}
