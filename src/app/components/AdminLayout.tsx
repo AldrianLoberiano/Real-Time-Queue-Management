@@ -169,3 +169,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-3">
             {/* Live indicator */}
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
