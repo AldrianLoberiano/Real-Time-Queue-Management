@@ -63,3 +63,4 @@ export function PriorityDot({ type }: { type: PriorityType }) {
       className={`inline-block w-2.5 h-2.5 rounded-full ${CONFIG[type].dot}`}
       title={CONFIG[type].label}
     />
+  );
