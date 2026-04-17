@@ -41,3 +41,4 @@ export function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
       <Icon size={iconSize} />
       {cfg.label}
     </span>
+}
