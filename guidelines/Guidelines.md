@@ -13,3 +13,4 @@ TIP: More context isn't always better. It can confuse the LLM. Try and add the m
 Any general rules you want the AI to follow.
 For example:
 
+* Only use absolute positioning when necessary. Opt for responsive and well structured layouts that use flexbox and grid by default
