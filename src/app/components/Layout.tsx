@@ -127,3 +127,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {menuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
+          </div>
