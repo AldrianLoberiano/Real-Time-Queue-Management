@@ -111,3 +111,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   );
 
   return (
+    <div className="min-h-screen flex" style={{ background: '#f1f5f9' }}>
