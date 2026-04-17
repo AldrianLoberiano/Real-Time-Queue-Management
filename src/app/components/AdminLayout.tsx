@@ -71,3 +71,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               }`}
             >
               <Icon size={18} />
+              <span className="flex-1 text-sm font-medium">{label}</span>
