@@ -69,3 +69,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {/* Notifications */}
               <div className="relative">
                 <button
+                  onClick={() => setShowNotifs(!showNotifs)}
