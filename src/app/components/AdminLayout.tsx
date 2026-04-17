@@ -160,3 +160,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <h1 className="text-gray-900 font-bold">
                 {NAV_ITEMS.find(n => isActive(n.href, n.exact))?.label ?? 'Admin'}
               </h1>
+              <p className="text-gray-400 text-xs">
