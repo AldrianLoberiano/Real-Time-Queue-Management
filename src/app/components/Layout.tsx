@@ -109,3 +109,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                               </div>
                               <button onClick={() => dismissNotification(n.id)} className="text-gray-300 hover:text-gray-500 mt-0.5">
                                 <X size={12} />
+                              </button>
