@@ -25,3 +25,4 @@ function AvatarImage({
   className,
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+  return (
