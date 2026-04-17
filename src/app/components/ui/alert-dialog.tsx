@@ -49,3 +49,4 @@ function AlertDialogContent({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Content>) {
   return (
+    <AlertDialogPortal>
