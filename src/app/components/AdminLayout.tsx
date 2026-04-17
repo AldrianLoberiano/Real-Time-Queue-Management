@@ -181,3 +181,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                   {notifications.length}
                 </span>
               </div>
+            )}
