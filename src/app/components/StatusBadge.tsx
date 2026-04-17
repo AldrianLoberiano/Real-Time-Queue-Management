@@ -8,3 +8,4 @@ interface StatusBadgeProps {
 }
 
 const CONFIG = {
+  waiting: {
