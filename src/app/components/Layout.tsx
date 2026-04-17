@@ -144,3 +144,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     key={href}
                     to={href}
+                    onClick={() => setMenuOpen(false)}
