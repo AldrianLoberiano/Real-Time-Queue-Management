@@ -25,3 +25,4 @@ function Alert({
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
   return (
+    <div
