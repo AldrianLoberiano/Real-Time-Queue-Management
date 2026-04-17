@@ -19,3 +19,4 @@ const alertVariants = cva(
   },
 );
 
+function Alert({
