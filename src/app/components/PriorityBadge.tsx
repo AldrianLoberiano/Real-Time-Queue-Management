@@ -59,3 +59,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
 
 export function PriorityDot({ type }: { type: PriorityType }) {
   return (
+    <span
