@@ -22,3 +22,4 @@ function Avatar({
 }
 
 function AvatarImage({
+  className,
