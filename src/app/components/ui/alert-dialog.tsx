@@ -119,3 +119,4 @@ function AlertDialogDescription({
 }
 
 function AlertDialogAction({
+  className,
