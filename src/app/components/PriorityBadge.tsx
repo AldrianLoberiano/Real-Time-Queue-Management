@@ -64,3 +64,4 @@ export function PriorityDot({ type }: { type: PriorityType }) {
       title={CONFIG[type].label}
     />
   );
+}
