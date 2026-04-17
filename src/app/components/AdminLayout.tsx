@@ -35,3 +35,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <ShieldCheck size={20} className="text-white" />
           </div>
           <div>
+            <p className="text-white font-bold leading-none">QueueSmart</p>
