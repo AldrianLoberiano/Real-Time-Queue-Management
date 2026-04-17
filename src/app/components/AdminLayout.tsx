@@ -8,3 +8,4 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../context/QueueContext';
 
 const NAV_ITEMS = [
+  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
