@@ -34,3 +34,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
 
             {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-1">
