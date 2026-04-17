@@ -106,3 +106,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                               <div className="flex-1">
                                 <p className="text-sm text-gray-700">{n.message}</p>
                                 <p className="text-xs text-gray-400 mt-0.5">{n.timestamp.toLocaleTimeString()}</p>
+                              </div>
