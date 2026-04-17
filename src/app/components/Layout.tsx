@@ -98,3 +98,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                           <p className="text-center text-gray-400 text-sm py-6">No notifications</p>
                         ) : (
                           notifications.map(n => (
+                            <div key={n.id} className={`flex items-start gap-3 p-3 border-b border-gray-50 hover:bg-gray-50 ${
