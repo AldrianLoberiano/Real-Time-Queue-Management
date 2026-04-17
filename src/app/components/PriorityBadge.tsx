@@ -28,3 +28,4 @@ const CONFIG = {
   },
   regular: {
     label: 'Regular',
+    icon: User,
