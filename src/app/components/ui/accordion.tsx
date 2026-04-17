@@ -22,3 +22,4 @@ function AccordionItem({
       className={cn("border-b last:border-b-0", className)}
       {...props}
     />
+  );
