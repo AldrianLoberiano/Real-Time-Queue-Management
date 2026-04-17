@@ -41,3 +41,4 @@ function Badge({
       {...props}
     />
   );
+}
