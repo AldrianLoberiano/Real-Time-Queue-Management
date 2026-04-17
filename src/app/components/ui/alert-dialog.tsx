@@ -88,3 +88,4 @@ function AlertDialogFooter({
         className,
       )}
       {...props}
+    />
