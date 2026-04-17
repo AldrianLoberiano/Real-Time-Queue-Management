@@ -104,3 +104,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                               'border-l-2 border-l-sky-400'
                             }`}>
                               <div className="flex-1">
+                                <p className="text-sm text-gray-700">{n.message}</p>
