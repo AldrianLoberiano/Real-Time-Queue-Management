@@ -42,3 +42,4 @@ The Button component is a fundamental interactive element in our design system, 
 users through the application. It provides visual feedback and clear affordances to enhance user experience.
 
 ### Usage
+Buttons should be used for important actions that users need to take, such as form submissions, confirming choices,
