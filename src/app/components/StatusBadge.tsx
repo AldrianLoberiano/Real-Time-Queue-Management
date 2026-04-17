@@ -6,3 +6,4 @@ interface StatusBadgeProps {
   status: StatusType;
   size?: 'sm' | 'md';
 }
+
