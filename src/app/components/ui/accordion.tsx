@@ -23,3 +23,4 @@ function AccordionItem({
       {...props}
     />
   );
+}
