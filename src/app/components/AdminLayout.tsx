@@ -30,3 +30,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="p-6 border-b border-white/10">
+        <div className="flex items-center gap-3">
