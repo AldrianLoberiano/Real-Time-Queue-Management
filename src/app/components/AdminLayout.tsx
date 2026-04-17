@@ -125,3 +125,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         {sidebarOpen && (
           <>
             <motion.div
+              initial={{ opacity: 0 }}
