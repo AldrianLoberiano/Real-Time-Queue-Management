@@ -26,3 +26,4 @@ Additionally, if you select a design system to use in the prompt box, you can re
 your design system's components, tokens, variables and components.
 For example:
 
+* Use a base font-size of 14px
