@@ -9,3 +9,4 @@ interface PriorityBadgeProps {
 
 const CONFIG = {
   vip: {
+    label: 'VIP',
