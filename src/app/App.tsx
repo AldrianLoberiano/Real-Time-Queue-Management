@@ -5,3 +5,4 @@ import { QueueProvider } from './context/QueueContext';
 
 export default function App() {
   return (
+    <QueueProvider>
