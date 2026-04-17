@@ -8,3 +8,4 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@emotion/react": "11.14.0",
