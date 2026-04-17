@@ -14,3 +14,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { href: '/', label: 'Join Queue', icon: Users },
     { href: '/display', label: 'Display Screen', icon: Monitor },
     { href: '/admin', label: 'Admin', icon: ShieldCheck },
+  ];
