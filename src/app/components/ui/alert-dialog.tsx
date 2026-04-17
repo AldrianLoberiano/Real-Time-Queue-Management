@@ -66,3 +66,4 @@ function AlertDialogContent({
 function AlertDialogHeader({
   className,
   ...props
+}: React.ComponentProps<"div">) {
