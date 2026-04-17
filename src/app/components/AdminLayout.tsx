@@ -138,3 +138,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               className="fixed left-0 top-0 bottom-0 w-72 z-50 lg:hidden flex flex-col"
               style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%)' }}
+            >
