@@ -106,3 +106,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <LogOut size={18} />
           Sign Out
         </button>
+      </div>
