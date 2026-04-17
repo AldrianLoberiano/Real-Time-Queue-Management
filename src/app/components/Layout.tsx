@@ -148,3 +148,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm ${
                       location.pathname === href ? 'bg-sky-500 text-white' : 'text-blue-200 hover:bg-white/10 hover:text-white'
                     }`}
+                  >
