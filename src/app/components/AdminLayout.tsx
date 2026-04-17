@@ -177,3 +177,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             {notifications.length > 0 && (
               <div className="relative">
                 <Bell size={20} className="text-gray-500" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
