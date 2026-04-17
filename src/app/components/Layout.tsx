@@ -101,3 +101,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                             <div key={n.id} className={`flex items-start gap-3 p-3 border-b border-gray-50 hover:bg-gray-50 ${
                               n.type === 'success' ? 'border-l-2 border-l-green-400' :
                               n.type === 'warning' ? 'border-l-2 border-l-amber-400' :
+                              'border-l-2 border-l-sky-400'
