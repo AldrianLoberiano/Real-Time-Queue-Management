@@ -161,3 +161,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Page content */}
       <main className="flex-1">
+        {children}
