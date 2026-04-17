@@ -78,3 +78,4 @@ function AlertDialogHeader({
 
 function AlertDialogFooter({
   className,
+  ...props
