@@ -165,3 +165,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* Footer */}
+      <footer className="text-center py-6 text-gray-400 text-sm border-t border-gray-200 bg-white mt-8">
