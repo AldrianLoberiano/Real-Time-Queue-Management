@@ -7,3 +7,4 @@ interface PriorityBadgeProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
+const CONFIG = {
