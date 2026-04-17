@@ -74,3 +74,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 >
                   {notifications.length > 0 ? <Bell size={18} /> : <BellOff size={18} />}
                   {notifications.length > 0 && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
