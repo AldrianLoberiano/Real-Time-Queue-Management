@@ -19,3 +19,4 @@ function AlertDialogTrigger({
     <AlertDialogPrimitive.Trigger data-slot="alert-dialog-trigger" {...props} />
   );
 }
+
