@@ -21,3 +21,4 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
         <img src={ERROR_IMG_SRC} alt="Error loading image" {...rest} data-original-url={src} />
       </div>
     </div>
+  ) : (
