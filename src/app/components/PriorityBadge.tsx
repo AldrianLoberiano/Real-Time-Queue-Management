@@ -17,3 +17,4 @@ const CONFIG = {
     dot: 'bg-amber-500',
     pill: 'bg-amber-500 text-white',
   },
+  senior: {
