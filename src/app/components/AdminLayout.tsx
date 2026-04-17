@@ -94,3 +94,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <LayoutDashboard size={18} />
             <span>Display Screen</span>
           </Link>
+        </div>
