@@ -26,3 +26,4 @@ function AvatarImage({
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
+    <AvatarPrimitive.Image
