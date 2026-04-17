@@ -50,3 +50,4 @@ or initiating processes. They communicate interactivity and should have clear, a
   * Purpose : Used for the main action in a section or page
   * Visual Style : Bold, filled with the primary brand color
   * Usage : One primary button per section to guide users toward the most important action
+* Secondary Button
