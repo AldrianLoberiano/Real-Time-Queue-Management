@@ -36,3 +36,4 @@ function AvatarImage({
 
 function AvatarFallback({
   className,
+  ...props
