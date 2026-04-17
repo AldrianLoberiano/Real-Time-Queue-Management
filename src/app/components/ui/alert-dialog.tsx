@@ -69,3 +69,4 @@ function AlertDialogHeader({
 }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="alert-dialog-header"
