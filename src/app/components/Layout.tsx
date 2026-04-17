@@ -91,3 +91,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <span className="text-sm font-semibold text-gray-700">Notifications</span>
                         <button onClick={() => setShowNotifs(false)} className="text-gray-400 hover:text-gray-600">
                           <X size={14} />
+                        </button>
