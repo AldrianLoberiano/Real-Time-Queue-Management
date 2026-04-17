@@ -11,3 +11,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [showNotifs, setShowNotifs] = useState(false);
 
   const navLinks = [
+    { href: '/', label: 'Join Queue', icon: Users },
