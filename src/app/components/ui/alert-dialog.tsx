@@ -26,3 +26,4 @@ function AlertDialogPortal({
   return (
     <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />
   );
+}
