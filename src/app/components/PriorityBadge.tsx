@@ -29,3 +29,4 @@ const CONFIG = {
   regular: {
     label: 'Regular',
     icon: User,
+    bg: 'bg-blue-100',
