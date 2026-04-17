@@ -57,3 +57,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Right side */}
             <div className="flex items-center gap-3">
               {/* Live stats */}
+              <div className="hidden sm:flex items-center gap-3 text-xs text-blue-200">
