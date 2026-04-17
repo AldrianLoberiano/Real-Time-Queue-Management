@@ -106,3 +106,4 @@ function AlertDialogTitle({
 }
 
 function AlertDialogDescription({
+  className,
