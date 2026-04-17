@@ -60,3 +60,4 @@ function AlertDialogContent({
         {...props}
       />
     </AlertDialogPortal>
+  );
