@@ -151,3 +151,4 @@ export {
   AlertDialogHeader,
   AlertDialogFooter,
   AlertDialogTitle,
+  AlertDialogDescription,
