@@ -140,3 +140,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%)' }}
             >
               <SidebarContent />
+            </motion.aside>
