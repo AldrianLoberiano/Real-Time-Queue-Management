@@ -15,3 +15,4 @@ const CONFIG = {
     text: 'text-amber-700',
     border: 'border-amber-300',
     dot: 'bg-amber-500',
+    pill: 'bg-amber-500 text-white',
