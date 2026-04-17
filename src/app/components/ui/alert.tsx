@@ -14,3 +14,4 @@ const alertVariants = cva(
       },
     },
     defaultVariants: {
+      variant: "default",
