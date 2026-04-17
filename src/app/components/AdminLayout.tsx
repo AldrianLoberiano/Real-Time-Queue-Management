@@ -132,3 +132,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             />
             <motion.aside
+              initial={{ x: '-100%' }}
