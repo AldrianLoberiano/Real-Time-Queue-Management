@@ -82,3 +82,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <AnimatePresence>
                   {showNotifs && (
                     <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
