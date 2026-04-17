@@ -53,3 +53,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <p className="text-white font-bold text-xl">{currentlyServing ? '1' : '0'}</p>
           </div>
         </div>
+      </div>
