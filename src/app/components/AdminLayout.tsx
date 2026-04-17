@@ -22,3 +22,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     adminLogout();
     navigate('/admin/login');
   };
+
