@@ -8,3 +8,4 @@ This template outlines a few examples of things you can add. You can add your ow
 
 TIP: More context isn't always better. It can confuse the LLM. Try and add the most important rules you need
 
+# General guidelines
