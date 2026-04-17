@@ -17,3 +17,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const { adminLogout, waitingItems, currentlyServing, notifications } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
