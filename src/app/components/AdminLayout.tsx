@@ -43,3 +43,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
 
       {/* Quick stats */}
       <div className="p-4 border-b border-white/10">
+        <div className="grid grid-cols-2 gap-2">
