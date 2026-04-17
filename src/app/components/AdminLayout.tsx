@@ -9,3 +9,4 @@ import { useQueue } from '../context/QueueContext';
 
 const NAV_ITEMS = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
+  { href: '/admin/analytics', label: 'Analytics', icon: BarChart3, exact: false },
