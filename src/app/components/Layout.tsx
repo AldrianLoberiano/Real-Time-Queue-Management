@@ -89,3 +89,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     >
                       <div className="p-3 border-b border-gray-100 flex items-center justify-between">
                         <span className="text-sm font-semibold text-gray-700">Notifications</span>
+                        <button onClick={() => setShowNotifs(false)} className="text-gray-400 hover:text-gray-600">
