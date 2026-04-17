@@ -66,3 +66,4 @@ export function PriorityDot({ type }: { type: PriorityType }) {
   );
 }
 
+export function getPriorityColor(type: PriorityType): string {
