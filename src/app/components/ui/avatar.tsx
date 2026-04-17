@@ -10,3 +10,4 @@ function Avatar({
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
+    <AvatarPrimitive.Root
