@@ -51,3 +51,4 @@ or initiating processes. They communicate interactivity and should have clear, a
   * Visual Style : Bold, filled with the primary brand color
   * Usage : One primary button per section to guide users toward the most important action
 * Secondary Button
+  * Purpose : Used for alternative or supporting actions
