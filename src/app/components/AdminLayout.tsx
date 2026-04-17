@@ -172,3 +172,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-green-600 text-xs font-medium">Live System</span>
             </div>
+
