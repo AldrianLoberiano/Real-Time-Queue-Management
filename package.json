@@ -66,3 +66,4 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "4.1.12",
