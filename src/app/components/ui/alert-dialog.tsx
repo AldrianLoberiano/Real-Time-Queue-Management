@@ -29,3 +29,4 @@ function AlertDialogPortal({
 }
 
 function AlertDialogOverlay({
+  className,
