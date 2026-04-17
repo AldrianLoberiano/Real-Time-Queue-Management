@@ -46,3 +46,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         <div className="grid grid-cols-2 gap-2">
           <div className="rounded-lg p-3 text-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
             <p className="text-blue-300 text-xs mb-1">Waiting</p>
+            <p className="text-white font-bold text-xl">{waitingItems.length}</p>
