@@ -12,3 +12,4 @@ function AlertDialog({
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
+function AlertDialogTrigger({
