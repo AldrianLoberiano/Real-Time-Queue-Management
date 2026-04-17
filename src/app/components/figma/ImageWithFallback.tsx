@@ -8,3 +8,4 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
 
   const handleError = () => {
     setDidError(true)
+  }
