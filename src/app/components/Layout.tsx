@@ -5,3 +5,4 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../context/QueueContext';
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
