@@ -166,3 +166,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
+          <div className="flex items-center gap-3">
