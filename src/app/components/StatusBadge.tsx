@@ -33,3 +33,4 @@ const CONFIG = {
 export function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
   const cfg = CONFIG[status];
   const Icon = cfg.icon;
+  const sizeClass = size === 'sm' ? 'px-2 py-0.5 text-xs gap-1' : 'px-2.5 py-1 text-sm gap-1.5';
