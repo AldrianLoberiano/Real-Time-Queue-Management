@@ -16,3 +16,4 @@ const CONFIG = {
     border: 'border-amber-300',
     dot: 'bg-amber-500',
     pill: 'bg-amber-500 text-white',
+  },
