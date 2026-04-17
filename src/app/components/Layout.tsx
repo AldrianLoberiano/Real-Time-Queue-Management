@@ -96,3 +96,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       <div className="max-h-64 overflow-y-auto">
                         {notifications.length === 0 ? (
                           <p className="text-center text-gray-400 text-sm py-6">No notifications</p>
+                        ) : (
