@@ -87,3 +87,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <span>Queue View</span>
           </Link>
           <Link
+            to="/display"
