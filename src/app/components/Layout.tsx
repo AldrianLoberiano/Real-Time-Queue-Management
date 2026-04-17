@@ -141,3 +141,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
             >
               <div className="px-4 py-3 space-y-1">
                 {navLinks.map(({ href, label, icon: Icon }) => (
+                  <Link
