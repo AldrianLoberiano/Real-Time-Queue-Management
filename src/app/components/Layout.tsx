@@ -149,3 +149,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       location.pathname === href ? 'bg-sky-500 text-white' : 'text-blue-200 hover:bg-white/10 hover:text-white'
                     }`}
                   >
+                    <Icon size={16} />
