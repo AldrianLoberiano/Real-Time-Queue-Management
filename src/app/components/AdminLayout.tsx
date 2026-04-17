@@ -67,3 +67,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${
                 active
                   ? 'bg-sky-500 text-white shadow-md'
+                  : 'text-blue-200 hover:bg-white/10 hover:text-white'
