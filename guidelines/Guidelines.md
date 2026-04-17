@@ -27,3 +27,4 @@ your design system's components, tokens, variables and components.
 For example:
 
 * Use a base font-size of 14px
+* Date formats should always be in the format “Jun 10”
