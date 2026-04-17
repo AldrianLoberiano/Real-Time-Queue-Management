@@ -52,3 +52,4 @@ function AlertDialogContent({
     <AlertDialogPortal>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Content
+        data-slot="alert-dialog-content"
