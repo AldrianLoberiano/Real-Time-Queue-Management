@@ -130,3 +130,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               exit={{ opacity: 0 }}
               onClick={() => setSidebarOpen(false)}
               className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            />
