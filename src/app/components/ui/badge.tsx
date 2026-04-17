@@ -30,3 +30,4 @@ function Badge({
   variant,
   asChild = false,
   ...props
+}: React.ComponentProps<"span"> &
