@@ -43,3 +43,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
 
   const sizeClasses = {
     sm: 'px-2 py-0.5 text-xs gap-1',
+    md: 'px-2.5 py-1 text-sm gap-1.5',
