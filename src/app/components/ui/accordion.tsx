@@ -18,3 +18,4 @@ function AccordionItem({
 }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
   return (
     <AccordionPrimitive.Item
+      data-slot="accordion-item"
