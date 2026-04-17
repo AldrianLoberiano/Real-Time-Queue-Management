@@ -21,3 +21,4 @@ function AlertDialogTrigger({
 }
 
 function AlertDialogPortal({
+  ...props
