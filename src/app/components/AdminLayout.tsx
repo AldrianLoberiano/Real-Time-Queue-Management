@@ -185,3 +185,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
 
             {/* Admin badge */}
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200">
+              <ShieldCheck size={14} className="text-sky-600" />
