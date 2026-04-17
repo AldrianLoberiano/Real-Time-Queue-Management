@@ -103,3 +103,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                               n.type === 'warning' ? 'border-l-2 border-l-amber-400' :
                               'border-l-2 border-l-sky-400'
                             }`}>
+                              <div className="flex-1">
