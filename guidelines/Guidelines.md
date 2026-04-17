@@ -46,3 +46,4 @@ Buttons should be used for important actions that users need to take, such as fo
 or initiating processes. They communicate interactivity and should have clear, action-oriented labels.
 
 ### Variants
+* Primary Button
