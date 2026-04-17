@@ -45,3 +45,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       active
                         ? 'bg-sky-500 text-white shadow-md'
                         : 'text-blue-200 hover:bg-white/10 hover:text-white'
+                    }`}
