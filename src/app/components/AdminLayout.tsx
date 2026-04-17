@@ -61,3 +61,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           const active = isActive(href, exact);
           return (
             <Link
+              key={href}
