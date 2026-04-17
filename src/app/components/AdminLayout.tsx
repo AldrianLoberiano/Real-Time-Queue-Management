@@ -70,3 +70,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                   : 'text-blue-200 hover:bg-white/10 hover:text-white'
               }`}
             >
+              <Icon size={18} />
