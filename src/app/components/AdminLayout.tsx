@@ -39,3 +39,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <p className="text-blue-400 text-xs">Admin Panel</p>
           </div>
         </div>
+      </div>
