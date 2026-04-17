@@ -154,3 +154,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   </Link>
                 ))}
               </div>
+            </motion.div>
