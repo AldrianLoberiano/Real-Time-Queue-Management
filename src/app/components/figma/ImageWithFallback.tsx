@@ -16,3 +16,4 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
     <div
       className={`inline-block bg-gray-100 text-center align-middle ${className ?? ''}`}
       style={style}
+    >
