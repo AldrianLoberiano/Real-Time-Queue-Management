@@ -10,3 +10,4 @@ interface PriorityBadgeProps {
 const CONFIG = {
   vip: {
     label: 'VIP',
+    icon: Crown,
