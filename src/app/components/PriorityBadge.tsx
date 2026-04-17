@@ -60,3 +60,4 @@ export function PriorityBadge({ type, size = 'md' }: PriorityBadgeProps) {
 export function PriorityDot({ type }: { type: PriorityType }) {
   return (
     <span
+      className={`inline-block w-2.5 h-2.5 rounded-full ${CONFIG[type].dot}`}
