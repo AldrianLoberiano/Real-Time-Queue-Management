@@ -8,3 +8,4 @@ import { buttonVariants } from "./button";
 
 function AlertDialog({
   ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
