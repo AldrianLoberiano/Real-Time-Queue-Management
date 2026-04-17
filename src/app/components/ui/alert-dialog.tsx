@@ -95,3 +95,4 @@ function AlertDialogFooter({
 function AlertDialogTitle({
   className,
   ...props
+}: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
