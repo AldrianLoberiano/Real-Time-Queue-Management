@@ -8,3 +8,4 @@ import { cn } from "./utils";
 function Avatar({
   className,
   ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
