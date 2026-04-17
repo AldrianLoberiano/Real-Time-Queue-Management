@@ -9,3 +9,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const { notifications, dismissNotification, waitingItems, currentlyServing } = useQueue();
   const [showNotifs, setShowNotifs] = useState(false);
+
