@@ -174,3 +174,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Notifications indicator */}
+            {notifications.length > 0 && (
