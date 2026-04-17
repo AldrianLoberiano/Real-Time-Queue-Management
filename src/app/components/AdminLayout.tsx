@@ -86,3 +86,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <Users size={18} />
             <span>Queue View</span>
           </Link>
+          <Link
