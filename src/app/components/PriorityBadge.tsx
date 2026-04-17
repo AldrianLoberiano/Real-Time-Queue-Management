@@ -14,3 +14,4 @@ const CONFIG = {
     bg: 'bg-amber-100',
     text: 'text-amber-700',
     border: 'border-amber-300',
+    dot: 'bg-amber-500',
