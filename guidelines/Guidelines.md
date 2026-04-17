@@ -56,3 +56,4 @@ or initiating processes. They communicate interactivity and should have clear, a
   * Usage : Can appear alongside a primary button for less important actions
 * Tertiary Button
   * Purpose : Used for the least important actions
+  * Visual Style : Text-only with no border, using primary color
