@@ -92,3 +92,4 @@ function AlertDialogFooter({
   );
 }
 
+function AlertDialogTitle({
