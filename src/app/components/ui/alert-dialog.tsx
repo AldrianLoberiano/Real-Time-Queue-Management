@@ -83,3 +83,4 @@ function AlertDialogFooter({
   return (
     <div
       data-slot="alert-dialog-footer"
+      className={cn(
