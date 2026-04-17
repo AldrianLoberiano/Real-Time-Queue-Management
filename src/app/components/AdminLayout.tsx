@@ -25,3 +25,4 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
 
   const isActive = (href: string, exact: boolean) =>
     exact ? location.pathname === href : location.pathname.startsWith(href);
+
