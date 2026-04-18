@@ -23,3 +23,4 @@ function CollapsibleContent({
   ...props
 }: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>) {
   return (
+    <CollapsiblePrimitive.CollapsibleContent
