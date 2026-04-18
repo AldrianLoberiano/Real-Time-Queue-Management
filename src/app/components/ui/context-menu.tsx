@@ -180,3 +180,4 @@ function ContextMenuRadioItem({
         </ContextMenuPrimitive.ItemIndicator>
       </span>
       {children}
+    </ContextMenuPrimitive.RadioItem>
