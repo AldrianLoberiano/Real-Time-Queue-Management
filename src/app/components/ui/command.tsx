@@ -170,3 +170,4 @@ export {
   CommandInput,
   CommandList,
   CommandEmpty,
+  CommandGroup,
