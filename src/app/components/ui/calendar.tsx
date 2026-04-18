@@ -19,3 +19,4 @@ function Calendar({
       className={cn("p-3", className)}
       classNames={{
         months: "flex flex-col sm:flex-row gap-2",
+        month: "flex flex-col gap-4",
