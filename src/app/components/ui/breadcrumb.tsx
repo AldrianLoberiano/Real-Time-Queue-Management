@@ -38,3 +38,4 @@ function BreadcrumbLink({
 }: React.ComponentProps<"a"> & {
   asChild?: boolean;
 }) {
+  const Comp = asChild ? Slot : "a";
