@@ -109,3 +109,4 @@ function CommandGroup({
 }: React.ComponentProps<typeof CommandPrimitive.Group>) {
   return (
     <CommandPrimitive.Group
+      data-slot="command-group"
