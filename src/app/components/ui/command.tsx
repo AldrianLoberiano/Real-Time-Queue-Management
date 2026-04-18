@@ -122,3 +122,4 @@ function CommandGroup({
 function CommandSeparator({
   className,
   ...props
+}: React.ComponentProps<typeof CommandPrimitive.Separator>) {
