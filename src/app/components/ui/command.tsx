@@ -20,3 +20,4 @@ function Command({
   return (
     <CommandPrimitive
       data-slot="command"
+      className={cn(
