@@ -8,3 +8,4 @@ import { cn } from "./utils";
 import { buttonVariants } from "./button";
 
 function Calendar({
+  className,
