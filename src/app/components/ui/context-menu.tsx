@@ -89,3 +89,4 @@ function ContextMenuSubContent({
         className,
       )}
       {...props}
+    />
