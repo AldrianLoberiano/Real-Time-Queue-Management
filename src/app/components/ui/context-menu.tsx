@@ -26,3 +26,4 @@ function ContextMenuGroup({
   return (
     <ContextMenuPrimitive.Group data-slot="context-menu-group" {...props} />
   );
+}
