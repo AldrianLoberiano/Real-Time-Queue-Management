@@ -92,3 +92,4 @@ function CommandList({
 }
 
 function CommandEmpty({
+  ...props
