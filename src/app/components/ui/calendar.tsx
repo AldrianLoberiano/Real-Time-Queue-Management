@@ -14,3 +14,4 @@ function Calendar({
   ...props
 }: React.ComponentProps<typeof DayPicker>) {
   return (
+    <DayPicker
