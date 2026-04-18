@@ -227,3 +227,4 @@ function ContextMenuShortcut({
       className={cn(
         "text-muted-foreground ml-auto text-xs tracking-widest",
         className,
+      )}
