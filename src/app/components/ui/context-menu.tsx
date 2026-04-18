@@ -240,3 +240,4 @@ export {
   ContextMenuItem,
   ContextMenuCheckboxItem,
   ContextMenuRadioItem,
+  ContextMenuLabel,
