@@ -139,3 +139,4 @@ function CommandItem({
   return (
     <CommandPrimitive.Item
       data-slot="command-item"
+      className={cn(
