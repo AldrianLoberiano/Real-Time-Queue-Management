@@ -19,3 +19,4 @@ function Command({
 }: React.ComponentProps<typeof CommandPrimitive>) {
   return (
     <CommandPrimitive
+      data-slot="command"
