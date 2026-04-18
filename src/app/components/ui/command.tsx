@@ -150,3 +150,4 @@ function CommandItem({
 
 function CommandShortcut({
   className,
+  ...props
