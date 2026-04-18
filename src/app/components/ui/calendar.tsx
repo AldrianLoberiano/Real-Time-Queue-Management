@@ -10,3 +10,4 @@ import { buttonVariants } from "./button";
 function Calendar({
   className,
   classNames,
+  showOutsideDays = true,
