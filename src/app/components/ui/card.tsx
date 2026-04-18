@@ -45,3 +45,4 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("text-muted-foreground", className)}
       {...props}
     />
+  );
