@@ -45,3 +45,4 @@ function useCarousel() {
 function Carousel({
   orientation = "horizontal",
   opts,
+  setApi,
