@@ -24,3 +24,4 @@ function CollapsibleContent({
 }: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>) {
   return (
     <CollapsiblePrimitive.CollapsibleContent
+      data-slot="collapsible-content"
