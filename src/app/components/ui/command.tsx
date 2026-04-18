@@ -110,3 +110,4 @@ function CommandGroup({
   return (
     <CommandPrimitive.Group
       data-slot="command-group"
+      className={cn(
