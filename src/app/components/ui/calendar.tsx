@@ -45,3 +45,4 @@ function Calendar({
           "size-8 p-0 font-normal aria-selected:opacity-100",
         ),
         day_range_start:
+          "day-range-start aria-selected:bg-primary aria-selected:text-primary-foreground",
