@@ -9,3 +9,4 @@ function Collapsible({
 }
 
 function CollapsibleTrigger({
+  ...props
