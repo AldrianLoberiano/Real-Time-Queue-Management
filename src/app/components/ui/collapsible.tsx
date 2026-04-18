@@ -20,3 +20,4 @@ function CollapsibleTrigger({
 }
 
 function CollapsibleContent({
+  ...props
