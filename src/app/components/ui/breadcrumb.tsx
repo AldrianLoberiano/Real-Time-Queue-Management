@@ -80,3 +80,4 @@ function BreadcrumbSeparator({
   );
 }
 
+function BreadcrumbEllipsis({
