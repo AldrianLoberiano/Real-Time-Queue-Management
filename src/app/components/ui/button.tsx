@@ -39,3 +39,4 @@ function Button({
   variant,
   size,
   asChild = false,
+  ...props
