@@ -105,3 +105,4 @@ function CommandEmpty({
 
 function CommandGroup({
   className,
+  ...props
