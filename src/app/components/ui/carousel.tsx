@@ -41,3 +41,4 @@ function useCarousel() {
 
   return context;
 }
+
