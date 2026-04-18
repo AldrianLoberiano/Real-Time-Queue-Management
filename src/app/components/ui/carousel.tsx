@@ -29,3 +29,4 @@ type CarouselContextProps = {
   canScrollPrev: boolean;
   canScrollNext: boolean;
 } & CarouselProps;
+
