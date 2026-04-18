@@ -242,3 +242,4 @@ export {
   ContextMenuRadioItem,
   ContextMenuLabel,
   ContextMenuSeparator,
+  ContextMenuShortcut,
