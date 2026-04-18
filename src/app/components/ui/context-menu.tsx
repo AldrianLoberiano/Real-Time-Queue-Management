@@ -235,3 +235,4 @@ function ContextMenuShortcut({
 
 export {
   ContextMenu,
+  ContextMenuTrigger,
