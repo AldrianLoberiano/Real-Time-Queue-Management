@@ -120,3 +120,4 @@ function CommandGroup({
 }
 
 function CommandSeparator({
+  className,
