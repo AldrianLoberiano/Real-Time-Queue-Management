@@ -96,3 +96,4 @@ function BreadcrumbEllipsis({
       <span className="sr-only">More</span>
     </span>
   );
+}
