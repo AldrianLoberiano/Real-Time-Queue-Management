@@ -171,3 +171,4 @@ export {
   CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandItem,
