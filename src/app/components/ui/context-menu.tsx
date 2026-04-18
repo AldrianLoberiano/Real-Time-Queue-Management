@@ -188,3 +188,4 @@ function ContextMenuLabel({
   className,
   inset,
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & {
