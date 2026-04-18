@@ -223,3 +223,4 @@ function ContextMenuShortcut({
 }: React.ComponentProps<"span">) {
   return (
     <span
+      data-slot="context-menu-shortcut"
