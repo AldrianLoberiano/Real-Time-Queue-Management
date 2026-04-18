@@ -19,3 +19,4 @@ function DialogTrigger({
 }
 
 function DialogPortal({
+  ...props
