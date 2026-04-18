@@ -20,3 +20,4 @@ function DialogTrigger({
 
 function DialogPortal({
   ...props
+}: React.ComponentProps<typeof DialogPrimitive.Portal>) {
