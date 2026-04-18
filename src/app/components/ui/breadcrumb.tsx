@@ -8,3 +8,4 @@ function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
+function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
