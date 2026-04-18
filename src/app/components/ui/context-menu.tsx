@@ -61,3 +61,4 @@ function ContextMenuSubTrigger({
 }: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & {
   inset?: boolean;
 }) {
+  return (
