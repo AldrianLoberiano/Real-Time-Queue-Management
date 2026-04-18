@@ -125,3 +125,4 @@ function ContextMenuItem({
       data-slot="context-menu-item"
       data-inset={inset}
       data-variant={variant}
+      className={cn(
