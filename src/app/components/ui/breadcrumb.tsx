@@ -69,3 +69,4 @@ function BreadcrumbSeparator({
 }: React.ComponentProps<"li">) {
   return (
     <li
+      data-slot="breadcrumb-separator"
