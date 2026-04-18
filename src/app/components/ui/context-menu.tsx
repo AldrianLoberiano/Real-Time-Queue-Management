@@ -192,3 +192,4 @@ function ContextMenuLabel({
   inset?: boolean;
 }) {
   return (
+    <ContextMenuPrimitive.Label
