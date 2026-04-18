@@ -41,3 +41,4 @@ function Calendar({
             : "[&:has([aria-selected])]:rounded-md",
         ),
         day: cn(
+          buttonVariants({ variant: "ghost" }),
