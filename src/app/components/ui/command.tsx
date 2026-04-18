@@ -95,3 +95,4 @@ function CommandEmpty({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
   return (
+    <CommandPrimitive.Empty
