@@ -149,3 +149,4 @@ function CommandItem({
 }
 
 function CommandShortcut({
+  className,
