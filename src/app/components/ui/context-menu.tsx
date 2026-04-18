@@ -185,3 +185,4 @@ function ContextMenuRadioItem({
 }
 
 function ContextMenuLabel({
+  className,
