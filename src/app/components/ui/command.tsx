@@ -18,3 +18,4 @@ function Command({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive>) {
   return (
+    <CommandPrimitive
