@@ -100,3 +100,4 @@ function ContextMenuContent({
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Content
+        data-slot="context-menu-content"
