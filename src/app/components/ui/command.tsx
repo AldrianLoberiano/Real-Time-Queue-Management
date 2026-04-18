@@ -40,3 +40,4 @@ function CommandDialog({
 }) {
   return (
     <Dialog {...props}>
+      <DialogHeader className="sr-only">
