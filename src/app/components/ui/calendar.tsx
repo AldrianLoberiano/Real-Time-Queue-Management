@@ -29,3 +29,4 @@ function Calendar({
         ),
         nav_button_previous: "absolute left-1",
         nav_button_next: "absolute right-1",
+        table: "w-full border-collapse space-x-1",
