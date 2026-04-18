@@ -28,3 +28,4 @@ function CollapsibleContent({
       {...props}
     />
   );
+}
