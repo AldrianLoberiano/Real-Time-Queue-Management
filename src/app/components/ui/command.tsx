@@ -77,3 +77,4 @@ function CommandInput({
 
 function CommandList({
   className,
+  ...props
