@@ -200,3 +200,4 @@ function ContextMenuLabel({
         className,
       )}
       {...props}
+    />
