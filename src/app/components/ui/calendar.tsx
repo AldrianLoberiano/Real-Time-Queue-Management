@@ -23,3 +23,4 @@ function Calendar({
         caption: "flex justify-center pt-1 relative items-center w-full",
         caption_label: "text-sm font-medium",
         nav: "flex items-center gap-1",
+        nav_button: cn(
