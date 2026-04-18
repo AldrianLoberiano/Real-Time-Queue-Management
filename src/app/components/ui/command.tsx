@@ -100,3 +100,4 @@ function CommandEmpty({
       className="py-6 text-center text-sm"
       {...props}
     />
+  );
