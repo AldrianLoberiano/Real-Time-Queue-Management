@@ -65,3 +65,4 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
 function BreadcrumbSeparator({
   children,
   className,
+  ...props
