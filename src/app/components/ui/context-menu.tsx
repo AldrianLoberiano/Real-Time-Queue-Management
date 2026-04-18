@@ -8,3 +8,4 @@ import { cn } from "./utils";
 
 function ContextMenu({
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {
