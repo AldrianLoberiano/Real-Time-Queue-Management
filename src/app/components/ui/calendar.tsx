@@ -25,3 +25,4 @@ function Calendar({
         nav: "flex items-center gap-1",
         nav_button: cn(
           buttonVariants({ variant: "outline" }),
+          "size-7 bg-transparent p-0 opacity-50 hover:opacity-100",
