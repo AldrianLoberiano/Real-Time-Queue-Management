@@ -144,3 +144,4 @@ function CommandItem({
         className,
       )}
       {...props}
+    />
