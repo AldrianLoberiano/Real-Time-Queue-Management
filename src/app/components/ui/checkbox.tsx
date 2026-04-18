@@ -19,3 +19,4 @@ function Checkbox({
       )}
       {...props}
     >
+      <CheckboxPrimitive.Indicator
