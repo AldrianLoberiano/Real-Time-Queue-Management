@@ -151,3 +151,4 @@ function CommandItem({
 function CommandShortcut({
   className,
   ...props
+}: React.ComponentProps<"span">) {
