@@ -86,3 +86,4 @@ function CommandList({
         "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto",
         className,
       )}
+      {...props}
