@@ -79,3 +79,4 @@ function ContextMenuSubTrigger({
 
 function ContextMenuSubContent({
   className,
+  ...props
