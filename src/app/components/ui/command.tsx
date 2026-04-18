@@ -71,3 +71,4 @@ function CommandInput({
         )}
         {...props}
       />
+    </div>
