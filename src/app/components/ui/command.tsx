@@ -11,3 +11,4 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+} from "./dialog";
