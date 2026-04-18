@@ -54,3 +54,4 @@ function CommandDialog({
 }
 
 function CommandInput({
+  className,
