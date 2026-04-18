@@ -12,3 +12,4 @@ function CollapsibleTrigger({
   ...props
 }: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>) {
   return (
+    <CollapsiblePrimitive.CollapsibleTrigger
