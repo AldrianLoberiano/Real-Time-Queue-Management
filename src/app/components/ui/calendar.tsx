@@ -63,3 +63,4 @@ function Calendar({
         IconLeft: ({ className, ...props }) => (
           <ChevronLeft className={cn("size-4", className)} {...props} />
         ),
+        IconRight: ({ className, ...props }) => (
