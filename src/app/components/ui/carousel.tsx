@@ -31,3 +31,4 @@ type CarouselContextProps = {
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
+
