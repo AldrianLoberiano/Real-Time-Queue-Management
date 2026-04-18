@@ -8,3 +8,4 @@ import { cn } from "./utils";
 
 function Dialog({
   ...props
+}: React.ComponentProps<typeof DialogPrimitive.Root>) {
