@@ -30,3 +30,4 @@ function ContextMenuGroup({
 
 function ContextMenuPortal({
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Portal>) {
