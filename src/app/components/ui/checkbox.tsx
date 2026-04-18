@@ -9,3 +9,4 @@ import { cn } from "./utils";
 function Checkbox({
   className,
   ...props
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
