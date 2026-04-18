@@ -57,3 +57,4 @@ function Carousel({
       axis: orientation === "horizontal" ? "x" : "y",
     },
     plugins,
+  );
