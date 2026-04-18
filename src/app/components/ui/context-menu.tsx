@@ -54,3 +54,4 @@ function ContextMenuRadioGroup({
 }
 
 function ContextMenuSubTrigger({
+  className,
