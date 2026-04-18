@@ -106,3 +106,4 @@ function ContextMenuContent({
           className,
         )}
         {...props}
+      />
