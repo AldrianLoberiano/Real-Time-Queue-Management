@@ -142,3 +142,4 @@ function ContextMenuCheckboxItem({
 }: React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem>) {
   return (
     <ContextMenuPrimitive.CheckboxItem
+      data-slot="context-menu-checkbox-item"
