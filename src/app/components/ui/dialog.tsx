@@ -62,3 +62,4 @@ function DialogContent({
         )}
         {...props}
       >
+        {children}
