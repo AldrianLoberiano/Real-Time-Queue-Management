@@ -14,3 +14,4 @@ import {
 } from "./dialog";
 
 function Command({
+  className,
