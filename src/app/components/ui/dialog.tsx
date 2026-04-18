@@ -32,3 +32,4 @@ function DialogClose({
 
 function DialogOverlay({
   className,
+  ...props
