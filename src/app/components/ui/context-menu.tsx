@@ -123,3 +123,4 @@ function ContextMenuItem({
   return (
     <ContextMenuPrimitive.Item
       data-slot="context-menu-item"
+      data-inset={inset}
