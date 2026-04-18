@@ -75,3 +75,4 @@ function DialogContent({
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="dialog-header"
