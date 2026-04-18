@@ -47,3 +47,4 @@ function ContextMenuRadioGroup({
 }: React.ComponentProps<typeof ContextMenuPrimitive.RadioGroup>) {
   return (
     <ContextMenuPrimitive.RadioGroup
+      data-slot="context-menu-radio-group"
