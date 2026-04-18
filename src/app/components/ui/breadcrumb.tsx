@@ -78,3 +78,4 @@ function BreadcrumbSeparator({
       {children ?? <ChevronRight />}
     </li>
   );
+}
