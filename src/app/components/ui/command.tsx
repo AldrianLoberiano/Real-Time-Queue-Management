@@ -104,3 +104,4 @@ function CommandEmpty({
 }
 
 function CommandGroup({
+  className,
