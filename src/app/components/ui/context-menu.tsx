@@ -164,3 +164,4 @@ function ContextMenuRadioItem({
   className,
   children,
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.RadioItem>) {
