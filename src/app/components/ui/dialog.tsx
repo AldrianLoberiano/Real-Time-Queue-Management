@@ -26,3 +26,4 @@ function DialogPortal({
 
 function DialogClose({
   ...props
+}: React.ComponentProps<typeof DialogPrimitive.Close>) {
