@@ -15,3 +15,4 @@ import {
 
 function Command({
   className,
+  ...props
