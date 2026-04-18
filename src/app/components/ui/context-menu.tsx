@@ -19,3 +19,4 @@ function ContextMenuTrigger({
     <ContextMenuPrimitive.Trigger data-slot="context-menu-trigger" {...props} />
   );
 }
+
