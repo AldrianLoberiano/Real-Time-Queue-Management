@@ -122,3 +122,4 @@ function ContextMenuItem({
 }) {
   return (
     <ContextMenuPrimitive.Item
+      data-slot="context-menu-item"
