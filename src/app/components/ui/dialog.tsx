@@ -49,3 +49,4 @@ function DialogOverlay({
 function DialogContent({
   className,
   children,
+  ...props
