@@ -98,3 +98,4 @@ function ContextMenuContent({
   ...props
 }: React.ComponentProps<typeof ContextMenuPrimitive.Content>) {
   return (
+    <ContextMenuPrimitive.Portal>
