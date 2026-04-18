@@ -88,3 +88,4 @@ function BreadcrumbEllipsis({
     <span
       data-slot="breadcrumb-ellipsis"
       role="presentation"
+      aria-hidden="true"
