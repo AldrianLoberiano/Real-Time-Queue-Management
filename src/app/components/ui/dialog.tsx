@@ -101,3 +101,4 @@ function DialogTitle({
 }: React.ComponentProps<typeof DialogPrimitive.Title>) {
   return (
     <DialogPrimitive.Title
+      data-slot="dialog-title"
