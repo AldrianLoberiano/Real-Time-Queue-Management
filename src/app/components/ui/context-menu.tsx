@@ -226,3 +226,4 @@ function ContextMenuShortcut({
       data-slot="context-menu-shortcut"
       className={cn(
         "text-muted-foreground ml-auto text-xs tracking-widest",
+        className,
