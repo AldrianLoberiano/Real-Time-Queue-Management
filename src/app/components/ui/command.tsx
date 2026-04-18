@@ -166,3 +166,4 @@ function CommandShortcut({
 
 export {
   Command,
+  CommandDialog,
