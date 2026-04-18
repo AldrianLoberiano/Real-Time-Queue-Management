@@ -34,3 +34,4 @@ function ContextMenuPortal({
   return (
     <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />
   );
+}
