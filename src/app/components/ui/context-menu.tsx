@@ -143,3 +143,4 @@ function ContextMenuCheckboxItem({
   return (
     <ContextMenuPrimitive.CheckboxItem
       data-slot="context-menu-checkbox-item"
+      className={cn(
