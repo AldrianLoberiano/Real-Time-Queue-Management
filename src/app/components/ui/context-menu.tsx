@@ -138,3 +138,4 @@ function ContextMenuCheckboxItem({
   className,
   children,
   checked,
+  ...props
