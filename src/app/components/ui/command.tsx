@@ -25,3 +25,4 @@ function Command({
         className,
       )}
       {...props}
+    />
