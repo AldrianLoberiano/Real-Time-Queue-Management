@@ -11,3 +11,4 @@ function Checkbox({
   ...props
 }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   return (
+    <CheckboxPrimitive.Root
