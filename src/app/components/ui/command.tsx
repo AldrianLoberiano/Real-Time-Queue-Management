@@ -39,3 +39,4 @@ function CommandDialog({
   description?: string;
 }) {
   return (
+    <Dialog {...props}>
