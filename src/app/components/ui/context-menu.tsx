@@ -49,3 +49,4 @@ function ContextMenuRadioGroup({
     <ContextMenuPrimitive.RadioGroup
       data-slot="context-menu-radio-group"
       {...props}
+    />
