@@ -70,3 +70,4 @@ function BreadcrumbSeparator({
   return (
     <li
       data-slot="breadcrumb-separator"
+      role="presentation"
