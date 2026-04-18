@@ -66,3 +66,4 @@ function Carousel({
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
   }, []);
+
