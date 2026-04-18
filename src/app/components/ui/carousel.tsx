@@ -50,3 +50,4 @@ function Carousel({
   className,
   children,
   ...props
+}: React.ComponentProps<"div"> & CarouselProps) {
