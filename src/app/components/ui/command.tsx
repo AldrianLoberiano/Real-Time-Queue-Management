@@ -76,3 +76,4 @@ function CommandInput({
 }
 
 function CommandList({
+  className,
