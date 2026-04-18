@@ -172,3 +172,4 @@ export {
   CommandEmpty,
   CommandGroup,
   CommandItem,
+  CommandShortcut,
