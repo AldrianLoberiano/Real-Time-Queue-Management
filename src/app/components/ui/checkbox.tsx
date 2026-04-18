@@ -7,3 +7,4 @@ import { CheckIcon } from "lucide-react";
 import { cn } from "./utils";
 
 function Checkbox({
+  className,
