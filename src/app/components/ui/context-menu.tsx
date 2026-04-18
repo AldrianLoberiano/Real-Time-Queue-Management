@@ -84,3 +84,4 @@ function ContextMenuSubContent({
   return (
     <ContextMenuPrimitive.SubContent
       data-slot="context-menu-sub-content"
+      className={cn(
