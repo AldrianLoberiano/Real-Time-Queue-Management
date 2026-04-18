@@ -38,3 +38,4 @@ function ContextMenuPortal({
 
 function ContextMenuSub({
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Sub>) {
