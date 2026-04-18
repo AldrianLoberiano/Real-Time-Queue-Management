@@ -137,3 +137,4 @@ function CommandItem({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Item>) {
   return (
+    <CommandPrimitive.Item
