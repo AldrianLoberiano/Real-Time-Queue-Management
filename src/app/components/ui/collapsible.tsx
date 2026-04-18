@@ -16,3 +16,4 @@ function CollapsibleTrigger({
       data-slot="collapsible-trigger"
       {...props}
     />
+  );
