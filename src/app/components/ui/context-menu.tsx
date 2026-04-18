@@ -96,3 +96,4 @@ function ContextMenuSubContent({
 function ContextMenuContent({
   className,
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Content>) {
