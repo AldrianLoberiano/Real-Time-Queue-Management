@@ -107,3 +107,4 @@ function ContextMenuContent({
         )}
         {...props}
       />
+    </ContextMenuPrimitive.Portal>
