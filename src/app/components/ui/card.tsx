@@ -35,3 +35,4 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("leading-none", className)}
       {...props}
     />
+  );
