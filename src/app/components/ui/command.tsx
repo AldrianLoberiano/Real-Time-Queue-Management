@@ -59,3 +59,4 @@ function CommandInput({
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div
+      data-slot="command-input-wrapper"
