@@ -152,3 +152,4 @@ function CommandShortcut({
   className,
   ...props
 }: React.ComponentProps<"span">) {
+  return (
