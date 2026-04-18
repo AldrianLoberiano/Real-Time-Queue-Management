@@ -46,3 +46,4 @@ function DialogOverlay({
   );
 }
 
+function DialogContent({
