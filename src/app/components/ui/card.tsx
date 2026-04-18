@@ -87,3 +87,4 @@ export {
   CardFooter,
   CardTitle,
   CardAction,
+  CardDescription,
