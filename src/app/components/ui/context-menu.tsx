@@ -58,3 +58,4 @@ function ContextMenuSubTrigger({
   inset,
   children,
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & {
