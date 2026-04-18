@@ -35,3 +35,4 @@ function DialogOverlay({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
   return (
+    <DialogPrimitive.Overlay
