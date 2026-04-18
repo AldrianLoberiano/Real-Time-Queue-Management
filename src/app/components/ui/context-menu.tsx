@@ -12,4 +12,5 @@ function ContextMenu({
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }
 
+function ContextMenuTrigger({
   ...props
