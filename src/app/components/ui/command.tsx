@@ -108,3 +108,4 @@ function CommandGroup({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Group>) {
   return (
+    <CommandPrimitive.Group
