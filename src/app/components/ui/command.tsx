@@ -154,3 +154,4 @@ function CommandShortcut({
 }: React.ComponentProps<"span">) {
   return (
     <span
+      data-slot="command-shortcut"
