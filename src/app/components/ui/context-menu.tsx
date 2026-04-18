@@ -136,3 +136,4 @@ function ContextMenuItem({
 
 function ContextMenuCheckboxItem({
   className,
+  children,
