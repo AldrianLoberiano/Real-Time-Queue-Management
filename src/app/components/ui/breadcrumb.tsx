@@ -101,3 +101,4 @@ function BreadcrumbEllipsis({
 export {
   Breadcrumb,
   BreadcrumbList,
+  BreadcrumbItem,
