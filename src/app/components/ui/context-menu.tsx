@@ -115,3 +115,4 @@ function ContextMenuItem({
   className,
   inset,
   variant = "default",
+  ...props
