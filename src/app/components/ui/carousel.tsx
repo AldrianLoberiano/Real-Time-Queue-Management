@@ -49,3 +49,4 @@ function Carousel({
   plugins,
   className,
   children,
+  ...props
