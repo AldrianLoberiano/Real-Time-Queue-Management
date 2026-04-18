@@ -116,3 +116,4 @@ function ContextMenuItem({
   inset,
   variant = "default",
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & {
