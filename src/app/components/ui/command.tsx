@@ -134,3 +134,4 @@ function CommandSeparator({
 
 function CommandItem({
   className,
+  ...props
