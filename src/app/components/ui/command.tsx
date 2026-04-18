@@ -8,3 +8,4 @@ import { cn } from "./utils";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
