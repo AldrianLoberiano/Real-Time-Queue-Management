@@ -125,3 +125,4 @@ function CommandSeparator({
 }: React.ComponentProps<typeof CommandPrimitive.Separator>) {
   return (
     <CommandPrimitive.Separator
+      data-slot="command-separator"
