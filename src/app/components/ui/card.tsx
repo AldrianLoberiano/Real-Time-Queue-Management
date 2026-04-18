@@ -38,3 +38,4 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
