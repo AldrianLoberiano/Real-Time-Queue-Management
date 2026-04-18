@@ -91,3 +91,4 @@ function BreadcrumbEllipsis({
       aria-hidden="true"
       className={cn("flex size-9 items-center justify-center", className)}
       {...props}
+    >
