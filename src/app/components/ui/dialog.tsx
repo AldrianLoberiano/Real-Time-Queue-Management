@@ -25,3 +25,4 @@ function DialogPortal({
 }
 
 function DialogClose({
+  ...props
