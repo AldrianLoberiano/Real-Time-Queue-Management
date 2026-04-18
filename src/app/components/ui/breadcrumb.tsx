@@ -76,3 +76,4 @@ function BreadcrumbSeparator({
       {...props}
     >
       {children ?? <ChevronRight />}
+    </li>
