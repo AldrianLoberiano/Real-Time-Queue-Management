@@ -71,3 +71,4 @@ function ContextMenuSubTrigger({
       )}
       {...props}
     >
+      {children}
