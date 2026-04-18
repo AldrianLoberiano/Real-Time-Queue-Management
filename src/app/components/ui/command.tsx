@@ -82,3 +82,4 @@ function CommandList({
   return (
     <CommandPrimitive.List
       data-slot="command-list"
+      className={cn(
