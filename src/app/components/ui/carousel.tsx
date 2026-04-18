@@ -53,3 +53,4 @@ function Carousel({
 }: React.ComponentProps<"div"> & CarouselProps) {
   const [carouselRef, api] = useEmblaCarousel(
     {
+      ...opts,
