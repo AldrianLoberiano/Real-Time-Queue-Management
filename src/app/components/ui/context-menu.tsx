@@ -179,3 +179,4 @@ function ContextMenuRadioItem({
           <CircleIcon className="size-2 fill-current" />
         </ContextMenuPrimitive.ItemIndicator>
       </span>
+      {children}
