@@ -154,3 +154,4 @@ function ContextMenuCheckboxItem({
         <ContextMenuPrimitive.ItemIndicator>
           <CheckIcon className="size-4" />
         </ContextMenuPrimitive.ItemIndicator>
+      </span>
