@@ -58,3 +58,4 @@ function Carousel({
     },
     plugins,
   );
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
