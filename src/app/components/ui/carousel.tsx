@@ -21,3 +21,4 @@ type CarouselProps = {
   setApi?: (api: CarouselApi) => void;
 };
 
+type CarouselContextProps = {
