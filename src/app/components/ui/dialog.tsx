@@ -42,3 +42,4 @@ function DialogOverlay({
         className,
       )}
       {...props}
+    />
