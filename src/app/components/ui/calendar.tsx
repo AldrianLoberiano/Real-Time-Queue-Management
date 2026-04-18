@@ -15,3 +15,4 @@ function Calendar({
 }: React.ComponentProps<typeof DayPicker>) {
   return (
     <DayPicker
+      showOutsideDays={showOutsideDays}
