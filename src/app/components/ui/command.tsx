@@ -30,3 +30,4 @@ function Command({
 }
 
 function CommandDialog({
+  title = "Command Palette",
