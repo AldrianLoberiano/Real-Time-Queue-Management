@@ -14,3 +14,4 @@ function Dialog({
 
 function DialogTrigger({
   ...props
+}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
