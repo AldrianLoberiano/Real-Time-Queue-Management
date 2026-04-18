@@ -33,3 +33,4 @@ function DialogClose({
 function DialogOverlay({
   className,
   ...props
+}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
