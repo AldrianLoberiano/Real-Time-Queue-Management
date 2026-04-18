@@ -239,3 +239,4 @@ export {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuCheckboxItem,
+  ContextMenuRadioItem,
