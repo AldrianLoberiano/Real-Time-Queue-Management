@@ -64,3 +64,4 @@ function ContextMenuSubTrigger({
   return (
     <ContextMenuPrimitive.SubTrigger
       data-slot="context-menu-sub-trigger"
+      data-inset={inset}
