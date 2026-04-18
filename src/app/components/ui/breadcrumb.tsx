@@ -83,3 +83,4 @@ function BreadcrumbSeparator({
 function BreadcrumbEllipsis({
   className,
   ...props
+}: React.ComponentProps<"span">) {
