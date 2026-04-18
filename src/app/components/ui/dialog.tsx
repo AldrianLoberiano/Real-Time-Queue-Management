@@ -113,3 +113,4 @@ function DialogDescription({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Description>) {
   return (
+    <DialogPrimitive.Description
