@@ -229,3 +229,4 @@ function ContextMenuShortcut({
         className,
       )}
       {...props}
+    />
