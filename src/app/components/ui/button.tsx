@@ -32,3 +32,4 @@ const buttonVariants = cva(
       size: "default",
     },
   },
+);
