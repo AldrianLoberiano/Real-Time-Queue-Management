@@ -218,3 +218,4 @@ function ContextMenuSeparator({
 }
 
 function ContextMenuShortcut({
+  className,
