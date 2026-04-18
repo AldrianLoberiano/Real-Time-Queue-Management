@@ -35,3 +35,4 @@ function BreadcrumbLink({
   asChild,
   className,
   ...props
+}: React.ComponentProps<"a"> & {
