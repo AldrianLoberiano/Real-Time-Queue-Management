@@ -206,3 +206,4 @@ function ContextMenuLabel({
 
 function ContextMenuSeparator({
   className,
+  ...props
