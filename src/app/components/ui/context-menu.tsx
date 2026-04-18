@@ -62,3 +62,4 @@ function ContextMenuSubTrigger({
   inset?: boolean;
 }) {
   return (
+    <ContextMenuPrimitive.SubTrigger
