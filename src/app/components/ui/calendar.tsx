@@ -31,3 +31,4 @@ function Calendar({
         nav_button_next: "absolute right-1",
         table: "w-full border-collapse space-x-1",
         head_row: "flex",
+        head_cell:
