@@ -71,3 +71,4 @@ function BreadcrumbSeparator({
     <li
       data-slot="breadcrumb-separator"
       role="presentation"
+      aria-hidden="true"
