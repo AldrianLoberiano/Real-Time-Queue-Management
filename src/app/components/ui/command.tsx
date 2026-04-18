@@ -78,3 +78,4 @@ function CommandInput({
 function CommandList({
   className,
   ...props
+}: React.ComponentProps<typeof CommandPrimitive.List>) {
