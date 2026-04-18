@@ -96,3 +96,4 @@ function CommandEmpty({
 }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
   return (
     <CommandPrimitive.Empty
+      data-slot="command-empty"
