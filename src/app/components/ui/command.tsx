@@ -87,3 +87,4 @@ function CommandList({
         className,
       )}
       {...props}
+    />
