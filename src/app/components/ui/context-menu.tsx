@@ -205,3 +205,4 @@ function ContextMenuLabel({
 }
 
 function ContextMenuSeparator({
+  className,
