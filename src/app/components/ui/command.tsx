@@ -155,3 +155,4 @@ function CommandShortcut({
   return (
     <span
       data-slot="command-shortcut"
+      className={cn(
