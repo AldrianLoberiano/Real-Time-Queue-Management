@@ -115,3 +115,4 @@ function CommandGroup({
         className,
       )}
       {...props}
+    />
