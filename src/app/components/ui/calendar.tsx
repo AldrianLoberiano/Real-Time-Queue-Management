@@ -42,3 +42,4 @@ function Calendar({
         ),
         day: cn(
           buttonVariants({ variant: "ghost" }),
+          "size-8 p-0 font-normal aria-selected:opacity-100",
