@@ -22,3 +22,4 @@ function ContextMenuTrigger({
 
 function ContextMenuGroup({
   ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Group>) {
