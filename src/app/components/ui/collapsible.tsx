@@ -7,3 +7,4 @@ function Collapsible({
 }: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {
   return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
 }
+
