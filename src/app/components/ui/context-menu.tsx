@@ -162,3 +162,4 @@ function ContextMenuCheckboxItem({
 
 function ContextMenuRadioItem({
   className,
+  children,
