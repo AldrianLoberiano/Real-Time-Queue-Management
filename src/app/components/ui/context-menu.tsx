@@ -247,3 +247,4 @@ export {
   ContextMenuPortal,
   ContextMenuSub,
   ContextMenuSubContent,
+  ContextMenuSubTrigger,
