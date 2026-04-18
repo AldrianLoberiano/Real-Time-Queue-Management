@@ -21,3 +21,4 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   );
 }
 
+function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
