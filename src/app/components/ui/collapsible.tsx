@@ -27,3 +27,4 @@ function CollapsibleContent({
       data-slot="collapsible-content"
       {...props}
     />
+  );
