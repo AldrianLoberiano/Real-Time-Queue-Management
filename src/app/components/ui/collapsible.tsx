@@ -8,3 +8,4 @@ function Collapsible({
   return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
 }
 
+function CollapsibleTrigger({
