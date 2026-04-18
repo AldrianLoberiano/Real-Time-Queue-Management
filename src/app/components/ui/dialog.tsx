@@ -100,3 +100,4 @@ function DialogTitle({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Title>) {
   return (
+    <DialogPrimitive.Title
