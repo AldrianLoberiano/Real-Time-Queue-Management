@@ -20,3 +20,4 @@ function Checkbox({
       {...props}
     >
       <CheckboxPrimitive.Indicator
+        data-slot="checkbox-indicator"
