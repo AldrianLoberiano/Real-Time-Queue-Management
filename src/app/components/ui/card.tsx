@@ -48,3 +48,4 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function CardAction({ className, ...props }: React.ComponentProps<"div">) {
