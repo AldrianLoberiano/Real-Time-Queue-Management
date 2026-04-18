@@ -130,3 +130,4 @@ function ContextMenuItem({
         className,
       )}
       {...props}
+    />
