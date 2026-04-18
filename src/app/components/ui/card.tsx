@@ -68,3 +68,4 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("px-6 [&:last-child]:pb-6", className)}
       {...props}
     />
+  );
