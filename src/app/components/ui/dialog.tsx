@@ -93,3 +93,4 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
+}
