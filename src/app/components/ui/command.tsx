@@ -80,3 +80,4 @@ function CommandList({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.List>) {
   return (
+    <CommandPrimitive.List
