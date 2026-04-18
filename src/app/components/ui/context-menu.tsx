@@ -219,3 +219,4 @@ function ContextMenuSeparator({
 
 function ContextMenuShortcut({
   className,
+  ...props
