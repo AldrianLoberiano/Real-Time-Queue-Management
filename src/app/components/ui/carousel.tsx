@@ -48,3 +48,4 @@ function Carousel({
   setApi,
   plugins,
   className,
+  children,
