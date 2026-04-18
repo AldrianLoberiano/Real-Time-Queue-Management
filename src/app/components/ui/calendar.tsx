@@ -22,3 +22,4 @@ function Calendar({
         month: "flex flex-col gap-4",
         caption: "flex justify-center pt-1 relative items-center w-full",
         caption_label: "text-sm font-medium",
+        nav: "flex items-center gap-1",
