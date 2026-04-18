@@ -133,3 +133,4 @@ function CommandSeparator({
 }
 
 function CommandItem({
+  className,
