@@ -47,3 +47,4 @@ function Carousel({
   opts,
   setApi,
   plugins,
+  className,
