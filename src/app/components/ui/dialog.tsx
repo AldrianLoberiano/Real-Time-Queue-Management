@@ -61,3 +61,4 @@ function DialogContent({
           className,
         )}
         {...props}
+      >
