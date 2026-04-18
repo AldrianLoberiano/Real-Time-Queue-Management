@@ -234,3 +234,4 @@ function ContextMenuShortcut({
 }
 
 export {
+  ContextMenu,
