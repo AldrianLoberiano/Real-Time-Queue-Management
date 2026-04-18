@@ -46,3 +46,4 @@ function Calendar({
         ),
         day_range_start:
           "day-range-start aria-selected:bg-primary aria-selected:text-primary-foreground",
+        day_range_end:
