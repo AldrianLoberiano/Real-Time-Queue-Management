@@ -121,3 +121,4 @@ function CommandGroup({
 
 function CommandSeparator({
   className,
+  ...props
