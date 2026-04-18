@@ -60,3 +60,4 @@ function CommandInput({
   return (
     <div
       data-slot="command-input-wrapper"
+      className="flex h-9 items-center gap-2 border-b px-3"
