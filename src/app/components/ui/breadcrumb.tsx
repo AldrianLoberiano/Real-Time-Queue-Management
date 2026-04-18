@@ -87,3 +87,4 @@ function BreadcrumbEllipsis({
   return (
     <span
       data-slot="breadcrumb-ellipsis"
+      role="presentation"
