@@ -73,3 +73,4 @@ function ContextMenuSubTrigger({
     >
       {children}
       <ChevronRightIcon className="ml-auto" />
+    </ContextMenuPrimitive.SubTrigger>
