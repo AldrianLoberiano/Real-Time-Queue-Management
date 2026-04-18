@@ -224,3 +224,4 @@ function ContextMenuShortcut({
   return (
     <span
       data-slot="context-menu-shortcut"
+      className={cn(
