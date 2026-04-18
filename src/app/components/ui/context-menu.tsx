@@ -57,3 +57,4 @@ function ContextMenuSubTrigger({
   className,
   inset,
   children,
+  ...props
