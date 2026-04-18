@@ -13,3 +13,4 @@ function Checkbox({
   return (
     <CheckboxPrimitive.Root
       data-slot="checkbox"
+      className={cn(
