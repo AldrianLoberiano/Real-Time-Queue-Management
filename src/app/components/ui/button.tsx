@@ -40,3 +40,4 @@ function Button({
   size,
   asChild = false,
   ...props
+}: React.ComponentProps<"button"> &
