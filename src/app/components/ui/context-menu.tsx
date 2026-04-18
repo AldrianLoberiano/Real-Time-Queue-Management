@@ -95,3 +95,4 @@ function ContextMenuSubContent({
 
 function ContextMenuContent({
   className,
+  ...props
