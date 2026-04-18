@@ -156,3 +156,4 @@ function ContextMenuCheckboxItem({
         </ContextMenuPrimitive.ItemIndicator>
       </span>
       {children}
+    </ContextMenuPrimitive.CheckboxItem>
