@@ -43,3 +43,4 @@ function useCarousel() {
 }
 
 function Carousel({
+  opts,
