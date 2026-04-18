@@ -114,3 +114,4 @@ function ContextMenuContent({
 function ContextMenuItem({
   className,
   inset,
+  variant = "default",
