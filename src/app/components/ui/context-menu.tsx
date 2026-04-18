@@ -222,3 +222,4 @@ function ContextMenuShortcut({
   ...props
 }: React.ComponentProps<"span">) {
   return (
+    <span
