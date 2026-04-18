@@ -165,3 +165,4 @@ function CommandShortcut({
 }
 
 export {
+  Command,
