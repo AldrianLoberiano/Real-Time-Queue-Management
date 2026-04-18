@@ -49,3 +49,4 @@ function CommandDialog({
           {children}
         </Command>
       </DialogContent>
+    </Dialog>
