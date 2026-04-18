@@ -42,3 +42,4 @@ function BreadcrumbLink({
 
   return (
     <Comp
+      data-slot="breadcrumb-link"
