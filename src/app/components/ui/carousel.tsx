@@ -42,3 +42,4 @@ function useCarousel() {
   return context;
 }
 
+function Carousel({
