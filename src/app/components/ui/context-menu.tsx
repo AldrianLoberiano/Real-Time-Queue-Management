@@ -148,3 +148,4 @@ function ContextMenuCheckboxItem({
         className,
       )}
       checked={checked}
+      {...props}
