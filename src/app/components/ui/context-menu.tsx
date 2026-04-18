@@ -194,3 +194,4 @@ function ContextMenuLabel({
   return (
     <ContextMenuPrimitive.Label
       data-slot="context-menu-label"
+      data-inset={inset}
