@@ -157,3 +157,4 @@ function CommandShortcut({
       data-slot="command-shortcut"
       className={cn(
         "text-muted-foreground ml-auto text-xs tracking-widest",
+        className,
