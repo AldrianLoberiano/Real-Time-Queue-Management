@@ -141,3 +141,4 @@ function ContextMenuCheckboxItem({
   ...props
 }: React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem>) {
   return (
+    <ContextMenuPrimitive.CheckboxItem
