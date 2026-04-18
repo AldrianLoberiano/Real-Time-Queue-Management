@@ -36,3 +36,4 @@ function CommandDialog({
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string;
+  description?: string;
