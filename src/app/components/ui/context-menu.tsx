@@ -21,3 +21,4 @@ function ContextMenuTrigger({
 }
 
 function ContextMenuGroup({
+  ...props
