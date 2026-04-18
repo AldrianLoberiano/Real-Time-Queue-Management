@@ -18,3 +18,4 @@ function Checkbox({
         className,
       )}
       {...props}
+    >
