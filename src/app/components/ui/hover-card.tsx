@@ -31,3 +31,4 @@ function HoverCardContent({
         data-slot="hover-card-content"
         align={align}
         sideOffset={sideOffset}
+        className={cn(
