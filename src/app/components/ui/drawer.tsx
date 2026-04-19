@@ -41,3 +41,4 @@ function DrawerOverlay({
         className,
       )}
       {...props}
+    />
