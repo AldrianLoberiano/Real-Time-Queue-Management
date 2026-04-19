@@ -16,3 +16,4 @@ function HoverCardTrigger({
 }: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
   return (
     <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
+  );
