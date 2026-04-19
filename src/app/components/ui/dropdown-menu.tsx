@@ -78,3 +78,4 @@ function DropdownMenuItem({
         className,
       )}
       {...props}
+    />
