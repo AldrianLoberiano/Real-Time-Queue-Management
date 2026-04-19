@@ -37,4 +37,5 @@ function HoverCardContent({
         )}
         {...props}
       />
+    </HoverCardPrimitive.Portal>
 export { HoverCard, HoverCardTrigger, HoverCardContent };
