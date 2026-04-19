@@ -179,3 +179,4 @@ function DropdownMenuSeparator({
 function DropdownMenuShortcut({
   className,
   ...props
+}: React.ComponentProps<"span">) {
