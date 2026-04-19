@@ -34,3 +34,4 @@ const FormField = <
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   ...props
+}: ControllerProps<TFieldValues, TName>) => {
