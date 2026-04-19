@@ -152,3 +152,4 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
       {...props}
     >
       {body}
+    </p>
