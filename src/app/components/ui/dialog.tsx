@@ -122,3 +122,4 @@ function DialogDescription({
 }
 
 export {
+  Dialog,
