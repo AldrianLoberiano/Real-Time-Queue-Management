@@ -177,3 +177,4 @@ function DropdownMenuSeparator({
 }
 
 function DropdownMenuShortcut({
+  className,
