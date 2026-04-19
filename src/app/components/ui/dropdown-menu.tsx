@@ -39,3 +39,4 @@ function DropdownMenuContent({
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
+        data-slot="dropdown-menu-content"
