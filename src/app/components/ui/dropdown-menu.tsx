@@ -139,3 +139,4 @@ function DropdownMenuRadioItem({
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
+    </DropdownMenuPrimitive.RadioItem>
