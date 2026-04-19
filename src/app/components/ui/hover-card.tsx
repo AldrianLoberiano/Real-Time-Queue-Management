@@ -40,4 +40,5 @@ function HoverCardContent({
     </HoverCardPrimitive.Portal>
   );
 }
+
 export { HoverCard, HoverCardTrigger, HoverCardContent };
