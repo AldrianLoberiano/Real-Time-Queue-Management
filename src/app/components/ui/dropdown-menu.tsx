@@ -165,3 +165,4 @@ function DropdownMenuLabel({
 
 function DropdownMenuSeparator({
   className,
+  ...props
