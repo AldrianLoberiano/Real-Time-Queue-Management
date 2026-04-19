@@ -70,3 +70,4 @@ function DropdownMenuItem({
 }) {
   return (
     <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-item"
