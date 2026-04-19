@@ -104,3 +104,4 @@ function DropdownMenuCheckboxItem({
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
+    </DropdownMenuPrimitive.CheckboxItem>
