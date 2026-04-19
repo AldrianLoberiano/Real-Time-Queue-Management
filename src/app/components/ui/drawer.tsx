@@ -46,3 +46,4 @@ function DrawerOverlay({
 }
 
 function DrawerContent({
+  className,
