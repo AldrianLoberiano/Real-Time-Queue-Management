@@ -96,3 +96,4 @@ function FormLabel({
   return (
     <Label
       data-slot="form-label"
+      data-error={!!error}
