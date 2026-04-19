@@ -130,3 +130,4 @@ export {
   DialogHeader,
   DialogOverlay,
   DialogPortal,
+  DialogTitle,
