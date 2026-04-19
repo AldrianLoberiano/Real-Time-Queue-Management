@@ -244,3 +244,4 @@ export {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuGroup,
+  DropdownMenuLabel,
