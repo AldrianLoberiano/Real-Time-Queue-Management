@@ -88,3 +88,4 @@ function DropdownMenuCheckboxItem({
   checked,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
+  return (
