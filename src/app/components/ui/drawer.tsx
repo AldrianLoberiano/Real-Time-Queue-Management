@@ -84,3 +84,4 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
 
 function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
+    <div
