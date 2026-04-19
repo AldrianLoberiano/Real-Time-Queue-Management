@@ -29,3 +29,4 @@ function HoverCardContent({
     <HoverCardPrimitive.Portal data-slot="hover-card-portal">
       <HoverCardPrimitive.Content
         data-slot="hover-card-content"
+        align={align}
