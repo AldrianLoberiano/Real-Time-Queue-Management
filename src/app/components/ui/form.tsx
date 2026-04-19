@@ -111,3 +111,4 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
   return (
     <Slot
       data-slot="form-control"
+      id={formItemId}
