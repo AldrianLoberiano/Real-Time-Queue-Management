@@ -216,3 +216,4 @@ function DropdownMenuSubTrigger({
       )}
       {...props}
     >
+      {children}
