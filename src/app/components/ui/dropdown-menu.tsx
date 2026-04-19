@@ -115,3 +115,4 @@ function DropdownMenuRadioGroup({
     <DropdownMenuPrimitive.RadioGroup
       data-slot="dropdown-menu-radio-group"
       {...props}
+    />
