@@ -147,3 +147,4 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="form-message"
+      id={formMessageId}
