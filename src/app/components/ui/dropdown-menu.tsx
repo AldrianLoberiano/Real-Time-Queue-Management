@@ -147,3 +147,4 @@ function DropdownMenuLabel({
   className,
   inset,
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
