@@ -18,3 +18,4 @@ function HoverCardTrigger({
     <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
   );
 }
+
