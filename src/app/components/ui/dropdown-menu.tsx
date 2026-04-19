@@ -241,3 +241,4 @@ function DropdownMenuSubContent({
 export {
   DropdownMenu,
   DropdownMenuPortal,
+  DropdownMenuTrigger,
