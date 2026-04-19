@@ -187,3 +187,4 @@ function DropdownMenuShortcut({
         "text-muted-foreground ml-auto text-xs tracking-widest",
         className,
       )}
+      {...props}
