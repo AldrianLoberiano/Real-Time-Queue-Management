@@ -18,3 +18,4 @@ function DropdownMenuPortal({
   return (
     <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
   );
+}
