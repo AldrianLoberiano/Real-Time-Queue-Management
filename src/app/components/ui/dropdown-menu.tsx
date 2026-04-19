@@ -24,3 +24,4 @@ function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
   return (
+    <DropdownMenuPrimitive.Trigger
