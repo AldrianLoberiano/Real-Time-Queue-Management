@@ -223,3 +223,4 @@ function DropdownMenuSubTrigger({
 }
 
 function DropdownMenuSubContent({
+  className,
