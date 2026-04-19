@@ -75,3 +75,4 @@ function DrawerContent({
 function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="drawer-header"
