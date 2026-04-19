@@ -202,3 +202,4 @@ function DropdownMenuSubTrigger({
   className,
   inset,
   children,
+  ...props
