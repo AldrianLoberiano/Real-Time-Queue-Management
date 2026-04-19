@@ -199,3 +199,4 @@ function DropdownMenuSub({
 }
 
 function DropdownMenuSubTrigger({
+  className,
