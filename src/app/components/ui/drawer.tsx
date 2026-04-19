@@ -102,3 +102,4 @@ function DrawerTitle({
       className={cn("text-foreground font-semibold", className)}
       {...props}
     />
+  );
