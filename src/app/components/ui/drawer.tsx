@@ -110,3 +110,4 @@ function DrawerDescription({
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Description>) {
   return (
+    <DrawerPrimitive.Description
