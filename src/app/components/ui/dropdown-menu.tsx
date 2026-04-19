@@ -164,3 +164,4 @@ function DropdownMenuLabel({
 }
 
 function DropdownMenuSeparator({
+  className,
