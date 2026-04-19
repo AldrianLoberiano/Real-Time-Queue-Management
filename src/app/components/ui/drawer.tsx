@@ -12,3 +12,4 @@ function Drawer({
 }
 
 function DrawerTrigger({
+  ...props
