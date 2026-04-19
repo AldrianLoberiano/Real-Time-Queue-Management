@@ -113,3 +113,4 @@ function DrawerDescription({
     <DrawerPrimitive.Description
       data-slot="drawer-description"
       className={cn("text-muted-foreground text-sm", className)}
+      {...props}
