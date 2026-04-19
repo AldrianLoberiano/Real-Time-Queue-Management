@@ -205,3 +205,4 @@ function DropdownMenuSubTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
   inset?: boolean;
+}) {
