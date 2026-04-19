@@ -52,3 +52,4 @@ function DropdownMenuContent({
 }
 
 function DropdownMenuGroup({
+  ...props
