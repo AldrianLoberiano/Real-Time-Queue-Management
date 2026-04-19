@@ -97,3 +97,4 @@ function DropdownMenuCheckboxItem({
       )}
       checked={checked}
       {...props}
+    >
