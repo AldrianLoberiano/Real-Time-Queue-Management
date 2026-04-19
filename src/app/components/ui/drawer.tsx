@@ -49,3 +49,4 @@ function DrawerContent({
   className,
   children,
   ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Content>) {
