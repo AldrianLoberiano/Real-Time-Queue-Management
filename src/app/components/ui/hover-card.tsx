@@ -11,3 +11,4 @@ function HoverCard({
   return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />;
 }
 
+function HoverCardTrigger({
