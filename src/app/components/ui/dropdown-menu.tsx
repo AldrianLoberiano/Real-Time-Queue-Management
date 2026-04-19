@@ -28,3 +28,4 @@ function DropdownMenuTrigger({
       data-slot="dropdown-menu-trigger"
       {...props}
     />
+  );
