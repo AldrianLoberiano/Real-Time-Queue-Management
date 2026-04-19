@@ -12,3 +12,4 @@ function HoverCard({
 }
 
 function HoverCardTrigger({
+  ...props
