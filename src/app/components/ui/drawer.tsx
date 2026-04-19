@@ -24,3 +24,4 @@ function DrawerPortal({
 }
 
 function DrawerClose({
+  ...props
