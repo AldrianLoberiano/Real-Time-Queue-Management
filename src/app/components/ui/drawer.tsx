@@ -124,3 +124,4 @@ export {
   DrawerOverlay,
   DrawerTrigger,
   DrawerClose,
+  DrawerContent,
