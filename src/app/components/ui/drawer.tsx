@@ -122,3 +122,4 @@ export {
   Drawer,
   DrawerPortal,
   DrawerOverlay,
+  DrawerTrigger,
