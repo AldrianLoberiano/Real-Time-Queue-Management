@@ -228,3 +228,4 @@ function DropdownMenuSubContent({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
   return (
     <DropdownMenuPrimitive.SubContent
+      data-slot="dropdown-menu-sub-content"
