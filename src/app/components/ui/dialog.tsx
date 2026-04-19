@@ -118,3 +118,4 @@ function DialogDescription({
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
+  );
