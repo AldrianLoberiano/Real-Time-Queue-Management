@@ -35,3 +35,4 @@ function DropdownMenuContent({
   className,
   sideOffset = 4,
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
