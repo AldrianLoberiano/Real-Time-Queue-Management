@@ -126,3 +126,4 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   const { formDescriptionId } = useFormField();
 
+  return (
