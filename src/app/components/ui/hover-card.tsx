@@ -30,3 +30,4 @@ function HoverCardContent({
       <HoverCardPrimitive.Content
         data-slot="hover-card-content"
         align={align}
+        sideOffset={sideOffset}
