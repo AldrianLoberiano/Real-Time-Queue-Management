@@ -128,3 +128,4 @@ export {
   DrawerHeader,
   DrawerFooter,
   DrawerTitle,
+  DrawerDescription,
