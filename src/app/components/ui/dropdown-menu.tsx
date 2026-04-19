@@ -207,3 +207,4 @@ function DropdownMenuSubTrigger({
   inset?: boolean;
 }) {
   return (
+    <DropdownMenuPrimitive.SubTrigger
