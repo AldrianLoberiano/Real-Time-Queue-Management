@@ -31,3 +31,4 @@ function DrawerClose({
 
 function DrawerOverlay({
   className,
+  ...props
