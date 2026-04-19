@@ -240,3 +240,4 @@ function DropdownMenuSubContent({
 
 export {
   DropdownMenu,
+  DropdownMenuPortal,
