@@ -123,3 +123,4 @@ function DropdownMenuRadioItem({
   className,
   children,
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
