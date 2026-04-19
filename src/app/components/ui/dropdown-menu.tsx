@@ -8,3 +8,4 @@ import { cn } from "./utils";
 
 function DropdownMenu({
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
