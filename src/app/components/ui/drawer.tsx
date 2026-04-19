@@ -53,3 +53,4 @@ function DrawerContent({
   return (
     <DrawerPortal data-slot="drawer-portal">
       <DrawerOverlay />
+      <DrawerPrimitive.Content
