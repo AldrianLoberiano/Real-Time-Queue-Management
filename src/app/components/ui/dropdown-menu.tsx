@@ -248,3 +248,4 @@ export {
   DropdownMenuItem,
   DropdownMenuCheckboxItem,
   DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
