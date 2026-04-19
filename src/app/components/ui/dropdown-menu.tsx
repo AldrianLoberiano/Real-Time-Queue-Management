@@ -63,3 +63,4 @@ function DropdownMenuItem({
   className,
   inset,
   variant = "default",
+  ...props
