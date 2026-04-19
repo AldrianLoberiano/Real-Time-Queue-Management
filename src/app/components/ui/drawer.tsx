@@ -70,3 +70,4 @@ function DrawerContent({
       </DrawerPrimitive.Content>
     </DrawerPortal>
   );
+}
