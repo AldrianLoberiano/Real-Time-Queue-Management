@@ -126,3 +126,4 @@ function DropdownMenuRadioItem({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
   return (
     <DropdownMenuPrimitive.RadioItem
+      data-slot="dropdown-menu-radio-item"
