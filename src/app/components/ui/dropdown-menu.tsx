@@ -46,3 +46,4 @@ function DropdownMenuContent({
           className,
         )}
         {...props}
+      />
