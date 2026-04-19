@@ -14,3 +14,4 @@ function DropdownMenu({
 
 function DropdownMenuPortal({
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
