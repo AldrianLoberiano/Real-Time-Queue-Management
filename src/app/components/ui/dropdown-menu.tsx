@@ -178,3 +178,4 @@ function DropdownMenuSeparator({
 
 function DropdownMenuShortcut({
   className,
+  ...props
