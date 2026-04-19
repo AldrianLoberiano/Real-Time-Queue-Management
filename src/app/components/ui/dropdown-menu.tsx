@@ -37,3 +37,4 @@ function DropdownMenuContent({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (
+    <DropdownMenuPrimitive.Portal>
