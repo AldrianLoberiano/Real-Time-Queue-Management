@@ -200,3 +200,4 @@ function DropdownMenuSub({
 
 function DropdownMenuSubTrigger({
   className,
+  inset,
