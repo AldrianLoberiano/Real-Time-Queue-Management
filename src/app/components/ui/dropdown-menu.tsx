@@ -87,3 +87,4 @@ function DropdownMenuCheckboxItem({
   children,
   checked,
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
