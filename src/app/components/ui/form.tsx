@@ -162,3 +162,4 @@ export {
   FormItem,
   FormLabel,
   FormControl,
+  FormDescription,
