@@ -114,3 +114,4 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
       id={formItemId}
       aria-describedby={
         !error
+          ? `${formDescriptionId}`
