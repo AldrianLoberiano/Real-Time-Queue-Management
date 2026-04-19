@@ -203,3 +203,4 @@ function DropdownMenuSubTrigger({
   inset,
   children,
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
