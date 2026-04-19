@@ -18,3 +18,4 @@ function DrawerTrigger({
 }
 
 function DrawerPortal({
+  ...props
