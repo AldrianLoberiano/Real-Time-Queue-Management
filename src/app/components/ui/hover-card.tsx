@@ -36,4 +36,5 @@ function HoverCardContent({
           className,
         )}
         {...props}
+      />
 export { HoverCard, HoverCardTrigger, HoverCardContent };
