@@ -125,3 +125,4 @@ export {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
