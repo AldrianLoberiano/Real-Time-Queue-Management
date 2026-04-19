@@ -13,3 +13,4 @@ function Drawer({
 
 function DrawerTrigger({
   ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {
