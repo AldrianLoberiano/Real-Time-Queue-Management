@@ -55,3 +55,4 @@ function DrawerContent({
       <DrawerOverlay />
       <DrawerPrimitive.Content
         data-slot="drawer-content"
+        className={cn(
