@@ -14,3 +14,4 @@ function HoverCard({
 function HoverCardTrigger({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
+  return (
