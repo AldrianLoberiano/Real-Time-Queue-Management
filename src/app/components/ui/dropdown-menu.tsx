@@ -193,3 +193,4 @@ function DropdownMenuShortcut({
 }
 
 function DropdownMenuSub({
+  ...props
