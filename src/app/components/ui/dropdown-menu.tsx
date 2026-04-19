@@ -62,3 +62,4 @@ function DropdownMenuGroup({
 function DropdownMenuItem({
   className,
   inset,
+  variant = "default",
