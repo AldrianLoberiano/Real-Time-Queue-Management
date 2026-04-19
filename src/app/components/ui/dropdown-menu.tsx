@@ -152,3 +152,4 @@ function DropdownMenuLabel({
 }) {
   return (
     <DropdownMenuPrimitive.Label
+      data-slot="dropdown-menu-label"
