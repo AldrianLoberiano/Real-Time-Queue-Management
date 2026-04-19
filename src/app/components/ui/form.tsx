@@ -38,3 +38,4 @@ const FormField = <
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
+    </FormFieldContext.Provider>
