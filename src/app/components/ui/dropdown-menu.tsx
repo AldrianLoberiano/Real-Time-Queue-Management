@@ -183,3 +183,4 @@ function DropdownMenuShortcut({
   return (
     <span
       data-slot="dropdown-menu-shortcut"
+      className={cn(
