@@ -19,3 +19,4 @@ function DrawerTrigger({
 
 function DrawerPortal({
   ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
