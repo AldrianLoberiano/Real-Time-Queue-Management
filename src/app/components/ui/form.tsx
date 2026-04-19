@@ -95,3 +95,4 @@ function FormLabel({
 
   return (
     <Label
+      data-slot="form-label"
