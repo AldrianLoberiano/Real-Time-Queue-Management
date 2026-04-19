@@ -146,3 +146,4 @@ function DropdownMenuRadioItem({
 function DropdownMenuLabel({
   className,
   inset,
+  ...props
