@@ -182,3 +182,4 @@ function DropdownMenuShortcut({
 }: React.ComponentProps<"span">) {
   return (
     <span
+      data-slot="dropdown-menu-shortcut"
