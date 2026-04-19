@@ -64,3 +64,4 @@ function DropdownMenuItem({
   inset,
   variant = "default",
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
