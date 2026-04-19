@@ -114,3 +114,4 @@ function DrawerDescription({
       data-slot="drawer-description"
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
+    />
