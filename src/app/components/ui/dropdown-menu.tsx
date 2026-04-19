@@ -83,3 +83,4 @@ function DropdownMenuItem({
 }
 
 function DropdownMenuCheckboxItem({
+  className,
