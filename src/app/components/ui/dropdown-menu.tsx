@@ -138,3 +138,4 @@ function DropdownMenuRadioItem({
           <CircleIcon className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
+      {children}
