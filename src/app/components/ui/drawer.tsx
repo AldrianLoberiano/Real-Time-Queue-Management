@@ -7,3 +7,4 @@ import { cn } from "./utils";
 
 function Drawer({
   ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Root>) {
