@@ -194,3 +194,4 @@ function DropdownMenuShortcut({
 
 function DropdownMenuSub({
   ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
