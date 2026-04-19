@@ -51,3 +51,4 @@ function DrawerContent({
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Content>) {
   return (
+    <DrawerPortal data-slot="drawer-portal">
