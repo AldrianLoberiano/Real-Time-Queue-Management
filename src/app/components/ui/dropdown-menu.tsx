@@ -239,3 +239,4 @@ function DropdownMenuSubContent({
 }
 
 export {
+  DropdownMenu,
