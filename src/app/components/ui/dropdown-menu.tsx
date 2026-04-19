@@ -106,3 +106,4 @@ function DropdownMenuCheckboxItem({
       {children}
     </DropdownMenuPrimitive.CheckboxItem>
   );
+}
