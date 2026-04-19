@@ -19,3 +19,4 @@ import { Label } from "./label";
 const Form = FormProvider;
 
 type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
