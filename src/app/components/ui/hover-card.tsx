@@ -7,3 +7,4 @@ import { cn } from "./utils";
 
 function HoverCard({
   ...props
+}: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
