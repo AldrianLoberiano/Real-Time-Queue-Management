@@ -126,3 +126,4 @@ export {
   DrawerClose,
   DrawerContent,
   DrawerHeader,
+  DrawerFooter,
