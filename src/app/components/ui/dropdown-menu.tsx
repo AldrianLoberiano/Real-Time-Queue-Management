@@ -215,3 +215,4 @@ function DropdownMenuSubTrigger({
         className,
       )}
       {...props}
+    >
