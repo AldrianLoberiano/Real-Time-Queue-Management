@@ -121,3 +121,4 @@ function DrawerDescription({
 export {
   Drawer,
   DrawerPortal,
+  DrawerOverlay,
