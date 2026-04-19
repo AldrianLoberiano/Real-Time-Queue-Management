@@ -151,3 +151,4 @@ function DropdownMenuLabel({
   inset?: boolean;
 }) {
   return (
+    <DropdownMenuPrimitive.Label
