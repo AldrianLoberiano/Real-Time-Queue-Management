@@ -94,3 +94,4 @@ function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 function DrawerTitle({
   className,
+  ...props
