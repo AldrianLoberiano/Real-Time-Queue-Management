@@ -123,3 +123,4 @@ function DialogDescription({
 
 export {
   Dialog,
+  DialogClose,
