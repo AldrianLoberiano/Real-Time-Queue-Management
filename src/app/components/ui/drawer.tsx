@@ -97,3 +97,4 @@ function DrawerTitle({
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Title>) {
   return (
+    <DrawerPrimitive.Title
