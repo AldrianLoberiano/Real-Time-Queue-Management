@@ -47,3 +47,4 @@ function DropdownMenuContent({
         )}
         {...props}
       />
+    </DropdownMenuPrimitive.Portal>
