@@ -120,3 +120,4 @@ function DrawerDescription({
 
 export {
   Drawer,
+  DrawerPortal,
