@@ -93,3 +93,4 @@ function MenubarItem({
   inset,
   variant = "default",
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Item> & {
