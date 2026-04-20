@@ -265,3 +265,4 @@ export {
   MenubarGroup,
   MenubarSeparator,
   MenubarLabel,
+  MenubarItem,
