@@ -150,3 +150,4 @@ function MenubarRadioItem({
         className,
       )}
       {...props}
+    >
