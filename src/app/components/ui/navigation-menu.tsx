@@ -9,3 +9,4 @@ function NavigationMenu({
   className,
   children,
   viewport = true,
+  ...props
