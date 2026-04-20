@@ -94,3 +94,4 @@ function MenubarItem({
   variant = "default",
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Item> & {
+  inset?: boolean;
