@@ -186,3 +186,4 @@ function MenubarSeparator({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Separator>) {
   return (
+    <MenubarPrimitive.Separator
