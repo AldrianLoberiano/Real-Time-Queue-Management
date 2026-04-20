@@ -247,3 +247,4 @@ function MenubarSubContent({
   return (
     <MenubarPrimitive.SubContent
       data-slot="menubar-sub-content"
+      className={cn(
