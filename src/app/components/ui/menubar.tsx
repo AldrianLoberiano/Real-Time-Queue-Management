@@ -143,3 +143,4 @@ function MenubarRadioItem({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioItem>) {
   return (
+    <MenubarPrimitive.RadioItem
