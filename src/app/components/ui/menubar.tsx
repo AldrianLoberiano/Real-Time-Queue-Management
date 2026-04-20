@@ -78,3 +78,4 @@ function MenubarContent({
         align={align}
         alignOffset={alignOffset}
         sideOffset={sideOffset}
+        className={cn(
