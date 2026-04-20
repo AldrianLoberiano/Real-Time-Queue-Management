@@ -140,3 +140,4 @@ function MenubarCheckboxItem({
 function MenubarRadioItem({
   className,
   children,
+  ...props
