@@ -76,3 +76,4 @@ function MenubarContent({
       <MenubarPrimitive.Content
         data-slot="menubar-content"
         align={align}
+        alignOffset={alignOffset}
