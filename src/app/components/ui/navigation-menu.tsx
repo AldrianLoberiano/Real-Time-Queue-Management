@@ -66,3 +66,4 @@ function NavigationMenuTrigger({
   className,
   children,
   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
