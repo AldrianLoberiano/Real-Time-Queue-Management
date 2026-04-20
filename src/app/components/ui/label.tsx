@@ -10,3 +10,4 @@ function Label({
   ...props
 }: React.ComponentProps<typeof LabelPrimitive.Root>) {
   return (
+    <LabelPrimitive.Root
