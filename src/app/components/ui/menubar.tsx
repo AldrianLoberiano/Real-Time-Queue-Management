@@ -86,3 +86,4 @@ function MenubarContent({
       />
     </MenubarPortal>
   );
+}
