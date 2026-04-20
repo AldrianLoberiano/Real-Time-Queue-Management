@@ -7,3 +7,4 @@ import { MinusIcon } from "lucide-react";
 import { cn } from "./utils";
 
 function InputOTP({
+  className,
