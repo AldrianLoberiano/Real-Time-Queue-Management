@@ -48,3 +48,4 @@ function InputOTPSlot({
 
   return (
     <div
+      data-slot="input-otp-slot"
