@@ -96,3 +96,4 @@ function MenubarItem({
 }: React.ComponentProps<typeof MenubarPrimitive.Item> & {
   inset?: boolean;
   variant?: "default" | "destructive";
+}) {
