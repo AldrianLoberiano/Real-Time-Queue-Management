@@ -50,3 +50,4 @@ function InputOTPSlot({
     <div
       data-slot="input-otp-slot"
       data-active={isActive}
+      className={cn(
