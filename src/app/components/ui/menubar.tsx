@@ -68,3 +68,4 @@ function MenubarContent({
   className,
   align = "start",
   alignOffset = -4,
+  sideOffset = 8,
