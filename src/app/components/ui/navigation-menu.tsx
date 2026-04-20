@@ -81,3 +81,4 @@ function NavigationMenuTrigger({
     </NavigationMenuPrimitive.Trigger>
   );
 }
+
