@@ -220,3 +220,4 @@ function MenubarSubTrigger({
   className,
   inset,
   children,
+  ...props
