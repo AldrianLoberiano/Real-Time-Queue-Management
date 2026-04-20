@@ -262,3 +262,4 @@ export {
   MenubarMenu,
   MenubarTrigger,
   MenubarContent,
+  MenubarGroup,
