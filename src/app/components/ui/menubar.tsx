@@ -28,3 +28,4 @@ function MenubarMenu({
   return <MenubarPrimitive.Menu data-slot="menubar-menu" {...props} />;
 }
 
+function MenubarGroup({
