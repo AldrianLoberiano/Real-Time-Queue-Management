@@ -43,3 +43,4 @@ function InputOTPSlot({
 }: React.ComponentProps<"div"> & {
   index: number;
 }) {
+  const inputOTPContext = React.useContext(OTPInputContext);
