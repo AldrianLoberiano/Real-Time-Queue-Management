@@ -13,3 +13,4 @@ function Menubar({
   return (
     <MenubarPrimitive.Root
       data-slot="menubar"
+      className={cn(
