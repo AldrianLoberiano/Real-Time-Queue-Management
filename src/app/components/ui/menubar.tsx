@@ -219,3 +219,4 @@ function MenubarSub({
 function MenubarSubTrigger({
   className,
   inset,
+  children,
