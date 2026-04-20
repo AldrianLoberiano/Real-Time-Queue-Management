@@ -10,3 +10,4 @@ function NavigationMenu({
   children,
   viewport = true,
   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
