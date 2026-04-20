@@ -205,3 +205,4 @@ function MenubarShortcut({
         "text-muted-foreground ml-auto text-xs tracking-widest",
         className,
       )}
+      {...props}
