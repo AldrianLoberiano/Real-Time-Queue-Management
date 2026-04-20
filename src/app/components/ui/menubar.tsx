@@ -145,3 +145,4 @@ function MenubarRadioItem({
   return (
     <MenubarPrimitive.RadioItem
       data-slot="menubar-radio-item"
+      className={cn(
