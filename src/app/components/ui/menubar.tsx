@@ -252,3 +252,4 @@ function MenubarSubContent({
         className,
       )}
       {...props}
+    />
