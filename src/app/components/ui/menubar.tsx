@@ -267,3 +267,4 @@ export {
   MenubarLabel,
   MenubarItem,
   MenubarShortcut,
+  MenubarCheckboxItem,
