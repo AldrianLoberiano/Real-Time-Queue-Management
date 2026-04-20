@@ -116,3 +116,4 @@ function MenubarCheckboxItem({
   children,
   checked,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.CheckboxItem>) {
