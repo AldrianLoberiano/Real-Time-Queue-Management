@@ -55,3 +55,4 @@ function NavigationMenuItem({
       className={cn("relative", className)}
       {...props}
     />
+  );
