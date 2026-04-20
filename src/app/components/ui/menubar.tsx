@@ -200,3 +200,4 @@ function MenubarShortcut({
 }: React.ComponentProps<"span">) {
   return (
     <span
+      data-slot="menubar-shortcut"
