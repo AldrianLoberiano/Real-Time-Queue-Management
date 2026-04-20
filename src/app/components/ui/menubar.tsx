@@ -127,3 +127,4 @@ function MenubarCheckboxItem({
       checked={checked}
       {...props}
     >
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
