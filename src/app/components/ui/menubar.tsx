@@ -159,3 +159,4 @@ function MenubarRadioItem({
       {children}
     </MenubarPrimitive.RadioItem>
   );
+}
