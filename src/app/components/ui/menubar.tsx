@@ -23,3 +23,4 @@ function Menubar({
 }
 
 function MenubarMenu({
+  ...props
