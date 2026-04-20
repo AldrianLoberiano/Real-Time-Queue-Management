@@ -26,3 +26,4 @@ function NavigationMenu({
       {children}
       {viewport && <NavigationMenuViewport />}
     </NavigationMenuPrimitive.Root>
+  );
