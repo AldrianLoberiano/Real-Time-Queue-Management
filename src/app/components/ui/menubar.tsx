@@ -50,3 +50,4 @@ function MenubarRadioGroup({
 
 function MenubarTrigger({
   className,
+  ...props
