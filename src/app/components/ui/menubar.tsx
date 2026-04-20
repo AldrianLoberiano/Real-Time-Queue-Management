@@ -74,3 +74,4 @@ function MenubarContent({
   return (
     <MenubarPortal>
       <MenubarPrimitive.Content
+        data-slot="menubar-content"
