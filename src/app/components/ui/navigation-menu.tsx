@@ -14,3 +14,4 @@ function NavigationMenu({
   viewport?: boolean;
 }) {
   return (
+    <NavigationMenuPrimitive.Root
