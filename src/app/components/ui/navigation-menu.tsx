@@ -31,3 +31,4 @@ function NavigationMenu({
 
 function NavigationMenuList({
   className,
+  ...props
