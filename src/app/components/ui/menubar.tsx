@@ -36,3 +36,4 @@ function MenubarGroup({
 
 function MenubarPortal({
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
