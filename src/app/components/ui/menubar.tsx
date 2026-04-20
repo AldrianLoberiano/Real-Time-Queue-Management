@@ -9,3 +9,4 @@ import { cn } from "./utils";
 function Menubar({
   className,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Root>) {
