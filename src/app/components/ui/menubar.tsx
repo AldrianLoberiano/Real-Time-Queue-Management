@@ -29,3 +29,4 @@ function MenubarMenu({
 }
 
 function MenubarGroup({
+  ...props
