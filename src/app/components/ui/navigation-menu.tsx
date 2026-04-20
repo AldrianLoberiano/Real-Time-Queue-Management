@@ -7,3 +7,4 @@ import { cn } from "./utils";
 
 function NavigationMenu({
   className,
+  children,
