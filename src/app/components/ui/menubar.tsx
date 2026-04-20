@@ -196,3 +196,4 @@ function MenubarSeparator({
 
 function MenubarShortcut({
   className,
+  ...props
