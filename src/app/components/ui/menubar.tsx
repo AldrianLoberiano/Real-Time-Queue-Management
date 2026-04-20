@@ -165,3 +165,4 @@ function MenubarLabel({
   className,
   inset,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Label> & {
