@@ -114,3 +114,4 @@ function MenubarItem({
 function MenubarCheckboxItem({
   className,
   children,
+  checked,
