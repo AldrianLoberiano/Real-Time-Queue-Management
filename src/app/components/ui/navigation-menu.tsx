@@ -106,3 +106,4 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
+        "absolute top-full left-0 isolate z-50 flex justify-center",
