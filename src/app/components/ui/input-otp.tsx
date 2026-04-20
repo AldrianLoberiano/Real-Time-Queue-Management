@@ -62,3 +62,4 @@ function InputOTPSlot({
           <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
         </div>
       )}
+    </div>
