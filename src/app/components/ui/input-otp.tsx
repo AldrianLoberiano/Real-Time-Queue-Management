@@ -9,3 +9,4 @@ import { cn } from "./utils";
 function InputOTP({
   className,
   containerClassName,
+  ...props
