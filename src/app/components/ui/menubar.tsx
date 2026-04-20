@@ -266,3 +266,4 @@ export {
   MenubarSeparator,
   MenubarLabel,
   MenubarItem,
+  MenubarShortcut,
