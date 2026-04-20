@@ -88,3 +88,4 @@ function NavigationMenuContent({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
   return (
     <NavigationMenuPrimitive.Content
+      data-slot="navigation-menu-content"
