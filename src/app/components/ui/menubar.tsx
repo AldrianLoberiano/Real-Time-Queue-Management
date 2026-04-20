@@ -11,3 +11,4 @@ function Menubar({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
   return (
+    <MenubarPrimitive.Root
