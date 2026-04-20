@@ -42,3 +42,4 @@ function InputOTPSlot({
   ...props
 }: React.ComponentProps<"div"> & {
   index: number;
+}) {
