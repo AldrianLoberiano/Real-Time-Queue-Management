@@ -240,3 +240,4 @@ function MenubarSubTrigger({
   );
 }
 
+function MenubarSubContent({
