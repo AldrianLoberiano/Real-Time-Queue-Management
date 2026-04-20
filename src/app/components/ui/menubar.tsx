@@ -41,3 +41,4 @@ function MenubarPortal({
 }
 
 function MenubarRadioGroup({
+  ...props
