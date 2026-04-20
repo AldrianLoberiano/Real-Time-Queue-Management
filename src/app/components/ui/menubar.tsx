@@ -184,3 +184,4 @@ function MenubarLabel({
 function MenubarSeparator({
   className,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Separator>) {
