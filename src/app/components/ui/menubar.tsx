@@ -221,3 +221,4 @@ function MenubarSubTrigger({
   inset,
   children,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & {
