@@ -98,3 +98,4 @@ function MenubarItem({
   variant?: "default" | "destructive";
 }) {
   return (
+    <MenubarPrimitive.Item
