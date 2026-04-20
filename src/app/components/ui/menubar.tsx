@@ -71,3 +71,4 @@ function MenubarContent({
   sideOffset = 8,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Content>) {
+  return (
