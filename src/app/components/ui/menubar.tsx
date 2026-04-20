@@ -72,3 +72,4 @@ function MenubarContent({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Content>) {
   return (
+    <MenubarPortal>
