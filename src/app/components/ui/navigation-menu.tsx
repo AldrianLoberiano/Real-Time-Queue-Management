@@ -100,3 +100,4 @@ function NavigationMenuContent({
 }
 
 function NavigationMenuViewport({
+  className,
