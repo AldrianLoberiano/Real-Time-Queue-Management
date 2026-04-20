@@ -225,3 +225,4 @@ function MenubarSubTrigger({
   inset?: boolean;
 }) {
   return (
+    <MenubarPrimitive.SubTrigger
