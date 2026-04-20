@@ -246,3 +246,4 @@ function MenubarSubContent({
 }: React.ComponentProps<typeof MenubarPrimitive.SubContent>) {
   return (
     <MenubarPrimitive.SubContent
+      data-slot="menubar-sub-content"
