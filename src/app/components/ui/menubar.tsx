@@ -126,3 +126,4 @@ function MenubarCheckboxItem({
       )}
       checked={checked}
       {...props}
+    >
