@@ -24,3 +24,4 @@ function Menubar({
 
 function MenubarMenu({
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
