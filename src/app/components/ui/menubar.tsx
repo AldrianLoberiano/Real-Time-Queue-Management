@@ -236,3 +236,4 @@ function MenubarSubTrigger({
     >
       {children}
       <ChevronRightIcon className="ml-auto h-4 w-4" />
+    </MenubarPrimitive.SubTrigger>
