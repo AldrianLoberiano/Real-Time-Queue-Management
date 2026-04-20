@@ -23,3 +23,4 @@ function NavigationMenu({
       )}
       {...props}
     >
+      {children}
