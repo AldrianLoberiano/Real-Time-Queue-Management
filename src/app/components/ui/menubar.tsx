@@ -91,3 +91,4 @@ function MenubarContent({
 function MenubarItem({
   className,
   inset,
+  variant = "default",
