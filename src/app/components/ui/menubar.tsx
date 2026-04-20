@@ -131,3 +131,4 @@ function MenubarCheckboxItem({
         <MenubarPrimitive.ItemIndicator>
           <CheckIcon className="size-4" />
         </MenubarPrimitive.ItemIndicator>
+      </span>
