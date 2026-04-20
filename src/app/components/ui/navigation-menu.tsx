@@ -58,3 +58,4 @@ function NavigationMenuItem({
   );
 }
 
+const navigationMenuTriggerStyle = cva(
