@@ -197,3 +197,4 @@ function MenubarSeparator({
 function MenubarShortcut({
   className,
   ...props
+}: React.ComponentProps<"span">) {
