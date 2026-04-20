@@ -95,3 +95,4 @@ function NavigationMenuContent({
         className,
       )}
       {...props}
+    />
