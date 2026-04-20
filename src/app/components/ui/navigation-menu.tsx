@@ -74,3 +74,4 @@ function NavigationMenuTrigger({
       {...props}
     >
       {children}{" "}
+      <ChevronDownIcon
