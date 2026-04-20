@@ -144,3 +144,4 @@ function MenubarRadioItem({
 }: React.ComponentProps<typeof MenubarPrimitive.RadioItem>) {
   return (
     <MenubarPrimitive.RadioItem
+      data-slot="menubar-radio-item"
