@@ -109,3 +109,4 @@ function NavigationMenuViewport({
         "absolute top-full left-0 isolate z-50 flex justify-center",
       )}
     >
+      <NavigationMenuPrimitive.Viewport
