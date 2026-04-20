@@ -170,3 +170,4 @@ function MenubarLabel({
 }) {
   return (
     <MenubarPrimitive.Label
+      data-slot="menubar-label"
