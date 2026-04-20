@@ -67,3 +67,4 @@ function MenubarTrigger({
 function MenubarContent({
   className,
   align = "start",
+  alignOffset = -4,
