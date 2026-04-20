@@ -118,3 +118,4 @@ function MenubarCheckboxItem({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.CheckboxItem>) {
   return (
+    <MenubarPrimitive.CheckboxItem
