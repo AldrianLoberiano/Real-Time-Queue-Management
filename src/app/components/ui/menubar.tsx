@@ -134,3 +134,4 @@ function MenubarCheckboxItem({
       </span>
       {children}
     </MenubarPrimitive.CheckboxItem>
+  );
