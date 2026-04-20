@@ -169,3 +169,4 @@ function MenubarLabel({
   inset?: boolean;
 }) {
   return (
+    <MenubarPrimitive.Label
