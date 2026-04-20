@@ -69,3 +69,4 @@ function NavigationMenuTrigger({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
   return (
     <NavigationMenuPrimitive.Trigger
+      data-slot="navigation-menu-trigger"
