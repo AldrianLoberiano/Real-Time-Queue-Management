@@ -261,3 +261,4 @@ export {
   MenubarPortal,
   MenubarMenu,
   MenubarTrigger,
+  MenubarContent,
