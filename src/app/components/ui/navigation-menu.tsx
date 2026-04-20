@@ -49,3 +49,4 @@ function NavigationMenuItem({
   className,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
+  return (
