@@ -115,3 +115,4 @@ function MenubarCheckboxItem({
   className,
   children,
   checked,
+  ...props
