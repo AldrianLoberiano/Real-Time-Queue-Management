@@ -156,3 +156,4 @@ function MenubarRadioItem({
           <CircleIcon className="size-2 fill-current" />
         </MenubarPrimitive.ItemIndicator>
       </span>
+      {children}
