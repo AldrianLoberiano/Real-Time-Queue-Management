@@ -77,3 +77,4 @@ function MenubarContent({
         data-slot="menubar-content"
         align={align}
         alignOffset={alignOffset}
+        sideOffset={sideOffset}
