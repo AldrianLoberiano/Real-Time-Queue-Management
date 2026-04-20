@@ -30,3 +30,4 @@ function MenubarMenu({
 
 function MenubarGroup({
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Group>) {
