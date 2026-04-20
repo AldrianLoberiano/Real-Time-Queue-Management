@@ -51,3 +51,4 @@ function MenubarRadioGroup({
 function MenubarTrigger({
   className,
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Trigger>) {
