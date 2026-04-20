@@ -207,3 +207,4 @@ function MenubarShortcut({
       )}
       {...props}
     />
+  );
