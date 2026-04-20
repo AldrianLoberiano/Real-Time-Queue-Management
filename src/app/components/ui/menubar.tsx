@@ -107,3 +107,4 @@ function MenubarItem({
         className,
       )}
       {...props}
+    />
