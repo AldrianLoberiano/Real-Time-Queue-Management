@@ -194,3 +194,4 @@ function MenubarSeparator({
   );
 }
 
+function MenubarShortcut({
