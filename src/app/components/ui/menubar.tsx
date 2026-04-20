@@ -120,3 +120,4 @@ function MenubarCheckboxItem({
   return (
     <MenubarPrimitive.CheckboxItem
       data-slot="menubar-checkbox-item"
+      className={cn(
