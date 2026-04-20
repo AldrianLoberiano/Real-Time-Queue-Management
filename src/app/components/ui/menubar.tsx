@@ -85,3 +85,4 @@ function MenubarContent({
         {...props}
       />
     </MenubarPortal>
+  );
