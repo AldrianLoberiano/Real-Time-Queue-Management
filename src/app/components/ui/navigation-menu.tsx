@@ -27,3 +27,4 @@ function NavigationMenu({
       {viewport && <NavigationMenuViewport />}
     </NavigationMenuPrimitive.Root>
   );
+}
