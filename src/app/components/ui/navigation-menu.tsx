@@ -102,3 +102,4 @@ function NavigationMenuContent({
 function NavigationMenuViewport({
   className,
   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
