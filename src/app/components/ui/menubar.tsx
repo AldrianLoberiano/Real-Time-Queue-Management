@@ -45,3 +45,4 @@ function MenubarRadioGroup({
 }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
   return (
     <MenubarPrimitive.RadioGroup data-slot="menubar-radio-group" {...props} />
+  );
