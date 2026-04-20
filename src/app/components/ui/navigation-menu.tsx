@@ -87,3 +87,4 @@ function NavigationMenuContent({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
   return (
+    <NavigationMenuPrimitive.Content
