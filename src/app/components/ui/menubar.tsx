@@ -216,3 +216,4 @@ function MenubarSub({
   return <MenubarPrimitive.Sub data-slot="menubar-sub" {...props} />;
 }
 
+function MenubarSubTrigger({
