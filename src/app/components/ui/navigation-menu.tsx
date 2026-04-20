@@ -63,3 +63,4 @@ const navigationMenuTriggerStyle = cva(
 );
 
 function NavigationMenuTrigger({
+  children,
