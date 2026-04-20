@@ -195,3 +195,4 @@ function MenubarSeparator({
 }
 
 function MenubarShortcut({
+  className,
