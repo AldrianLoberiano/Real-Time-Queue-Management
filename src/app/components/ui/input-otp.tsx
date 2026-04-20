@@ -57,3 +57,4 @@ function InputOTPSlot({
       {...props}
     >
       {char}
+      {hasFakeCaret && (
