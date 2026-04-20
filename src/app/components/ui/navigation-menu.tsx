@@ -82,3 +82,4 @@ function NavigationMenuTrigger({
   );
 }
 
+function NavigationMenuContent({
