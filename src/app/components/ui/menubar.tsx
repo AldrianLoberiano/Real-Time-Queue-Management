@@ -138,3 +138,4 @@ function MenubarCheckboxItem({
 }
 
 function MenubarRadioItem({
+  className,
