@@ -85,3 +85,4 @@ function NavigationMenuTrigger({
 function NavigationMenuContent({
   className,
   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
