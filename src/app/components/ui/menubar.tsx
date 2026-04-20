@@ -198,3 +198,4 @@ function MenubarShortcut({
   className,
   ...props
 }: React.ComponentProps<"span">) {
+  return (
