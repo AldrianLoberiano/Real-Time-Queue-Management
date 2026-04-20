@@ -171,3 +171,4 @@ function MenubarLabel({
   return (
     <MenubarPrimitive.Label
       data-slot="menubar-label"
+      data-inset={inset}
