@@ -28,3 +28,4 @@ function NavigationMenu({
     </NavigationMenuPrimitive.Root>
   );
 }
+
