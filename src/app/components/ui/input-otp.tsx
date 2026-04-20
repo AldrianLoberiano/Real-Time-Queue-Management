@@ -21,3 +21,4 @@ function InputOTP({
         containerClassName,
       )}
       className={cn("disabled:cursor-not-allowed", className)}
+      {...props}
