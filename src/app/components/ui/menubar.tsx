@@ -166,3 +166,4 @@ function MenubarLabel({
   inset,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Label> & {
+  inset?: boolean;
