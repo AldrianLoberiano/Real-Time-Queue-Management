@@ -172,3 +172,4 @@ function MenubarLabel({
     <MenubarPrimitive.Label
       data-slot="menubar-label"
       data-inset={inset}
+      className={cn(
