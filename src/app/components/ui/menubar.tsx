@@ -164,3 +164,4 @@ function MenubarRadioItem({
 function MenubarLabel({
   className,
   inset,
+  ...props
