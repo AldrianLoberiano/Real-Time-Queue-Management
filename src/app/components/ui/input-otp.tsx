@@ -40,3 +40,4 @@ function InputOTPSlot({
   index,
   className,
   ...props
+}: React.ComponentProps<"div"> & {
