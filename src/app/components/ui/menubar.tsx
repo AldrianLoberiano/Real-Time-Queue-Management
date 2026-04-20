@@ -43,3 +43,4 @@ function MenubarPortal({
 function MenubarRadioGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
+  return (
