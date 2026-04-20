@@ -182,3 +182,4 @@ function MenubarLabel({
 }
 
 function MenubarSeparator({
+  className,
