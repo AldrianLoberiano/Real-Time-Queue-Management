@@ -183,3 +183,4 @@ function MenubarLabel({
 
 function MenubarSeparator({
   className,
+  ...props
