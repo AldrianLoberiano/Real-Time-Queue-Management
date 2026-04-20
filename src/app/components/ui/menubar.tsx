@@ -263,3 +263,4 @@ export {
   MenubarTrigger,
   MenubarContent,
   MenubarGroup,
+  MenubarSeparator,
