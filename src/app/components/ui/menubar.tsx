@@ -269,3 +269,4 @@ export {
   MenubarShortcut,
   MenubarCheckboxItem,
   MenubarRadioGroup,
+  MenubarRadioItem,
