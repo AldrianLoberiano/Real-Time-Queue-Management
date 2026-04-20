@@ -75,3 +75,4 @@ function MenubarContent({
     <MenubarPortal>
       <MenubarPrimitive.Content
         data-slot="menubar-content"
+        align={align}
