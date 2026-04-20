@@ -16,3 +16,4 @@ function InputOTP({
   return (
     <OTPInput
       data-slot="input-otp"
+      containerClassName={cn(
