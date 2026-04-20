@@ -101,3 +101,4 @@ function MenubarItem({
     <MenubarPrimitive.Item
       data-slot="menubar-item"
       data-inset={inset}
+      data-variant={variant}
