@@ -67,3 +67,4 @@ function InputOTPSlot({
 }
 
 function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+  return (
