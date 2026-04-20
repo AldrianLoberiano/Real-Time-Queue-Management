@@ -54,3 +54,4 @@ function NavigationMenuItem({
       data-slot="navigation-menu-item"
       className={cn("relative", className)}
       {...props}
+    />
