@@ -157,3 +157,4 @@ function MenubarRadioItem({
         </MenubarPrimitive.ItemIndicator>
       </span>
       {children}
+    </MenubarPrimitive.RadioItem>
