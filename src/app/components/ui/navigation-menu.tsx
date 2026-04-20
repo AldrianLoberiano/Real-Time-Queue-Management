@@ -12,3 +12,4 @@ function NavigationMenu({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean;
+}) {
