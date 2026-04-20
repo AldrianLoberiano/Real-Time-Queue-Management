@@ -50,3 +50,4 @@ function NavigationMenuItem({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
   return (
+    <NavigationMenuPrimitive.Item
