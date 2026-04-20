@@ -55,3 +55,4 @@ function InputOTPSlot({
         className,
       )}
       {...props}
+    >
