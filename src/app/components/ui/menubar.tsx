@@ -119,3 +119,4 @@ function MenubarCheckboxItem({
 }: React.ComponentProps<typeof MenubarPrimitive.CheckboxItem>) {
   return (
     <MenubarPrimitive.CheckboxItem
+      data-slot="menubar-checkbox-item"
