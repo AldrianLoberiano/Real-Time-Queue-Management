@@ -15,3 +15,4 @@ function NavigationMenu({
 }) {
   return (
     <NavigationMenuPrimitive.Root
+      data-slot="navigation-menu"
