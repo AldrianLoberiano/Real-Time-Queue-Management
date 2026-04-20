@@ -55,3 +55,4 @@ function MenubarTrigger({
   return (
     <MenubarPrimitive.Trigger
       data-slot="menubar-trigger"
+      className={cn(
