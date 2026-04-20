@@ -133,3 +133,4 @@ function MenubarCheckboxItem({
         </MenubarPrimitive.ItemIndicator>
       </span>
       {children}
+    </MenubarPrimitive.CheckboxItem>
