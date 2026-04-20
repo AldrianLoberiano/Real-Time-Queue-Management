@@ -84,3 +84,4 @@ function MenubarContent({
         )}
         {...props}
       />
+    </MenubarPortal>
