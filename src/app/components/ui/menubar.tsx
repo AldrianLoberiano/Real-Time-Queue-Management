@@ -234,3 +234,4 @@ function MenubarSubTrigger({
       )}
       {...props}
     >
+      {children}
