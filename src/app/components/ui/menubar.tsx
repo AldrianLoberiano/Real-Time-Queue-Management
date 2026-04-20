@@ -90,3 +90,4 @@ function MenubarContent({
 
 function MenubarItem({
   className,
+  inset,
