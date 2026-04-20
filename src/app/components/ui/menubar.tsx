@@ -49,3 +49,4 @@ function MenubarRadioGroup({
 }
 
 function MenubarTrigger({
+  className,
