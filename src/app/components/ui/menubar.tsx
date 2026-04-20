@@ -189,3 +189,4 @@ function MenubarSeparator({
     <MenubarPrimitive.Separator
       data-slot="menubar-separator"
       className={cn("bg-border -mx-1 my-1 h-px", className)}
+      {...props}
