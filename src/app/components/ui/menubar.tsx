@@ -201,3 +201,4 @@ function MenubarShortcut({
   return (
     <span
       data-slot="menubar-shortcut"
+      className={cn(
