@@ -206,3 +206,4 @@ function MenubarShortcut({
         className,
       )}
       {...props}
+    />
