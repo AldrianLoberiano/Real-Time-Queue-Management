@@ -89,3 +89,4 @@ function MenubarContent({
 }
 
 function MenubarItem({
+  className,
