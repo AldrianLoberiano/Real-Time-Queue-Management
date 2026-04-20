@@ -112,3 +112,4 @@ function MenubarItem({
 }
 
 function MenubarCheckboxItem({
+  className,
