@@ -233,3 +233,4 @@ function MenubarSubTrigger({
         className,
       )}
       {...props}
+    >
