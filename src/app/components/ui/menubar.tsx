@@ -92,3 +92,4 @@ function MenubarItem({
   className,
   inset,
   variant = "default",
+  ...props
