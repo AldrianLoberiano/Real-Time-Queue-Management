@@ -187,3 +187,4 @@ function MenubarSeparator({
 }: React.ComponentProps<typeof MenubarPrimitive.Separator>) {
   return (
     <MenubarPrimitive.Separator
+      data-slot="menubar-separator"
