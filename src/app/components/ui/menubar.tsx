@@ -244,3 +244,4 @@ function MenubarSubContent({
   className,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.SubContent>) {
+  return (
