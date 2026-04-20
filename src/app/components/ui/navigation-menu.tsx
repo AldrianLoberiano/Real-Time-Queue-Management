@@ -47,3 +47,4 @@ function NavigationMenuList({
 
 function NavigationMenuItem({
   className,
+  ...props
