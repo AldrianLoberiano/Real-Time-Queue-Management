@@ -241,3 +241,4 @@ function MenubarSubTrigger({
 }
 
 function MenubarSubContent({
+  className,
