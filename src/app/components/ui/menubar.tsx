@@ -212,3 +212,4 @@ function MenubarShortcut({
 
 function MenubarSub({
   ...props
+}: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
