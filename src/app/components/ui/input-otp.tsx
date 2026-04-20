@@ -33,3 +33,4 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex items-center gap-1", className)}
       {...props}
     />
+  );
