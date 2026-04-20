@@ -18,3 +18,4 @@ function Menubar({
         className,
       )}
       {...props}
+    />
