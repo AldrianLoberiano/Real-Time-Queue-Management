@@ -47,3 +47,4 @@ function MenubarRadioGroup({
     <MenubarPrimitive.RadioGroup data-slot="menubar-radio-group" {...props} />
   );
 }
+
