@@ -96,3 +96,4 @@ function NavigationMenuContent({
       )}
       {...props}
     />
+  );
