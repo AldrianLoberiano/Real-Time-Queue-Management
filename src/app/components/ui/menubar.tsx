@@ -242,3 +242,4 @@ function MenubarSubTrigger({
 
 function MenubarSubContent({
   className,
+  ...props
