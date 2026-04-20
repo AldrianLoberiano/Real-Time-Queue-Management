@@ -223,3 +223,4 @@ function MenubarSubTrigger({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & {
   inset?: boolean;
+}) {
