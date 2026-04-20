@@ -35,3 +35,4 @@ function NavigationMenuList({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {
   return (
     <NavigationMenuPrimitive.List
+      data-slot="navigation-menu-list"
