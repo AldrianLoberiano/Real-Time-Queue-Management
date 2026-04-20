@@ -35,3 +35,4 @@ function MenubarGroup({
 }
 
 function MenubarPortal({
+  ...props
