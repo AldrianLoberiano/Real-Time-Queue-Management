@@ -60,3 +60,4 @@ function MenubarTrigger({
         className,
       )}
       {...props}
+    />
