@@ -260,3 +260,4 @@ export {
   Menubar,
   MenubarPortal,
   MenubarMenu,
+  MenubarTrigger,
