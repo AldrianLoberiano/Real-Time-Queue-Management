@@ -53,3 +53,4 @@ function MenubarTrigger({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Trigger>) {
   return (
+    <MenubarPrimitive.Trigger
