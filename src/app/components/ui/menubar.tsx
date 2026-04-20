@@ -65,3 +65,4 @@ function MenubarTrigger({
 }
 
 function MenubarContent({
+  className,
