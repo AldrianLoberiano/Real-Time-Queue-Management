@@ -226,3 +226,4 @@ function MenubarSubTrigger({
 }) {
   return (
     <MenubarPrimitive.SubTrigger
+      data-slot="menubar-sub-trigger"
