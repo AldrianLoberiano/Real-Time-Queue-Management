@@ -258,3 +258,4 @@ function MenubarSubContent({
 
 export {
   Menubar,
+  MenubarPortal,
