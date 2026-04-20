@@ -257,3 +257,4 @@ function MenubarSubContent({
 }
 
 export {
+  Menubar,
