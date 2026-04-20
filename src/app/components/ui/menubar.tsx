@@ -203,3 +203,4 @@ function MenubarShortcut({
       data-slot="menubar-shortcut"
       className={cn(
         "text-muted-foreground ml-auto text-xs tracking-widest",
+        className,
