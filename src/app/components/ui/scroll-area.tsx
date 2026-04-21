@@ -29,3 +29,4 @@ function ScrollArea({
 }
 
 function ScrollBar({
+  className,
