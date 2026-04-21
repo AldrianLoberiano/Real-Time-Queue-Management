@@ -22,3 +22,4 @@ function ResizablePanelGroup({
   );
 }
 
+function ResizablePanel({
