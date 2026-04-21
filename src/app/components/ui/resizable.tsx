@@ -43,3 +43,4 @@ function ResizableHandle({
         className,
       )}
       {...props}
+      )}
