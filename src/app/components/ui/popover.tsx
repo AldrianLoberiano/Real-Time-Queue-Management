@@ -34,4 +34,5 @@ function PopoverContent({
           className,
         )}
         {...props}
+      />
 
