@@ -115,3 +115,4 @@ function SelectItem({
         className,
       )}
       {...props}
+    >
