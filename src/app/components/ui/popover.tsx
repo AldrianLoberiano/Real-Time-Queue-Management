@@ -41,3 +41,4 @@ function PopoverContent({
 
 function PopoverAnchor({
   ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
