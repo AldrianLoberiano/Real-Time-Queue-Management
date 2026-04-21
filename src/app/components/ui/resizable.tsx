@@ -24,3 +24,4 @@ function ResizablePanelGroup({
 
 function ResizablePanel({
   ...props
+}: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
