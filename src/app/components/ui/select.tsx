@@ -18,3 +18,4 @@ function Select({
 
 function SelectGroup({
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Group>) {
