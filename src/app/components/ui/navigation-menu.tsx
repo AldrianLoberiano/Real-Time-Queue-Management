@@ -158,3 +158,4 @@ function NavigationMenuIndicator({
 export {
   NavigationMenu,
   NavigationMenuList,
+  NavigationMenuItem,
