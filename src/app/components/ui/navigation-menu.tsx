@@ -138,3 +138,4 @@ function NavigationMenuLink({
 }
 
 function NavigationMenuIndicator({
+  className,
