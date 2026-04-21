@@ -21,3 +21,4 @@ function Progress({
     >
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
+        className="bg-primary h-full w-full flex-1 transition-all"
