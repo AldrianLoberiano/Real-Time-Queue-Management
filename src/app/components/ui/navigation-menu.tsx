@@ -123,3 +123,4 @@ function NavigationMenuViewport({
 
 function NavigationMenuLink({
   className,
+  ...props
