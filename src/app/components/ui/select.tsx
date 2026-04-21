@@ -91,3 +91,4 @@ function SelectContent({
 
 function SelectLabel({
   className,
+  ...props
