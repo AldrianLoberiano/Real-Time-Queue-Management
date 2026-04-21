@@ -15,3 +15,4 @@ function ScrollArea({
       data-slot="scroll-area"
       className={cn("relative", className)}
       {...props}
+    >
