@@ -105,3 +105,4 @@ function PaginationEllipsis({
 }: React.ComponentProps<"span">) {
   return (
     <span
+      aria-hidden
