@@ -58,3 +58,4 @@ function SelectContent({
   className,
   children,
   position = "popper",
+  ...props
