@@ -71,3 +71,4 @@ function PaginationPrevious({
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
+      aria-label="Go to previous page"
