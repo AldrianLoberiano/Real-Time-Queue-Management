@@ -12,3 +12,4 @@ import { cn } from "./utils";
 
 function Select({
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Root>) {
