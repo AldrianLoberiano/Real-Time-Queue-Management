@@ -33,3 +33,4 @@ function PaginationContent({
   );
 }
 
+function PaginationItem({ ...props }: React.ComponentProps<"li">) {
