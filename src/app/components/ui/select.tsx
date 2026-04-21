@@ -39,3 +39,4 @@ function SelectTrigger({
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
+      data-size={size}
