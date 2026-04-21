@@ -23,3 +23,4 @@ function SelectGroup({
 }
 
 function SelectValue({
+  ...props
