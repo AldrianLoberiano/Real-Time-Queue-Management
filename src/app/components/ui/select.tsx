@@ -59,3 +59,4 @@ function SelectContent({
   children,
   position = "popper",
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Content>) {
