@@ -16,3 +16,4 @@ function ScrollArea({
       className={cn("relative", className)}
       {...props}
     >
+      <ScrollAreaPrimitive.Viewport
