@@ -13,3 +13,4 @@ function Progress({
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
+      className={cn(
