@@ -110,3 +110,4 @@ function SelectItem({
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
+      className={cn(
