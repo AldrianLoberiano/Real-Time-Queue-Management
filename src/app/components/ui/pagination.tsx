@@ -83,3 +83,4 @@ function PaginationPrevious({
 }
 
 function PaginationNext({
+  className,
