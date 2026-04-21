@@ -45,3 +45,4 @@ type PaginationLinkProps = {
 function PaginationLink({
   className,
   isActive,
+  size = "icon",
