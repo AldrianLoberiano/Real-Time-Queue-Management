@@ -84,3 +84,4 @@ function PaginationPrevious({
 
 function PaginationNext({
   className,
+  ...props
