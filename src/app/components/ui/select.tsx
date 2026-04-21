@@ -34,3 +34,4 @@ function SelectTrigger({
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
+  size?: "sm" | "default";
