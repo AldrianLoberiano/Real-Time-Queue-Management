@@ -12,3 +12,4 @@ function ResizablePanelGroup({
 }: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
   return (
     <ResizablePrimitive.PanelGroup
+      data-slot="resizable-panel-group"
