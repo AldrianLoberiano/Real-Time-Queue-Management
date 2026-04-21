@@ -29,3 +29,4 @@ function SelectValue({
 }
 
 function SelectTrigger({
+  className,
