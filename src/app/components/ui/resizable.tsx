@@ -6,3 +6,4 @@ import * as ResizablePrimitive from "react-resizable-panels";
 
 import { cn } from "./utils";
 
+function ResizablePanelGroup({
