@@ -121,3 +121,4 @@ export {
   PaginationContent,
   PaginationLink,
   PaginationItem,
+  PaginationPrevious,
