@@ -9,3 +9,4 @@ import { cn } from "./utils";
 function ResizablePanelGroup({
   className,
   ...props
+}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
