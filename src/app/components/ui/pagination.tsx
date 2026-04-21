@@ -120,3 +120,4 @@ export {
   Pagination,
   PaginationContent,
   PaginationLink,
+  PaginationItem,
