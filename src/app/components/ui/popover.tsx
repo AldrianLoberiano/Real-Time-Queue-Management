@@ -13,3 +13,4 @@ function Popover({
 
 function PopoverTrigger({
   ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
