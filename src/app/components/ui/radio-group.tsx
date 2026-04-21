@@ -8,3 +8,4 @@ import { cn } from "./utils";
 
 function RadioGroup({
   className,
+  ...props
