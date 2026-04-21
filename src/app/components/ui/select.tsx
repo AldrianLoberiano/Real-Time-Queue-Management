@@ -74,3 +74,4 @@ function SelectContent({
         {...props}
       >
         <SelectScrollUpButton />
+        <SelectPrimitive.Viewport
