@@ -77,3 +77,4 @@ function SelectContent({
         <SelectPrimitive.Viewport
           className={cn(
             "p-1",
+            position === "popper" &&
