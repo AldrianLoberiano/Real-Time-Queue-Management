@@ -49,3 +49,4 @@ function PaginationLink({
   ...props
 }: PaginationLinkProps) {
   return (
+    <a
