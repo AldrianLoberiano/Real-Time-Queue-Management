@@ -30,3 +30,4 @@ function ScrollArea({
 
 function ScrollBar({
   className,
+  orientation = "vertical",
