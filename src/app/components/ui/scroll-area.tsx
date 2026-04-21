@@ -22,3 +22,4 @@ function ScrollArea({
       >
         {children}
       </ScrollAreaPrimitive.Viewport>
+      <ScrollAreaPrimitive.Corner />
