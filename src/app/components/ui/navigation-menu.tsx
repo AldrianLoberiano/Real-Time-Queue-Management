@@ -139,3 +139,4 @@ function NavigationMenuLink({
 
 function NavigationMenuIndicator({
   className,
+  ...props
