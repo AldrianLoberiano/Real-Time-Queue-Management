@@ -11,3 +11,4 @@ import { Button, buttonVariants } from "./button";
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
+      role="navigation"
