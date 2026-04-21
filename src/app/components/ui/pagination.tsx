@@ -88,3 +88,4 @@ function PaginationNext({
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
+      aria-label="Go to next page"
