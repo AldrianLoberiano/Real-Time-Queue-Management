@@ -13,3 +13,4 @@ function ResizablePanelGroup({
   return (
     <ResizablePrimitive.PanelGroup
       data-slot="resizable-panel-group"
+      className={cn(
