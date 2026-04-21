@@ -8,3 +8,4 @@ import {
   ChevronUpIcon,
 } from "lucide-react";
 
+import { cn } from "./utils";
