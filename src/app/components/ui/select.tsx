@@ -147,3 +147,4 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
+        "flex cursor-default items-center justify-center py-1",
