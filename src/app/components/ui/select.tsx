@@ -142,3 +142,4 @@ function SelectSeparator({
 function SelectScrollUpButton({
   className,
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
