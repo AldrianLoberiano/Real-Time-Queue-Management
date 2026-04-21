@@ -50,3 +50,4 @@ function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <a
+      aria-current={isActive ? "page" : undefined}
