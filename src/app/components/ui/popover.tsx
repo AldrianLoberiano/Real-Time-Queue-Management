@@ -29,3 +29,4 @@ function PopoverContent({
         data-slot="popover-content"
         align={align}
         sideOffset={sideOffset}
+        className={cn(
