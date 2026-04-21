@@ -102,3 +102,4 @@ function PaginationNext({
 function PaginationEllipsis({
   className,
   ...props
+}: React.ComponentProps<"span">) {
