@@ -72,3 +72,4 @@ function PaginationPrevious({
   return (
     <PaginationLink
       aria-label="Go to previous page"
+      size="default"
