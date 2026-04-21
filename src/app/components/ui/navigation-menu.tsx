@@ -143,3 +143,4 @@ function NavigationMenuIndicator({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
   return (
     <NavigationMenuPrimitive.Indicator
+      data-slot="navigation-menu-indicator"
