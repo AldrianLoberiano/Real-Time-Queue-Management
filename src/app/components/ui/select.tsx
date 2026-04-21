@@ -94,3 +94,4 @@ function SelectLabel({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Label>) {
   return (
+    <SelectPrimitive.Label
