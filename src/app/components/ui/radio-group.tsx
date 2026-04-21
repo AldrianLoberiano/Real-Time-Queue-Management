@@ -33,3 +33,4 @@ function RadioGroupItem({
       {...props}
     >
       <RadioGroupPrimitive.Indicator
+        data-slot="radio-group-indicator"
