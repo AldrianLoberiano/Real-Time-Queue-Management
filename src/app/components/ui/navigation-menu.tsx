@@ -142,3 +142,4 @@ function NavigationMenuIndicator({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
   return (
+    <NavigationMenuPrimitive.Indicator
