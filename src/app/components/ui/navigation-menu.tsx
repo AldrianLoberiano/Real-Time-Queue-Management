@@ -126,3 +126,4 @@ function NavigationMenuLink({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
   return (
+    <NavigationMenuPrimitive.Link
