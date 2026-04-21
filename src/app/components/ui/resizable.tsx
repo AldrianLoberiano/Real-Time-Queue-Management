@@ -31,3 +31,4 @@ function ResizablePanel({
 function ResizableHandle({
   withHandle,
   className,
+  ...props
