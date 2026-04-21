@@ -24,3 +24,4 @@ function PopoverContent({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content>) {
   return (
+    <PopoverPrimitive.Portal>
