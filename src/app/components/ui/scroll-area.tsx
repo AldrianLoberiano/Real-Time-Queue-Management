@@ -48,3 +48,4 @@ function ScrollBar({
       {...props}
     >
       <ScrollAreaPrimitive.ScrollAreaThumb
+        data-slot="scroll-area-thumb"
