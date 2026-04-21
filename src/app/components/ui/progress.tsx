@@ -20,3 +20,4 @@ function Progress({
       {...props}
     >
       <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
