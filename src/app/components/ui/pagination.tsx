@@ -87,3 +87,4 @@ function PaginationNext({
   ...props
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
+    <PaginationLink
