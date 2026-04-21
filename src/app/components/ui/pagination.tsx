@@ -25,3 +25,4 @@ function PaginationContent({
   ...props
 }: React.ComponentProps<"ul">) {
   return (
+    <ul
