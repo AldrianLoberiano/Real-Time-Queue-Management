@@ -32,3 +32,4 @@ function SelectTrigger({
   className,
   size = "default",
   children,
+  ...props
