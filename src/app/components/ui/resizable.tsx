@@ -23,3 +23,4 @@ function ResizablePanelGroup({
 }
 
 function ResizablePanel({
+  ...props
