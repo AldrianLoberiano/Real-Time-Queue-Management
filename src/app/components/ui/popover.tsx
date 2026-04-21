@@ -18,3 +18,4 @@ function PopoverTrigger({
 }
 
 function PopoverContent({
+  className,
