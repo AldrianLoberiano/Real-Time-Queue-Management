@@ -46,3 +46,4 @@ function ScrollBar({
         className,
       )}
       {...props}
+    >
