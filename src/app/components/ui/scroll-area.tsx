@@ -9,3 +9,4 @@ function ScrollArea({
   className,
   children,
   ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
