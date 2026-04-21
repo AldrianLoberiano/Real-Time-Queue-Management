@@ -28,3 +28,4 @@ function PopoverContent({
       <PopoverPrimitive.Content
         data-slot="popover-content"
         align={align}
+        sideOffset={sideOffset}
