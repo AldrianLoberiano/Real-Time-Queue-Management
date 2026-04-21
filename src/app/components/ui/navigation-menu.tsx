@@ -122,3 +122,4 @@ function NavigationMenuViewport({
 }
 
 function NavigationMenuLink({
+  className,
