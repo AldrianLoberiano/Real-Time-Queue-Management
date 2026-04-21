@@ -85,3 +85,4 @@ function SelectContent({
         </SelectPrimitive.Viewport>
         <SelectScrollDownButton />
       </SelectPrimitive.Content>
+    </SelectPrimitive.Portal>
