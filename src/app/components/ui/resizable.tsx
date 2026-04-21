@@ -10,3 +10,4 @@ function ResizablePanelGroup({
   className,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
+  return (
