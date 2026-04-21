@@ -133,3 +133,4 @@ function NavigationMenuLink({
         className,
       )}
       {...props}
+    />
