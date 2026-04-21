@@ -78,3 +78,4 @@ function PaginationPrevious({
     >
       <ChevronLeftIcon />
       <span className="hidden sm:block">Previous</span>
+    </PaginationLink>
