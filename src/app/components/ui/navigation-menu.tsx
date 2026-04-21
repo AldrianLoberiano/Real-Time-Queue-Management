@@ -144,3 +144,4 @@ function NavigationMenuIndicator({
   return (
     <NavigationMenuPrimitive.Indicator
       data-slot="navigation-menu-indicator"
+      className={cn(
