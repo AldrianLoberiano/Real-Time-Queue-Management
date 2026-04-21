@@ -17,3 +17,4 @@ function ScrollArea({
       {...props}
     >
       <ScrollAreaPrimitive.Viewport
+        data-slot="scroll-area-viewport"
