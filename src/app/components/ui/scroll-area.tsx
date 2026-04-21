@@ -28,3 +28,4 @@ function ScrollArea({
   );
 }
 
+function ScrollBar({
