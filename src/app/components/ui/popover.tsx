@@ -7,3 +7,4 @@ import { cn } from "./utils";
 
 function Popover({
   ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Root>) {
