@@ -47,3 +47,4 @@ function SelectTrigger({
       {...props}
     >
       {children}
+      <SelectPrimitive.Icon asChild>
