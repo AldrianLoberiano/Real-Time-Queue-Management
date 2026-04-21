@@ -89,3 +89,4 @@ function PaginationNext({
   return (
     <PaginationLink
       aria-label="Go to next page"
+      size="default"
