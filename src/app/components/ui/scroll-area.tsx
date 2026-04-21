@@ -11,3 +11,4 @@ function ScrollArea({
   ...props
 }: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
   return (
+    <ScrollAreaPrimitive.Root
