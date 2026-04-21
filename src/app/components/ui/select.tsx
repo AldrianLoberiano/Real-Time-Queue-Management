@@ -24,3 +24,4 @@ function SelectGroup({
 
 function SelectValue({
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Value>) {
