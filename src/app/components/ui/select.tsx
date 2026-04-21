@@ -129,3 +129,4 @@ function SelectItem({
 function SelectSeparator({
   className,
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
