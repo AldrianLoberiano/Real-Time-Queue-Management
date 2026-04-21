@@ -47,3 +47,4 @@ function ScrollBar({
       )}
       {...props}
     >
+      <ScrollAreaPrimitive.ScrollAreaThumb
