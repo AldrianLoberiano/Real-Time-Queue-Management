@@ -11,3 +11,4 @@ import {
 import { cn } from "./utils";
 
 function Select({
+  ...props
