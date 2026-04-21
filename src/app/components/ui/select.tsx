@@ -92,3 +92,4 @@ function SelectContent({
 function SelectLabel({
   className,
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.Label>) {
