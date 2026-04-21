@@ -40,3 +40,4 @@ function PopoverContent({
 }
 
 function PopoverAnchor({
+  ...props
