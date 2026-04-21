@@ -12,3 +12,4 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
       role="navigation"
+      aria-label="pagination"
