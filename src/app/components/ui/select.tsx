@@ -61,3 +61,4 @@ function SelectContent({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
+    <SelectPrimitive.Portal>
