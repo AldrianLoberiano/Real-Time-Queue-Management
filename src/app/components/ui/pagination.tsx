@@ -38,3 +38,4 @@ function PaginationItem({ ...props }: React.ComponentProps<"li">) {
 }
 
 type PaginationLinkProps = {
+  isActive?: boolean;
