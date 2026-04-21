@@ -97,3 +97,4 @@ function PaginationNext({
       <ChevronRightIcon />
     </PaginationLink>
   );
+}
