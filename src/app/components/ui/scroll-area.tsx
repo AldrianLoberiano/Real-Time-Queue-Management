@@ -34,3 +34,4 @@ function ScrollBar({
   ...props
 }: React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>) {
   return (
+    <ScrollAreaPrimitive.ScrollAreaScrollbar
