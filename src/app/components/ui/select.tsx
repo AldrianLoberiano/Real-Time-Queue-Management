@@ -131,3 +131,4 @@ function SelectSeparator({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Separator>) {
   return (
+    <SelectPrimitive.Separator
