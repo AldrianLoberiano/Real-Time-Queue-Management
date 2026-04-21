@@ -8,3 +8,4 @@ import { cn } from "./utils";
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
+  return <PopoverPrimitive.Root data-slot="popover" {...props} />;
