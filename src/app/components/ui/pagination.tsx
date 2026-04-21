@@ -13,3 +13,4 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
     <nav
       role="navigation"
       aria-label="pagination"
+      data-slot="pagination"
