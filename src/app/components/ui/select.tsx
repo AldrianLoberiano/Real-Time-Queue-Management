@@ -55,3 +55,4 @@ function SelectTrigger({
 }
 
 function SelectContent({
+  className,
