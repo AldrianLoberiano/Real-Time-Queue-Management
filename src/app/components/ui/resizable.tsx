@@ -35,3 +35,4 @@ function ResizableHandle({
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
   withHandle?: boolean;
 }) {
+  return (
