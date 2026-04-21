@@ -127,3 +127,4 @@ function SelectItem({
 }
 
 function SelectSeparator({
+  className,
