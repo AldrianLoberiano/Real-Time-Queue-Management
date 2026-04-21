@@ -26,3 +26,4 @@ function PaginationContent({
 }: React.ComponentProps<"ul">) {
   return (
     <ul
+      data-slot="pagination-content"
