@@ -18,3 +18,4 @@ function Progress({
         className,
       )}
       {...props}
+    >
