@@ -39,3 +39,4 @@ function ScrollBar({
       orientation={orientation}
       className={cn(
         "flex touch-none p-px transition-colors select-none",
+        orientation === "vertical" &&
