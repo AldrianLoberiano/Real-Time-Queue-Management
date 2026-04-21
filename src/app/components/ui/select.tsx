@@ -103,4 +103,5 @@ function SelectLabel({
 }
 
 function SelectItem({
+  className,
   children,
