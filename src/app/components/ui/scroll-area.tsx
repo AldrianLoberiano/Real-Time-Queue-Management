@@ -27,3 +27,4 @@ function ScrollArea({
     </ScrollAreaPrimitive.Root>
   );
 }
+
