@@ -45,3 +45,4 @@ function ScrollBar({
           "h-2.5 flex-col border-t border-t-transparent",
         className,
       )}
+      {...props}
