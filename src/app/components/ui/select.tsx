@@ -128,3 +128,4 @@ function SelectItem({
 
 function SelectSeparator({
   className,
+  ...props
