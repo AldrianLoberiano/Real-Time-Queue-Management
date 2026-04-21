@@ -141,3 +141,4 @@ function SelectSeparator({
 
 function SelectScrollUpButton({
   className,
+  ...props
