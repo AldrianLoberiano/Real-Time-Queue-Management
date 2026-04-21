@@ -83,3 +83,4 @@ function SelectContent({
         >
           {children}
         </SelectPrimitive.Viewport>
+        <SelectScrollDownButton />
