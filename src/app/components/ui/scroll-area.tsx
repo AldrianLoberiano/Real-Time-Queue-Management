@@ -24,3 +24,4 @@ function ScrollArea({
       </ScrollAreaPrimitive.Viewport>
       <ScrollBar />
       <ScrollAreaPrimitive.Corner />
+    </ScrollAreaPrimitive.Root>
