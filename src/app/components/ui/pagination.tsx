@@ -44,3 +44,4 @@ type PaginationLinkProps = {
 
 function PaginationLink({
   className,
+  isActive,
