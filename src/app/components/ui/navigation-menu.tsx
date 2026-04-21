@@ -116,3 +116,4 @@ function NavigationMenuViewport({
           className,
         )}
         {...props}
+      />
