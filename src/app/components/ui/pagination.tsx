@@ -74,3 +74,4 @@ function PaginationPrevious({
       aria-label="Go to previous page"
       size="default"
       className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
+      {...props}
