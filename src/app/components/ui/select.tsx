@@ -31,3 +31,4 @@ function SelectValue({
 function SelectTrigger({
   className,
   size = "default",
+  children,
