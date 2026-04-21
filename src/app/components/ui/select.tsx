@@ -38,3 +38,4 @@ function SelectTrigger({
 }) {
   return (
     <SelectPrimitive.Trigger
+      data-slot="select-trigger"
