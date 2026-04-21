@@ -113,3 +113,4 @@ function PaginationEllipsis({
       <MoreHorizontalIcon className="size-4" />
       <span className="sr-only">More pages</span>
     </span>
+  );
