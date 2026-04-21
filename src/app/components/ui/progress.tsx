@@ -27,3 +27,4 @@ function Progress({
     </ProgressPrimitive.Root>
   );
 }
+
