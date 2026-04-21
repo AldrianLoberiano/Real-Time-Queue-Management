@@ -43,3 +43,4 @@ type PaginationLinkProps = {
   React.ComponentProps<"a">;
 
 function PaginationLink({
+  className,
