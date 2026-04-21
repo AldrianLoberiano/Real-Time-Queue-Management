@@ -32,3 +32,4 @@ function RadioGroupItem({
       )}
       {...props}
     >
+      <RadioGroupPrimitive.Indicator
