@@ -20,3 +20,4 @@ function PopoverTrigger({
 function PopoverContent({
   className,
   align = "center",
+  sideOffset = 4,
