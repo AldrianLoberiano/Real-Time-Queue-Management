@@ -11,3 +11,4 @@ function Progress({
   ...props
 }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
   return (
+    <ProgressPrimitive.Root
