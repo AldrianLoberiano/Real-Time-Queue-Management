@@ -152,3 +152,4 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
+      <ChevronUpIcon className="size-4" />
