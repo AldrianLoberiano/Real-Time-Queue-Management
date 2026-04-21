@@ -106,3 +106,4 @@ function PaginationEllipsis({
   return (
     <span
       aria-hidden
+      data-slot="pagination-ellipsis"
