@@ -54,3 +54,4 @@ function PaginationLink({
       data-slot="pagination-link"
       data-active={isActive}
       className={cn(
+        buttonVariants({
