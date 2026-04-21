@@ -12,3 +12,4 @@ function Popover({
 }
 
 function PopoverTrigger({
+  ...props
