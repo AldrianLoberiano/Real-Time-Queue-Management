@@ -28,3 +28,4 @@ function ResizablePanel({
   return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />;
 }
 
+function ResizableHandle({
