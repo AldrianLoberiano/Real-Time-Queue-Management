@@ -72,4 +72,5 @@ function SelectContent({
         )}
         position={position}
         {...props}
+      >
         <SelectScrollUpButton />
