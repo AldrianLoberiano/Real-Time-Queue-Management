@@ -45,3 +45,4 @@ function SelectTrigger({
         className,
       )}
       {...props}
+    >
