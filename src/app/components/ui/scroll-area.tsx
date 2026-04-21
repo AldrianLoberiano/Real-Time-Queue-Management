@@ -13,3 +13,4 @@ function ScrollArea({
   return (
     <ScrollAreaPrimitive.Root
       data-slot="scroll-area"
+      className={cn("relative", className)}
