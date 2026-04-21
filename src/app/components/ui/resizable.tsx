@@ -36,3 +36,4 @@ function ResizableHandle({
   withHandle?: boolean;
 }) {
   return (
+    <ResizablePrimitive.PanelResizeHandle
