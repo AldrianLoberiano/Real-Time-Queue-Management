@@ -37,3 +37,4 @@ function ResizableHandle({
 }) {
   return (
     <ResizablePrimitive.PanelResizeHandle
+      data-slot="resizable-handle"
