@@ -70,3 +70,4 @@ function PaginationPrevious({
   ...props
 }: React.ComponentProps<typeof PaginationLink>) {
   return (
+    <PaginationLink
