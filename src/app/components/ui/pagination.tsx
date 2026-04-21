@@ -66,3 +66,4 @@ function PaginationLink({
 }
 
 function PaginationPrevious({
+  className,
