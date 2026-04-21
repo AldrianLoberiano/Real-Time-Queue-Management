@@ -19,3 +19,4 @@ function Progress({
       )}
       {...props}
     >
+      <ProgressPrimitive.Indicator
