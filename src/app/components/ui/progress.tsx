@@ -9,3 +9,4 @@ function Progress({
   className,
   value,
   ...props
+}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
