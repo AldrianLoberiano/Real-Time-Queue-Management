@@ -32,3 +32,4 @@ function ResizableHandle({
   withHandle,
   className,
   ...props
+}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
