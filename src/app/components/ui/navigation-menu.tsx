@@ -118,3 +118,4 @@ function NavigationMenuViewport({
         {...props}
       />
     </div>
+  );
