@@ -110,3 +110,4 @@ function NavigationMenuViewport({
       )}
     >
       <NavigationMenuPrimitive.Viewport
+        data-slot="navigation-menu-viewport"
