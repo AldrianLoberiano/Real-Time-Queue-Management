@@ -101,3 +101,4 @@ function PaginationNext({
 
 function PaginationEllipsis({
   className,
+  ...props
