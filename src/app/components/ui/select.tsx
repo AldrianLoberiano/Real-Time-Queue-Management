@@ -144,3 +144,4 @@ function SelectScrollUpButton({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
+    <SelectPrimitive.ScrollUpButton
