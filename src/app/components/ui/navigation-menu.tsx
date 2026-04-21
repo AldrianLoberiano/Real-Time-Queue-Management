@@ -140,3 +140,4 @@ function NavigationMenuLink({
 function NavigationMenuIndicator({
   className,
   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
