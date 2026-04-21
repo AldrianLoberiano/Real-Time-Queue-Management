@@ -26,3 +26,4 @@ function RadioGroupItem({
   return (
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
+      className={cn(
