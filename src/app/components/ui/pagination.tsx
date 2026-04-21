@@ -117,3 +117,4 @@ function PaginationEllipsis({
 }
 
 export {
+  Pagination,
