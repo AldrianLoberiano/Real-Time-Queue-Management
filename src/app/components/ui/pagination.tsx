@@ -104,3 +104,4 @@ function PaginationEllipsis({
   ...props
 }: React.ComponentProps<"span">) {
   return (
+    <span
