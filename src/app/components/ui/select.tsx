@@ -168,3 +168,4 @@ function SelectScrollDownButton({
         "flex cursor-default items-center justify-center py-1",
         className,
       )}
+      {...props}
