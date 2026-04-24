@@ -120,3 +120,4 @@ function SheetDescription({
 }: React.ComponentProps<typeof SheetPrimitive.Description>) {
   return (
     <SheetPrimitive.Description
+      data-slot="sheet-description"
