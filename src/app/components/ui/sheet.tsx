@@ -50,3 +50,4 @@ function SheetContent({
   side = "right",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
+  side?: "top" | "right" | "bottom" | "left";
