@@ -84,3 +84,4 @@ function SheetContent({
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="sheet-header"
