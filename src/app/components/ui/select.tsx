@@ -183,3 +183,4 @@ export {
   SelectLabel,
   SelectScrollDownButton,
   SelectScrollUpButton,
+  SelectSeparator,
