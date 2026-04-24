@@ -117,3 +117,4 @@ function SheetTitle({
 function SheetDescription({
   className,
   ...props
+}: React.ComponentProps<typeof SheetPrimitive.Description>) {
