@@ -18,3 +18,4 @@ function SheetTrigger({
 
 function SheetClose({
   ...props
+}: React.ComponentProps<typeof SheetPrimitive.Close>) {
