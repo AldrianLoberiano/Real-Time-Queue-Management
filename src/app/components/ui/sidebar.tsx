@@ -13,3 +13,4 @@ import { Separator } from "./separator";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
