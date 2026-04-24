@@ -132,3 +132,4 @@ export {
   SheetTrigger,
   SheetClose,
   SheetContent,
+  SheetHeader,
