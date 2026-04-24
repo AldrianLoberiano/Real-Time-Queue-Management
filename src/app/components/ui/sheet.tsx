@@ -48,3 +48,4 @@ function SheetContent({
   className,
   children,
   side = "right",
+  ...props
