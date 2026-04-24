@@ -21,3 +21,4 @@ import { Skeleton } from "./skeleton";
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
