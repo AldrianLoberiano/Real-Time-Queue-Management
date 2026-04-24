@@ -12,3 +12,4 @@ function Separator({
   ...props
 }: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
   return (
+    <SeparatorPrimitive.Root
