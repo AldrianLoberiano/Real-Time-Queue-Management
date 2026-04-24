@@ -101,3 +101,4 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function SheetTitle({
