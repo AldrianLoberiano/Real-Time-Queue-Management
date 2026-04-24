@@ -34,3 +34,4 @@ function SheetOverlay({
 }: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
   return (
     <SheetPrimitive.Overlay
+      data-slot="sheet-overlay"
