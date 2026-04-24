@@ -135,3 +135,4 @@ export {
   SheetHeader,
   SheetFooter,
   SheetTitle,
+  SheetDescription,
