@@ -129,3 +129,4 @@ function SheetDescription({
 
 export {
   Sheet,
+  SheetTrigger,
