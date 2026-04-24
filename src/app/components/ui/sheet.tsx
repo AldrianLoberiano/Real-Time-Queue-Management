@@ -54,3 +54,4 @@ function SheetContent({
 }) {
   return (
     <SheetPortal>
+      <SheetOverlay />
