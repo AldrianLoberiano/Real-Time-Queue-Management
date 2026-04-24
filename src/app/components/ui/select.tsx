@@ -182,3 +182,4 @@ export {
   SelectItem,
   SelectLabel,
   SelectScrollDownButton,
+  SelectScrollUpButton,
