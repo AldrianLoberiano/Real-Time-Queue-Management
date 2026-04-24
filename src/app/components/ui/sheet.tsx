@@ -23,3 +23,4 @@ function SheetClose({
 }
 
 function SheetPortal({
+  ...props
