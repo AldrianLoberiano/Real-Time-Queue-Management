@@ -45,3 +45,4 @@ function SheetOverlay({
 }
 
 function SheetContent({
+  className,
