@@ -180,3 +180,4 @@ export {
   SelectContent,
   SelectGroup,
   SelectItem,
+  SelectLabel,
