@@ -160,3 +160,4 @@ function SelectScrollUpButton({
 function SelectScrollDownButton({
   className,
   ...props
+}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
