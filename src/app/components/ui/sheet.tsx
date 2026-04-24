@@ -116,3 +116,4 @@ function SheetTitle({
 
 function SheetDescription({
   className,
+  ...props
