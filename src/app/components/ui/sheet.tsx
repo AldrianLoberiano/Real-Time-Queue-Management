@@ -22,3 +22,4 @@ function SheetClose({
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
+function SheetPortal({
