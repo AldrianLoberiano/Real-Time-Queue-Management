@@ -165,3 +165,4 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
+        "flex cursor-default items-center justify-center py-1",
