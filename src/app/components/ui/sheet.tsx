@@ -29,3 +29,4 @@ function SheetPortal({
 }
 
 function SheetOverlay({
+  className,
