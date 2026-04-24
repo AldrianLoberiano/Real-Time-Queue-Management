@@ -162,3 +162,4 @@ function SelectScrollDownButton({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
+    <SelectPrimitive.ScrollDownButton
