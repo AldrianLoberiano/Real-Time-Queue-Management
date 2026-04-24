@@ -20,3 +20,4 @@ import {
 import { Skeleton } from "./skeleton";
 import {
   Tooltip,
+  TooltipContent,
