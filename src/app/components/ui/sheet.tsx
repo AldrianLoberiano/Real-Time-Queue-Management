@@ -119,3 +119,4 @@ function SheetDescription({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Description>) {
   return (
+    <SheetPrimitive.Description
