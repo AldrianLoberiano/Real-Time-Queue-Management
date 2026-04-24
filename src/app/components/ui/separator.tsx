@@ -9,3 +9,4 @@ function Separator({
   className,
   orientation = "horizontal",
   decorative = true,
+  ...props
