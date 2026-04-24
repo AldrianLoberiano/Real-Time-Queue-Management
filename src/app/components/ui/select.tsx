@@ -159,3 +159,4 @@ function SelectScrollUpButton({
 
 function SelectScrollDownButton({
   className,
+  ...props
