@@ -46,3 +46,4 @@ function SheetOverlay({
 
 function SheetContent({
   className,
+  children,
