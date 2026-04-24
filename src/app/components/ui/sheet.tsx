@@ -71,3 +71,4 @@ function SheetContent({
         )}
         {...props}
       >
+        {children}
