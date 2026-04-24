@@ -40,3 +40,4 @@ function SheetOverlay({
         className,
       )}
       {...props}
+    />
