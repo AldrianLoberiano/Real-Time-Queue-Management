@@ -179,3 +179,4 @@ export {
   Select,
   SelectContent,
   SelectGroup,
+  SelectItem,
