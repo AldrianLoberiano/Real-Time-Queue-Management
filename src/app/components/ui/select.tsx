@@ -184,4 +184,5 @@ export {
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
+  SelectTrigger,
   SelectValue,
