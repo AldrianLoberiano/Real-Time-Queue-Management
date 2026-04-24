@@ -12,3 +12,4 @@ import { Input } from "./input";
 import { Separator } from "./separator";
 import {
   Sheet,
+  SheetContent,
