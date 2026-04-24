@@ -70,3 +70,4 @@ function SheetContent({
           className,
         )}
         {...props}
+      >
