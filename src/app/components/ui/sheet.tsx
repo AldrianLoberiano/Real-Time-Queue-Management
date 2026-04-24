@@ -16,3 +16,4 @@ function SheetTrigger({
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
+function SheetClose({
