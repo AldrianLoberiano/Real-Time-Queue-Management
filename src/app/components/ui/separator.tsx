@@ -8,3 +8,4 @@ import { cn } from "./utils";
 function Separator({
   className,
   orientation = "horizontal",
+  decorative = true,
