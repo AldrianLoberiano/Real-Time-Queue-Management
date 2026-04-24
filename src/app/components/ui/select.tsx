@@ -158,3 +158,4 @@ function SelectScrollUpButton({
 }
 
 function SelectScrollDownButton({
+  className,
