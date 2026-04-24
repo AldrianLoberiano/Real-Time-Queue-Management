@@ -17,3 +17,4 @@ function SheetTrigger({
 }
 
 function SheetClose({
+  ...props
