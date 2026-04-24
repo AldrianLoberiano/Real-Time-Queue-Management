@@ -12,3 +12,4 @@ function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
 
 function SheetTrigger({
   ...props
+}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
