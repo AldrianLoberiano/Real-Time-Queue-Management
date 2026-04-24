@@ -24,3 +24,4 @@ function SheetClose({
 
 function SheetPortal({
   ...props
+}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
