@@ -77,4 +77,5 @@ function SheetContent({
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
+    </SheetPortal>
   );
