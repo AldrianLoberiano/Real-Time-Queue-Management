@@ -178,3 +178,4 @@ function SelectScrollDownButton({
 export {
   Select,
   SelectContent,
+  SelectGroup,
