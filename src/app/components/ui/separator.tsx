@@ -21,3 +21,4 @@ function Separator({
         className,
       )}
       {...props}
+    />
