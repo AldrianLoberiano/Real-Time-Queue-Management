@@ -15,3 +15,4 @@ function Separator({
     <SeparatorPrimitive.Root
       data-slot="separator-root"
       decorative={decorative}
+      orientation={orientation}
