@@ -170,3 +170,4 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
+      <ChevronDownIcon className="size-4" />
