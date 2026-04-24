@@ -107,3 +107,4 @@ function SheetTitle({
 }: React.ComponentProps<typeof SheetPrimitive.Title>) {
   return (
     <SheetPrimitive.Title
+      data-slot="sheet-title"
