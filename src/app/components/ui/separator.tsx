@@ -14,3 +14,4 @@ function Separator({
   return (
     <SeparatorPrimitive.Root
       data-slot="separator-root"
+      decorative={decorative}
