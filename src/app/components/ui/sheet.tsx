@@ -111,3 +111,4 @@ function SheetTitle({
       className={cn("text-foreground font-semibold", className)}
       {...props}
     />
+  );
