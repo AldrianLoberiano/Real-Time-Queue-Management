@@ -133,3 +133,4 @@ export {
   SheetClose,
   SheetContent,
   SheetHeader,
+  SheetFooter,
