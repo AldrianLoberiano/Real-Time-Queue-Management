@@ -106,3 +106,4 @@ function SheetTitle({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Title>) {
   return (
+    <SheetPrimitive.Title
