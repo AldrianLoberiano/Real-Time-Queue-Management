@@ -137,3 +137,4 @@ function SidebarProvider({
               "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
               ...style,
             } as React.CSSProperties
+          }
