@@ -176,3 +176,4 @@ function Sidebar({
         {...props}
       >
         {children}
+      </div>
