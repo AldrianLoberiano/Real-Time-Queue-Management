@@ -60,3 +60,4 @@ function SidebarProvider({
   className,
   style,
   children,
+  ...props
