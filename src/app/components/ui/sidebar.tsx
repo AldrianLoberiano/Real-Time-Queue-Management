@@ -103,3 +103,4 @@ function SidebarProvider({
         event.preventDefault();
         toggleSidebar();
       }
+    };
