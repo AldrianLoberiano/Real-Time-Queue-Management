@@ -50,3 +50,4 @@ function useSidebar() {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
 
+  return context;
