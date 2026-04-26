@@ -254,3 +254,4 @@ function Sidebar({
 }
 
 function SidebarTrigger({
+  className,
