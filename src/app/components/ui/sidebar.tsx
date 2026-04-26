@@ -301,3 +301,4 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
       )}
       {...props}
     />
+  );
