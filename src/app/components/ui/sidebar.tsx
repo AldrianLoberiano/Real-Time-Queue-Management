@@ -203,3 +203,4 @@ function Sidebar({
         </SheetContent>
       </Sheet>
     );
+  }
