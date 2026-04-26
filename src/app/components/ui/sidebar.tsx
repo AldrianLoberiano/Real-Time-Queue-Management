@@ -127,3 +127,4 @@ function SidebarProvider({
   );
 
   return (
+    <SidebarContext.Provider value={contextValue}>
