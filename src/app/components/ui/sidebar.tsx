@@ -180,3 +180,4 @@ function Sidebar({
     );
   }
 
+  if (isMobile) {
