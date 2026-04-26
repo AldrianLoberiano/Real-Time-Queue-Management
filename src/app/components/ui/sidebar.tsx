@@ -336,3 +336,4 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="sidebar-header"
+      data-sidebar="header"
