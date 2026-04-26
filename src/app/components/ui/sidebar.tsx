@@ -145,3 +145,4 @@ function SidebarProvider({
           {...props}
         >
           {children}
+        </div>
