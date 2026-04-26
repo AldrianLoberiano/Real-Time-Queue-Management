@@ -51,3 +51,4 @@ function useSidebar() {
   }
 
   return context;
+}
