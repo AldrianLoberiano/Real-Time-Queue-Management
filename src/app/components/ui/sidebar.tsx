@@ -325,3 +325,4 @@ function SidebarInput({
   return (
     <Input
       data-slot="sidebar-input"
+      data-sidebar="input"
