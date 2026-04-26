@@ -168,3 +168,4 @@ function Sidebar({
   if (collapsible === "none") {
     return (
       <div
+        data-slot="sidebar"
