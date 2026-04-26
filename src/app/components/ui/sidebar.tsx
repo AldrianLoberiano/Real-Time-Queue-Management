@@ -159,3 +159,4 @@ function Sidebar({
   children,
   ...props
 }: React.ComponentProps<"div"> & {
+  side?: "left" | "right";
