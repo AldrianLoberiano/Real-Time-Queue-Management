@@ -279,3 +279,4 @@ function SidebarTrigger({
   );
 }
 
+function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
