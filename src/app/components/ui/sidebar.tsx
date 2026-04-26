@@ -42,3 +42,4 @@ type SidebarContextProps = {
   toggleSidebar: () => void;
 };
 
+const SidebarContext = React.createContext<SidebarContextProps | null>(null);
