@@ -61,3 +61,4 @@ function SidebarProvider({
   style,
   children,
   ...props
+}: React.ComponentProps<"div"> & {
