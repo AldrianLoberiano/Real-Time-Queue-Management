@@ -262,3 +262,4 @@ function SidebarTrigger({
 
   return (
     <Button
+      data-sidebar="trigger"
