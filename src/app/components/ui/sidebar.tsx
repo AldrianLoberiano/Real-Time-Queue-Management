@@ -56,3 +56,4 @@ function useSidebar() {
 function SidebarProvider({
   defaultOpen = true,
   open: openProp,
+  onOpenChange: setOpenProp,
