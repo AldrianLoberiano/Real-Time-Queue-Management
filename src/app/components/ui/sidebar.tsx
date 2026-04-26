@@ -248,3 +248,4 @@ function Sidebar({
         >
           {children}
         </div>
+    </div>
