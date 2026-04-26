@@ -194,3 +194,4 @@ function Sidebar({
             } as React.CSSProperties
           }
           side={side}
+        >
