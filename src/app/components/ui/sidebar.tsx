@@ -227,3 +227,4 @@ function Sidebar({
         )}
       />
       <div
+        data-slot="sidebar-container"
