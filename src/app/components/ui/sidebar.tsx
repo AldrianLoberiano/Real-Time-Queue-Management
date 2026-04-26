@@ -133,3 +133,4 @@ function SidebarProvider({
           data-slot="sidebar-wrapper"
           style={
             {
+              "--sidebar-width": SIDEBAR_WIDTH,
