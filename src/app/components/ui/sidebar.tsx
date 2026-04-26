@@ -88,3 +88,4 @@ function SidebarProvider({
     [setOpenProp, open],
   );
 
+  // Helper to toggle the sidebar.
