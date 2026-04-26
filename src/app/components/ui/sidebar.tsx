@@ -181,3 +181,4 @@ function Sidebar({
   }
 
   if (isMobile) {
+    return (
