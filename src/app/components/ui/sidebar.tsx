@@ -284,3 +284,4 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
 
   return (
     <button
+      data-sidebar="rail"
