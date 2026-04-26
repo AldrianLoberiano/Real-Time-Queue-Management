@@ -225,3 +225,4 @@ function Sidebar({
             ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
             : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)",
         )}
+      <div
