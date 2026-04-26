@@ -99,3 +99,4 @@ function SidebarProvider({
       if (
         event.key === SIDEBAR_KEYBOARD_SHORTCUT &&
         (event.metaKey || event.ctrlKey)
+      ) {
