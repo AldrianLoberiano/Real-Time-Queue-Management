@@ -253,3 +253,4 @@ function Sidebar({
   );
 }
 
+function SidebarTrigger({
