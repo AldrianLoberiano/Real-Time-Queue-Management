@@ -160,3 +160,4 @@ function Sidebar({
   ...props
 }: React.ComponentProps<"div"> & {
   side?: "left" | "right";
+  variant?: "sidebar" | "floating" | "inset";
