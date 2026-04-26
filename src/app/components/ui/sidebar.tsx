@@ -271,3 +271,4 @@ function SidebarTrigger({
         onClick?.(event);
         toggleSidebar();
       }}
+      {...props}
