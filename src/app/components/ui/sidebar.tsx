@@ -316,3 +316,4 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
       {...props}
     />
   );
+}
