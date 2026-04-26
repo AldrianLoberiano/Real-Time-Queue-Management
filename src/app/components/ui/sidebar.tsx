@@ -267,3 +267,4 @@ function SidebarTrigger({
       variant="ghost"
       size="icon"
       className={cn("size-7", className)}
+      onClick={(event) => {
