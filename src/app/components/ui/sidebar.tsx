@@ -152,3 +152,4 @@ function SidebarProvider({
 }
 
 function Sidebar({
+  side = "left",
