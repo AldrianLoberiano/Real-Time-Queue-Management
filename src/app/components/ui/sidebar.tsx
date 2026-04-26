@@ -118,3 +118,4 @@ function SidebarProvider({
       state,
       open,
       setOpen,
+      isMobile,
