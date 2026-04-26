@@ -93,3 +93,4 @@ function SidebarProvider({
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
   }, [isMobile, setOpen, setOpenMobile]);
 
+  // Adds a keyboard shortcut to toggle the sidebar.
