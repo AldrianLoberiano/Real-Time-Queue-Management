@@ -213,3 +213,4 @@ function Sidebar({
       data-variant={variant}
       data-side={side}
       data-slot="sidebar"
+    >
