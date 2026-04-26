@@ -257,3 +257,4 @@ function SidebarTrigger({
   className,
   onClick,
   ...props
+}: React.ComponentProps<typeof Button>) {
