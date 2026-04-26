@@ -190,3 +190,4 @@ function Sidebar({
           className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
+              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
