@@ -218,3 +218,4 @@ function Sidebar({
       <div
         data-slot="sidebar-gap"
         className={cn(
+          "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
