@@ -207,3 +207,4 @@ function Sidebar({
 
   return (
     <div
+      className="group peer text-sidebar-foreground hidden md:block"
