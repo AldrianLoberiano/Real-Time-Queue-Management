@@ -167,3 +167,4 @@ function Sidebar({
 
   if (collapsible === "none") {
     return (
+      <div
