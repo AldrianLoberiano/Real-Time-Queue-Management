@@ -157,3 +157,4 @@ function Sidebar({
   collapsible = "offcanvas",
   className,
   children,
+  ...props
