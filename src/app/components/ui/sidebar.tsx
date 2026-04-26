@@ -256,3 +256,4 @@ function Sidebar({
 function SidebarTrigger({
   className,
   onClick,
+  ...props
