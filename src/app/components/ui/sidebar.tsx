@@ -66,3 +66,4 @@ function SidebarProvider({
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }) {
+  const isMobile = useIsMobile();
