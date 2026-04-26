@@ -45,3 +45,4 @@ type SidebarContextProps = {
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
 
 function useSidebar() {
+  const context = React.useContext(SidebarContext);
