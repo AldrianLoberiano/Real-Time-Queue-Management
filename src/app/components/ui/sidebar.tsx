@@ -263,3 +263,4 @@ function SidebarTrigger({
   return (
     <Button
       data-sidebar="trigger"
+      data-slot="sidebar-trigger"
