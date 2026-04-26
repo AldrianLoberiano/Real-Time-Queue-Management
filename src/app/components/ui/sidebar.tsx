@@ -273,3 +273,4 @@ function SidebarTrigger({
       }}
       {...props}
     >
+      <PanelLeftIcon />
