@@ -59,3 +59,4 @@ function SidebarProvider({
   onOpenChange: setOpenProp,
   className,
   style,
+  children,
