@@ -117,3 +117,4 @@ function SidebarProvider({
     () => ({
       state,
       open,
+      setOpen,
