@@ -147,3 +147,4 @@ function SidebarProvider({
           {children}
         </div>
       </TooltipProvider>
+    </SidebarContext.Provider>
