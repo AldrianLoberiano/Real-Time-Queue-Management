@@ -172,3 +172,4 @@ function Sidebar({
         className={cn(
           "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
           className,
+        )}
