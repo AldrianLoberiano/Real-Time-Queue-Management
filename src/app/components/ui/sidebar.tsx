@@ -132,3 +132,4 @@ function SidebarProvider({
         <div
           data-slot="sidebar-wrapper"
           style={
+            {
