@@ -324,3 +324,4 @@ function SidebarInput({
 }: React.ComponentProps<typeof Input>) {
   return (
     <Input
+      data-slot="sidebar-input"
