@@ -323,3 +323,4 @@ function SidebarInput({
   ...props
 }: React.ComponentProps<typeof Input>) {
   return (
+    <Input
