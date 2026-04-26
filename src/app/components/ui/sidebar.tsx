@@ -149,3 +149,4 @@ function SidebarProvider({
       </TooltipProvider>
     </SidebarContext.Provider>
   );
+}
