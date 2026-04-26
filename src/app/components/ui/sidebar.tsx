@@ -228,3 +228,4 @@ function Sidebar({
       />
       <div
         data-slot="sidebar-container"
+        className={cn(
