@@ -120,3 +120,4 @@ function SidebarProvider({
       setOpen,
       isMobile,
       openMobile,
+      setOpenMobile,
