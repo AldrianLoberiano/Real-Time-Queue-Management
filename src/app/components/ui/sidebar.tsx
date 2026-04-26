@@ -175,3 +175,4 @@ function Sidebar({
         )}
         {...props}
       >
+        {children}
