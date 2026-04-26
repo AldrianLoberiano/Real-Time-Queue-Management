@@ -138,3 +138,4 @@ function SidebarProvider({
               ...style,
             } as React.CSSProperties
           }
+          className={cn(
