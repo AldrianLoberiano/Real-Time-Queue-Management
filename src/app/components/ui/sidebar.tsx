@@ -148,3 +148,4 @@ function SidebarProvider({
         </div>
       </TooltipProvider>
     </SidebarContext.Provider>
+  );
