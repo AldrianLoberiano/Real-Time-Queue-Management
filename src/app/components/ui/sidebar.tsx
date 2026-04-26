@@ -272,3 +272,4 @@ function SidebarTrigger({
         toggleSidebar();
       }}
       {...props}
+    >
