@@ -189,3 +189,4 @@ function Sidebar({
           data-mobile="true"
           className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
+            {
