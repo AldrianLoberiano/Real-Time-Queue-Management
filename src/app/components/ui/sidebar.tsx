@@ -195,3 +195,4 @@ function Sidebar({
           }
           side={side}
         >
+          <SheetHeader className="sr-only">
