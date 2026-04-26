@@ -240,3 +240,4 @@ function Sidebar({
           className,
         )}
         {...props}
+        <div
