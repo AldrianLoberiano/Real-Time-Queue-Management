@@ -105,3 +105,4 @@ function SidebarProvider({
       }
     };
 
+    window.addEventListener("keydown", handleKeyDown);
