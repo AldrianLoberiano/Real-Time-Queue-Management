@@ -211,3 +211,4 @@ function Sidebar({
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
+      data-side={side}
