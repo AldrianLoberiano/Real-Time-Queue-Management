@@ -321,3 +321,4 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
 function SidebarInput({
   className,
   ...props
+}: React.ComponentProps<typeof Input>) {
