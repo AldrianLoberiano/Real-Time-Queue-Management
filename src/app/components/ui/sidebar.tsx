@@ -186,3 +186,4 @@ function Sidebar({
         <SheetContent
           data-sidebar="sidebar"
           data-slot="sidebar"
+          data-mobile="true"
