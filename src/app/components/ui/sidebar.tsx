@@ -261,3 +261,4 @@ function SidebarTrigger({
   const { toggleSidebar } = useSidebar();
 
   return (
+    <Button
