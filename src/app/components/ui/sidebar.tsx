@@ -216,3 +216,4 @@ function Sidebar({
     >
       {/* This is what handles the sidebar gap on desktop */}
       <div
+        data-slot="sidebar-gap"
