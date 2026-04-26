@@ -89,3 +89,4 @@ function SidebarProvider({
   );
 
   // Helper to toggle the sidebar.
+  const toggleSidebar = React.useCallback(() => {
