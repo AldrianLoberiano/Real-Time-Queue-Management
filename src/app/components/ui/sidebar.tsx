@@ -79,3 +79,4 @@ function SidebarProvider({
       if (setOpenProp) {
         setOpenProp(openState);
       } else {
+        _setOpen(openState);
