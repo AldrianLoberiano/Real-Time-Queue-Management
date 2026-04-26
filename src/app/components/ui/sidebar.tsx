@@ -156,3 +156,4 @@ function Sidebar({
   variant = "sidebar",
   collapsible = "offcanvas",
   className,
+  children,
