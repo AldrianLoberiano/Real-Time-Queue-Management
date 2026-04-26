@@ -146,3 +146,4 @@ function SidebarProvider({
         >
           {children}
         </div>
+      </TooltipProvider>
