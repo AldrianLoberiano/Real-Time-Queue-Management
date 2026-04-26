@@ -242,3 +242,4 @@ function Sidebar({
         {...props}
       >
         <div
+          data-sidebar="sidebar"
