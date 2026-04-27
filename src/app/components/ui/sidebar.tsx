@@ -438,3 +438,4 @@ function SidebarGroupAction({
 }
 
 function SidebarGroupContent({
+  className,
