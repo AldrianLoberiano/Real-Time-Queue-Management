@@ -495,3 +495,4 @@ const sidebarMenuButtonVariants = cva(
   },
 );
 
+  asChild = false,
