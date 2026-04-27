@@ -421,3 +421,4 @@ function SidebarGroupAction({
 }: React.ComponentProps<"button"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "button";
 
+  return (
