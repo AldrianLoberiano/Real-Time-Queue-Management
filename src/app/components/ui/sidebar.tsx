@@ -668,3 +668,4 @@ function SidebarMenuSubItem({
 
 function SidebarMenuSubButton({
   asChild = false,
+  size = "md",
