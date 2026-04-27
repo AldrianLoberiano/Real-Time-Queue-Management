@@ -502,3 +502,4 @@ function SidebarMenuButton({
   size = "default",
   tooltip,
   className,
+  ...props
