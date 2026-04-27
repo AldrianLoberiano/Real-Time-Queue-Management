@@ -672,3 +672,4 @@ function SidebarMenuSubButton({
   isActive = false,
   className,
   ...props
+}: React.ComponentProps<"a"> & {
