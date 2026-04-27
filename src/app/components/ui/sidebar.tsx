@@ -583,3 +583,4 @@ function SidebarMenuBadge({
 }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="sidebar-menu-badge"
