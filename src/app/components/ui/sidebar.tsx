@@ -435,3 +435,4 @@ function SidebarGroupAction({
       {...props}
     />
   );
+}
