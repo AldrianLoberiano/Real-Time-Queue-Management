@@ -488,3 +488,4 @@ const sidebarMenuButtonVariants = cva(
         lg: "h-12 text-sm group-data-[collapsible=icon]:p-0!",
       },
     },
+    defaultVariants: {
