@@ -558,3 +558,4 @@ function SidebarMenuAction({
 
   return (
     <Comp
+      data-slot="sidebar-menu-action"
