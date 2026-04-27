@@ -352,3 +352,4 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
+}
