@@ -614,3 +614,4 @@ function SidebarMenuSkeleton({
   return (
     <div
       data-slot="sidebar-menu-skeleton"
+      data-sidebar="menu-skeleton"
