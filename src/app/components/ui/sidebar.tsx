@@ -523,3 +523,4 @@ function SidebarMenuButton({
   );
 
   if (!tooltip) {
+    return button;
