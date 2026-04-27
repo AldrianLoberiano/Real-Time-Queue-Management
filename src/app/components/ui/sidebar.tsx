@@ -599,3 +599,4 @@ function SidebarMenuBadge({
   );
 }
 
+function SidebarMenuSkeleton({
