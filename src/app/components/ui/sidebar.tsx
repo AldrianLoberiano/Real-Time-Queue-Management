@@ -424,3 +424,4 @@ function SidebarGroupAction({
   return (
     <Comp
       data-slot="sidebar-group-action"
+      data-sidebar="group-action"
