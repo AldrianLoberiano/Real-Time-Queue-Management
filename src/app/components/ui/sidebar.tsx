@@ -584,3 +584,4 @@ function SidebarMenuBadge({
   return (
     <div
       data-slot="sidebar-menu-badge"
+      data-sidebar="menu-badge"
