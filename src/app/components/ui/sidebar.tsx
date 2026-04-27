@@ -440,3 +440,4 @@ function SidebarGroupAction({
 function SidebarGroupContent({
   className,
   ...props
+}: React.ComponentProps<"div">) {
