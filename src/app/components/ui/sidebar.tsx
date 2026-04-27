@@ -526,3 +526,4 @@ function SidebarMenuButton({
     return button;
   }
 
+  if (typeof tooltip === "string") {
