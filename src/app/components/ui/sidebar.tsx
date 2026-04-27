@@ -593,3 +593,4 @@ function SidebarMenuBadge({
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
         className,
+      )}
