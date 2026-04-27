@@ -612,3 +612,4 @@ function SidebarMenuSkeleton({
   }, []);
 
   return (
+    <div
