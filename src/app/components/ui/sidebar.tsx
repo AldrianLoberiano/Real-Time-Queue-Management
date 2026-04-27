@@ -578,3 +578,4 @@ function SidebarMenuAction({
 }
 
 function SidebarMenuBadge({
+  className,
