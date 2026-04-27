@@ -414,3 +414,4 @@ function SidebarGroupLabel({
   );
 }
 
+function SidebarGroupAction({
