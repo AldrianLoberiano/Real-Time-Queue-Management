@@ -541,3 +541,4 @@ function SidebarMenuButton({
         hidden={state !== "collapsed" || isMobile}
         {...tooltip}
       />
+    </Tooltip>
