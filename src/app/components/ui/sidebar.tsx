@@ -670,3 +670,4 @@ function SidebarMenuSubButton({
   asChild = false,
   size = "md",
   isActive = false,
+  className,
