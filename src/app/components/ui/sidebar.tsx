@@ -394,3 +394,4 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 function SidebarGroupLabel({
+  className,
