@@ -656,3 +656,4 @@ function SidebarMenuSubItem({
   className,
   ...props
 }: React.ComponentProps<"li">) {
+  return (
