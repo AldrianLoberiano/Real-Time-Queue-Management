@@ -619,3 +619,4 @@ function SidebarMenuSkeleton({
       {...props}
     >
       {showIcon && (
+        <Skeleton
