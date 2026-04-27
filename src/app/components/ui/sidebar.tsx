@@ -530,3 +530,4 @@ function SidebarMenuButton({
     tooltip = {
       children: tooltip,
     };
+  }
