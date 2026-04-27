@@ -633,3 +633,4 @@ function SidebarMenuSkeleton({
           } as React.CSSProperties
         }
       />
+    </div>
