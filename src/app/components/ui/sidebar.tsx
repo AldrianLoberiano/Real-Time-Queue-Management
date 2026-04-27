@@ -431,3 +431,4 @@ function SidebarGroupAction({
         "after:absolute after:-inset-2 md:after:hidden",
         "group-data-[collapsible=icon]:hidden",
         className,
+      )}
