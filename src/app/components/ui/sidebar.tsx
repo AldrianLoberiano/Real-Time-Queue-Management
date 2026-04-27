@@ -515,3 +515,4 @@ function SidebarMenuButton({
     <Comp
       data-slot="sidebar-menu-button"
       data-sidebar="menu-button"
+      data-size={size}
