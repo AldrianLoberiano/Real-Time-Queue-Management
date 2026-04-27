@@ -604,3 +604,4 @@ function SidebarMenuSkeleton({
   showIcon = false,
   ...props
 }: React.ComponentProps<"div"> & {
+  showIcon?: boolean;
