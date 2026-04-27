@@ -511,3 +511,4 @@ function SidebarMenuButton({
   const Comp = asChild ? Slot : "button";
   const { isMobile, state } = useSidebar();
 
+  const button = (
