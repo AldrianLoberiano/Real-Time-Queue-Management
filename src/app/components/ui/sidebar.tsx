@@ -362,3 +362,4 @@ function SidebarSeparator({
     <Separator
       data-slot="sidebar-separator"
       data-sidebar="separator"
+      className={cn("bg-sidebar-border mx-2 w-auto", className)}
