@@ -594,3 +594,4 @@ function SidebarMenuBadge({
         "group-data-[collapsible=icon]:hidden",
         className,
       )}
+      {...props}
