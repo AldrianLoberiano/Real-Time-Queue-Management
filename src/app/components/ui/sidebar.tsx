@@ -579,3 +579,4 @@ function SidebarMenuAction({
 
 function SidebarMenuBadge({
   className,
+  ...props
