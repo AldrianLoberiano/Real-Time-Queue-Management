@@ -417,3 +417,4 @@ function SidebarGroupLabel({
 function SidebarGroupAction({
   className,
   asChild = false,
+  ...props
