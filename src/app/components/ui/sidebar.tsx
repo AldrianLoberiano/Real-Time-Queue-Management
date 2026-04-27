@@ -341,3 +341,4 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
     />
   );
+}
