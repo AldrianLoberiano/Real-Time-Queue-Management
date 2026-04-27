@@ -503,3 +503,4 @@ function SidebarMenuButton({
   tooltip,
   className,
   ...props
+}: React.ComponentProps<"button"> & {
