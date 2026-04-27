@@ -542,3 +542,4 @@ function SidebarMenuButton({
         {...tooltip}
       />
     </Tooltip>
+  );
