@@ -549,3 +549,4 @@ function SidebarMenuAction({
   className,
   asChild = false,
   showOnHover = false,
+  ...props
