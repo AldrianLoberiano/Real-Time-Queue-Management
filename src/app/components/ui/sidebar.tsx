@@ -682,3 +682,4 @@ function SidebarMenuSubButton({
   return (
     <Comp
       data-slot="sidebar-menu-sub-button"
+      data-sidebar="menu-sub-button"
