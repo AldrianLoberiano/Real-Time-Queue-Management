@@ -366,3 +366,4 @@ function SidebarSeparator({
       {...props}
     />
   );
+}
