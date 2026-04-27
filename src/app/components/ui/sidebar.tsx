@@ -360,3 +360,4 @@ function SidebarSeparator({
 }: React.ComponentProps<typeof Separator>) {
   return (
     <Separator
+      data-slot="sidebar-separator"
