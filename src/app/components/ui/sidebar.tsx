@@ -577,3 +577,4 @@ function SidebarMenuAction({
   );
 }
 
+function SidebarMenuBadge({
