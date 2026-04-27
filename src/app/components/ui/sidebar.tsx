@@ -459,3 +459,4 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
       className={cn("flex w-full min-w-0 flex-col gap-1", className)}
       {...props}
     />
+  );
