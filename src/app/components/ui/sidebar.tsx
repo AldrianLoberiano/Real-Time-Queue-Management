@@ -386,3 +386,4 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="sidebar-group"
+      data-sidebar="group"
