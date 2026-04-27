@@ -501,3 +501,4 @@ function SidebarMenuButton({
   variant = "default",
   size = "default",
   tooltip,
+  className,
