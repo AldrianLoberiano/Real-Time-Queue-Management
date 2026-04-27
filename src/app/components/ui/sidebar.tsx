@@ -600,3 +600,4 @@ function SidebarMenuBadge({
 }
 
 function SidebarMenuSkeleton({
+  className,
