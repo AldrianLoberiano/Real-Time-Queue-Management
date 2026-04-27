@@ -658,3 +658,4 @@ function SidebarMenuSubItem({
 }: React.ComponentProps<"li">) {
   return (
     <li
+      data-sidebar="menu-sub-item"
