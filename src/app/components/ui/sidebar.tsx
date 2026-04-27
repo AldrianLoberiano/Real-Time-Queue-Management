@@ -529,3 +529,4 @@ function SidebarMenuButton({
   if (typeof tooltip === "string") {
     tooltip = {
       children: tooltip,
+    };
