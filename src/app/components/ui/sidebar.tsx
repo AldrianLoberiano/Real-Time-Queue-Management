@@ -461,3 +461,4 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
     />
   );
 }
+
