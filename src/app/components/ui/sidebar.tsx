@@ -418,3 +418,4 @@ function SidebarGroupAction({
   className,
   asChild = false,
   ...props
+}: React.ComponentProps<"button"> & { asChild?: boolean }) {
