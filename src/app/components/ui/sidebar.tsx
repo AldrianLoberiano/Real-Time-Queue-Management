@@ -410,3 +410,4 @@ function SidebarGroupLabel({
         className,
       )}
       {...props}
+    />
