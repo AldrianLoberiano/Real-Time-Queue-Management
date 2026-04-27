@@ -581,3 +581,4 @@ function SidebarMenuBadge({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  return (
