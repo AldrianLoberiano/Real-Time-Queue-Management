@@ -573,3 +573,4 @@ function SidebarMenuAction({
         className,
       )}
       {...props}
+  );
