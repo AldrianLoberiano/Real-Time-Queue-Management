@@ -653,3 +653,4 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
 }
 
 function SidebarMenuSubItem({
+  className,
