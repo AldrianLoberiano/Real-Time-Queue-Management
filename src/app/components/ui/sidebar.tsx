@@ -361,3 +361,4 @@ function SidebarSeparator({
   return (
     <Separator
       data-slot="sidebar-separator"
+      data-sidebar="separator"
