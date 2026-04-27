@@ -639,3 +639,4 @@ function SidebarMenuSkeleton({
 
 function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
   return (
+    <ul
