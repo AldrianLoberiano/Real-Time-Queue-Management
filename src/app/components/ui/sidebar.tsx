@@ -516,3 +516,4 @@ function SidebarMenuButton({
       data-slot="sidebar-menu-button"
       data-sidebar="menu-button"
       data-size={size}
+      data-active={isActive}
