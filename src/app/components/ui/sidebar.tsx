@@ -441,3 +441,4 @@ function SidebarGroupContent({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  return (
