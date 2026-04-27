@@ -432,3 +432,4 @@ function SidebarGroupAction({
         "group-data-[collapsible=icon]:hidden",
         className,
       )}
+      {...props}
