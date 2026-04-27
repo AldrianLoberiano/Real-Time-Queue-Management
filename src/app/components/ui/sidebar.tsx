@@ -443,3 +443,4 @@ function SidebarGroupContent({
 }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="sidebar-group-content"
