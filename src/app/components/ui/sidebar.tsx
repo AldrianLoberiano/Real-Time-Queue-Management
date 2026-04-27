@@ -575,3 +575,4 @@ function SidebarMenuAction({
       {...props}
     />
   );
+}
