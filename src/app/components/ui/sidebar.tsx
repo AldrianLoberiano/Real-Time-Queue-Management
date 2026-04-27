@@ -506,3 +506,4 @@ function SidebarMenuButton({
 }: React.ComponentProps<"button"> & {
   asChild?: boolean;
   isActive?: boolean;
+  tooltip?: string | React.ComponentProps<typeof TooltipContent>;
