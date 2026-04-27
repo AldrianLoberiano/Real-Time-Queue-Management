@@ -543,3 +543,4 @@ function SidebarMenuButton({
       />
     </Tooltip>
   );
+}
