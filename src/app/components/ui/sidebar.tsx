@@ -478,3 +478,4 @@ const sidebarMenuButtonVariants = cva(
   {
     variants: {
       variant: {
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
