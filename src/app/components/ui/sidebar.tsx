@@ -548,3 +548,4 @@ function SidebarMenuButton({
 function SidebarMenuAction({
   className,
   asChild = false,
+  showOnHover = false,
