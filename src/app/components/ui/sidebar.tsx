@@ -444,3 +444,4 @@ function SidebarGroupContent({
   return (
     <div
       data-slot="sidebar-group-content"
+      data-sidebar="group-content"
