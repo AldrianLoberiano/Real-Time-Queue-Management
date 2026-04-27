@@ -422,3 +422,4 @@ function SidebarGroupAction({
   const Comp = asChild ? Slot : "button";
 
   return (
+    <Comp
