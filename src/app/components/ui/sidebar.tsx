@@ -384,3 +384,4 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
 
 function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
+    <div
