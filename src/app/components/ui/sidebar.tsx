@@ -662,3 +662,4 @@ function SidebarMenuSubItem({
       data-sidebar="menu-sub-item"
       className={cn("group/menu-sub-item relative", className)}
       {...props}
+    />
