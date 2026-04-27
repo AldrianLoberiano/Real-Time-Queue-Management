@@ -505,3 +505,4 @@ function SidebarMenuButton({
   ...props
 }: React.ComponentProps<"button"> & {
   asChild?: boolean;
+  isActive?: boolean;
