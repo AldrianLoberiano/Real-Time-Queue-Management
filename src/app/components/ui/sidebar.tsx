@@ -621,3 +621,4 @@ function SidebarMenuSkeleton({
       {showIcon && (
         <Skeleton
           className="size-4 rounded-md"
+          data-sidebar="menu-skeleton-icon"
