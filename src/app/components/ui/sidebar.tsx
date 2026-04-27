@@ -596,3 +596,4 @@ function SidebarMenuBadge({
       )}
       {...props}
     />
+  );
