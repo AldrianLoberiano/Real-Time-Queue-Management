@@ -449,3 +449,4 @@ function SidebarGroupContent({
       {...props}
     />
   );
+}
