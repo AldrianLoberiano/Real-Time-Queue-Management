@@ -693,3 +693,4 @@ function SidebarMenuSubButton({
         "group-data-[collapsible=icon]:hidden",
         className,
       )}
+      {...props}
