@@ -629,3 +629,4 @@ function SidebarMenuSkeleton({
         data-sidebar="menu-skeleton-text"
         style={
           {
+            "--skeleton-width": width,
