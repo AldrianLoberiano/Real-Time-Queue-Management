@@ -512,3 +512,4 @@ function SidebarMenuButton({
   const { isMobile, state } = useSidebar();
 
   const button = (
+    <Comp
