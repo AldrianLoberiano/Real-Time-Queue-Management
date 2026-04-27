@@ -635,3 +635,4 @@ function SidebarMenuSkeleton({
       />
     </div>
   );
+}
