@@ -359,3 +359,4 @@ function SidebarSeparator({
   ...props
 }: React.ComponentProps<typeof Separator>) {
   return (
+    <Separator
