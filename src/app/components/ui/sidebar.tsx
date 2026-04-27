@@ -513,3 +513,4 @@ function SidebarMenuButton({
 
   const button = (
     <Comp
+      data-slot="sidebar-menu-button"
