@@ -675,4 +675,5 @@ function SidebarMenuSubButton({
 }: React.ComponentProps<"a"> & {
   asChild?: boolean;
   size?: "sm" | "md";
+  isActive?: boolean;
 }) {
