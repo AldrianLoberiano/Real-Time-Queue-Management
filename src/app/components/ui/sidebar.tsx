@@ -436,3 +436,4 @@ function SidebarGroupAction({
     />
   );
 }
+function SidebarGroupContent({
