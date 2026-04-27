@@ -439,3 +439,4 @@ function SidebarGroupAction({
 
 function SidebarGroupContent({
   className,
+  ...props
