@@ -695,3 +695,4 @@ function SidebarMenuSubButton({
       )}
       {...props}
     />
+  );
