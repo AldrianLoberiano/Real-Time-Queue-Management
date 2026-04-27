@@ -354,3 +354,4 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function SidebarSeparator({
