@@ -550,3 +550,4 @@ function SidebarMenuAction({
   asChild = false,
   showOnHover = false,
   ...props
+}: React.ComponentProps<"button"> & {
