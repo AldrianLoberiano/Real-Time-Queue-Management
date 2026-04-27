@@ -415,3 +415,4 @@ function SidebarGroupLabel({
 }
 
 function SidebarGroupAction({
+  className,
