@@ -673,3 +673,4 @@ function SidebarMenuSubButton({
   className,
   ...props
 }: React.ComponentProps<"a"> & {
+  asChild?: boolean;
