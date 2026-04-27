@@ -546,3 +546,4 @@ function SidebarMenuButton({
 }
 
 function SidebarMenuAction({
+  className,
