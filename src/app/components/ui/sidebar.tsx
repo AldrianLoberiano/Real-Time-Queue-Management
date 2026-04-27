@@ -680,3 +680,4 @@ function SidebarMenuSubButton({
   const Comp = asChild ? Slot : "a";
 
   return (
+    <Comp
