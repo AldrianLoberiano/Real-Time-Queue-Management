@@ -522,3 +522,4 @@ function SidebarMenuButton({
     />
   );
 
+  if (!tooltip) {
