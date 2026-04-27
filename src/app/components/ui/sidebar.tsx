@@ -401,3 +401,4 @@ function SidebarGroupLabel({
   const Comp = asChild ? Slot : "div";
 
   return (
+    <Comp
