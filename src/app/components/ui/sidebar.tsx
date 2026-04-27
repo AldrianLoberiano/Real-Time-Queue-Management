@@ -442,3 +442,4 @@ function SidebarGroupContent({
   ...props
 }: React.ComponentProps<"div">) {
   return (
+    <div
