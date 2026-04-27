@@ -448,3 +448,4 @@ function SidebarGroupContent({
       className={cn("w-full text-sm", className)}
       {...props}
     />
+  );
