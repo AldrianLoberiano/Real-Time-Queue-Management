@@ -671,3 +671,4 @@ function SidebarMenuSubButton({
   size = "md",
   isActive = false,
   className,
+  ...props
