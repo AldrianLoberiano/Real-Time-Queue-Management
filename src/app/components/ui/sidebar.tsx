@@ -603,3 +603,4 @@ function SidebarMenuSkeleton({
   className,
   showIcon = false,
   ...props
+}: React.ComponentProps<"div"> & {
