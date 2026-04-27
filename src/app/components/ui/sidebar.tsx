@@ -694,3 +694,4 @@ function SidebarMenuSubButton({
         className,
       )}
       {...props}
+    />
