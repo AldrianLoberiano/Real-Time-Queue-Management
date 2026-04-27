@@ -402,3 +402,4 @@ function SidebarGroupLabel({
 
   return (
     <Comp
+      data-slot="sidebar-group-label"
