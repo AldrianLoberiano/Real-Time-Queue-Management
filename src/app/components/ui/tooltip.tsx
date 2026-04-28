@@ -35,3 +35,4 @@ function TooltipTrigger({
 }
 
 function TooltipContent({
+  className,
