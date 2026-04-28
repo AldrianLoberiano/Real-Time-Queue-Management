@@ -16,3 +16,4 @@ function Slider({
   const _values = React.useMemo(
     () =>
       Array.isArray(value)
+        ? value
