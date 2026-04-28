@@ -8,3 +8,4 @@ import { cn } from "./utils";
 function Tabs({
   className,
   ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
