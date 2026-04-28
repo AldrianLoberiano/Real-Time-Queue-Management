@@ -18,3 +18,4 @@ function ToggleGroup({
   className,
   variant,
   size,
+  children,
