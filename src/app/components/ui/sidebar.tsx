@@ -713,3 +713,4 @@ export {
   SidebarMenuAction,
   SidebarMenuBadge,
   SidebarMenuButton,
+  SidebarMenuItem,
