@@ -29,3 +29,4 @@ function Slider({
       defaultValue={defaultValue}
       value={value}
       min={min}
+      max={max}
