@@ -710,3 +710,4 @@ export {
   SidebarInput,
   SidebarInset,
   SidebarMenu,
+  SidebarMenuAction,
