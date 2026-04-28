@@ -15,3 +15,4 @@ export interface QueueItem {
 }
 
 export interface HourlyData {
+  hour: string;
