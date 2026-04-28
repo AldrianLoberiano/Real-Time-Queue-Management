@@ -23,3 +23,4 @@ function TabsList({
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.List>) {
   return (
+    <TabsPrimitive.List
