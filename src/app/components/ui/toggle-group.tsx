@@ -52,3 +52,4 @@ function ToggleGroupItem({
 
   return (
     <ToggleGroupPrimitive.Item
+      data-slot="toggle-group-item"
