@@ -20,3 +20,4 @@ function ToggleGroup({
   size,
   children,
   ...props
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
