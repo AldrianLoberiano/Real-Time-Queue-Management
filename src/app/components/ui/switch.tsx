@@ -25,3 +25,4 @@ function Switch({
         )}
       />
     </SwitchPrimitive.Root>
+  );
