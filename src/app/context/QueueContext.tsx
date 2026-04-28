@@ -11,3 +11,4 @@ export interface QueueItem {
   status: StatusType;
   createdAt: Date;
   calledAt?: Date;
+  completedAt?: Date;
