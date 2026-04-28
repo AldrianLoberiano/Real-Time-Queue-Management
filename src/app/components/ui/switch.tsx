@@ -18,3 +18,4 @@ function Switch({
       )}
       {...props}
     >
+      <SwitchPrimitive.Thumb
