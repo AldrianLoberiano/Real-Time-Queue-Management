@@ -25,3 +25,4 @@ function ToggleGroup({
   return (
     <ToggleGroupPrimitive.Root
       data-slot="toggle-group"
+      data-variant={variant}
