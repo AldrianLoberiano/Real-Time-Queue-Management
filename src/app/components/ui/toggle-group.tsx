@@ -57,3 +57,4 @@ function ToggleGroupItem({
       data-size={context.size || size}
       className={cn(
         toggleVariants({
+          variant: context.variant || variant,
