@@ -12,3 +12,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       style={
         {
+          "--normal-bg": "var(--popover)",
