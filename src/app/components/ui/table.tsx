@@ -95,3 +95,4 @@ function TableCaption({
   className,
   ...props
 }: React.ComponentProps<"caption">) {
+  return (
