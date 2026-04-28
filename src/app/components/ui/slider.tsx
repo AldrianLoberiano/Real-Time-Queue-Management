@@ -9,3 +9,4 @@ function Slider({
   className,
   defaultValue,
   value,
+  min = 0,
