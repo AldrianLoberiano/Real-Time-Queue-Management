@@ -37,3 +37,4 @@ function Toggle({
   VariantProps<typeof toggleVariants>) {
   return (
     <TogglePrimitive.Root
+      data-slot="toggle"
