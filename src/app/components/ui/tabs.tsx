@@ -60,3 +60,4 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
+  );
