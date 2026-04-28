@@ -47,4 +47,5 @@ function TabsTrigger({
       )}
       {...props}
     />
+  );
   className,
