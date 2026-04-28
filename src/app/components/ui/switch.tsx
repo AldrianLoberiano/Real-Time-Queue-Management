@@ -26,3 +26,4 @@ function Switch({
       />
     </SwitchPrimitive.Root>
   );
+}
