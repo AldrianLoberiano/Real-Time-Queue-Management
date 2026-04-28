@@ -7,3 +7,4 @@ export function useIsMobile() {
     undefined,
   );
 
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
