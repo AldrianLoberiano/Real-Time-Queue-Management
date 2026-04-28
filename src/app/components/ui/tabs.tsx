@@ -37,3 +37,4 @@ function TabsList({
 function TabsTrigger({
   className,
   ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
