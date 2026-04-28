@@ -19,3 +19,4 @@ function Tabs({
 }
 
 function TabsList({
+  className,
