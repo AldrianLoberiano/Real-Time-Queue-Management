@@ -19,3 +19,4 @@ function ToggleGroup({
   variant,
   size,
   children,
+  ...props
