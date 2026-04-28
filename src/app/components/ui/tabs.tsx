@@ -21,3 +21,4 @@ function Tabs({
 function TabsList({
   className,
   ...props
+}: React.ComponentProps<typeof TabsPrimitive.List>) {
