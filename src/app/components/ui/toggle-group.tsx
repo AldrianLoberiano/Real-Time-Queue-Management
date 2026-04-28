@@ -51,3 +51,4 @@ function ToggleGroupItem({
   const context = React.useContext(ToggleGroupContext);
 
   return (
+    <ToggleGroupPrimitive.Item
