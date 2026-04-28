@@ -26,3 +26,4 @@ function Slider({
   return (
     <SliderPrimitive.Root
       data-slot="slider"
+      defaultValue={defaultValue}
