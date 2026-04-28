@@ -38,3 +38,4 @@ function ToggleGroup({
       </ToggleGroupContext.Provider>
     </ToggleGroupPrimitive.Root>
   );
+}
