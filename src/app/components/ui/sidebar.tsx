@@ -699,3 +699,4 @@ function SidebarMenuSubButton({
 }
 
 export {
+  Sidebar,
