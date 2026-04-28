@@ -30,3 +30,4 @@ function Slider({
       value={value}
       min={min}
       max={max}
+      className={cn(
