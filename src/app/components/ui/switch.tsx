@@ -11,3 +11,4 @@ function Switch({
 }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
   return (
     <SwitchPrimitive.Root
+      data-slot="switch"
