@@ -44,3 +44,4 @@ function Slider({
       >
         <SliderPrimitive.Range
           data-slot="slider-range"
+          className={cn(
