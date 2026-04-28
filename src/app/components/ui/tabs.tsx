@@ -55,3 +55,4 @@ function TabsContent({
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Content>) {
   return (
+    <TabsPrimitive.Content
