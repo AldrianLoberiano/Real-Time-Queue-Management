@@ -36,3 +36,4 @@ function TabsList({
 
 function TabsTrigger({
   className,
+  ...props
