@@ -66,3 +66,4 @@ function ToggleGroupItem({
       {...props}
     >
       {children}
+    </ToggleGroupPrimitive.Item>
