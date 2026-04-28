@@ -39,3 +39,4 @@ function TabsTrigger({
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
   return (
+    <TabsPrimitive.Trigger
