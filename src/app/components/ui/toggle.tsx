@@ -20,3 +20,4 @@ const toggleVariants = cva(
         sm: "h-8 px-1.5 min-w-8",
         lg: "h-10 px-2.5 min-w-10",
       },
+    },
