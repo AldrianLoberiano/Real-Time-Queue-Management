@@ -109,3 +109,4 @@ export {
   TableHeader,
   TableBody,
   TableFooter,
+  TableHead,
