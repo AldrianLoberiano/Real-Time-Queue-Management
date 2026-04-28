@@ -32,3 +32,4 @@ function TabsList({
       {...props}
     />
   );
+}
