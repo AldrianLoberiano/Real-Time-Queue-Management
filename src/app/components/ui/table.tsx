@@ -65,3 +65,4 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   );
 }
 
+function TableHead({ className, ...props }: React.ComponentProps<"th">) {
