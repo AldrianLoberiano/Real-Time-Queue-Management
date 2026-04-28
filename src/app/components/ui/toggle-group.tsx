@@ -35,3 +35,4 @@ function ToggleGroup({
     >
       <ToggleGroupContext.Provider value={{ variant, size }}>
         {children}
+      </ToggleGroupContext.Provider>
