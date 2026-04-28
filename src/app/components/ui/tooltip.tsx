@@ -7,3 +7,4 @@ import { cn } from "./utils";
 
 function TooltipProvider({
   delayDuration = 0,
+  ...props
