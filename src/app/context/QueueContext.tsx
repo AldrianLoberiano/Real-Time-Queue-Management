@@ -13,3 +13,4 @@ export interface QueueItem {
   calledAt?: Date;
   completedAt?: Date;
 }
+export interface HourlyData {
