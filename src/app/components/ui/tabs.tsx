@@ -30,3 +30,4 @@ function TabsList({
         className,
       )}
       {...props}
+    />
