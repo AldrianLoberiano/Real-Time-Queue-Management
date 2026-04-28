@@ -88,3 +88,4 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
       )}
       {...props}
     />
+  );
