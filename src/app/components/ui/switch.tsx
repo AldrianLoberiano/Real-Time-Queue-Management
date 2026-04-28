@@ -17,3 +17,4 @@ function Switch({
         className,
       )}
       {...props}
+    >
