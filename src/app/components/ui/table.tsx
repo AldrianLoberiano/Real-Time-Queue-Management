@@ -17,3 +17,4 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
       />
     </div>
   );
+}
