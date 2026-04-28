@@ -11,3 +11,4 @@ const toggleVariants = cva(
   {
     variants: {
       variant: {
+        default: "bg-transparent",
