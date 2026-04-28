@@ -15,3 +15,4 @@ const ToggleGroupContext = React.createContext<
 });
 
 function ToggleGroup({
+  className,
