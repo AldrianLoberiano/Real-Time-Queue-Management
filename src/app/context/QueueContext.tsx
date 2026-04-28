@@ -6,3 +6,4 @@ export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 export interface QueueItem {
   id: string;
   number: string;
+  name: string;
