@@ -106,3 +106,4 @@ function TableCaption({
 
 export {
   Table,
+  TableHeader,
