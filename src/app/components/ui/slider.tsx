@@ -28,3 +28,4 @@ function Slider({
       data-slot="slider"
       defaultValue={defaultValue}
       value={value}
+      min={min}
