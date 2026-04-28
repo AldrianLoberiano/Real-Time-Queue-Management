@@ -35,3 +35,4 @@ function Slider({
         className,
       )}
       {...props}
+    >
