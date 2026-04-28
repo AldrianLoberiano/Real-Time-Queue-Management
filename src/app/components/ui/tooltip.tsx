@@ -29,3 +29,4 @@ function Tooltip({
 }
 
 function TooltipTrigger({
+  ...props
