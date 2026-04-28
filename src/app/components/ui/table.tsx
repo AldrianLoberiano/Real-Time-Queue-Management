@@ -94,3 +94,4 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
 function TableCaption({
   className,
   ...props
+}: React.ComponentProps<"caption">) {
