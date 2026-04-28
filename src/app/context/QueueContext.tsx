@@ -4,3 +4,4 @@ export type PriorityType = 'regular' | 'vip' | 'senior';
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 
 export interface QueueItem {
+  id: string;
