@@ -35,3 +35,4 @@ function TabsList({
 }
 
 function TabsTrigger({
+  className,
