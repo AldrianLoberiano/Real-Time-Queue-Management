@@ -37,3 +37,4 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
       {...props}
     />
   );
+}
