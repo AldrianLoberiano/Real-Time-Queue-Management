@@ -60,3 +60,4 @@ function Slider({
   );
 }
 
+export { Slider };
