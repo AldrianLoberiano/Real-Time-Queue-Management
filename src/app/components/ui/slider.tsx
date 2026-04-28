@@ -17,3 +17,4 @@ function Slider({
     () =>
       Array.isArray(value)
         ? value
+        : Array.isArray(defaultValue)
