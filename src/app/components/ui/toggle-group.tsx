@@ -30,3 +30,4 @@ function ToggleGroup({
       className={cn(
         "group/toggle-group flex w-fit items-center rounded-md data-[variant=outline]:shadow-xs",
         className,
+      )}
