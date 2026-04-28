@@ -704,3 +704,4 @@ export {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupAction,
+  SidebarGroupContent,
