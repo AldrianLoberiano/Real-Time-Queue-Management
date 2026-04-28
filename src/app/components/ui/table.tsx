@@ -27,3 +27,4 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
       {...props}
     />
   );
+}
