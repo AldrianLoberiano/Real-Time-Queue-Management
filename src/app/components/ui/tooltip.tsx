@@ -41,3 +41,4 @@ function TooltipContent({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content>) {
   return (
+    <TooltipPrimitive.Portal>
