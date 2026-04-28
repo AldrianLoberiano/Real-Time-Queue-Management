@@ -10,3 +10,4 @@ function Switch({
   ...props
 }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
   return (
+    <SwitchPrimitive.Root
