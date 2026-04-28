@@ -13,3 +13,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
       style={
         {
           "--normal-bg": "var(--popover)",
+          "--normal-text": "var(--popover-foreground)",
