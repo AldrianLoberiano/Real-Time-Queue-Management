@@ -58,3 +58,4 @@ function ToggleGroupItem({
       className={cn(
         toggleVariants({
           variant: context.variant || variant,
+          size: context.size || size,
