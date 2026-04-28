@@ -53,3 +53,4 @@ function ToggleGroupItem({
   return (
     <ToggleGroupPrimitive.Item
       data-slot="toggle-group-item"
+      data-variant={context.variant || variant}
