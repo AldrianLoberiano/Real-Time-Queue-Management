@@ -10,3 +10,4 @@ function Slider({
   defaultValue,
   value,
   min = 0,
+  max = 100,
