@@ -23,3 +23,4 @@ function Tooltip({
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return (
     <TooltipProvider>
+      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
