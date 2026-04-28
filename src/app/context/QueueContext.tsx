@@ -17,3 +17,4 @@ export interface QueueItem {
 export interface HourlyData {
   hour: string;
   served: number;
+  joined: number;
