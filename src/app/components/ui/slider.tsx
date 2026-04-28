@@ -37,3 +37,4 @@ function Slider({
       {...props}
     >
       <SliderPrimitive.Track
+        data-slot="slider-track"
