@@ -110,3 +110,4 @@ export {
   TableBody,
   TableFooter,
   TableHead,
+  TableRow,
