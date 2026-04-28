@@ -717,3 +717,4 @@ export {
   SidebarMenuSkeleton,
   SidebarMenuSub,
   SidebarMenuSubButton,
+  SidebarMenuSubItem,
