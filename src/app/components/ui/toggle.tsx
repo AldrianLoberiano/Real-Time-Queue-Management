@@ -29,3 +29,4 @@ const toggleVariants = cva(
 );
 
 function Toggle({
+  className,
