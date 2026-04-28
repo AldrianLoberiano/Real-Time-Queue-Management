@@ -52,3 +52,4 @@ function TabsTrigger({
 
 function TabsContent({
   className,
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
