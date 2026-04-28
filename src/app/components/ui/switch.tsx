@@ -20,3 +20,4 @@ function Switch({
     >
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
+        className={cn(
