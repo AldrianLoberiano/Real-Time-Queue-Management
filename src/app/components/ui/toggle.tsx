@@ -26,3 +26,4 @@ const toggleVariants = cva(
       size: "default",
     },
   },
+);
