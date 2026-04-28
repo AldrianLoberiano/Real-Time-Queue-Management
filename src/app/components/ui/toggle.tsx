@@ -32,3 +32,4 @@ function Toggle({
   className,
   variant,
   size,
+  ...props
