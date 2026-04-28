@@ -29,3 +29,4 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   );
 }
 
+function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
