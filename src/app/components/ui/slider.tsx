@@ -38,3 +38,4 @@ function Slider({
     >
       <SliderPrimitive.Track
         data-slot="slider-track"
+        className={cn(
