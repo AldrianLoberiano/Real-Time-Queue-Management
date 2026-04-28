@@ -24,3 +24,4 @@ function ToggleGroup({
   VariantProps<typeof toggleVariants>) {
   return (
     <ToggleGroupPrimitive.Root
+      data-slot="toggle-group"
