@@ -12,3 +12,4 @@ export interface QueueItem {
   createdAt: Date;
   calledAt?: Date;
   completedAt?: Date;
+}
