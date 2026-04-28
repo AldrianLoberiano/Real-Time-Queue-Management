@@ -97,3 +97,4 @@ function TableCaption({
 }: React.ComponentProps<"caption">) {
   return (
     <caption
+      data-slot="table-caption"
