@@ -36,3 +36,4 @@ function Slider({
       )}
       {...props}
     >
+      <SliderPrimitive.Track
