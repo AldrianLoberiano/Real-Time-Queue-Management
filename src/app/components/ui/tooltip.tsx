@@ -43,3 +43,4 @@ function TooltipContent({
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
+        data-slot="tooltip-content"
