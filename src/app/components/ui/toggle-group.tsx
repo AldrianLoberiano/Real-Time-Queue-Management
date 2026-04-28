@@ -43,3 +43,4 @@ function ToggleGroup({
 function ToggleGroupItem({
   className,
   children,
+  variant,
