@@ -10,3 +10,4 @@ export interface QueueItem {
   type: PriorityType;
   status: StatusType;
   createdAt: Date;
+  calledAt?: Date;
