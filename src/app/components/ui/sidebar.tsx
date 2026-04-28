@@ -705,3 +705,4 @@ export {
   SidebarGroup,
   SidebarGroupAction,
   SidebarGroupContent,
+  SidebarGroupLabel,
