@@ -44,3 +44,4 @@ function TooltipContent({
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
         data-slot="tooltip-content"
+        sideOffset={sideOffset}
