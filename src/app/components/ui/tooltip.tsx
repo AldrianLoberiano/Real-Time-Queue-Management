@@ -15,3 +15,4 @@ function TooltipProvider({
       delayDuration={delayDuration}
       {...props}
     />
+  );
