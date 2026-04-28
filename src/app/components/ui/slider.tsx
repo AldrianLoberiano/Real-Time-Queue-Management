@@ -23,3 +23,4 @@ function Slider({
     [value, defaultValue, min, max],
   );
 
+  return (
