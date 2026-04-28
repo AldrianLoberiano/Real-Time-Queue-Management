@@ -36,3 +36,4 @@ function TooltipTrigger({
 
 function TooltipContent({
   className,
+  sideOffset = 0,
