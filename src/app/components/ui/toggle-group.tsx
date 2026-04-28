@@ -45,3 +45,4 @@ function ToggleGroupItem({
   children,
   variant,
   size,
+  ...props
