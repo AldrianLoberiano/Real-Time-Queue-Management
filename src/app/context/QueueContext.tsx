@@ -8,3 +8,4 @@ export interface QueueItem {
   number: string;
   name: string;
   type: PriorityType;
+  status: StatusType;
