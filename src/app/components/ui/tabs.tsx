@@ -50,4 +50,5 @@ function TabsTrigger({
   );
 }
 
+function TabsContent({
   className,
