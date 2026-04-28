@@ -24,3 +24,4 @@ function Slider({
   );
 
   return (
+    <SliderPrimitive.Root
