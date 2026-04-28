@@ -49,4 +49,5 @@ function TabsTrigger({
     />
   );
 }
+
   className,
