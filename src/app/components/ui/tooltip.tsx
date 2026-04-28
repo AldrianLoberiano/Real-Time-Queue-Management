@@ -11,3 +11,4 @@ function TooltipProvider({
 }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
   return (
     <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
