@@ -12,3 +12,4 @@ function Switch({
   return (
     <SwitchPrimitive.Root
       data-slot="switch"
+      className={cn(
