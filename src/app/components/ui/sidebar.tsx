@@ -709,3 +709,4 @@ export {
   SidebarHeader,
   SidebarInput,
   SidebarInset,
+  SidebarMenu,
