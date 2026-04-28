@@ -14,3 +14,4 @@ function Slider({
   ...props
 }: React.ComponentProps<typeof SliderPrimitive.Root>) {
   const _values = React.useMemo(
+    () =>
