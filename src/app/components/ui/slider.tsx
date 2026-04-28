@@ -58,3 +58,4 @@ function Slider({
       ))}
     </SliderPrimitive.Root>
   );
+}
