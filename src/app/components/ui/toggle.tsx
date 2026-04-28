@@ -34,3 +34,4 @@ function Toggle({
   size,
   ...props
 }: React.ComponentProps<typeof TogglePrimitive.Root> &
+  VariantProps<typeof toggleVariants>) {
