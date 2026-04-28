@@ -102,3 +102,4 @@ function TableCaption({
       {...props}
     />
   );
+}
