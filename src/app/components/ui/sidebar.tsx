@@ -723,3 +723,4 @@ export {
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
+};
