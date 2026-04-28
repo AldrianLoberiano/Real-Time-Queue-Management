@@ -26,3 +26,4 @@ function Tooltip({
       <TooltipPrimitive.Root data-slot="tooltip" {...props} />
     </TooltipProvider>
   );
+}
