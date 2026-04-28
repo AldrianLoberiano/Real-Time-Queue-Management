@@ -7,3 +7,4 @@ export interface QueueItem {
   id: string;
   number: string;
   name: string;
+  type: PriorityType;
