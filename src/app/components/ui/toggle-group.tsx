@@ -59,3 +59,4 @@ function ToggleGroupItem({
         toggleVariants({
           variant: context.variant || variant,
           size: context.size || size,
+        }),
