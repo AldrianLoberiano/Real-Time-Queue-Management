@@ -27,3 +27,4 @@ function ToggleGroup({
       data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
+      className={cn(
