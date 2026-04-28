@@ -23,3 +23,4 @@ function ToggleGroup({
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
   VariantProps<typeof toggleVariants>) {
   return (
+    <ToggleGroupPrimitive.Root
