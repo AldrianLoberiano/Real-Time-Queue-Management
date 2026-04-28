@@ -10,3 +10,4 @@ function TooltipProvider({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
   return (
+    <TooltipPrimitive.Provider
