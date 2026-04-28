@@ -10,3 +10,4 @@ function Tabs({
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
+    <TabsPrimitive.Root
