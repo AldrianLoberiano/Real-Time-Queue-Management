@@ -105,3 +105,4 @@ function TableCaption({
 }
 
 export {
+  Table,
