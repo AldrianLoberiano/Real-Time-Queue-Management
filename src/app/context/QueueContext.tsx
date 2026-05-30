@@ -31,3 +31,4 @@ interface QueueContextType {
   removeItem: (id: string) => void;
   resetQueue: () => void;
   clearAll: () => void;
+  isAdminLoggedIn: boolean;
