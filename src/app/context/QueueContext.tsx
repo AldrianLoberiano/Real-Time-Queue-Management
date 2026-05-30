@@ -93,3 +93,4 @@ function generateHourlyData(): HourlyData[] {
 }
 
 const QueueContext = createContext<QueueContextType | null>(null);
+
