@@ -96,3 +96,4 @@ const QueueContext = createContext<QueueContextType | null>(null);
 
 export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [counter, setCounter] = useState(9);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
