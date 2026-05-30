@@ -68,3 +68,4 @@ const MOCK_NAMES = [
   'Rosa Mendoza', 'Carlos Lopez', 'Elena Torres', 'Miguel Fernandez',
   'Sofia Ramos', 'Luis Castillo', 'Isabella Morales', 'Diego Herrera',
   'Valentina Jimenez', 'Alejandro Ruiz', 'Camila Vargas',
+];
