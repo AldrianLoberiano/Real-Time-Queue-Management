@@ -26,3 +26,4 @@ interface QueueContextType {
   joinQueue: (name: string, type: PriorityType) => QueueItem;
   callNext: () => QueueItem | null;
   skipItem: (id: string) => void;
+  recallItem: (id: string) => void;
