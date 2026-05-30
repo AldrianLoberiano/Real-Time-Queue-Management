@@ -104,3 +104,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const simulationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
+    const notif: Notification = {
