@@ -99,3 +99,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return localStorage.getItem('qs_admin') === 'true';
   });
+  const [notifications, setNotifications] = useState<Notification[]>([]);
