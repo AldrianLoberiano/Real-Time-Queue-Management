@@ -111,3 +111,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       timestamp: new Date(),
     };
     setNotifications(prev => [notif, ...prev.slice(0, 4)]);
+    setTimeout(() => {
