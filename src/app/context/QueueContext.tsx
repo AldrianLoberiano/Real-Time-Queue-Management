@@ -41,3 +41,4 @@ interface QueueContextType {
   getEstimatedWait: (id: string) => number;
   getPosition: (id: string) => number;
   updatePriority: (id: string, type: PriorityType) => void;
+  hourlyData: HourlyData[];
