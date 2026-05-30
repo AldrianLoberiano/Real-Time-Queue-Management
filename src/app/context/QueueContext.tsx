@@ -45,3 +45,4 @@ interface QueueContextType {
   avgServiceTime: number;
   totalServedToday: number;
   notifications: Notification[];
+  dismissNotification: (id: string) => void;
