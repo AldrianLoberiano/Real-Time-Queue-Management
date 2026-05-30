@@ -57,3 +57,4 @@ interface Notification {
 
 const PRIORITY_ORDER: Record<PriorityType, number> = {
   vip: 3,
+  senior: 2,
