@@ -102,3 +102,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const simulationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
