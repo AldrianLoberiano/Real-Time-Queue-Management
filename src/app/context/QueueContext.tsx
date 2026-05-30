@@ -91,3 +91,4 @@ function generateHourlyData(): HourlyData[] {
   }
   return hours;
 }
+
