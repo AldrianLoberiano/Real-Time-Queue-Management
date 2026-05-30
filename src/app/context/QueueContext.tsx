@@ -80,3 +80,4 @@ function formatNumber(n: number): string {
 
 function generateHourlyData(): HourlyData[] {
   const hours = [];
+  for (let h = 8; h <= 17; h++) {
