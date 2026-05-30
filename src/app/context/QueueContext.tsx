@@ -36,3 +36,4 @@ interface QueueContextType {
   adminLogout: () => void;
   currentlyServing: QueueItem | null;
   waitingItems: QueueItem[];
+  doneItems: QueueItem[];
