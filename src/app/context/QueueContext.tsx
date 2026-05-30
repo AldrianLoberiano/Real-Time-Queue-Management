@@ -116,3 +116,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     }, 5000);
   }, []);
 
+  // Mock initial queue data
