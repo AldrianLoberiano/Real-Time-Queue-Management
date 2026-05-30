@@ -127,3 +127,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       { id: 'i4', number: 'A-004', name: 'Pedro Garcia', type: 'regular', status: 'done', createdAt: ago(30), calledAt: ago(24), completedAt: ago(21) },
       { id: 'i5', number: 'A-005', name: 'Rosa Mendoza', type: 'vip', status: 'done', createdAt: ago(25), calledAt: ago(18), completedAt: ago(15) },
       { id: 'i6', number: 'A-006', name: 'Carlos Lopez', type: 'regular', status: 'done', createdAt: ago(20), calledAt: ago(12), completedAt: ago(9) },
+      { id: 'i7', number: 'A-007', name: 'Elena Torres', type: 'senior', status: 'serving', createdAt: ago(15), calledAt: ago(3) },
