@@ -40,3 +40,4 @@ interface QueueContextType {
   skippedItems: QueueItem[];
   getEstimatedWait: (id: string) => number;
   getPosition: (id: string) => number;
+  updatePriority: (id: string, type: PriorityType) => void;
