@@ -20,3 +20,4 @@ export interface HourlyData {
   joined: number;
 }
 
+interface QueueContextType {
