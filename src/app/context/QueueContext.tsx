@@ -37,3 +37,4 @@ interface QueueContextType {
   currentlyServing: QueueItem | null;
   waitingItems: QueueItem[];
   doneItems: QueueItem[];
+  skippedItems: QueueItem[];
