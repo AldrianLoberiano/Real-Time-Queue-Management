@@ -64,3 +64,4 @@ const PRIORITY_ORDER: Record<PriorityType, number> = {
 const AVG_SERVICE_MINS = 3;
 
 const MOCK_NAMES = [
+  'Maria Santos', 'Juan dela Cruz', 'Ana Reyes', 'Pedro Garcia',
