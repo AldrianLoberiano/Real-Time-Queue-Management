@@ -78,3 +78,4 @@ function formatNumber(n: number): string {
   return `A-${String(n).padStart(3, '0')}`;
 }
 
+function generateHourlyData(): HourlyData[] {
