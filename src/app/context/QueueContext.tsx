@@ -112,3 +112,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     };
     setNotifications(prev => [notif, ...prev.slice(0, 4)]);
     setTimeout(() => {
+      setNotifications(prev => prev.filter(n => n.id !== notif.id));
