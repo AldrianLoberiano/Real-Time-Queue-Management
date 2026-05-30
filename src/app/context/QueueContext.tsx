@@ -109,3 +109,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       message,
       type,
       timestamp: new Date(),
+    };
