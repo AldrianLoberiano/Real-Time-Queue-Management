@@ -38,3 +38,4 @@ interface QueueContextType {
   waitingItems: QueueItem[];
   doneItems: QueueItem[];
   skippedItems: QueueItem[];
+  getEstimatedWait: (id: string) => number;
