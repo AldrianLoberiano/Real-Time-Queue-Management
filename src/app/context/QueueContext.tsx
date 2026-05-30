@@ -62,3 +62,4 @@ const PRIORITY_ORDER: Record<PriorityType, number> = {
 };
 
 const AVG_SERVICE_MINS = 3;
+
