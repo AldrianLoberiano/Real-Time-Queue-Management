@@ -49,3 +49,4 @@ interface QueueContextType {
 }
 
 interface Notification {
+  id: string;
