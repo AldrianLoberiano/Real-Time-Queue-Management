@@ -71,3 +71,4 @@ const MOCK_NAMES = [
 ];
 
 function generateId(): string {
+  return Math.random().toString(36).substring(2, 11);
