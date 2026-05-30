@@ -118,3 +118,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   // Mock initial queue data
   const [items, setItems] = useState<QueueItem[]>(() => {
+    const now = new Date();
