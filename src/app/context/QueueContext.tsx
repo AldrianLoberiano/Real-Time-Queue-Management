@@ -29,3 +29,4 @@ interface QueueContextType {
   recallItem: (id: string) => void;
   markDone: (id: string) => void;
   removeItem: (id: string) => void;
+  resetQueue: () => void;
