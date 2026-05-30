@@ -53,3 +53,4 @@ interface Notification {
   message: string;
   type: 'info' | 'success' | 'warning';
   timestamp: Date;
+}
