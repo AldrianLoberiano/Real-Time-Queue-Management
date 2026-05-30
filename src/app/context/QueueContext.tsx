@@ -22,3 +22,4 @@ export interface HourlyData {
 
 interface QueueContextType {
   items: QueueItem[];
+  counter: number;
