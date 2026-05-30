@@ -123,3 +123,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return [
       { id: 'i1', number: 'A-001', name: 'Maria Santos', type: 'regular', status: 'done', createdAt: ago(45), calledAt: ago(42), completedAt: ago(39) },
       { id: 'i2', number: 'A-002', name: 'Juan dela Cruz', type: 'vip', status: 'done', createdAt: ago(40), calledAt: ago(36), completedAt: ago(33) },
+      { id: 'i3', number: 'A-003', name: 'Ana Reyes', type: 'senior', status: 'done', createdAt: ago(35), calledAt: ago(30), completedAt: ago(27) },
