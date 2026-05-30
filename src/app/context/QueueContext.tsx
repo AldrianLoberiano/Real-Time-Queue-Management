@@ -27,3 +27,4 @@ interface QueueContextType {
   callNext: () => QueueItem | null;
   skipItem: (id: string) => void;
   recallItem: (id: string) => void;
+  markDone: (id: string) => void;
