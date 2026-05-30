@@ -84,3 +84,4 @@ function generateHourlyData(): HourlyData[] {
     const label = h < 12 ? `${h}AM` : h === 12 ? '12PM' : `${h - 12}PM`;
     const isPeak = (h >= 9 && h <= 11) || (h >= 13 && h <= 15);
     const served = isPeak
+      ? Math.floor(Math.random() * 8) + 10
