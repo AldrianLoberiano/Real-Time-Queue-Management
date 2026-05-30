@@ -54,3 +54,4 @@ interface Notification {
   type: 'info' | 'success' | 'warning';
   timestamp: Date;
 }
+
