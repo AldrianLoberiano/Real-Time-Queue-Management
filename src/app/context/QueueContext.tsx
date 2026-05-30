@@ -35,3 +35,4 @@ interface QueueContextType {
   adminLogin: (username: string, password: string) => boolean;
   adminLogout: () => void;
   currentlyServing: QueueItem | null;
+  waitingItems: QueueItem[];
