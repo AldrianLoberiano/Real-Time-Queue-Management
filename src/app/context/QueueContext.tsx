@@ -48,3 +48,4 @@ interface QueueContextType {
   dismissNotification: (id: string) => void;
 }
 
+interface Notification {
