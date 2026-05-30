@@ -19,3 +19,4 @@ export interface HourlyData {
   served: number;
   joined: number;
 }
+
