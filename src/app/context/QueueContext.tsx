@@ -100,3 +100,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return localStorage.getItem('qs_admin') === 'true';
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
