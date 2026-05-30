@@ -94,3 +94,4 @@ function generateHourlyData(): HourlyData[] {
 
 const QueueContext = createContext<QueueContextType | null>(null);
 
+export function QueueProvider({ children }: { children: React.ReactNode }) {
