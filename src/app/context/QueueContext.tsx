@@ -90,3 +90,4 @@ function generateHourlyData(): HourlyData[] {
     hours.push({ hour: label, served, joined });
   }
   return hours;
+}
