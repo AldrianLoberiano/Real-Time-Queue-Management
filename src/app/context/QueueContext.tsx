@@ -122,3 +122,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const ago = (mins: number) => new Date(now.getTime() - mins * 60 * 1000);
     return [
       { id: 'i1', number: 'A-001', name: 'Maria Santos', type: 'regular', status: 'done', createdAt: ago(45), calledAt: ago(42), completedAt: ago(39) },
+      { id: 'i2', number: 'A-002', name: 'Juan dela Cruz', type: 'vip', status: 'done', createdAt: ago(40), calledAt: ago(36), completedAt: ago(33) },
