@@ -86,3 +86,4 @@ function generateHourlyData(): HourlyData[] {
     const served = isPeak
       ? Math.floor(Math.random() * 8) + 10
       : Math.floor(Math.random() * 5) + 3;
+    const joined = served + Math.floor(Math.random() * 3);
