@@ -87,3 +87,4 @@ function generateHourlyData(): HourlyData[] {
       ? Math.floor(Math.random() * 8) + 10
       : Math.floor(Math.random() * 5) + 3;
     const joined = served + Math.floor(Math.random() * 3);
+    hours.push({ hour: label, served, joined });
