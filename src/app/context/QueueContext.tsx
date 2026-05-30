@@ -79,3 +79,4 @@ function formatNumber(n: number): string {
 }
 
 function generateHourlyData(): HourlyData[] {
+  const hours = [];
