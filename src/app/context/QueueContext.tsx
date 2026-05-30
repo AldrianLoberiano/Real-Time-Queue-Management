@@ -77,3 +77,4 @@ function generateId(): string {
 function formatNumber(n: number): string {
   return `A-${String(n).padStart(3, '0')}`;
 }
+
