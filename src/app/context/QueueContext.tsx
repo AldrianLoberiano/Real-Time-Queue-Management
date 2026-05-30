@@ -30,3 +30,4 @@ interface QueueContextType {
   markDone: (id: string) => void;
   removeItem: (id: string) => void;
   resetQueue: () => void;
+  clearAll: () => void;
