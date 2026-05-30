@@ -25,3 +25,4 @@ interface QueueContextType {
   counter: number;
   joinQueue: (name: string, type: PriorityType) => QueueItem;
   callNext: () => QueueItem | null;
+  skipItem: (id: string) => void;
