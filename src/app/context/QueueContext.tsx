@@ -32,3 +32,4 @@ interface QueueContextType {
   resetQueue: () => void;
   clearAll: () => void;
   isAdminLoggedIn: boolean;
+  adminLogin: (username: string, password: string) => boolean;
