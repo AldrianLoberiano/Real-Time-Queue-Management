@@ -43,3 +43,4 @@ interface QueueContextType {
   updatePriority: (id: string, type: PriorityType) => void;
   hourlyData: HourlyData[];
   avgServiceTime: number;
+  totalServedToday: number;
