@@ -115,3 +115,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       setNotifications(prev => prev.filter(n => n.id !== notif.id));
     }, 5000);
   }, []);
+
