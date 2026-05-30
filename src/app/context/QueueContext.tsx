@@ -98,3 +98,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [counter, setCounter] = useState(9);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return localStorage.getItem('qs_admin') === 'true';
+  });
