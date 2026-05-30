@@ -108,3 +108,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       id: generateId(),
       message,
       type,
+      timestamp: new Date(),
