@@ -55,3 +55,4 @@ interface Notification {
   timestamp: Date;
 }
 
+const PRIORITY_ORDER: Record<PriorityType, number> = {
