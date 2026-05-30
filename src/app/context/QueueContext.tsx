@@ -47,3 +47,4 @@ interface QueueContextType {
   notifications: Notification[];
   dismissNotification: (id: string) => void;
 }
+
