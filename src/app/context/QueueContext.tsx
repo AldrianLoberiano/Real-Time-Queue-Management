@@ -44,3 +44,4 @@ interface QueueContextType {
   hourlyData: HourlyData[];
   avgServiceTime: number;
   totalServedToday: number;
+  notifications: Notification[];
