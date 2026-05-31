@@ -266,3 +266,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       setIsAdminLoggedIn(true);
       localStorage.setItem('qs_admin', 'true');
       return true;
+    }
