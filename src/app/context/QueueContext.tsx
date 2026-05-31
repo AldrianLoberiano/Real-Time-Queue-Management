@@ -325,3 +325,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       joinQueue,
       callNext,
       skipItem,
+      recallItem,
