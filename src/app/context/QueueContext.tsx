@@ -250,3 +250,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setItems(prev => prev.map(i =>
       i.status === 'waiting' || i.status === 'serving' || i.status === 'skipped'
         ? { ...i, status: 'done' as StatusType, completedAt: new Date() }
+        : i
