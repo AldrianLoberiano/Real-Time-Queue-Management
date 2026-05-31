@@ -301,3 +301,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
           setNotifications(prev2 => {
             const notif: Notification = {
               id: generateId(),
+              message: `${newItem.number} – ${name} joined the queue`,
