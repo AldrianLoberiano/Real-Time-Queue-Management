@@ -338,3 +338,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       doneItems,
       skippedItems,
       getEstimatedWait,
+      getPosition,
