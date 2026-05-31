@@ -267,3 +267,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem('qs_admin', 'true');
       return true;
     }
+    return false;
