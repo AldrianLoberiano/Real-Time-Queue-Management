@@ -283,3 +283,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const schedule = () => {
       const delay = Math.random() * 20000 + 25000;
+      simulationRef.current = setTimeout(() => {
