@@ -303,3 +303,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
               id: generateId(),
               message: `${newItem.number} – ${name} joined the queue`,
               type: 'info',
+              timestamp: new Date(),
