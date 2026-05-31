@@ -275,3 +275,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem('qs_admin');
   }, []);
 
+  const dismissNotification = useCallback((id: string) => {
