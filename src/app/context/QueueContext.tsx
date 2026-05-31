@@ -163,3 +163,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (!item || item.status !== 'waiting') return 0;
     const sorted = items
       .filter(i => i.status === 'waiting')
+      .sort((a, b) => {
