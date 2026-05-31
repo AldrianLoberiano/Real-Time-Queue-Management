@@ -345,3 +345,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       totalServedToday,
       notifications,
       dismissNotification,
+    }}>
