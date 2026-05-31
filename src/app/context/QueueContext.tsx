@@ -213,3 +213,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return next;
   }, [items, addNotification]);
 
+  const skipItem = useCallback((id: string) => {
