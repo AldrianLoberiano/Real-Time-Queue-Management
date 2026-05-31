@@ -171,3 +171,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return sorted.findIndex(i => i.id === id) + 1;
   }, [items]);
 
+  const getEstimatedWait = useCallback((id: string): number => {
