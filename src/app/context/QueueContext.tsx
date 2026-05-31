@@ -333,3 +333,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       isAdminLoggedIn,
       adminLogin,
       adminLogout,
+      currentlyServing,
