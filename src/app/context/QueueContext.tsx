@@ -185,3 +185,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       number: formatNumber(newCounter),
       name,
       type,
+      status: 'waiting',
