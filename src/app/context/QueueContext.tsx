@@ -307,3 +307,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
             };
             return [notif, ...prev2.slice(0, 4)];
           });
+          return newCounter;
