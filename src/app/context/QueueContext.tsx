@@ -189,3 +189,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       createdAt: new Date(),
     };
     setItems(prev => [...prev, newItem]);
+    addNotification(`${newItem.number} – ${name} joined the queue`, 'info');
