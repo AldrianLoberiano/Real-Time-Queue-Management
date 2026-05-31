@@ -342,3 +342,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       updatePriority,
       hourlyData,
       avgServiceTime: avgServiceTime(),
+      totalServedToday,
