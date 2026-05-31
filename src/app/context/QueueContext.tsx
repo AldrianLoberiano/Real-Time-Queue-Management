@@ -164,3 +164,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const sorted = items
       .filter(i => i.status === 'waiting')
       .sort((a, b) => {
+        const pDiff = PRIORITY_ORDER[b.type] - PRIORITY_ORDER[a.type];
