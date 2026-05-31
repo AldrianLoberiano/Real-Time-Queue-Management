@@ -221,3 +221,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (item) addNotification(`${item.number} – ${item.name} was skipped`, 'warning');
   }, [items, addNotification]);
 
+  const recallItem = useCallback((id: string) => {
