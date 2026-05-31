@@ -149,3 +149,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const skippedItems = items.filter(i => i.status === 'skipped');
   const totalServedToday = doneItems.length;
 
+  const avgServiceTime = useCallback((): number => {
