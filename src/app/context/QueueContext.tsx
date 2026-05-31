@@ -256,3 +256,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [addNotification]);
 
   const clearAll = useCallback(() => {
+    setItems([]);
