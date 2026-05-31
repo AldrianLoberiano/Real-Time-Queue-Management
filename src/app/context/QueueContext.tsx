@@ -300,3 +300,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
           setItems(prev => [...prev, newItem]);
           setNotifications(prev2 => {
             const notif: Notification = {
+              id: generateId(),
