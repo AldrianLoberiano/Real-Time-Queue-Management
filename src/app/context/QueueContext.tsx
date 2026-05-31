@@ -302,3 +302,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
             const notif: Notification = {
               id: generateId(),
               message: `${newItem.number} – ${name} joined the queue`,
+              type: 'info',
