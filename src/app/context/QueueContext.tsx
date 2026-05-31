@@ -169,3 +169,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         return a.createdAt.getTime() - b.createdAt.getTime();
       });
     return sorted.findIndex(i => i.id === id) + 1;
+  }, [items]);
