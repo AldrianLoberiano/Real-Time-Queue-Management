@@ -285,3 +285,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       const delay = Math.random() * 20000 + 25000;
       simulationRef.current = setTimeout(() => {
         const name = MOCK_NAMES[Math.floor(Math.random() * MOCK_NAMES.length)];
+        const types: PriorityType[] = ['regular', 'regular', 'regular', 'senior', 'vip'];
