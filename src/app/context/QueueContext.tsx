@@ -195,3 +195,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const callNext = useCallback((): QueueItem | null => {
     const sorted = items
+      .filter(i => i.status === 'waiting')
