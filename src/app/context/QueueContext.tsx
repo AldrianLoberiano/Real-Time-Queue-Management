@@ -297,3 +297,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
             status: 'waiting',
             createdAt: new Date(),
           };
+          setItems(prev => [...prev, newItem]);
