@@ -253,3 +253,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         : i
     ));
     addNotification('Queue has been reset', 'warning');
+  }, [addNotification]);
