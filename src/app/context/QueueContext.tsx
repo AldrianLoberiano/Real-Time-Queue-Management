@@ -257,3 +257,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const clearAll = useCallback(() => {
     setItems([]);
+    setCounter(0);
