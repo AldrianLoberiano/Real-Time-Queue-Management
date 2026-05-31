@@ -238,3 +238,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const removeItem = useCallback((id: string) => {
     setItems(prev => prev.filter(i => i.id !== id));
   }, []);
+
