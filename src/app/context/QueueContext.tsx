@@ -268,3 +268,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       return true;
     }
     return false;
+  }, []);
