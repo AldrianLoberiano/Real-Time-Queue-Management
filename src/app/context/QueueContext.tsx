@@ -344,3 +344,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       avgServiceTime: avgServiceTime(),
       totalServedToday,
       notifications,
+      dismissNotification,
