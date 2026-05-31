@@ -310,3 +310,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
           return newCounter;
         });
         schedule();
+      }, delay);
