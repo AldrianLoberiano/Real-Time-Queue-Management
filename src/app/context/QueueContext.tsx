@@ -218,3 +218,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       i.id === id ? { ...i, status: 'skipped' as StatusType } : i
     ));
     const item = items.find(i => i.id === id);
+    if (item) addNotification(`${item.number} – ${item.name} was skipped`, 'warning');
