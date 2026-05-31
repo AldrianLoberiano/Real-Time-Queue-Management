@@ -336,3 +336,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       currentlyServing,
       waitingItems,
       doneItems,
+      skippedItems,
