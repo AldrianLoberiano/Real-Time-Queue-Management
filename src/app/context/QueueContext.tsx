@@ -313,3 +313,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       }, delay);
     };
     schedule();
+    return () => {
