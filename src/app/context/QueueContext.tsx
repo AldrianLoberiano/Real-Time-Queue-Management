@@ -276,3 +276,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const dismissNotification = useCallback((id: string) => {
+    setNotifications(prev => prev.filter(n => n.id !== id));
