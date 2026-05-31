@@ -346,3 +346,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       notifications,
       dismissNotification,
     }}>
+      {children}
