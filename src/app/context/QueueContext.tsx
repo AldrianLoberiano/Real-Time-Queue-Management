@@ -239,3 +239,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setItems(prev => prev.filter(i => i.id !== id));
   }, []);
 
+  const updatePriority = useCallback((id: string, type: PriorityType) => {
