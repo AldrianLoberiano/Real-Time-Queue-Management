@@ -284,3 +284,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const schedule = () => {
       const delay = Math.random() * 20000 + 25000;
       simulationRef.current = setTimeout(() => {
+        const name = MOCK_NAMES[Math.floor(Math.random() * MOCK_NAMES.length)];
