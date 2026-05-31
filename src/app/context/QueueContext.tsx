@@ -147,3 +147,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     (b.completedAt?.getTime() ?? 0) - (a.completedAt?.getTime() ?? 0)
   );
   const skippedItems = items.filter(i => i.status === 'skipped');
+  const totalServedToday = doneItems.length;
