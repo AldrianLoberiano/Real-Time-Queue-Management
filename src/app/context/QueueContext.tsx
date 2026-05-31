@@ -328,3 +328,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       recallItem,
       markDone,
       removeItem,
+      resetQueue,
