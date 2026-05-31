@@ -262,3 +262,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [addNotification]);
 
   const adminLogin = useCallback((username: string, password: string): boolean => {
+    if (username === 'admin' && password === 'admin123') {
