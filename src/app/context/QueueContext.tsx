@@ -281,3 +281,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   // Auto-simulation: randomly add people every 25-45 seconds
   useEffect(() => {
+    const schedule = () => {
