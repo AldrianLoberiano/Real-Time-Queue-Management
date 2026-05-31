@@ -315,3 +315,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     schedule();
     return () => {
       if (simulationRef.current) clearTimeout(simulationRef.current);
+    };
