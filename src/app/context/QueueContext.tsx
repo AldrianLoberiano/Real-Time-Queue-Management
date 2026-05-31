@@ -242,3 +242,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const updatePriority = useCallback((id: string, type: PriorityType) => {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, type } : i
+    ));
