@@ -216,3 +216,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const skipItem = useCallback((id: string) => {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, status: 'skipped' as StatusType } : i
+    ));
