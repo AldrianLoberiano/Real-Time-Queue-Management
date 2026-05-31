@@ -261,3 +261,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     addNotification('All queue data cleared', 'warning');
   }, [addNotification]);
 
+  const adminLogin = useCallback((username: string, password: string): boolean => {
