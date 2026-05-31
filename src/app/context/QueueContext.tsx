@@ -235,3 +235,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     ));
   }, []);
 
+  const removeItem = useCallback((id: string) => {
