@@ -252,3 +252,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         ? { ...i, status: 'done' as StatusType, completedAt: new Date() }
         : i
     ));
+    addNotification('Queue has been reset', 'warning');
