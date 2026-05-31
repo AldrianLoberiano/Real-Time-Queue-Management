@@ -340,3 +340,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       getEstimatedWait,
       getPosition,
       updatePriority,
+      hourlyData,
