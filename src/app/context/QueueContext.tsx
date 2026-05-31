@@ -168,3 +168,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         if (pDiff !== 0) return pDiff;
         return a.createdAt.getTime() - b.createdAt.getTime();
       });
+    return sorted.findIndex(i => i.id === id) + 1;
