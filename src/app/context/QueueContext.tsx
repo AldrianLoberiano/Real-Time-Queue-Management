@@ -186,3 +186,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       name,
       type,
       status: 'waiting',
+      createdAt: new Date(),
