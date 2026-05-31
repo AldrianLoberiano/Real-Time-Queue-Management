@@ -229,3 +229,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (item) addNotification(`${item.number} recalled to serve`, 'info');
   }, [items, addNotification]);
 
+  const markDone = useCallback((id: string) => {
