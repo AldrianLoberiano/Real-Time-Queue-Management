@@ -246,3 +246,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     addNotification(`Priority updated to ${type.toUpperCase()}`, 'info');
   }, [addNotification]);
 
+  const resetQueue = useCallback(() => {
