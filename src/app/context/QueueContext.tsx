@@ -143,3 +143,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     });
 
   const currentlyServing = items.find(i => i.status === 'serving') ?? null;
+  const doneItems = items.filter(i => i.status === 'done').sort((a, b) =>
