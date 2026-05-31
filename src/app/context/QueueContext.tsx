@@ -288,3 +288,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         const types: PriorityType[] = ['regular', 'regular', 'regular', 'senior', 'vip'];
         const type = types[Math.floor(Math.random() * types.length)];
         setCounter(prev => {
+          const newCounter = prev + 1;
