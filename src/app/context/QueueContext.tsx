@@ -158,3 +158,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return Math.round(totalMs / completed.length / 60000) || AVG_SERVICE_MINS;
   }, [items]);
 
+  const getPosition = useCallback((id: string): number => {
