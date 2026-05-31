@@ -161,3 +161,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const getPosition = useCallback((id: string): number => {
     const item = items.find(i => i.id === id);
     if (!item || item.status !== 'waiting') return 0;
+    const sorted = items
