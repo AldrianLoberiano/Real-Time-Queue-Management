@@ -224,3 +224,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const recallItem = useCallback((id: string) => {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, status: 'serving' as StatusType, calledAt: new Date() } : i
+    ));
