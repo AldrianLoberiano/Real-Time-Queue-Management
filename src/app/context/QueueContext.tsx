@@ -265,3 +265,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (username === 'admin' && password === 'admin123') {
       setIsAdminLoggedIn(true);
       localStorage.setItem('qs_admin', 'true');
+      return true;
