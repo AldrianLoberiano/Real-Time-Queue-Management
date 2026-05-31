@@ -290,3 +290,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         setCounter(prev => {
           const newCounter = prev + 1;
           const newItem: QueueItem = {
+            id: generateId(),
