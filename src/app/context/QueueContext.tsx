@@ -204,3 +204,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const next = sorted[0];
     if (!next) return null;
 
+    setItems(prev => prev.map(i => {
