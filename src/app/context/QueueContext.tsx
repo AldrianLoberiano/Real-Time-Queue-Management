@@ -289,3 +289,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         const type = types[Math.floor(Math.random() * types.length)];
         setCounter(prev => {
           const newCounter = prev + 1;
+          const newItem: QueueItem = {
