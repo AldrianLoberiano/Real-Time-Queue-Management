@@ -244,3 +244,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       i.id === id ? { ...i, type } : i
     ));
     addNotification(`Priority updated to ${type.toUpperCase()}`, 'info');
+  }, [addNotification]);
