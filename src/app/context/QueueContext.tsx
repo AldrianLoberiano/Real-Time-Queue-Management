@@ -201,3 +201,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
         if (pDiff !== 0) return pDiff;
         return a.createdAt.getTime() - b.createdAt.getTime();
       });
+    const next = sorted[0];
