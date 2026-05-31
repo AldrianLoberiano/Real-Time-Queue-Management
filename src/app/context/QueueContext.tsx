@@ -131,4 +131,5 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       { id: 'i8', number: 'A-008', name: 'Miguel Fernandez', type: 'vip', status: 'waiting', createdAt: ago(10) },
       { id: 'i9', number: 'A-009', name: 'Sofia Ramos', type: 'senior', status: 'waiting', createdAt: ago(8) },
     ];
+  });
 
