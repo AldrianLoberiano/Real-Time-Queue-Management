@@ -298,3 +298,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
             createdAt: new Date(),
           };
           setItems(prev => [...prev, newItem]);
+          setNotifications(prev2 => {
