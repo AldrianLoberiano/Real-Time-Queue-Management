@@ -184,3 +184,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       id: generateId(),
       number: formatNumber(newCounter),
       name,
+      type,
