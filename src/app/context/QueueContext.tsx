@@ -317,3 +317,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       if (simulationRef.current) clearTimeout(simulationRef.current);
     };
   }, []);
+
