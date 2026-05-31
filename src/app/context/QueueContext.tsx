@@ -139,3 +139,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     .sort((a, b) => {
       const pDiff = PRIORITY_ORDER[b.type] - PRIORITY_ORDER[a.type];
       if (pDiff !== 0) return pDiff;
+      return a.createdAt.getTime() - b.createdAt.getTime();
