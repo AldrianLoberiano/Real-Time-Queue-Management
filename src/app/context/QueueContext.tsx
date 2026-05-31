@@ -249,3 +249,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const resetQueue = useCallback(() => {
     setItems(prev => prev.map(i =>
       i.status === 'waiting' || i.status === 'serving' || i.status === 'skipped'
+        ? { ...i, status: 'done' as StatusType, completedAt: new Date() }
