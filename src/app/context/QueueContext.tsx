@@ -251,3 +251,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       i.status === 'waiting' || i.status === 'serving' || i.status === 'skipped'
         ? { ...i, status: 'done' as StatusType, completedAt: new Date() }
         : i
+    ));
