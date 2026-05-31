@@ -222,3 +222,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [items, addNotification]);
 
   const recallItem = useCallback((id: string) => {
+    setItems(prev => prev.map(i =>
