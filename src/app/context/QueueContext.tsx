@@ -327,3 +327,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       skipItem,
       recallItem,
       markDone,
+      removeItem,
