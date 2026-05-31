@@ -247,3 +247,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [addNotification]);
 
   const resetQueue = useCallback(() => {
+    setItems(prev => prev.map(i =>
