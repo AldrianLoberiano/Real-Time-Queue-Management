@@ -330,3 +330,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       removeItem,
       resetQueue,
       clearAll,
+      isAdminLoggedIn,
