@@ -234,3 +234,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       i.id === id ? { ...i, status: 'done' as StatusType, completedAt: new Date() } : i
     ));
   }, []);
+
