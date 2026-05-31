@@ -329,3 +329,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       markDone,
       removeItem,
       resetQueue,
+      clearAll,
