@@ -209,3 +209,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       if (i.id === next.id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
       return i;
     }));
+    addNotification(`Now serving: ${next.number} – ${next.name}`, 'success');
