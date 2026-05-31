@@ -273,3 +273,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const adminLogout = useCallback(() => {
     setIsAdminLoggedIn(false);
     localStorage.removeItem('qs_admin');
+  }, []);
