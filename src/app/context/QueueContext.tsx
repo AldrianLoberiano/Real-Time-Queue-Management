@@ -243,3 +243,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, type } : i
     ));
+    addNotification(`Priority updated to ${type.toUpperCase()}`, 'info');
