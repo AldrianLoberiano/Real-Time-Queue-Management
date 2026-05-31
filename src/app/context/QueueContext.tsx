@@ -318,3 +318,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  return (
