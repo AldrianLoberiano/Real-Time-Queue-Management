@@ -208,3 +208,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       if (i.status === 'serving') return { ...i, status: 'done' as StatusType, completedAt: new Date() };
       if (i.id === next.id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
       return i;
+    }));
