@@ -353,3 +353,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
 export function useQueue(): QueueContextType {
   const ctx = useContext(QueueContext);
+  if (!ctx) throw new Error('useQueue must be used within QueueProvider');
