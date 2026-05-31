@@ -331,3 +331,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       resetQueue,
       clearAll,
       isAdminLoggedIn,
+      adminLogin,
