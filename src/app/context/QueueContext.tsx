@@ -274,3 +274,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setIsAdminLoggedIn(false);
     localStorage.removeItem('qs_admin');
   }, []);
+
