@@ -232,3 +232,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const markDone = useCallback((id: string) => {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, status: 'done' as StatusType, completedAt: new Date() } : i
+    ));
