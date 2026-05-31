@@ -178,3 +178,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [getPosition]);
 
   const joinQueue = useCallback((name: string, type: PriorityType): QueueItem => {
+    const newCounter = counter + 1;
