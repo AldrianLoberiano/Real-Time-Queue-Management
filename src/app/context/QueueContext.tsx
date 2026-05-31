@@ -279,3 +279,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setNotifications(prev => prev.filter(n => n.id !== id));
   }, []);
 
+  // Auto-simulation: randomly add people every 25-45 seconds
