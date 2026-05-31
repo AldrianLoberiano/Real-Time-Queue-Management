@@ -142,3 +142,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       return a.createdAt.getTime() - b.createdAt.getTime();
     });
 
+  const currentlyServing = items.find(i => i.status === 'serving') ?? null;
