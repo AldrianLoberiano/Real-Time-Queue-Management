@@ -172,3 +172,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [items]);
 
   const getEstimatedWait = useCallback((id: string): number => {
+    const pos = getPosition(id);
