@@ -159,3 +159,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [items]);
 
   const getPosition = useCallback((id: string): number => {
+    const item = items.find(i => i.id === id);
