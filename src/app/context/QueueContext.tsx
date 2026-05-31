@@ -177,3 +177,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return pos * AVG_SERVICE_MINS;
   }, [getPosition]);
 
+  const joinQueue = useCallback((name: string, type: PriorityType): QueueItem => {
