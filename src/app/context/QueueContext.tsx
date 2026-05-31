@@ -334,3 +334,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       adminLogin,
       adminLogout,
       currentlyServing,
+      waitingItems,
