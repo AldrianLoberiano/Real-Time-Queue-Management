@@ -133,3 +133,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     ];
   });
 
+  // Sorted waiting items by priority then by join time (FIFO within same priority)
