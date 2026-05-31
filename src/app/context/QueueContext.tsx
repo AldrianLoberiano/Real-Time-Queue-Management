@@ -150,3 +150,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const totalServedToday = doneItems.length;
 
   const avgServiceTime = useCallback((): number => {
+    const completed = items.filter(i => i.status === 'done' && i.calledAt && i.completedAt);
