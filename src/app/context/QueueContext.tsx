@@ -155,3 +155,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const totalMs = completed.reduce((sum, i) => {
       return sum + (i.completedAt!.getTime() - i.calledAt!.getTime());
     }, 0);
+    return Math.round(totalMs / completed.length / 60000) || AVG_SERVICE_MINS;
