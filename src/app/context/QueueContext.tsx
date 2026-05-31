@@ -306,3 +306,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
               timestamp: new Date(),
             };
             return [notif, ...prev2.slice(0, 4)];
+          });
