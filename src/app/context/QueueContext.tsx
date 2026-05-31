@@ -259,3 +259,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setItems([]);
     setCounter(0);
     addNotification('All queue data cleared', 'warning');
+  }, [addNotification]);
