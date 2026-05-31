@@ -349,3 +349,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       {children}
     </QueueContext.Provider>
   );
+}
