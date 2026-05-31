@@ -210,3 +210,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       return i;
     }));
     addNotification(`Now serving: ${next.number} – ${next.name}`, 'success');
+    return next;
