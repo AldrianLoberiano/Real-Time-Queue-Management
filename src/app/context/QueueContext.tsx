@@ -193,3 +193,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return newItem;
   }, [counter, addNotification]);
 
+  const callNext = useCallback((): QueueItem | null => {
