@@ -176,3 +176,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (pos === 0) return 0;
     return pos * AVG_SERVICE_MINS;
   }, [getPosition]);
+
