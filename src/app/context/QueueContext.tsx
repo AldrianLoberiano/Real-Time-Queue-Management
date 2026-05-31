@@ -351,3 +351,4 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function useQueue(): QueueContextType {
