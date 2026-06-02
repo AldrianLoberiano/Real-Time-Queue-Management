@@ -9,3 +9,4 @@ import { useQueue } from '../context/QueueContext';
 
 const COLORS = {
   vip: '#f59e0b',
+  senior: '#8b5cf6',
