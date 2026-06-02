@@ -71,3 +71,4 @@ export function AdminAnalyticsPage() {
       { name: 'Regular', value: regular, color: COLORS.regular },
     ];
   }, [items]);
+
