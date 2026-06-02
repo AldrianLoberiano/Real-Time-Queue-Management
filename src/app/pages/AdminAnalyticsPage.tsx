@@ -8,3 +8,4 @@ import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../context/QueueContext';
 
 const COLORS = {
+  vip: '#f59e0b',
