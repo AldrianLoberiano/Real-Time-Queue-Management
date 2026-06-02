@@ -18,3 +18,4 @@ function MetricCard({ label, value, icon, change, color }: {
   icon: React.ReactNode; change?: string; color: string;
 }) {
   const bgMap: Record<string, string> = {
+    sky: 'from-sky-400 to-sky-600',
