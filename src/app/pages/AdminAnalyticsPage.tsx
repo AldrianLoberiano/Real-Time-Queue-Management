@@ -59,4 +59,5 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function AdminAnalyticsPage() {
   const { items, hourlyData, totalServedToday, avgServiceTime, waitingItems } = useQueue();
+
   const priorityDist = useMemo(() => {
