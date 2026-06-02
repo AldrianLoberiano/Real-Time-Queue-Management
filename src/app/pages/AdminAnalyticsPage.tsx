@@ -87,4 +87,5 @@ export function AdminAnalyticsPage() {
     { day: 'Sat', served: 29, waited: 2 },
     { day: 'Sun', served: 18, waited: 1 },
   ];
+
   const waitTimeData = [
