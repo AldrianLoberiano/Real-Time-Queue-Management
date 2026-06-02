@@ -11,3 +11,4 @@ const COLORS = {
   vip: '#f59e0b',
   senior: '#8b5cf6',
   regular: '#3b82f6',
+};
