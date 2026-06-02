@@ -78,3 +78,4 @@ export function AdminAnalyticsPage() {
 
   const peakHour = hourlyData.reduce((max, h) => h.served > max.served ? h : max, hourlyData[0] ?? { hour: '—', served: 0 });
 
+  const weeklyData = [
