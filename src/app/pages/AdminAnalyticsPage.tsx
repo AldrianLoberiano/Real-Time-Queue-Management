@@ -73,3 +73,4 @@ export function AdminAnalyticsPage() {
   }, [items]);
 
   const efficiency = totalServedToday > 0
+    ? Math.round((totalServedToday / (totalServedToday + waitingItems.length)) * 100)
