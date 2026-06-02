@@ -31,3 +31,4 @@ function MetricCard({ label, value, icon, change, color }: {
         </div>
         {change && (
           <span className="text-xs text-green-500 font-medium bg-green-50 px-2 py-1 rounded-full border border-green-200">
+            {change}
