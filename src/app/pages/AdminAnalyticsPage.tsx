@@ -95,3 +95,4 @@ export function AdminAnalyticsPage() {
     { range: '10-15 min', count: 8 },
     { range: '15+ min', count: 4 },
   ];
+
