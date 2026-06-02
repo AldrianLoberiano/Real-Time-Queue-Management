@@ -61,3 +61,4 @@ export function AdminAnalyticsPage() {
   const { items, hourlyData, totalServedToday, avgServiceTime, waitingItems } = useQueue();
 
   const priorityDist = useMemo(() => {
+    const all = items.filter(i => i.status === 'done' || i.status === 'serving');
