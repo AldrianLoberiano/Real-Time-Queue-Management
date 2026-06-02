@@ -43,3 +43,4 @@ function MetricCard({ label, value, icon, change, color }: {
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
+  return (
