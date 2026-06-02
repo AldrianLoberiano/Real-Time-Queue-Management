@@ -34,3 +34,4 @@ function MetricCard({ label, value, icon, change, color }: {
             {change}
           </span>
         )}
+      </div>
