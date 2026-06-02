@@ -40,3 +40,4 @@ function MetricCard({ label, value, icon, change, color }: {
     </div>
   );
 }
+
