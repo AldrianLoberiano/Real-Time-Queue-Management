@@ -64,3 +64,4 @@ export function AdminAnalyticsPage() {
     const all = items.filter(i => i.status === 'done' || i.status === 'serving');
     const vip = all.filter(i => i.type === 'vip').length;
     const senior = all.filter(i => i.type === 'senior').length;
+    const regular = all.filter(i => i.type === 'regular').length;
