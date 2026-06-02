@@ -13,3 +13,4 @@ const COLORS = {
   regular: '#3b82f6',
 };
 
+function MetricCard({ label, value, icon, change, color }: {
