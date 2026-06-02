@@ -41,3 +41,4 @@ function MetricCard({ label, value, icon, change, color }: {
   );
 }
 
+const CustomTooltip = ({ active, payload, label }: any) => {
