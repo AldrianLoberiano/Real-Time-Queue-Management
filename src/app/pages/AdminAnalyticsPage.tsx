@@ -23,3 +23,4 @@ function MetricCard({ label, value, icon, change, color }: {
     violet: 'from-violet-400 to-violet-600',
     amber: 'from-amber-400 to-amber-600',
   };
+  return (
