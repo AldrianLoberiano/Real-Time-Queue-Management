@@ -80,3 +80,4 @@ export function AdminAnalyticsPage() {
 
   const weeklyData = [
     { day: 'Mon', served: 42, waited: 5 },
+    { day: 'Tue', served: 38, waited: 3 },
