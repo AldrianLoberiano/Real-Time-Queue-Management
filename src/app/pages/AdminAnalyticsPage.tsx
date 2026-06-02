@@ -7,3 +7,4 @@ import { TrendingUp, Users, Clock, CheckCircle, Crown, Heart, User, Award } from
 import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../context/QueueContext';
 
+const COLORS = {
