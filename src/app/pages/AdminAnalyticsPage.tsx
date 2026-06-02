@@ -14,3 +14,4 @@ const COLORS = {
 };
 
 function MetricCard({ label, value, icon, change, color }: {
+  label: string; value: string | number;
