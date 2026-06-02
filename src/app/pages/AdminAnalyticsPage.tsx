@@ -86,3 +86,4 @@ export function AdminAnalyticsPage() {
     { day: 'Fri', served: 67, waited: 12 },
     { day: 'Sat', served: 29, waited: 2 },
     { day: 'Sun', served: 18, waited: 1 },
+  ];
