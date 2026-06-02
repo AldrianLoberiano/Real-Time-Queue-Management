@@ -70,3 +70,4 @@ export function AdminAnalyticsPage() {
       { name: 'Senior', value: senior, color: COLORS.senior },
       { name: 'Regular', value: regular, color: COLORS.regular },
     ];
+  }, [items]);
