@@ -12,3 +12,4 @@ const COLORS = {
   senior: '#8b5cf6',
   regular: '#3b82f6',
 };
+
