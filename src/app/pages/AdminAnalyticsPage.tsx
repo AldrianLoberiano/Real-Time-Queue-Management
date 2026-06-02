@@ -28,3 +28,4 @@ function MetricCard({ label, value, icon, change, color }: {
       <div className="flex items-start justify-between mb-4">
         <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${bgMap[color]}`}>
           {icon}
+        </div>
