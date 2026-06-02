@@ -49,3 +49,4 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       {payload.map((entry: any) => (
         <p key={entry.name} className="text-sm flex items-center gap-2">
           <span className="w-2 h-2 rounded-full" style={{ background: entry.color }} />
+          <span className="text-gray-600">{entry.name}:</span>
