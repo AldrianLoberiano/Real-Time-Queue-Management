@@ -44,3 +44,4 @@ function MetricCard({ label, value, icon, change, color }: {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
+    <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-3">
