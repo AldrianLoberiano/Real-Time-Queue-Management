@@ -68,3 +68,4 @@ export function AdminAnalyticsPage() {
     return [
       { name: 'VIP', value: vip, color: COLORS.vip },
       { name: 'Senior', value: senior, color: COLORS.senior },
+      { name: 'Regular', value: regular, color: COLORS.regular },
