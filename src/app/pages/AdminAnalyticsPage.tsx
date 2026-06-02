@@ -66,3 +66,4 @@ export function AdminAnalyticsPage() {
     const senior = all.filter(i => i.type === 'senior').length;
     const regular = all.filter(i => i.type === 'regular').length;
     return [
+      { name: 'VIP', value: vip, color: COLORS.vip },
