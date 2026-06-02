@@ -63,3 +63,4 @@ export function AdminAnalyticsPage() {
   const priorityDist = useMemo(() => {
     const all = items.filter(i => i.status === 'done' || i.status === 'serving');
     const vip = all.filter(i => i.type === 'vip').length;
+    const senior = all.filter(i => i.type === 'senior').length;
