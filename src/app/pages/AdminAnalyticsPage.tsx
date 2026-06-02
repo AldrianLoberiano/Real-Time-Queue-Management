@@ -17,3 +17,4 @@ function MetricCard({ label, value, icon, change, color }: {
   label: string; value: string | number;
   icon: React.ReactNode; change?: string; color: string;
 }) {
+  const bgMap: Record<string, string> = {
