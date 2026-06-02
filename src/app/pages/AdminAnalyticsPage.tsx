@@ -19,3 +19,4 @@ function MetricCard({ label, value, icon, change, color }: {
 }) {
   const bgMap: Record<string, string> = {
     sky: 'from-sky-400 to-sky-600',
+    emerald: 'from-emerald-400 to-emerald-600',
