@@ -97,3 +97,4 @@ export function AdminAnalyticsPage() {
   ];
 
   return (
+    <AdminLayout>
