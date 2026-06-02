@@ -72,3 +72,4 @@ export function AdminAnalyticsPage() {
     ];
   }, [items]);
 
+  const efficiency = totalServedToday > 0
