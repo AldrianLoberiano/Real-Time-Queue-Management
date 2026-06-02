@@ -53,3 +53,4 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           <span className="font-semibold text-gray-900">{entry.value}</span>
         </p>
       ))}
+    </div>
