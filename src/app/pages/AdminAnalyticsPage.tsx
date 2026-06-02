@@ -54,3 +54,4 @@ const CustomTooltip = ({ active, payload, label }: any) => {
         </p>
       ))}
     </div>
+  );
