@@ -25,3 +25,4 @@ function MetricCard({ label, value, icon, change, color }: {
   };
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+      <div className="flex items-start justify-between mb-4">
