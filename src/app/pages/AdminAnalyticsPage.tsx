@@ -36,4 +36,5 @@ function MetricCard({ label, value, icon, change, color }: {
         )}
       </div>
       <p className="text-2xl font-bold text-gray-900">{value}</p>
+      <p className="text-gray-500 text-sm mt-1">{label}</p>
     </div>
