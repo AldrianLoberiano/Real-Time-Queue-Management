@@ -89,3 +89,4 @@ export function AdminAnalyticsPage() {
   ];
 
   const waitTimeData = [
+    { range: '0-2 min', count: 12 },
