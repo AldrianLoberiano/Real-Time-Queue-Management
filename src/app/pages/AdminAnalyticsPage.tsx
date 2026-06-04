@@ -175,3 +175,4 @@ export function AdminAnalyticsPage() {
                 innerRadius={45}
                 outerRadius={70}
                 paddingAngle={3}
+                dataKey="value"
