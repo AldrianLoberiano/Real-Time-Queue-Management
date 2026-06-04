@@ -125,3 +125,4 @@ export function AdminAnalyticsPage() {
           label="Peak Hour"
           value={peakHour?.hour ?? '—'}
           icon={<Award size={22} />}
+          color="amber"
