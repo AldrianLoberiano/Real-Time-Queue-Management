@@ -222,3 +222,4 @@ export function AdminAnalyticsPage() {
               <Bar dataKey="waited" name="Avg Wait (min)" fill="#f59e0b" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
+        </div>
