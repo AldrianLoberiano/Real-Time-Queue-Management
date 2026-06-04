@@ -122,3 +122,4 @@ export function AdminAnalyticsPage() {
           color="violet"
         />
         <MetricCard
+          label="Peak Hour"
