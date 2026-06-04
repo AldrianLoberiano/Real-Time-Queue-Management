@@ -120,3 +120,4 @@ export function AdminAnalyticsPage() {
           icon={<TrendingUp size={22} />}
           change="+5%"
           color="violet"
+        />
