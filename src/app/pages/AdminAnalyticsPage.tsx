@@ -181,3 +181,4 @@ export function AdminAnalyticsPage() {
                   <Cell key={i} fill={entry.color} />
                 ))}
               </Pie>
+              <Tooltip formatter={(val: number, name: string) => [val, name]} />
