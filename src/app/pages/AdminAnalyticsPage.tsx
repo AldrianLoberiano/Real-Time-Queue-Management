@@ -242,3 +242,4 @@ export function AdminAnalyticsPage() {
 
       {/* Summary table */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-100">
