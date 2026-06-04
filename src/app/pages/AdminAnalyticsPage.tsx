@@ -160,3 +160,4 @@ export function AdminAnalyticsPage() {
               <Area type="monotone" dataKey="joined" name="Joined" stroke="#10b981" strokeWidth={2} fill="url(#gradJoined)" />
             </AreaChart>
           </ResponsiveContainer>
+        </div>
