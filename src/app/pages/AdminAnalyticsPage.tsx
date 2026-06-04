@@ -172,3 +172,4 @@ export function AdminAnalyticsPage() {
                 data={priorityDist}
                 cx="50%"
                 cy="50%"
+                innerRadius={45}
