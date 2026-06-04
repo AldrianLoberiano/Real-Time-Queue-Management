@@ -118,3 +118,4 @@ export function AdminAnalyticsPage() {
           label="Efficiency Rate"
           value={`${efficiency}%`}
           icon={<TrendingUp size={22} />}
+          change="+5%"
