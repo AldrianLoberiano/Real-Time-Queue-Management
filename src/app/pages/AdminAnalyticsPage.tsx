@@ -231,3 +231,4 @@ export function AdminAnalyticsPage() {
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={waitTimeData} layout="vertical" margin={{ top: 5, right: 5, left: 30, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
