@@ -198,3 +198,4 @@ export function AdminAnalyticsPage() {
                       ? Math.round(d.value / priorityDist.reduce((s, x) => s + x.value, 0) * 100)
                       : 0}%)
                   </span>
+                </div>
