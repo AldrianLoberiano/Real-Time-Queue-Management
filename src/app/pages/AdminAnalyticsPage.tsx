@@ -161,3 +161,4 @@ export function AdminAnalyticsPage() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
+        {/* Priority distribution */}
