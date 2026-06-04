@@ -234,3 +234,4 @@ export function AdminAnalyticsPage() {
               <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <YAxis type="category" dataKey="range" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
+              <Bar dataKey="count" name="Customers" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
