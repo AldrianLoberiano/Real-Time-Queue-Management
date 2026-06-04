@@ -206,3 +206,4 @@ export function AdminAnalyticsPage() {
       </div>
 
       {/* Charts row 2 */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-6">
