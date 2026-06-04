@@ -194,3 +194,4 @@ export function AdminAnalyticsPage() {
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold text-gray-900">{d.value}</span>
                   <span className="text-xs text-gray-400">
+                    ({priorityDist.reduce((s, x) => s + x.value, 0) > 0
