@@ -104,3 +104,4 @@ export function AdminAnalyticsPage() {
           label="Served Today"
           value={totalServedToday}
           icon={<CheckCircle size={22} />}
+          change="+12%"
