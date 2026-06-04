@@ -230,3 +230,4 @@ export function AdminAnalyticsPage() {
           <p className="text-gray-400 text-sm mb-4">How long customers waited today</p>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={waitTimeData} layout="vertical" margin={{ top: 5, right: 5, left: 30, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
