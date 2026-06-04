@@ -121,3 +121,4 @@ export function AdminAnalyticsPage() {
           change="+5%"
           color="violet"
         />
+        <MetricCard
