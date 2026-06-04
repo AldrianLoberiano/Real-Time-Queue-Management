@@ -134,3 +134,4 @@ export function AdminAnalyticsPage() {
         {/* Hourly traffic */}
         <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <div className="flex items-center justify-between mb-6">
+            <div>
