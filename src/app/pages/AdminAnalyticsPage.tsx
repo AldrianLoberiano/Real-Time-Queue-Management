@@ -111,3 +111,4 @@ export function AdminAnalyticsPage() {
           label="Avg. Wait Time"
           value={`${avgServiceTime}m`}
           icon={<Clock size={22} />}
+          change="-8%"
