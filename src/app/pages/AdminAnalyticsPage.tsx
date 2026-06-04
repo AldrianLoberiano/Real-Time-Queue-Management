@@ -174,3 +174,4 @@ export function AdminAnalyticsPage() {
                 cy="50%"
                 innerRadius={45}
                 outerRadius={70}
+                paddingAngle={3}
