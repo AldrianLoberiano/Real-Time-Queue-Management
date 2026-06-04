@@ -115,3 +115,4 @@ export function AdminAnalyticsPage() {
           color="emerald"
         />
         <MetricCard
+          label="Efficiency Rate"
