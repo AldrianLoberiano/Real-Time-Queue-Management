@@ -169,3 +169,4 @@ export function AdminAnalyticsPage() {
           <ResponsiveContainer width="100%" height={160}>
             <PieChart>
               <Pie
+                data={priorityDist}
