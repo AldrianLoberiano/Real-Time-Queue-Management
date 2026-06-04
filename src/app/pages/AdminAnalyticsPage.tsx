@@ -117,3 +117,4 @@ export function AdminAnalyticsPage() {
         <MetricCard
           label="Efficiency Rate"
           value={`${efficiency}%`}
+          icon={<TrendingUp size={22} />}
