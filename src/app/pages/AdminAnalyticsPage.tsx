@@ -171,3 +171,4 @@ export function AdminAnalyticsPage() {
               <Pie
                 data={priorityDist}
                 cx="50%"
+                cy="50%"
