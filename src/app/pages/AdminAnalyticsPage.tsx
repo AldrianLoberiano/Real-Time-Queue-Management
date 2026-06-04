@@ -212,3 +212,4 @@ export function AdminAnalyticsPage() {
           <h3 className="font-semibold text-gray-800 mb-1">Weekly Overview</h3>
           <p className="text-gray-400 text-sm mb-4">Served vs waited this week</p>
           <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={weeklyData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
