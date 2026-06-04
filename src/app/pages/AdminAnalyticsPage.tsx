@@ -182,3 +182,4 @@ export function AdminAnalyticsPage() {
                 ))}
               </Pie>
               <Tooltip formatter={(val: number, name: string) => [val, name]} />
+            </PieChart>
