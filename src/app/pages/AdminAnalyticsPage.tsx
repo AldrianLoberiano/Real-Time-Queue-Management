@@ -205,3 +205,4 @@ export function AdminAnalyticsPage() {
         </div>
       </div>
 
+      {/* Charts row 2 */}
