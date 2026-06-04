@@ -127,3 +127,4 @@ export function AdminAnalyticsPage() {
           icon={<Award size={22} />}
           color="amber"
         />
+      </div>
