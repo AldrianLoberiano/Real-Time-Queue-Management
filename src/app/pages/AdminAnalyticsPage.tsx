@@ -223,3 +223,4 @@ export function AdminAnalyticsPage() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+
