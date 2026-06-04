@@ -218,3 +218,4 @@ export function AdminAnalyticsPage() {
               <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
               <Legend wrapperStyle={{ fontSize: '12px' }} />
+              <Bar dataKey="served" name="Served" fill="#0ea5e9" radius={[4, 4, 0, 0]} />
