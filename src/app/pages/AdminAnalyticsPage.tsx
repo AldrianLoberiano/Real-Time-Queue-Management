@@ -113,3 +113,4 @@ export function AdminAnalyticsPage() {
           icon={<Clock size={22} />}
           change="-8%"
           color="emerald"
+        />
