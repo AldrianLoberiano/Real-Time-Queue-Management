@@ -133,3 +133,4 @@ export function AdminAnalyticsPage() {
       <div className="grid lg:grid-cols-3 gap-6 mb-6">
         {/* Hourly traffic */}
         <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div className="flex items-center justify-between mb-6">
