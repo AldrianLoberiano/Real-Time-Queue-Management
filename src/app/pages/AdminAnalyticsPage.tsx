@@ -103,3 +103,4 @@ export function AdminAnalyticsPage() {
         <MetricCard
           label="Served Today"
           value={totalServedToday}
+          icon={<CheckCircle size={22} />}
