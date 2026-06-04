@@ -106,3 +106,4 @@ export function AdminAnalyticsPage() {
           icon={<CheckCircle size={22} />}
           change="+12%"
           color="sky"
+        />
