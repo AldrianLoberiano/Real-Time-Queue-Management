@@ -184,3 +184,4 @@ export function AdminAnalyticsPage() {
               <Tooltip formatter={(val: number, name: string) => [val, name]} />
             </PieChart>
           </ResponsiveContainer>
+          <div className="mt-2 space-y-2">
