@@ -177,3 +177,4 @@ export function AdminAnalyticsPage() {
                 paddingAngle={3}
                 dataKey="value"
               >
+                {priorityDist.map((entry, i) => (
