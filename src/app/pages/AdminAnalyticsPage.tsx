@@ -240,3 +240,4 @@ export function AdminAnalyticsPage() {
         </div>
       </div>
 
+      {/* Summary table */}
