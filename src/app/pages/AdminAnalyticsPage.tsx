@@ -108,3 +108,4 @@ export function AdminAnalyticsPage() {
           color="sky"
         />
         <MetricCard
+          label="Avg. Wait Time"
