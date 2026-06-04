@@ -188,3 +188,4 @@ export function AdminAnalyticsPage() {
             {priorityDist.map(d => (
               <div key={d.name} className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full" style={{ background: d.color }} />
