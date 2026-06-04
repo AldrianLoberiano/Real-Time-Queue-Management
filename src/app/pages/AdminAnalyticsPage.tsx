@@ -241,3 +241,4 @@ export function AdminAnalyticsPage() {
       </div>
 
       {/* Summary table */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
