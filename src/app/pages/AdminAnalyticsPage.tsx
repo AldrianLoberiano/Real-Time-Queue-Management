@@ -132,3 +132,4 @@ export function AdminAnalyticsPage() {
       {/* Charts row 1 */}
       <div className="grid lg:grid-cols-3 gap-6 mb-6">
         {/* Hourly traffic */}
+        <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
