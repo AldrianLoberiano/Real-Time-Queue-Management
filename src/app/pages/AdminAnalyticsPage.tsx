@@ -123,3 +123,4 @@ export function AdminAnalyticsPage() {
         />
         <MetricCard
           label="Peak Hour"
+          value={peakHour?.hour ?? '—'}
