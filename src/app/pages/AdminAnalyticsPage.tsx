@@ -225,3 +225,4 @@ export function AdminAnalyticsPage() {
         </div>
 
         {/* Wait time distribution */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
