@@ -163,3 +163,4 @@ export function AdminAnalyticsPage() {
         </div>
 
         {/* Priority distribution */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
