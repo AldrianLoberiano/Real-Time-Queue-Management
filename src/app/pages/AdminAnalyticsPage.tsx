@@ -136,3 +136,4 @@ export function AdminAnalyticsPage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="font-semibold text-gray-800">Hourly Traffic</h3>
+              <p className="text-gray-400 text-sm">Queue joins and served per hour today</p>
