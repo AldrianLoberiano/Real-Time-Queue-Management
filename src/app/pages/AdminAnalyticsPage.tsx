@@ -173,3 +173,4 @@ export function AdminAnalyticsPage() {
                 cx="50%"
                 cy="50%"
                 innerRadius={45}
+                outerRadius={70}
