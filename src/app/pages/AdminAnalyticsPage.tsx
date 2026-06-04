@@ -213,3 +213,4 @@ export function AdminAnalyticsPage() {
           <p className="text-gray-400 text-sm mb-4">Served vs waited this week</p>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={weeklyData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
