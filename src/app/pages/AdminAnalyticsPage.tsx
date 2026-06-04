@@ -199,3 +199,4 @@ export function AdminAnalyticsPage() {
                       : 0}%)
                   </span>
                 </div>
+              </div>
