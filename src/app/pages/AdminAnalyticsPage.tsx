@@ -187,3 +187,4 @@ export function AdminAnalyticsPage() {
           <div className="mt-2 space-y-2">
             {priorityDist.map(d => (
               <div key={d.name} className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
