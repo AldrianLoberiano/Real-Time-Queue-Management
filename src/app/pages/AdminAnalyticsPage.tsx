@@ -180,3 +180,4 @@ export function AdminAnalyticsPage() {
                 {priorityDist.map((entry, i) => (
                   <Cell key={i} fill={entry.color} />
                 ))}
+              </Pie>
