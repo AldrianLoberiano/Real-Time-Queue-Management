@@ -190,3 +190,4 @@ export function AdminAnalyticsPage() {
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full" style={{ background: d.color }} />
                   <span className="text-sm text-gray-600">{d.name}</span>
+                </div>
