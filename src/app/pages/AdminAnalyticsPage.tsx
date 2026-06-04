@@ -185,3 +185,4 @@ export function AdminAnalyticsPage() {
             </PieChart>
           </ResponsiveContainer>
           <div className="mt-2 space-y-2">
+            {priorityDist.map(d => (
