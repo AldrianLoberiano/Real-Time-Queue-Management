@@ -150,3 +150,4 @@ export function AdminAnalyticsPage() {
                   <stop offset="5%" stopColor="#10b981" stopOpacity={0.2} />
                   <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                 </linearGradient>
+              </defs>
