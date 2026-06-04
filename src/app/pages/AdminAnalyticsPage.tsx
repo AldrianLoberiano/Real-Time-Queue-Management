@@ -196,3 +196,4 @@ export function AdminAnalyticsPage() {
                   <span className="text-xs text-gray-400">
                     ({priorityDist.reduce((s, x) => s + x.value, 0) > 0
                       ? Math.round(d.value / priorityDist.reduce((s, x) => s + x.value, 0) * 100)
+                      : 0}%)
