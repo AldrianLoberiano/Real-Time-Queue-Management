@@ -208,3 +208,4 @@ export function AdminAnalyticsPage() {
       {/* Charts row 2 */}
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         {/* Weekly overview */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
