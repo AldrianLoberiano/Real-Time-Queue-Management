@@ -239,3 +239,4 @@ export function AdminAnalyticsPage() {
           </ResponsiveContainer>
         </div>
       </div>
+
