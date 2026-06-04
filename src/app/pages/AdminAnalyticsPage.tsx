@@ -168,3 +168,4 @@ export function AdminAnalyticsPage() {
           <p className="text-gray-400 text-sm mb-4">Distribution of queue types</p>
           <ResponsiveContainer width="100%" height={160}>
             <PieChart>
+              <Pie
