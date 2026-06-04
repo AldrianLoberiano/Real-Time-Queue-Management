@@ -178,3 +178,4 @@ export function AdminAnalyticsPage() {
                 dataKey="value"
               >
                 {priorityDist.map((entry, i) => (
+                  <Cell key={i} fill={entry.color} />
