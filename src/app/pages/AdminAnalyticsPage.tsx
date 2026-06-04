@@ -151,3 +151,4 @@ export function AdminAnalyticsPage() {
                   <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                 </linearGradient>
               </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
