@@ -139,3 +139,4 @@ export function AdminAnalyticsPage() {
               <p className="text-gray-400 text-sm">Queue joins and served per hour today</p>
             </div>
           </div>
+          <ResponsiveContainer width="100%" height={220}>
