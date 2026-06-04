@@ -146,3 +146,4 @@ export function AdminAnalyticsPage() {
                   <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.2} />
                   <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
                 </linearGradient>
+                <linearGradient id="gradJoined" x1="0" y1="0" x2="0" y2="1">
