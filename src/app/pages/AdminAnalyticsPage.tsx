@@ -224,3 +224,4 @@ export function AdminAnalyticsPage() {
           </ResponsiveContainer>
         </div>
 
+        {/* Wait time distribution */}
