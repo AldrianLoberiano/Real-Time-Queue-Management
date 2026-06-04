@@ -116,3 +116,4 @@ export function AdminAnalyticsPage() {
         />
         <MetricCard
           label="Efficiency Rate"
+          value={`${efficiency}%`}
