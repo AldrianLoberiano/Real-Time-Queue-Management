@@ -110,3 +110,4 @@ export function AdminAnalyticsPage() {
         <MetricCard
           label="Avg. Wait Time"
           value={`${avgServiceTime}m`}
+          icon={<Clock size={22} />}
