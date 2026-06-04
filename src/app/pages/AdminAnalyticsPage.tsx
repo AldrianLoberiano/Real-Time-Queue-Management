@@ -158,3 +158,4 @@ export function AdminAnalyticsPage() {
               <Legend wrapperStyle={{ fontSize: '12px' }} />
               <Area type="monotone" dataKey="served" name="Served" stroke="#0ea5e9" strokeWidth={2} fill="url(#gradServed)" />
               <Area type="monotone" dataKey="joined" name="Joined" stroke="#10b981" strokeWidth={2} fill="url(#gradJoined)" />
+            </AreaChart>
