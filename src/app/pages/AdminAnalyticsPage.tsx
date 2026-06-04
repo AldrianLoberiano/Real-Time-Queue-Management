@@ -112,3 +112,4 @@ export function AdminAnalyticsPage() {
           value={`${avgServiceTime}m`}
           icon={<Clock size={22} />}
           change="-8%"
+          color="emerald"
