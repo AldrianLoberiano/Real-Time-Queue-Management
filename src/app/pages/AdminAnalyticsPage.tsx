@@ -131,3 +131,4 @@ export function AdminAnalyticsPage() {
 
       {/* Charts row 1 */}
       <div className="grid lg:grid-cols-3 gap-6 mb-6">
+        {/* Hourly traffic */}
