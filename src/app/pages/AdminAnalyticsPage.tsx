@@ -246,3 +246,4 @@ export function AdminAnalyticsPage() {
           <h3 className="font-semibold text-gray-800">Today's Summary</h3>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
+          {[
