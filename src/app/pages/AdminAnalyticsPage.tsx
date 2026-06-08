@@ -258,3 +258,4 @@ export function AdminAnalyticsPage() {
               </div>
               <p className="text-2xl font-bold text-gray-900">{item.value}</p>
               <p className="text-gray-500 text-sm mt-1">{item.label}</p>
+            </div>
