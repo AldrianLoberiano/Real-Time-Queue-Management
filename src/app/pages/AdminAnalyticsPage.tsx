@@ -262,3 +262,4 @@ export function AdminAnalyticsPage() {
           ))}
         </div>
       </div>
+    </AdminLayout>
