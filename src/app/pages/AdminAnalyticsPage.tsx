@@ -248,3 +248,4 @@ export function AdminAnalyticsPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
           {[
             { label: 'VIP Customers', value: priorityDist.find(d => d.name === 'VIP')?.value ?? 0, icon: <Crown size={18} />, color: 'text-amber-600 bg-amber-50' },
+            { label: 'Senior Citizens', value: priorityDist.find(d => d.name === 'Senior')?.value ?? 0, icon: <Heart size={18} />, color: 'text-violet-600 bg-violet-50' },
