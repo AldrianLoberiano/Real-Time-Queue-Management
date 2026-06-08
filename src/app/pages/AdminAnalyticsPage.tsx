@@ -250,3 +250,4 @@ export function AdminAnalyticsPage() {
             { label: 'VIP Customers', value: priorityDist.find(d => d.name === 'VIP')?.value ?? 0, icon: <Crown size={18} />, color: 'text-amber-600 bg-amber-50' },
             { label: 'Senior Citizens', value: priorityDist.find(d => d.name === 'Senior')?.value ?? 0, icon: <Heart size={18} />, color: 'text-violet-600 bg-violet-50' },
             { label: 'Regular', value: priorityDist.find(d => d.name === 'Regular')?.value ?? 0, icon: <User size={18} />, color: 'text-blue-600 bg-blue-50' },
+            { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={18} />, color: 'text-sky-600 bg-sky-50' },
