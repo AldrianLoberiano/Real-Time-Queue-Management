@@ -260,3 +260,4 @@ export function AdminAnalyticsPage() {
               <p className="text-gray-500 text-sm mt-1">{item.label}</p>
             </div>
           ))}
+        </div>
