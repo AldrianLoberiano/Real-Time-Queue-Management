@@ -256,3 +256,4 @@ export function AdminAnalyticsPage() {
               <div className={`w-10 h-10 rounded-xl mx-auto flex items-center justify-center mb-3 ${item.color}`}>
                 {item.icon}
               </div>
+              <p className="text-2xl font-bold text-gray-900">{item.value}</p>
