@@ -264,3 +264,4 @@ export function AdminAnalyticsPage() {
       </div>
     </AdminLayout>
   );
+}
