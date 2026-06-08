@@ -252,3 +252,4 @@ export function AdminAnalyticsPage() {
             { label: 'Regular', value: priorityDist.find(d => d.name === 'Regular')?.value ?? 0, icon: <User size={18} />, color: 'text-blue-600 bg-blue-50' },
             { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={18} />, color: 'text-sky-600 bg-sky-50' },
           ].map(item => (
+            <div key={item.label} className="p-6 text-center">
