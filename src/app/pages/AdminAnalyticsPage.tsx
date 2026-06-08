@@ -253,3 +253,4 @@ export function AdminAnalyticsPage() {
             { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={18} />, color: 'text-sky-600 bg-sky-50' },
           ].map(item => (
             <div key={item.label} className="p-6 text-center">
+              <div className={`w-10 h-10 rounded-xl mx-auto flex items-center justify-center mb-3 ${item.color}`}>
