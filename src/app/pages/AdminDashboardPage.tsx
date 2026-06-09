@@ -49,3 +49,4 @@ export function AdminDashboardPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
 
   const allItems = [
+    ...(currentlyServing ? [currentlyServing] : []),
