@@ -95,3 +95,4 @@ export function AdminDashboardPage() {
                     </div>
                     <div className="ml-auto text-right">
                       <p className="text-gray-700 font-medium">{currentlyServing.name}</p>
+                      <PriorityBadge type={currentlyServing.type} size="sm" />
