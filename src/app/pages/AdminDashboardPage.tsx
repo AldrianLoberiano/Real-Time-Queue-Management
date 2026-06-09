@@ -52,3 +52,4 @@ export function AdminDashboardPage() {
     ...(currentlyServing ? [currentlyServing] : []),
     ...waitingItems,
     ...skippedItems,
+    ...doneItems,
