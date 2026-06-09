@@ -75,3 +75,4 @@ export function AdminDashboardPage() {
         <StatCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={22} />} color="sky" sub="Completed" />
         <StatCard label="Avg. Service" value={`${avgServiceTime}m`} icon={<Clock size={22} />} color="violet" sub="Per person" />
       </div>
+
