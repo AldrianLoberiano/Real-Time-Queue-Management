@@ -35,3 +35,4 @@ function StatCard({ label, value, icon, color, sub }: {
     </div>
   );
 }
+
