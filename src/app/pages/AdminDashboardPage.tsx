@@ -97,3 +97,4 @@ export function AdminDashboardPage() {
                       <p className="text-gray-700 font-medium">{currentlyServing.name}</p>
                       <PriorityBadge type={currentlyServing.type} size="sm" />
                     </div>
+                  </div>
