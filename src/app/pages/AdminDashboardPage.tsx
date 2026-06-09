@@ -98,3 +98,4 @@ export function AdminDashboardPage() {
                       <PriorityBadge type={currentlyServing.type} size="sm" />
                     </div>
                   </div>
+
