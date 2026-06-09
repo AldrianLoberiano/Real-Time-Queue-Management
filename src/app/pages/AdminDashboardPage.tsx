@@ -90,3 +90,4 @@ export function AdminDashboardPage() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-200">
                     <div>
+                      <p className="text-gray-500 text-xs">Queue Number</p>
