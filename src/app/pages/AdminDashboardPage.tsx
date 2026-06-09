@@ -20,3 +20,4 @@ function StatCard({ label, value, icon, color, sub }: {
     amber: 'from-amber-500 to-amber-600',
     violet: 'from-violet-500 to-violet-600',
     sky: 'from-sky-500 to-sky-600',
+    red: 'from-red-500 to-red-600',
