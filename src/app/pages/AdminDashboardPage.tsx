@@ -27,3 +27,4 @@ function StatCard({ label, value, icon, color, sub }: {
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${colors[color] ?? colors.blue}`}>
         {icon}
       </div>
+      <div>
