@@ -14,3 +14,4 @@ function StatCard({ label, value, icon, color, sub }: {
   label: string; value: number | string; icon: React.ReactNode;
   color: string; sub?: string;
 }) {
+  const colors: Record<string, string> = {
