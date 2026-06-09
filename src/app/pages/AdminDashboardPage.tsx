@@ -41,3 +41,4 @@ export function AdminDashboardPage() {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
     resetQueue, clearAll, updatePriority, totalServedToday, avgServiceTime,
+  } = useQueue();
