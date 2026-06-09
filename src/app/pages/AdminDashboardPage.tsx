@@ -77,3 +77,4 @@ export function AdminDashboardPage() {
       </div>
 
       {/* Controls + Queue */}
+      <div className="grid lg:grid-cols-3 gap-6">
