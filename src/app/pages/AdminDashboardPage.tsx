@@ -57,3 +57,4 @@ export function AdminDashboardPage() {
 
   const filtered = filter === 'all' ? allItems
     : filter === 'waiting' ? [...waitingItems, ...(currentlyServing ? [currentlyServing] : [])]
+    : filter === 'done' ? doneItems
