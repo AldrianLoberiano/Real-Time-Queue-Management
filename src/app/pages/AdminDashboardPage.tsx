@@ -4,3 +4,4 @@ import {
   ChevronRight, Crown, Heart, User, PlayCircle, X, Clock,
   ArrowDownUp, Siren, RotateCcw,
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
