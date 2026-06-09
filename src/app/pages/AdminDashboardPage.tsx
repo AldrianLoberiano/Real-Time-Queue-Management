@@ -22,3 +22,4 @@ function StatCard({ label, value, icon, color, sub }: {
     sky: 'from-sky-500 to-sky-600',
     red: 'from-red-500 to-red-600',
   };
+  return (
