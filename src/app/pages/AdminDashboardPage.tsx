@@ -40,3 +40,4 @@ export function AdminDashboardPage() {
   const {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
+    resetQueue, clearAll, updatePriority, totalServedToday, avgServiceTime,
