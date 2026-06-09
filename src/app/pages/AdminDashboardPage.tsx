@@ -23,3 +23,4 @@ function StatCard({ label, value, icon, color, sub }: {
     red: 'from-red-500 to-red-600',
   };
   return (
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex items-center gap-4">
