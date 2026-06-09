@@ -55,3 +55,4 @@ export function AdminDashboardPage() {
     ...doneItems,
   ];
 
+  const filtered = filter === 'all' ? allItems
