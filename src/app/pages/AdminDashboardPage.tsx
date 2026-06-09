@@ -13,3 +13,4 @@ import { useQueue, type QueueItem, type PriorityType } from '../context/QueueCon
 function StatCard({ label, value, icon, color, sub }: {
   label: string; value: number | string; icon: React.ReactNode;
   color: string; sub?: string;
+}) {
