@@ -28,3 +28,4 @@ function StatCard({ label, value, icon, color, sub }: {
         {icon}
       </div>
       <div>
+        <p className="text-gray-500 text-sm">{label}</p>
