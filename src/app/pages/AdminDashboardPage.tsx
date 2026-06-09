@@ -11,3 +11,4 @@ import { StatusBadge } from '../components/StatusBadge';
 import { useQueue, type QueueItem, type PriorityType } from '../context/QueueContext';
 
 function StatCard({ label, value, icon, color, sub }: {
+  label: string; value: number | string; icon: React.ReactNode;
