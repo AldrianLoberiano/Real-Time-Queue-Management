@@ -70,3 +70,4 @@ export function AdminDashboardPage() {
     <AdminLayout>
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <StatCard label="Waiting" value={waitingItems.length} icon={<Users size={22} />} color="blue" sub="In queue" />
