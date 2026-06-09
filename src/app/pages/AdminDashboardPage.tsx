@@ -92,3 +92,4 @@ export function AdminDashboardPage() {
                     <div>
                       <p className="text-gray-500 text-xs">Queue Number</p>
                       <p className="text-green-700 font-bold text-3xl">{currentlyServing.number}</p>
+                    </div>
