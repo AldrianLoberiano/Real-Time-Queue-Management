@@ -108,3 +108,4 @@ export function AdminDashboardPage() {
                       Mark Done
                     </button>
                     <button
+                      onClick={() => skipItem(currentlyServing.id)}
