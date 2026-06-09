@@ -48,3 +48,4 @@ export function AdminDashboardPage() {
   const [showConfirmClear, setShowConfirmClear] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
 
+  const allItems = [
