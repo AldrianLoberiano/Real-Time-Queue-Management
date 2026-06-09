@@ -76,3 +76,4 @@ export function AdminDashboardPage() {
         <StatCard label="Avg. Service" value={`${avgServiceTime}m`} icon={<Clock size={22} />} color="violet" sub="Per person" />
       </div>
 
+      {/* Controls + Queue */}
