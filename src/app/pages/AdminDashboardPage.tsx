@@ -66,3 +66,4 @@ export function AdminDashboardPage() {
     { value: 'regular', label: 'Regular', icon: <User size={12} /> },
   ];
 
+  return (
