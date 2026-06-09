@@ -15,3 +15,4 @@ function StatCard({ label, value, icon, color, sub }: {
   color: string; sub?: string;
 }) {
   const colors: Record<string, string> = {
+    blue: 'from-blue-500 to-blue-600',
