@@ -88,3 +88,4 @@ export function AdminDashboardPage() {
             <div className="p-5">
               {currentlyServing ? (
                 <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-200">
