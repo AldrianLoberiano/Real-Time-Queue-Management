@@ -44,3 +44,4 @@ export function AdminDashboardPage() {
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
+  const [showConfirmReset, setShowConfirmReset] = useState(false);
