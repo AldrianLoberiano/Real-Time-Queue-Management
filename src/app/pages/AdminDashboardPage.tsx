@@ -10,3 +10,4 @@ import { PriorityBadge } from '../components/PriorityBadge';
 import { StatusBadge } from '../components/StatusBadge';
 import { useQueue, type QueueItem, type PriorityType } from '../context/QueueContext';
 
+function StatCard({ label, value, icon, color, sub }: {
