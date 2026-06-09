@@ -24,3 +24,4 @@ function StatCard({ label, value, icon, color, sub }: {
   };
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex items-center gap-4">
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${colors[color] ?? colors.blue}`}>
