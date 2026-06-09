@@ -31,3 +31,4 @@ function StatCard({ label, value, icon, color, sub }: {
         <p className="text-gray-500 text-sm">{label}</p>
         <p className="text-gray-900 text-2xl font-bold">{value}</p>
         {sub && <p className="text-gray-400 text-xs">{sub}</p>}
+      </div>
