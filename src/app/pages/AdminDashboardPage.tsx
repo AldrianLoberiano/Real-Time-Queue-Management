@@ -5,3 +5,4 @@ import {
   ArrowDownUp, Siren, RotateCcw,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { AdminLayout } from '../components/AdminLayout';
