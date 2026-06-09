@@ -46,3 +46,4 @@ export function AdminDashboardPage() {
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
   const [showConfirmReset, setShowConfirmReset] = useState(false);
   const [showConfirmClear, setShowConfirmClear] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
