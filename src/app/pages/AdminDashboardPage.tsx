@@ -91,3 +91,4 @@ export function AdminDashboardPage() {
                   <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-200">
                     <div>
                       <p className="text-gray-500 text-xs">Queue Number</p>
+                      <p className="text-green-700 font-bold text-3xl">{currentlyServing.number}</p>
