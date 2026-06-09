@@ -36,3 +36,4 @@ function StatCard({ label, value, icon, color, sub }: {
   );
 }
 
+export function AdminDashboardPage() {
