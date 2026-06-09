@@ -43,3 +43,4 @@ export function AdminDashboardPage() {
     resetQueue, clearAll, updatePriority, totalServedToday, avgServiceTime,
   } = useQueue();
 
+  const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
