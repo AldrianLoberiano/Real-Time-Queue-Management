@@ -38,3 +38,4 @@ function StatCard({ label, value, icon, color, sub }: {
 
 export function AdminDashboardPage() {
   const {
+    waitingItems, currentlyServing, doneItems, skippedItems,
