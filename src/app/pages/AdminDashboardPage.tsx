@@ -72,3 +72,4 @@ export function AdminDashboardPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard label="Waiting" value={waitingItems.length} icon={<Users size={22} />} color="blue" sub="In queue" />
         <StatCard label="Serving" value={currentlyServing ? 1 : 0} icon={<PlayCircle size={22} />} color="green" sub={currentlyServing?.number} />
+        <StatCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={22} />} color="sky" sub="Completed" />
