@@ -64,3 +64,4 @@ export function AdminDashboardPage() {
     { value: 'vip', label: 'VIP', icon: <Crown size={12} /> },
     { value: 'senior', label: 'Senior', icon: <Heart size={12} /> },
     { value: 'regular', label: 'Regular', icon: <User size={12} /> },
+  ];
