@@ -62,3 +62,4 @@ export function AdminDashboardPage() {
 
   const PRIORITY_OPTIONS: { value: PriorityType; label: string; icon: React.ReactNode }[] = [
     { value: 'vip', label: 'VIP', icon: <Crown size={12} /> },
+    { value: 'senior', label: 'Senior', icon: <Heart size={12} /> },
