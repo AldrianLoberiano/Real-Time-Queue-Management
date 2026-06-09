@@ -51,3 +51,4 @@ export function AdminDashboardPage() {
   const allItems = [
     ...(currentlyServing ? [currentlyServing] : []),
     ...waitingItems,
+    ...skippedItems,
