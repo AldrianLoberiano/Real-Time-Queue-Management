@@ -94,3 +94,4 @@ export function AdminDashboardPage() {
                       <p className="text-green-700 font-bold text-3xl">{currentlyServing.number}</p>
                     </div>
                     <div className="ml-auto text-right">
+                      <p className="text-gray-700 font-medium">{currentlyServing.name}</p>
