@@ -65,3 +65,4 @@ export function AdminDashboardPage() {
     { value: 'senior', label: 'Senior', icon: <Heart size={12} /> },
     { value: 'regular', label: 'Regular', icon: <User size={12} /> },
   ];
+
