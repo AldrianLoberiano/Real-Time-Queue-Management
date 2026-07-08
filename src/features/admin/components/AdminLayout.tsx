@@ -60,7 +60,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               key={href}
               to={href}
               onClick={() => setSidebarOpen(false)}
-              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-colors text-sm ${
+              className={`group flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-colors text-sm ${
                 active
                   ? 'bg-white/20 text-white font-medium'
                   : 'text-white/60 hover:bg-white/10 hover:text-white'
