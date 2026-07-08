@@ -25,7 +25,7 @@ describe('Layout', () => {
   it('renders navigation links', () => {
     renderLayout();
     expect(screen.getByText('Join Queue')).toBeInTheDocument();
-    expect(screen.getByText('Display Screen')).toBeInTheDocument();
+    expect(screen.getByText('Display')).toBeInTheDocument();
     expect(screen.getByText('Admin')).toBeInTheDocument();
   });
 
