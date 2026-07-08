@@ -5,17 +5,15 @@ import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
-  const { joinQueue, waitingItems, currentlyServing, getPosition, getEstimatedWait } = useQueue();
+  const { joinQueue, waitingItems, currentlyServing } = useQueue();
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [joined, setJoined] = useState<{ number: string; position: number; wait: number } | null>(null);
+  const [joined, setJoined] = useState<{ number: string } | null>(null);
 
   const handleJoin = () => {
     if (!name.trim()) return;
     const item = joinQueue(name.trim());
-    const position = getPosition(item.id);
-    const wait = getEstimatedWait(item.id);
-    setJoined({ number: item.number, position, wait });
+    setJoined({ number: item.number });
   };
 
   return (
@@ -57,20 +55,10 @@ export function JoinQueuePage() {
             </div>
             <h2 className="text-xl font-bold text-gray-900 mb-1">You're in the Queue</h2>
             <p className="text-gray-500 text-sm mb-6">Please wait for your number to be called</p>
-            <div className="inline-flex items-center gap-6 bg-gray-50 rounded-lg p-5 border border-gray-200">
+            <div className="inline-flex items-center gap-4 bg-gray-50 rounded-lg p-5 border border-gray-200">
               <div>
                 <p className="text-gray-400 text-[11px] uppercase tracking-wide mb-1">Number</p>
-                <p className="text-2xl font-bold text-violet-600">{joined.number}</p>
-              </div>
-              <div className="w-px h-10 bg-gray-200" />
-              <div>
-                <p className="text-gray-400 text-[11px] uppercase tracking-wide mb-1">Position</p>
-                <p className="text-2xl font-bold text-gray-900">#{joined.position}</p>
-              </div>
-              <div className="w-px h-10 bg-gray-200" />
-              <div>
-                <p className="text-gray-400 text-[11px] uppercase tracking-wide mb-1">Est. Wait</p>
-                <p className="text-2xl font-bold text-amber-600">~{joined.wait}m</p>
+                <p className="text-3xl font-bold text-violet-600">{joined.number}</p>
               </div>
             </div>
             <div className="mt-6 flex items-center justify-center gap-3">
