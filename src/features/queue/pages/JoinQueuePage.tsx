@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Users, ArrowRight, Hash } from 'lucide-react';
+import { Users, ArrowRight, Hash, Clock } from 'lucide-react';
 import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
