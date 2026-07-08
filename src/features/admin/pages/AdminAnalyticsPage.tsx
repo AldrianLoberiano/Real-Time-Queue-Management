@@ -13,30 +13,27 @@ const COLORS = {
   regular: '#3b82f6',
 };
 
-function MetricCard({ label, value, icon, change, color }: {
+function MetricCard({ label, value, icon, color }: {
   label: string; value: string | number;
-  icon: React.ReactNode; change?: string; color: string;
+  icon: React.ReactNode; color: string;
 }) {
   const bgMap: Record<string, string> = {
-    sky: 'from-sky-400 to-sky-600',
-    emerald: 'from-emerald-400 to-emerald-600',
-    violet: 'from-violet-400 to-violet-600',
-    amber: 'from-amber-400 to-amber-600',
+    sky: 'bg-sky-500',
+    emerald: 'bg-emerald-500',
+    violet: 'bg-violet-500',
+    amber: 'bg-amber-500',
   };
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-      <div className="flex items-start justify-between mb-4">
-        <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${bgMap[color]}`}>
+    <div className="bg-white rounded-lg border border-gray-200 p-4">
+      <div className="flex items-center gap-3">
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-white ${bgMap[color]}`}>
           {icon}
         </div>
-        {change && (
-          <span className="text-xs text-green-500 font-medium bg-green-50 px-2 py-1 rounded-full border border-green-200">
-            {change}
-          </span>
-        )}
+        <div>
+          <p className="text-lg font-bold text-gray-900">{value}</p>
+          <p className="text-gray-500 text-xs">{label}</p>
+        </div>
       </div>
-      <p className="text-2xl font-bold text-gray-900">{value}</p>
-      <p className="text-gray-500 text-sm mt-1">{label}</p>
     </div>
   );
 }
@@ -44,12 +41,12 @@ function MetricCard({ label, value, icon, change, color }: {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-3">
-      <p className="text-gray-600 text-xs font-semibold mb-2">{label}</p>
+    <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-2.5">
+      <p className="text-gray-600 text-[11px] font-semibold mb-1.5">{label}</p>
       {payload.map((entry: any) => (
-        <p key={entry.name} className="text-sm flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full" style={{ background: entry.color }} />
-          <span className="text-gray-600">{entry.name}:</span>
+        <p key={entry.name} className="text-xs flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: entry.color }} />
+          <span className="text-gray-500">{entry.name}:</span>
           <span className="font-semibold text-gray-900">{entry.value}</span>
         </p>
       ))}
@@ -76,7 +73,7 @@ export function AdminAnalyticsPage() {
     ? Math.round((totalServedToday / (totalServedToday + waitingItems.length)) * 100)
     : 0;
 
-  const peakHour = hourlyData.reduce((max, h) => h.served > max.served ? h : max, hourlyData[0] ?? { hour: '\u2014', served: 0 });
+  const peakHour = hourlyData.reduce((max, h) => h.served > max.served ? h : max, hourlyData[0] ?? { hour: '-', served: 0 });
 
   const weeklyData = [
     { day: 'Mon', served: 42, waited: 5 },
@@ -98,55 +95,49 @@ export function AdminAnalyticsPage() {
 
   return (
     <AdminLayout>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <MetricCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={22} />} change="+12%" color="sky" />
-        <MetricCard label="Avg. Wait Time" value={`${avgServiceTime}m`} icon={<Clock size={22} />} change="-8%" color="emerald" />
-        <MetricCard label="Efficiency Rate" value={`${efficiency}%`} icon={<TrendingUp size={22} />} change="+5%" color="violet" />
-        <MetricCard label="Peak Hour" value={peakHour?.hour ?? '\u2014'} icon={<Award size={22} />} color="amber" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <MetricCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={18} />} color="sky" />
+        <MetricCard label="Avg. Wait Time" value={`${avgServiceTime}m`} icon={<Clock size={18} />} color="emerald" />
+        <MetricCard label="Efficiency" value={`${efficiency}%`} icon={<TrendingUp size={18} />} color="violet" />
+        <MetricCard label="Peak Hour" value={peakHour?.hour ?? '-'} icon={<Award size={18} />} color="amber" />
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6 mb-6">
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h3 className="font-semibold text-gray-800">Hourly Traffic</h3>
-              <p className="text-gray-400 text-sm">Queue joins and served per hour today</p>
-            </div>
-          </div>
-          <ResponsiveContainer width="100%" height={220}>
+      <div className="grid lg:grid-cols-3 gap-4 mb-4">
+        <div className="lg:col-span-2 bg-white rounded-lg border border-gray-200 p-5">
+          <h3 className="font-medium text-gray-800 text-sm mb-4">Hourly Traffic</h3>
+          <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={hourlyData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="gradServed" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.2} />
+                  <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.15} />
                   <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="gradJoined" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.2} />
+                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.15} />
                   <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-              <XAxis dataKey="hour" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="hour" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
-              <Legend wrapperStyle={{ fontSize: '12px' }} />
-              <Area type="monotone" dataKey="served" name="Served" stroke="#0ea5e9" strokeWidth={2} fill="url(#gradServed)" />
-              <Area type="monotone" dataKey="joined" name="Joined" stroke="#10b981" strokeWidth={2} fill="url(#gradJoined)" />
+              <Legend wrapperStyle={{ fontSize: '11px' }} />
+              <Area type="monotone" dataKey="served" name="Served" stroke="#0ea5e9" strokeWidth={1.5} fill="url(#gradServed)" />
+              <Area type="monotone" dataKey="joined" name="Joined" stroke="#10b981" strokeWidth={1.5} fill="url(#gradJoined)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h3 className="font-semibold text-gray-800 mb-1">Priority Split</h3>
-          <p className="text-gray-400 text-sm mb-4">Distribution of queue types</p>
-          <ResponsiveContainer width="100%" height={160}>
+        <div className="bg-white rounded-lg border border-gray-200 p-5">
+          <h3 className="font-medium text-gray-800 text-sm mb-3">Priority Split</h3>
+          <ResponsiveContainer width="100%" height={140}>
             <PieChart>
               <Pie
                 data={priorityDist}
                 cx="50%"
                 cy="50%"
-                innerRadius={45}
-                outerRadius={70}
+                innerRadius={40}
+                outerRadius={60}
                 paddingAngle={3}
                 dataKey="value"
               >
@@ -157,76 +148,67 @@ export function AdminAnalyticsPage() {
               <Tooltip formatter={(val: number, name: string) => [val, name]} />
             </PieChart>
           </ResponsiveContainer>
-          <div className="mt-2 space-y-2">
+          <div className="mt-2 space-y-1.5">
             {priorityDist.map(d => (
               <div key={d.name} className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full" style={{ background: d.color }} />
-                  <span className="text-sm text-gray-600">{d.name}</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full" style={{ background: d.color }} />
+                  <span className="text-xs text-gray-600">{d.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-gray-900">{d.value}</span>
-                  <span className="text-xs text-gray-400">
-                    ({priorityDist.reduce((s, x) => s + x.value, 0) > 0
-                      ? Math.round(d.value / priorityDist.reduce((s, x) => s + x.value, 0) * 100)
-                      : 0}%)
-                  </span>
-                </div>
+                <span className="text-xs font-semibold text-gray-900">{d.value}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h3 className="font-semibold text-gray-800 mb-1">Weekly Overview</h3>
-          <p className="text-gray-400 text-sm mb-4">Served vs waited this week</p>
-          <ResponsiveContainer width="100%" height={200}>
+      <div className="grid lg:grid-cols-2 gap-4 mb-4">
+        <div className="bg-white rounded-lg border border-gray-200 p-5">
+          <h3 className="font-medium text-gray-800 text-sm mb-4">Weekly Overview</h3>
+          <ResponsiveContainer width="100%" height={180}>
             <BarChart data={weeklyData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-              <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="day" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
-              <Legend wrapperStyle={{ fontSize: '12px' }} />
-              <Bar dataKey="served" name="Served" fill="#0ea5e9" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="waited" name="Avg Wait (min)" fill="#f59e0b" radius={[4, 4, 0, 0]} />
+              <Legend wrapperStyle={{ fontSize: '11px' }} />
+              <Bar dataKey="served" name="Served" fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+              <Bar dataKey="waited" name="Avg Wait (min)" fill="#f59e0b" radius={[3, 3, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h3 className="font-semibold text-gray-800 mb-1">Wait Time Distribution</h3>
-          <p className="text-gray-400 text-sm mb-4">How long customers waited today</p>
-          <ResponsiveContainer width="100%" height={200}>
+        <div className="bg-white rounded-lg border border-gray-200 p-5">
+          <h3 className="font-medium text-gray-800 text-sm mb-4">Wait Time Distribution</h3>
+          <ResponsiveContainer width="100%" height={180}>
             <BarChart data={waitTimeData} layout="vertical" margin={{ top: 5, right: 5, left: 30, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
-              <YAxis type="category" dataKey="range" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <XAxis type="number" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+              <YAxis type="category" dataKey="range" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="count" name="Customers" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="count" name="Customers" fill="#8b5cf6" radius={[0, 3, 3, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h3 className="font-semibold text-gray-800">Today's Summary</h3>
+      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="px-4 py-3 border-b border-gray-200">
+          <h3 className="font-medium text-gray-800 text-sm">Today's Summary</h3>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
           {[
-            { label: 'VIP Customers', value: priorityDist.find(d => d.name === 'VIP')?.value ?? 0, icon: <Crown size={18} />, color: 'text-amber-600 bg-amber-50' },
-            { label: 'Senior Citizens', value: priorityDist.find(d => d.name === 'Senior')?.value ?? 0, icon: <Heart size={18} />, color: 'text-violet-600 bg-violet-50' },
-            { label: 'Regular', value: priorityDist.find(d => d.name === 'Regular')?.value ?? 0, icon: <User size={18} />, color: 'text-blue-600 bg-blue-50' },
-            { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={18} />, color: 'text-sky-600 bg-sky-50' },
+            { label: 'VIP Customers', value: priorityDist.find(d => d.name === 'VIP')?.value ?? 0, icon: <Crown size={16} />, color: 'text-amber-600 bg-amber-50' },
+            { label: 'Senior Citizens', value: priorityDist.find(d => d.name === 'Senior')?.value ?? 0, icon: <Heart size={16} />, color: 'text-violet-600 bg-violet-50' },
+            { label: 'Regular', value: priorityDist.find(d => d.name === 'Regular')?.value ?? 0, icon: <User size={16} />, color: 'text-blue-600 bg-blue-50' },
+            { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={16} />, color: 'text-sky-600 bg-sky-50' },
           ].map(item => (
-            <div key={item.label} className="p-6 text-center">
-              <div className={`w-10 h-10 rounded-xl mx-auto flex items-center justify-center mb-3 ${item.color}`}>
+            <div key={item.label} className="p-4 text-center">
+              <div className={`w-8 h-8 rounded-lg mx-auto flex items-center justify-center mb-2 ${item.color}`}>
                 {item.icon}
               </div>
-              <p className="text-2xl font-bold text-gray-900">{item.value}</p>
-              <p className="text-gray-500 text-sm mt-1">{item.label}</p>
+              <p className="text-lg font-bold text-gray-900">{item.value}</p>
+              <p className="text-gray-500 text-xs mt-0.5">{item.label}</p>
             </div>
           ))}
         </div>
