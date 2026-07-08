@@ -1,17 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
-  AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
+  AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from 'recharts';
-import { TrendingUp, Users, Clock, CheckCircle, Crown, Heart, User, Award } from 'lucide-react';
+import { TrendingUp, Users, Clock, CheckCircle, Award } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../../queue/QueueContext';
-
-const COLORS = {
-  vip: '#f59e0b',
-  senior: '#8b5cf6',
-  regular: '#3b82f6',
-};
 
 function MetricCard({ label, value, icon, color }: {
   label: string; value: string | number;
@@ -55,19 +49,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export function AdminAnalyticsPage() {
-  const { items, hourlyData, totalServedToday, avgServiceTime, waitingItems } = useQueue();
-
-  const priorityDist = useMemo(() => {
-    const all = items.filter(i => i.status === 'done' || i.status === 'serving');
-    const vip = all.filter(i => i.type === 'vip').length;
-    const senior = all.filter(i => i.type === 'senior').length;
-    const regular = all.filter(i => i.type === 'regular').length;
-    return [
-      { name: 'VIP', value: vip, color: COLORS.vip },
-      { name: 'Senior', value: senior, color: COLORS.senior },
-      { name: 'Regular', value: regular, color: COLORS.regular },
-    ];
-  }, [items]);
+  const { hourlyData, totalServedToday, avgServiceTime, waitingItems } = useQueue();
 
   const efficiency = totalServedToday > 0
     ? Math.round((totalServedToday / (totalServedToday + waitingItems.length)) * 100)
@@ -102,8 +84,8 @@ export function AdminAnalyticsPage() {
         <MetricCard label="Peak Hour" value={peakHour?.hour ?? '-'} icon={<Award size={18} />} color="amber" />
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-4 mb-4">
-        <div className="lg:col-span-2 bg-white rounded-lg border border-gray-200 p-5">
+      <div className="grid lg:grid-cols-2 gap-4 mb-4">
+        <div className="bg-white rounded-lg border border-gray-200 p-5">
           <h3 className="font-medium text-gray-800 text-sm mb-4">Hourly Traffic</h3>
           <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={hourlyData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
@@ -129,43 +111,8 @@ export function AdminAnalyticsPage() {
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-5">
-          <h3 className="font-medium text-gray-800 text-sm mb-3">Priority Split</h3>
-          <ResponsiveContainer width="100%" height={140}>
-            <PieChart>
-              <Pie
-                data={priorityDist}
-                cx="50%"
-                cy="50%"
-                innerRadius={40}
-                outerRadius={60}
-                paddingAngle={3}
-                dataKey="value"
-              >
-                {priorityDist.map((entry, i) => (
-                  <Cell key={i} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(val: number, name: string) => [val, name]} />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="mt-2 space-y-1.5">
-            {priorityDist.map(d => (
-              <div key={d.name} className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full" style={{ background: d.color }} />
-                  <span className="text-xs text-gray-600">{d.name}</span>
-                </div>
-                <span className="text-xs font-semibold text-gray-900">{d.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-4 mb-4">
-        <div className="bg-white rounded-lg border border-gray-200 p-5">
           <h3 className="font-medium text-gray-800 text-sm mb-4">Weekly Overview</h3>
-          <ResponsiveContainer width="100%" height={180}>
+          <ResponsiveContainer width="100%" height={200}>
             <BarChart data={weeklyData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis dataKey="day" tick={{ fontSize: 10, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
@@ -177,7 +124,9 @@ export function AdminAnalyticsPage() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+      </div>
 
+      <div className="grid lg:grid-cols-2 gap-4 mb-4">
         <div className="bg-white rounded-lg border border-gray-200 p-5">
           <h3 className="font-medium text-gray-800 text-sm mb-4">Wait Time Distribution</h3>
           <ResponsiveContainer width="100%" height={180}>
@@ -190,6 +139,16 @@ export function AdminAnalyticsPage() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+
+        <div className="bg-white rounded-lg border border-gray-200 p-5">
+          <h3 className="font-medium text-gray-800 text-sm mb-4">Still Waiting</h3>
+          <div className="flex items-center justify-center h-[180px]">
+            <div className="text-center">
+              <p className="text-5xl font-bold text-sky-600">{waitingItems.length}</p>
+              <p className="text-gray-400 text-sm mt-1">customers waiting</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -198,16 +157,13 @@ export function AdminAnalyticsPage() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
           {[
-            { label: 'VIP Customers', value: priorityDist.find(d => d.name === 'VIP')?.value ?? 0, icon: <Crown size={16} />, color: 'text-amber-600 bg-amber-50' },
-            { label: 'Senior Citizens', value: priorityDist.find(d => d.name === 'Senior')?.value ?? 0, icon: <Heart size={16} />, color: 'text-violet-600 bg-violet-50' },
-            { label: 'Regular', value: priorityDist.find(d => d.name === 'Regular')?.value ?? 0, icon: <User size={16} />, color: 'text-blue-600 bg-blue-50' },
-            { label: 'Still Waiting', value: waitingItems.length, icon: <Users size={16} />, color: 'text-sky-600 bg-sky-50' },
+            { label: 'Total Served', value: totalServedToday, color: 'text-emerald-600 bg-emerald-50' },
+            { label: 'Still Waiting', value: waitingItems.length, color: 'text-sky-600 bg-sky-50' },
+            { label: 'Avg. Service Time', value: `${avgServiceTime}m`, color: 'text-amber-600 bg-amber-50' },
+            { label: 'Efficiency', value: `${efficiency}%`, color: 'text-violet-600 bg-violet-50' },
           ].map(item => (
             <div key={item.label} className="p-4 text-center">
-              <div className={`w-8 h-8 rounded-lg mx-auto flex items-center justify-center mb-2 ${item.color}`}>
-                {item.icon}
-              </div>
-              <p className="text-lg font-bold text-gray-900">{item.value}</p>
+              <p className={`text-2xl font-bold ${item.color.split(' ')[0]}`}>{item.value}</p>
               <p className="text-gray-500 text-xs mt-0.5">{item.label}</p>
             </div>
           ))}
