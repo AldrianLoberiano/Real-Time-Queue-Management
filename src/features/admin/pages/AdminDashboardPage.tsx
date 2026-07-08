@@ -61,6 +61,17 @@ export function AdminDashboardPage() {
         <StatCard label="Serving" value={currentlyServing ? 1 : 0} icon={<PlayCircle size={18} />} color="green" />
         <StatCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={18} />} color="sky" />
         <StatCard label="Avg. Service" value={`${avgServiceTime}m`} icon={<Clock size={18} />} color="amber" />
+        <button
+          onClick={callNext}
+          disabled={waitingItems.length === 0}
+          className="bg-sky-500 hover:bg-sky-600 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white rounded-lg p-4 flex items-center gap-3 transition-colors"
+        >
+          <PlayCircle size={18} />
+          <div className="text-left">
+            <p className="text-white/80 text-xs">Action</p>
+            <p className="font-bold text-sm">Call Next</p>
+          </div>
+        </button>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-4">
@@ -91,6 +102,13 @@ export function AdminDashboardPage() {
                       Done
                     </button>
                     <button
+                      onClick={() => { markDone(currentlyServing.id); setTimeout(callNext, 100); }}
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-colors text-xs font-medium"
+                    >
+                      <PlayCircle size={13} />
+                      Done & Call Next
+                    </button>
+                    <button
                       onClick={() => skipItem(currentlyServing.id)}
                       className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white transition-colors text-xs font-medium"
                     >
@@ -99,14 +117,14 @@ export function AdminDashboardPage() {
                     </button>
                     <button
                       onClick={() => recallItem(currentlyServing.id)}
-                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-colors text-xs font-medium"
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white transition-colors text-xs font-medium"
                     >
                       <RefreshCw size={13} />
                       Recall
                     </button>
                     <button
                       onClick={() => removeItem(currentlyServing.id)}
-                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors text-xs font-medium"
+                      className="col-span-2 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors text-xs font-medium"
                     >
                       <Trash2 size={13} />
                       Remove
@@ -114,7 +132,20 @@ export function AdminDashboardPage() {
                   </div>
                 </div>
               ) : (
-                <p className="text-center text-gray-400 py-6 text-sm">No one being served</p>
+                <div className="text-center py-6">
+                  <p className="text-gray-400 text-sm mb-3">No one being served</p>
+                  <button
+                    onClick={callNext}
+                    disabled={waitingItems.length === 0}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+                  >
+                    <PlayCircle size={15} />
+                    Call Next Customer
+                  </button>
+                  {waitingItems.length > 0 && (
+                    <p className="text-gray-400 text-xs mt-2">{waitingItems.length} waiting in queue</p>
+                  )}
+                </div>
               )}
             </div>
           </div>
