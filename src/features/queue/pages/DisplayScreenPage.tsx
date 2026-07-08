@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
 import { useQueue } from '../QueueContext';
-import { PriorityBadge } from '../components/PriorityBadge';
 
 export function DisplayScreenPage() {
   const { currentlyServing, waitingItems, doneItems } = useQueue();
@@ -18,11 +17,8 @@ export function DisplayScreenPage() {
           {currentlyServing ? (
             <>
               <p className="text-gray-400 text-sm uppercase tracking-wide mb-2">Now Serving</p>
-              <p className="text-7xl font-bold text-sky-600 mb-3">{currentlyServing.number}</p>
-              <div className="flex items-center justify-center gap-2">
-                <PriorityBadge type={currentlyServing.type} size="md" />
-                <span className="text-gray-600">{currentlyServing.name}</span>
-              </div>
+              <p className="text-9xl font-bold text-sky-600 mb-3 tracking-tight" style={{ fontSize: '8rem' }}>{currentlyServing.number}</p>
+              <span className="text-gray-600">{currentlyServing.name}</span>
             </>
           ) : (
             <div className="py-6">
@@ -46,7 +42,6 @@ export function DisplayScreenPage() {
                     <span className="text-gray-400 text-xs font-mono w-5">#{idx + 1}</span>
                     <span className="font-semibold text-gray-900">{item.number}</span>
                     <span className="text-gray-500 text-sm flex-1">{item.name}</span>
-                    <PriorityBadge type={item.type} size="sm" />
                   </div>
                 ))
               )}
