@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import {
-  LayoutDashboard, ShieldCheck, LogOut, Menu, X,
+  LayoutDashboard, ShieldCheck, LogOut, Menu,
   Users, Bell, ChevronRight,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
