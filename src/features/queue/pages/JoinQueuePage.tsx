@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Users, Crown, Heart, User, ArrowRight, Clock, Hash } from 'lucide-react';
+import { Users, ArrowRight, Clock, Hash } from 'lucide-react';
 import { Layout } from '../components/Layout';
-import { useQueue, type PriorityType } from '../QueueContext';
-
-const PRIORITY_OPTIONS: { value: PriorityType; label: string; icon: React.ReactNode; activeClass: string }[] = [
-  { value: 'regular', label: 'Regular', icon: <User size={16} />, activeClass: 'border-blue-400 bg-blue-50 text-blue-700' },
-  { value: 'senior', label: 'Senior', icon: <Heart size={16} />, activeClass: 'border-violet-400 bg-violet-50 text-violet-700' },
-  { value: 'vip', label: 'VIP', icon: <Crown size={16} />, activeClass: 'border-amber-400 bg-amber-50 text-amber-700' },
-];
+import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
   const { joinQueue, waitingItems, currentlyServing, getPosition, getEstimatedWait } = useQueue();
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [type, setType] = useState<PriorityType>('regular');
   const [joined, setJoined] = useState<{ number: string; position: number; wait: number } | null>(null);
 
   const handleJoin = () => {
     if (!name.trim()) return;
-    const item = joinQueue(name.trim(), type);
+    const item = joinQueue(name.trim());
     const position = getPosition(item.id);
     const wait = getEstimatedWait(item.id);
     setJoined({ number: item.number, position, wait });
@@ -30,7 +23,7 @@ export function JoinQueuePage() {
       <div className="max-w-2xl mx-auto px-4 py-10">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Join the Queue</h1>
-          <p className="text-gray-500 text-sm">Enter your details to get a queue number</p>
+          <p className="text-gray-500 text-sm">Enter your name to get a queue number</p>
         </div>
 
         <div className="grid grid-cols-3 gap-3 mb-8">
@@ -67,7 +60,7 @@ export function JoinQueuePage() {
             <div className="inline-flex items-center gap-6 bg-gray-50 rounded-lg p-5 border border-gray-200">
               <div>
                 <p className="text-gray-400 text-[11px] uppercase tracking-wide mb-1">Number</p>
-                <p className="text-2xl font-bold text-sky-600">{joined.number}</p>
+                <p className="text-2xl font-bold text-violet-600">{joined.number}</p>
               </div>
               <div className="w-px h-10 bg-gray-200" />
               <div>
@@ -83,7 +76,7 @@ export function JoinQueuePage() {
             <div className="mt-6">
               <button
                 onClick={() => navigate('/display')}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium transition-colors"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium transition-colors"
               >
                 View Display Screen
                 <ArrowRight size={14} />
@@ -102,34 +95,14 @@ export function JoinQueuePage() {
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="e.g. Juan dela Cruz"
-                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 outline-none transition-colors text-sm"
+                  className="w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-violet-400 focus:ring-1 focus:ring-violet-400 outline-none transition-colors text-sm"
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Queue Type</label>
-                <div className="grid grid-cols-3 gap-2">
-                  {PRIORITY_OPTIONS.map(opt => (
-                    <button
-                      key={opt.value}
-                      onClick={() => setType(opt.value)}
-                      className={`flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all text-sm ${
-                        type === opt.value
-                          ? `${opt.activeClass} border-current`
-                          : 'border-gray-200 hover:border-gray-300 text-gray-500'
-                      }`}
-                    >
-                      {opt.icon}
-                      <span className="font-medium">{opt.label}</span>
-                    </button>
-                  ))}
-                </div>
               </div>
 
               <button
                 onClick={handleJoin}
                 disabled={!name.trim()}
-                className="w-full py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors flex items-center justify-center gap-1.5"
               >
                 Join Queue
                 <ArrowRight size={14} />
