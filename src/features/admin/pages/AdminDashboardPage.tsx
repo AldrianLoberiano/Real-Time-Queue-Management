@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
-  ChevronRight, PlayCircle, Clock, RotateCcw,
+  PlayCircle, Clock, RotateCcw,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AdminLayout } from '../components/AdminLayout';
@@ -40,7 +40,6 @@ export function AdminDashboardPage() {
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
   const [showConfirmReset, setShowConfirmReset] = useState(false);
   const [showConfirmClear, setShowConfirmClear] = useState(false);
-  const [editingId, setEditingId] = useState<string | null>(null);
 
   const allItems = [
     ...(currentlyServing ? [currentlyServing] : []),
@@ -231,32 +230,6 @@ export function AdminDashboardPage() {
                   <span className="font-semibold text-gray-900 text-sm w-16">{item.number}</span>
                   <span className="text-gray-600 text-sm flex-1 truncate">{item.name}</span>
                   <StatusBadge status={item.status} size="sm" />
-                  <div className="relative">
-                    <button
-                      onClick={() => setEditingId(editingId === item.id ? null : item.id)}
-                      className="p-1 rounded hover:bg-gray-100 text-gray-400"
-                    >
-                      <ChevronRight size={12} />
-                    </button>
-                    <AnimatePresence>
-                      {editingId === item.id && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          className="absolute right-0 top-6 bg-white rounded-lg shadow-lg border border-gray-200 p-1.5 z-10 w-28"
-                        >
-                          <button
-                            onClick={() => { removeItem(item.id); setEditingId(null); }}
-                            className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-red-50 text-red-600"
-                          >
-                            <Trash2 size={11} />
-                            Remove
-                          </button>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
                 </div>
               ))
             )}
