@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
-  ChevronRight, Crown, Heart, User, PlayCircle, Clock,
-  RotateCcw,
+  ChevronRight, PlayCircle, Clock, RotateCcw,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AdminLayout } from '../components/AdminLayout';
-import { PriorityBadge } from '../../queue/components/PriorityBadge';
 import { StatusBadge } from '../../queue/components/StatusBadge';
-import { useQueue, type QueueItem, type PriorityType } from '../../queue/QueueContext';
+import { useQueue } from '../../queue/QueueContext';
 
 function StatCard({ label, value, icon, color }: {
   label: string; value: number | string; icon: React.ReactNode; color: string;
@@ -36,7 +34,7 @@ export function AdminDashboardPage() {
   const {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
-    resetQueue, clearAll, updatePriority, totalServedToday, avgServiceTime,
+    resetQueue, clearAll, totalServedToday, avgServiceTime,
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
@@ -55,12 +53,6 @@ export function AdminDashboardPage() {
     : filter === 'waiting' ? [...waitingItems, ...(currentlyServing ? [currentlyServing] : [])]
     : filter === 'done' ? doneItems
     : skippedItems;
-
-  const PRIORITY_OPTIONS: { value: PriorityType; label: string; icon: React.ReactNode }[] = [
-    { value: 'vip', label: 'VIP', icon: <Crown size={12} /> },
-    { value: 'senior', label: 'Senior', icon: <Heart size={12} /> },
-    { value: 'regular', label: 'Regular', icon: <User size={12} /> },
-  ];
 
   return (
     <AdminLayout>
@@ -87,7 +79,6 @@ export function AdminDashboardPage() {
                     </div>
                     <div className="ml-auto text-right">
                       <p className="text-gray-700 font-medium text-sm">{currentlyServing.name}</p>
-                      <PriorityBadge type={currentlyServing.type} size="sm" />
                     </div>
                   </div>
 
@@ -208,7 +199,6 @@ export function AdminDashboardPage() {
                 <div key={item.id} className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50">
                   <span className="font-semibold text-gray-900 text-sm w-16">{item.number}</span>
                   <span className="text-gray-600 text-sm flex-1 truncate">{item.name}</span>
-                  <PriorityBadge type={item.type} size="sm" />
                   <StatusBadge status={item.status} size="sm" />
                   <div className="relative">
                     <button
@@ -225,26 +215,13 @@ export function AdminDashboardPage() {
                           exit={{ opacity: 0, scale: 0.95 }}
                           className="absolute right-0 top-6 bg-white rounded-lg shadow-lg border border-gray-200 p-1.5 z-10 w-28"
                         >
-                          <p className="text-[10px] text-gray-400 px-1.5 mb-0.5 uppercase tracking-wide">Priority</p>
-                          {PRIORITY_OPTIONS.map(opt => (
-                            <button
-                              key={opt.value}
-                              onClick={() => { updatePriority(item.id, opt.value); setEditingId(null); }}
-                              className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-gray-50 text-gray-700"
-                            >
-                              {opt.icon}
-                              {opt.label}
-                            </button>
-                          ))}
-                          <div className="border-t border-gray-100 mt-1 pt-1">
-                            <button
-                              onClick={() => { removeItem(item.id); setEditingId(null); }}
-                              className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-red-50 text-red-600"
-                            >
-                              <Trash2 size={11} />
-                              Remove
-                            </button>
-                          </div>
+                          <button
+                            onClick={() => { removeItem(item.id); setEditingId(null); }}
+                            className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-red-50 text-red-600"
+                          >
+                            <Trash2 size={11} />
+                            Remove
+                          </button>
                         </motion.div>
                       )}
                     </AnimatePresence>
