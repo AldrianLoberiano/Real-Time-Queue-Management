@@ -53,7 +53,7 @@ export function DisplayScreenPage() {
                   <p className="text-gray-400 text-sm">No one waiting</p>
                 </div>
               ) : (
-                waitingItems.map((item, idx) => (
+                waitingItems.slice(0, 5).map((item, idx) => (
                   <div key={item.id} className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 transition-colors">
                     <span className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 text-xs font-bold flex items-center justify-center">
                       {idx + 1}
