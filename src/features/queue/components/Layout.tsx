@@ -16,20 +16,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="relative overflow-hidden sticky top-0 z-40" style={{
+      <header className="sticky top-0 z-40" style={{
         background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
       }}>
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full opacity-30" style={{
-            background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
-          }} />
-          <div className="absolute -bottom-1/2 -left-1/4 w-[500px] h-[500px] rounded-full opacity-20" style={{
-            background: 'radial-gradient(circle, #c026d3 0%, transparent 70%)',
-          }} />
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            background: 'linear-gradient(135deg, transparent 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%)',
-          }} />
-        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
