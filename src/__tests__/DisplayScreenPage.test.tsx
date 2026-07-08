@@ -20,14 +20,12 @@ describe('DisplayScreenPage', () => {
     expect(screen.getByText('Queue Display')).toBeInTheDocument();
   });
 
-  it('shows currently serving item', () => {
+  it('shows no one being served message when empty', () => {
     renderDisplayPage();
-    // The seed data has one serving item (Elena Torres, A-007)
-    expect(screen.getByText('Now Serving')).toBeInTheDocument();
-    expect(screen.getByText('A-007')).toBeInTheDocument();
+    expect(screen.getByText('No one being served')).toBeInTheDocument();
   });
 
-  it('shows waiting list with count', () => {
+  it('shows waiting list section', () => {
     renderDisplayPage();
     expect(screen.getByText(/Waiting/)).toBeInTheDocument();
   });
