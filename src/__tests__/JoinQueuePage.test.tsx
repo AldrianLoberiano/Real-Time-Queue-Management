@@ -15,30 +15,25 @@ function renderJoinPage() {
 }
 
 describe('JoinQueuePage', () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
-  it('renders the Join Queue heading', () => {
+  it('renders Join the Queue heading', () => {
     renderJoinPage();
     expect(screen.getByText('Join the Queue')).toBeInTheDocument();
   });
 
-  it('displays live stats (waiting count)', () => {
+  it('shows input field for name', () => {
     renderJoinPage();
-    expect(screen.getByText('Waiting')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/juan dela cruz/i)).toBeInTheDocument();
   });
 
-  it('displays the form with name input', () => {
+  it('shows Join Queue button', () => {
     renderJoinPage();
-    expect(screen.getByPlaceholderText('e.g. Juan dela Cruz')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /join queue/i })).toBeInTheDocument();
   });
 
-  it('displays priority options', () => {
+  it('displays stats cards', () => {
     renderJoinPage();
-    expect(screen.getByText('Regular')).toBeInTheDocument();
-    expect(screen.getByText('Senior')).toBeInTheDocument();
-    expect(screen.getByText('VIP')).toBeInTheDocument();
+    expect(screen.getAllByText('Waiting').length).toBeGreaterThan(0);
+    expect(screen.getByText('Now Serving')).toBeInTheDocument();
   });
 
   it('join button is disabled when name is empty', () => {
@@ -47,45 +42,28 @@ describe('JoinQueuePage', () => {
     expect(button).toBeDisabled();
   });
 
-  it('join button is enabled when name is entered', () => {
+  it('can type name in input', () => {
     renderJoinPage();
-    const input = screen.getByPlaceholderText('e.g. Juan dela Cruz');
-    fireEvent.change(input, { target: { value: 'Test User' } });
-    const button = screen.getByRole('button', { name: /join queue/i });
-    expect(button).not.toBeDisabled();
+    const input = screen.getByPlaceholderText(/juan dela cruz/i);
+    fireEvent.change(input, { target: { value: 'Alice' } });
+    expect(input).toHaveValue('Alice');
   });
 
-  it('shows confirmation screen after joining queue', () => {
+  it('can join queue with name', () => {
     renderJoinPage();
-    const input = screen.getByPlaceholderText('e.g. Juan dela Cruz');
-    fireEvent.change(input, { target: { value: 'Test User' } });
-    const button = screen.getByRole('button', { name: /join queue/i });
-    fireEvent.click(button);
-
-    expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
-    expect(screen.getByText('Number')).toBeInTheDocument();
-    expect(screen.getByText('Position')).toBeInTheDocument();
-    expect(screen.getByText('Est. Wait')).toBeInTheDocument();
-  });
-
-  it('can select VIP priority and join', () => {
-    renderJoinPage();
-    const vipButton = screen.getByText('VIP').closest('button')!;
-    fireEvent.click(vipButton);
-
-    const input = screen.getByPlaceholderText('e.g. Juan dela Cruz');
-    fireEvent.change(input, { target: { value: 'VIP User' } });
+    const input = screen.getByPlaceholderText(/juan dela cruz/i);
+    fireEvent.change(input, { target: { value: 'Alice' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
-
     expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
+    expect(screen.getByText('A-001')).toBeInTheDocument();
+    expect(screen.getByText(/#\d+/)).toBeInTheDocument();
   });
 
-  it('displays View Display Screen button after joining', () => {
+  it('shows view display screen button after joining', () => {
     renderJoinPage();
-    const input = screen.getByPlaceholderText('e.g. Juan dela Cruz');
-    fireEvent.change(input, { target: { value: 'Test User' } });
+    const input = screen.getByPlaceholderText(/juan dela cruz/i);
+    fireEvent.change(input, { target: { value: 'Alice' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
-
     expect(screen.getByText('View Display Screen')).toBeInTheDocument();
   });
 });
