@@ -62,8 +62,8 @@ describe('JoinQueuePage', () => {
     const button = screen.getByRole('button', { name: /join queue/i });
     fireEvent.click(button);
 
-    expect(screen.getByText("You're in the Queue!")).toBeInTheDocument();
-    expect(screen.getByText('Your Number')).toBeInTheDocument();
+    expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
+    expect(screen.getByText('Number')).toBeInTheDocument();
     expect(screen.getByText('Position')).toBeInTheDocument();
     expect(screen.getByText('Est. Wait')).toBeInTheDocument();
   });
@@ -77,7 +77,7 @@ describe('JoinQueuePage', () => {
     fireEvent.change(input, { target: { value: 'VIP User' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
 
-    expect(screen.getByText("You're in the Queue!")).toBeInTheDocument();
+    expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
   });
 
   it('displays View Display Screen button after joining', () => {
