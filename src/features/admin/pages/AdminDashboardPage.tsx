@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
-  PlayCircle, Clock, RotateCcw, UserCheck, AlertTriangle,
+  PlayCircle, Clock, RotateCcw, UserCheck,
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { AdminLayout } from '../components/AdminLayout';
+import { ConfirmModal } from '../components/ConfirmModal';
 import { StatusBadge } from '../../queue/components/StatusBadge';
 import { useQueue } from '../../queue/QueueContext';
 
@@ -16,8 +16,8 @@ export function AdminDashboardPage() {
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
-  const [showConfirmReset, setShowConfirmReset] = useState(false);
-  const [showConfirmClear, setShowConfirmClear] = useState(false);
+  const [showReset, setShowReset] = useState(false);
+  const [showClear, setShowClear] = useState(false);
 
   const allItems = [
     ...(currentlyServing ? [currentlyServing] : []),
@@ -90,7 +90,7 @@ export function AdminDashboardPage() {
             <button
               onClick={callNext}
               disabled={waitingItems.length === 0}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all shadow-lg shadow-violet-200 disabled:shadow-none flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all disabled:shadow-none flex items-center justify-center gap-2"
             >
               <PlayCircle size={18} />
               Call Next Customer
@@ -123,7 +123,7 @@ export function AdminDashboardPage() {
                     {/* Primary Action */}
                     <button
                       onClick={() => { markDone(currentlyServing.id); setTimeout(callNext, 100); }}
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold text-sm transition-all shadow-lg shadow-emerald-200 flex items-center justify-center gap-2"
+                      className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
                     >
                       <CheckCircle size={16} />
                       Done & Call Next
@@ -179,65 +179,20 @@ export function AdminDashboardPage() {
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
               <div className="flex gap-2">
                 <button
-                  onClick={() => setShowConfirmReset(true)}
+                  onClick={() => setShowReset(true)}
                   className="flex-1 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 text-gray-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                 >
                   <RotateCcw size={12} />
                   Reset Queue
                 </button>
                 <button
-                  onClick={() => setShowConfirmClear(true)}
+                  onClick={() => setShowClear(true)}
                   className="flex-1 py-2.5 rounded-xl border border-red-200 hover:bg-red-50 text-red-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                 >
                   <Trash2 size={12} />
                   Clear All
                 </button>
               </div>
-
-              <AnimatePresence>
-                {showConfirmReset && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-3 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                      <div className="flex items-start gap-2">
-                        <AlertTriangle size={14} className="text-amber-600 mt-0.5 shrink-0" />
-                        <div className="flex-1">
-                          <p className="text-amber-800 text-sm font-medium mb-2">Mark all as done?</p>
-                          <div className="flex gap-2">
-                            <button onClick={() => { resetQueue(); setShowConfirmReset(false); }} className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-medium transition-colors">Confirm</button>
-                            <button onClick={() => setShowConfirmReset(false)} className="px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-700 text-xs font-medium transition-colors">Cancel</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-                {showConfirmClear && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-3 p-3 bg-red-50 rounded-xl border border-red-200">
-                      <div className="flex items-start gap-2">
-                        <AlertTriangle size={14} className="text-red-600 mt-0.5 shrink-0" />
-                        <div className="flex-1">
-                          <p className="text-red-800 text-sm font-medium mb-2">Delete all queue data?</p>
-                          <div className="flex gap-2">
-                            <button onClick={() => { clearAll(); setShowConfirmClear(false); }} className="px-3 py-1.5 rounded-lg bg-red-500 hover:bg-red-600 text-white text-xs font-medium transition-colors">Confirm</button>
-                            <button onClick={() => setShowConfirmClear(false)} className="px-3 py-1.5 rounded-lg bg-white border border-red-300 text-red-700 text-xs font-medium transition-colors">Cancel</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
 
@@ -304,6 +259,25 @@ export function AdminDashboardPage() {
           </div>
         </div>
       </div>
+
+      <ConfirmModal
+        open={showReset}
+        title="Reset Queue"
+        message="This will mark all queue items as done. Continue?"
+        confirmLabel="Reset"
+        variant="warning"
+        onConfirm={resetQueue}
+        onCancel={() => setShowReset(false)}
+      />
+      <ConfirmModal
+        open={showClear}
+        title="Clear All Data"
+        message="This will permanently delete all queue data. This action cannot be undone."
+        confirmLabel="Delete All"
+        variant="danger"
+        onConfirm={clearAll}
+        onCancel={() => setShowClear(false)}
+      />
     </AdminLayout>
   );
 }
