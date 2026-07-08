@@ -90,7 +90,7 @@ function generateHourlyData(): HourlyData[] {
 const QueueContext = createContext<QueueContextType | null>(null);
 
 export function QueueProvider({ children }: { children: React.ReactNode }) {
-  const [counter, setCounter] = useState(9);
+  const [counter, setCounter] = useState(0);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return localStorage.getItem('qs_admin') === 'true';
   });
@@ -110,21 +110,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     }, 5000);
   }, []);
 
-  const [items, setItems] = useState<QueueItem[]>(() => {
-    const now = new Date();
-    const ago = (mins: number) => new Date(now.getTime() - mins * 60 * 1000);
-    return [
-      { id: 'i1', number: 'A-001', name: 'Maria Santos', type: 'regular', status: 'done', createdAt: ago(45), calledAt: ago(42), completedAt: ago(39) },
-      { id: 'i2', number: 'A-002', name: 'Juan dela Cruz', type: 'vip', status: 'done', createdAt: ago(40), calledAt: ago(36), completedAt: ago(33) },
-      { id: 'i3', number: 'A-003', name: 'Ana Reyes', type: 'senior', status: 'done', createdAt: ago(35), calledAt: ago(30), completedAt: ago(27) },
-      { id: 'i4', number: 'A-004', name: 'Pedro Garcia', type: 'regular', status: 'done', createdAt: ago(30), calledAt: ago(24), completedAt: ago(21) },
-      { id: 'i5', number: 'A-005', name: 'Rosa Mendoza', type: 'vip', status: 'done', createdAt: ago(25), calledAt: ago(18), completedAt: ago(15) },
-      { id: 'i6', number: 'A-006', name: 'Carlos Lopez', type: 'regular', status: 'done', createdAt: ago(20), calledAt: ago(12), completedAt: ago(9) },
-      { id: 'i7', number: 'A-007', name: 'Elena Torres', type: 'senior', status: 'serving', createdAt: ago(15), calledAt: ago(3) },
-      { id: 'i8', number: 'A-008', name: 'Miguel Fernandez', type: 'vip', status: 'waiting', createdAt: ago(10) },
-      { id: 'i9', number: 'A-009', name: 'Sofia Ramos', type: 'senior', status: 'waiting', createdAt: ago(8) },
-    ];
-  });
+  const [items, setItems] = useState<QueueItem[]>([]);
 
   const waitingItems = items
     .filter(i => i.status === 'waiting')
