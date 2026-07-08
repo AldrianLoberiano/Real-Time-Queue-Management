@@ -22,17 +22,9 @@ export function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{
+    <div className="min-h-screen flex items-center justify-center" style={{
       background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
     }}>
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full opacity-30" style={{
-          background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
-        }} />
-        <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full opacity-20" style={{
-          background: 'radial-gradient(circle, #c026d3 0%, transparent 70%)',
-        }} />
-      </div>
 
       <div className="w-full max-w-sm mx-4 relative z-10">
         <div className="bg-white/10 backdrop-blur-xl rounded-xl shadow-2xl p-6 border border-white/20">
