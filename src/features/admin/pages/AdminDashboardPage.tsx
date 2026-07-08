@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
-  ChevronRight, Crown, Heart, User, PlayCircle, X, Clock,
+  ChevronRight, Crown, Heart, User, PlayCircle, Clock,
   RotateCcw,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -10,27 +10,23 @@ import { PriorityBadge } from '../../queue/components/PriorityBadge';
 import { StatusBadge } from '../../queue/components/StatusBadge';
 import { useQueue, type QueueItem, type PriorityType } from '../../queue/QueueContext';
 
-function StatCard({ label, value, icon, color, sub }: {
-  label: string; value: number | string; icon: React.ReactNode;
-  color: string; sub?: string;
+function StatCard({ label, value, icon, color }: {
+  label: string; value: number | string; icon: React.ReactNode; color: string;
 }) {
   const colors: Record<string, string> = {
-    blue: 'from-blue-500 to-blue-600',
-    green: 'from-emerald-500 to-emerald-600',
-    amber: 'from-amber-500 to-amber-600',
-    violet: 'from-violet-500 to-violet-600',
-    sky: 'from-sky-500 to-sky-600',
-    red: 'from-red-500 to-red-600',
+    blue: 'bg-blue-500',
+    green: 'bg-green-500',
+    amber: 'bg-amber-500',
+    sky: 'bg-sky-500',
   };
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex items-center gap-4">
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${colors[color] ?? colors.blue}`}>
+    <div className="bg-white rounded-lg border border-gray-200 p-4 flex items-center gap-3">
+      <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white ${colors[color]}`}>
         {icon}
       </div>
       <div>
-        <p className="text-gray-500 text-sm">{label}</p>
-        <p className="text-gray-900 text-2xl font-bold">{value}</p>
-        {sub && <p className="text-gray-400 text-xs">{sub}</p>}
+        <p className="text-gray-500 text-xs">{label}</p>
+        <p className="text-gray-900 text-lg font-bold">{value}</p>
       </div>
     </div>
   );
@@ -68,84 +64,84 @@ export function AdminDashboardPage() {
 
   return (
     <AdminLayout>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard label="Waiting" value={waitingItems.length} icon={<Users size={22} />} color="blue" sub="In queue" />
-        <StatCard label="Serving" value={currentlyServing ? 1 : 0} icon={<PlayCircle size={22} />} color="green" sub={currentlyServing?.number} />
-        <StatCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={22} />} color="sky" sub="Completed" />
-        <StatCard label="Avg. Service" value={`${avgServiceTime}m`} icon={<Clock size={22} />} color="violet" sub="Per person" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <StatCard label="Waiting" value={waitingItems.length} icon={<Users size={18} />} color="blue" />
+        <StatCard label="Serving" value={currentlyServing ? 1 : 0} icon={<PlayCircle size={18} />} color="green" />
+        <StatCard label="Served Today" value={totalServedToday} icon={<CheckCircle size={18} />} color="sky" />
+        <StatCard label="Avg. Service" value={`${avgServiceTime}m`} icon={<Clock size={18} />} color="amber" />
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        <div className="space-y-4">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="px-5 py-4 border-b border-gray-100">
-              <h2 className="font-semibold text-gray-700">Currently Serving</h2>
+      <div className="grid lg:grid-cols-3 gap-4">
+        <div className="space-y-3">
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="px-4 py-3 border-b border-gray-200">
+              <h2 className="font-medium text-gray-800 text-sm">Currently Serving</h2>
             </div>
-            <div className="p-5">
+            <div className="p-4">
               {currentlyServing ? (
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-200">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-3 rounded-lg bg-green-50 border border-green-200">
                     <div>
-                      <p className="text-gray-500 text-xs">Queue Number</p>
-                      <p className="text-green-700 font-bold text-3xl">{currentlyServing.number}</p>
+                      <p className="text-gray-400 text-[11px]">Queue Number</p>
+                      <p className="text-green-700 font-bold text-2xl">{currentlyServing.number}</p>
                     </div>
                     <div className="ml-auto text-right">
-                      <p className="text-gray-700 font-medium">{currentlyServing.name}</p>
+                      <p className="text-gray-700 font-medium text-sm">{currentlyServing.name}</p>
                       <PriorityBadge type={currentlyServing.type} size="sm" />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-1.5">
                     <button
                       onClick={() => markDone(currentlyServing.id)}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500 hover:bg-green-600 text-white transition-all text-sm"
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white transition-colors text-xs font-medium"
                     >
-                      <CheckCircle size={15} />
-                      Mark Done
+                      <CheckCircle size={13} />
+                      Done
                     </button>
                     <button
                       onClick={() => skipItem(currentlyServing.id)}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white transition-all text-sm"
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white transition-colors text-xs font-medium"
                     >
-                      <SkipForward size={15} />
+                      <SkipForward size={13} />
                       Skip
                     </button>
                     <button
                       onClick={() => recallItem(currentlyServing.id)}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white transition-all text-sm"
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-colors text-xs font-medium"
                     >
-                      <RefreshCw size={15} />
+                      <RefreshCw size={13} />
                       Recall
                     </button>
                     <button
                       onClick={() => removeItem(currentlyServing.id)}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white transition-all text-sm"
+                      className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors text-xs font-medium"
                     >
-                      <Trash2 size={15} />
+                      <Trash2 size={13} />
                       Remove
                     </button>
                   </div>
                 </div>
               ) : (
-                <p className="text-center text-gray-400 py-8">No one being served</p>
+                <p className="text-center text-gray-400 py-6 text-sm">No one being served</p>
               )}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-            <div className="flex gap-2 mb-4">
+          <div className="bg-white rounded-lg border border-gray-200 p-4">
+            <div className="flex gap-1.5 mb-3">
               <button
-                onClick={() => { setShowConfirmReset(true); }}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 transition-all text-sm"
+                onClick={() => setShowConfirmReset(true)}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 transition-colors text-xs font-medium"
               >
-                <RotateCcw size={14} />
-                Reset Queue
+                <RotateCcw size={12} />
+                Reset
               </button>
               <button
-                onClick={() => { setShowConfirmClear(true); }}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 transition-all text-sm"
+                onClick={() => setShowConfirmClear(true)}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 transition-colors text-xs font-medium"
               >
-                <Trash2 size={14} />
+                <Trash2 size={12} />
                 Clear All
               </button>
             </div>
@@ -158,11 +154,11 @@ export function AdminDashboardPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 mb-2">
+                  <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 mb-2">
                     <p className="text-amber-800 text-sm mb-2">Mark all waiting/skipped as done?</p>
-                    <div className="flex gap-2">
-                      <button onClick={() => { resetQueue(); setShowConfirmReset(false); }} className="px-3 py-1.5 rounded-lg bg-amber-500 text-white text-sm">Confirm</button>
-                      <button onClick={() => setShowConfirmReset(false)} className="px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-700 text-sm">Cancel</button>
+                    <div className="flex gap-1.5">
+                      <button onClick={() => { resetQueue(); setShowConfirmReset(false); }} className="px-3 py-1.5 rounded-lg bg-amber-500 text-white text-xs font-medium">Confirm</button>
+                      <button onClick={() => setShowConfirmReset(false)} className="px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-700 text-xs font-medium">Cancel</button>
                     </div>
                   </div>
                 </motion.div>
@@ -174,11 +170,11 @@ export function AdminDashboardPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-3 bg-red-50 rounded-xl border border-red-200 mb-2">
-                    <p className="text-red-800 text-sm mb-2">Delete all queue data permanently?</p>
-                    <div className="flex gap-2">
-                      <button onClick={() => { clearAll(); setShowConfirmClear(false); }} className="px-3 py-1.5 rounded-lg bg-red-500 text-white text-sm">Confirm</button>
-                      <button onClick={() => setShowConfirmClear(false)} className="px-3 py-1.5 rounded-lg bg-white border border-red-300 text-red-700 text-sm">Cancel</button>
+                  <div className="p-3 bg-red-50 rounded-lg border border-red-200 mb-2">
+                    <p className="text-red-800 text-sm mb-2">Delete all queue data?</p>
+                    <div className="flex gap-1.5">
+                      <button onClick={() => { clearAll(); setShowConfirmClear(false); }} className="px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs font-medium">Confirm</button>
+                      <button onClick={() => setShowConfirmClear(false)} className="px-3 py-1.5 rounded-lg bg-white border border-red-300 text-red-700 text-xs font-medium">Cancel</button>
                     </div>
                   </div>
                 </motion.div>
@@ -187,15 +183,15 @@ export function AdminDashboardPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-            <h2 className="font-semibold text-gray-800">Queue List</h2>
-            <div className="flex gap-1">
+        <div className="lg:col-span-2 bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+            <h2 className="font-medium text-gray-800 text-sm">Queue List</h2>
+            <div className="flex gap-0.5">
               {(['all', 'waiting', 'done', 'skipped'] as const).map(f => (
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all capitalize ${
+                  className={`px-2.5 py-1 rounded text-[11px] font-medium transition-colors capitalize ${
                     filter === f ? 'bg-sky-500 text-white' : 'text-gray-500 hover:bg-gray-100'
                   }`}
                 >
@@ -204,22 +200,22 @@ export function AdminDashboardPage() {
               ))}
             </div>
           </div>
-          <div className="divide-y divide-gray-50 max-h-[500px] overflow-y-auto">
+          <div className="divide-y divide-gray-100 max-h-[480px] overflow-y-auto">
             {filtered.length === 0 ? (
-              <p className="text-center text-gray-400 py-8">No items</p>
+              <p className="text-center text-gray-400 py-8 text-sm">No items</p>
             ) : (
               filtered.map(item => (
-                <div key={item.id} className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50">
-                  <span className="font-bold text-gray-900 w-20">{item.number}</span>
-                  <span className="text-gray-600 flex-1">{item.name}</span>
+                <div key={item.id} className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50">
+                  <span className="font-semibold text-gray-900 text-sm w-16">{item.number}</span>
+                  <span className="text-gray-600 text-sm flex-1 truncate">{item.name}</span>
                   <PriorityBadge type={item.type} size="sm" />
                   <StatusBadge status={item.status} size="sm" />
                   <div className="relative">
                     <button
                       onClick={() => setEditingId(editingId === item.id ? null : item.id)}
-                      className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400"
+                      className="p-1 rounded hover:bg-gray-100 text-gray-400"
                     >
-                      <ChevronRight size={14} />
+                      <ChevronRight size={12} />
                     </button>
                     <AnimatePresence>
                       {editingId === item.id && (
@@ -227,14 +223,14 @@ export function AdminDashboardPage() {
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.95 }}
-                          className="absolute right-0 top-8 bg-white rounded-xl shadow-lg border border-gray-200 p-2 z-10 w-32"
+                          className="absolute right-0 top-6 bg-white rounded-lg shadow-lg border border-gray-200 p-1.5 z-10 w-28"
                         >
-                          <p className="text-xs text-gray-400 px-2 mb-1">Priority</p>
+                          <p className="text-[10px] text-gray-400 px-1.5 mb-0.5 uppercase tracking-wide">Priority</p>
                           {PRIORITY_OPTIONS.map(opt => (
                             <button
                               key={opt.value}
                               onClick={() => { updatePriority(item.id, opt.value); setEditingId(null); }}
-                              className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-sm hover:bg-gray-50 text-gray-700"
+                              className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-gray-50 text-gray-700"
                             >
                               {opt.icon}
                               {opt.label}
@@ -243,9 +239,9 @@ export function AdminDashboardPage() {
                           <div className="border-t border-gray-100 mt-1 pt-1">
                             <button
                               onClick={() => { removeItem(item.id); setEditingId(null); }}
-                              className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-sm hover:bg-red-50 text-red-600"
+                              className="w-full flex items-center gap-1.5 px-1.5 py-1.5 rounded text-xs hover:bg-red-50 text-red-600"
                             >
-                              <Trash2 size={12} />
+                              <Trash2 size={11} />
                               Remove
                             </button>
                           </div>
