@@ -17,18 +17,17 @@ describe('QueueContext', () => {
     localStorage.clear();
   });
 
-  it('provides initial queue state with seed data', () => {
+  it('provides empty initial state', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    expect(result.current.items.length).toBe(9);
-    expect(result.current.waitingItems.length).toBe(2);
-    expect(result.current.doneItems.length).toBe(6);
-    expect(result.current.currentlyServing).not.toBeNull();
-    expect(result.current.currentlyServing?.status).toBe('serving');
-    expect(result.current.totalServedToday).toBe(6);
+    expect(result.current.items.length).toBe(0);
+    expect(result.current.waitingItems.length).toBe(0);
+    expect(result.current.doneItems.length).toBe(0);
+    expect(result.current.currentlyServing).toBeNull();
+    expect(result.current.totalServedToday).toBe(0);
   });
 
-  it('joinQueue adds a new waiting item with correct properties', () => {
+  it('joinQueue adds a new waiting item', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
     let newItem: any;
@@ -40,51 +39,43 @@ describe('QueueContext', () => {
     expect(newItem.type).toBe('vip');
     expect(newItem.status).toBe('waiting');
     expect(newItem.number).toMatch(/^A-\d{3}$/);
-    expect(result.current.waitingItems.length).toBe(3);
+    expect(result.current.waitingItems.length).toBe(1);
   });
 
   it('joinQueue increments counter', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const initialCounter = result.current.counter;
+    expect(result.current.counter).toBe(0);
     act(() => {
       result.current.joinQueue('User 1', 'regular');
     });
+    expect(result.current.counter).toBe(1);
 
-    expect(result.current.counter).toBe(initialCounter + 1);
+    act(() => {
+      result.current.joinQueue('User 2', 'regular');
+    });
+    expect(result.current.counter).toBe(2);
   });
 
-  it('callNext moves the highest priority waiting item to serving', () => {
+  it('callNext moves the waiting item to serving', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
+
+    let joined: any;
+    act(() => {
+      joined = result.current.joinQueue('Next User', 'regular');
+    });
 
     act(() => {
       result.current.callNext();
     });
 
-    const serving = result.current.currentlyServing;
-    expect(serving).not.toBeNull();
-    expect(serving?.status).toBe('serving');
-  });
-
-  it('callNext marks previously serving item as done', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-
-    const firstServing = result.current.currentlyServing;
-    expect(firstServing).not.toBeNull();
-
-    act(() => {
-      result.current.callNext();
-    });
-
-    expect(result.current.doneItems.find(i => i.id === firstServing!.id)).toBeDefined();
+    expect(result.current.currentlyServing?.id).toBe(joined.id);
+    expect(result.current.currentlyServing?.status).toBe('serving');
+    expect(result.current.waitingItems.length).toBe(0);
   });
 
   it('callNext returns null when no waiting items', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
-
-    act(() => {
-      result.current.clearAll();
-    });
 
     let returned: any;
     act(() => {
@@ -94,15 +85,42 @@ describe('QueueContext', () => {
     expect(returned).toBeNull();
   });
 
+  it('callNext marks previously serving item as done', () => {
+    const { result } = renderHook(() => useQueue(), { wrapper });
+
+    act(() => {
+      result.current.joinQueue('User A', 'regular');
+    });
+    act(() => {
+      result.current.callNext();
+    });
+
+    const firstServing = result.current.currentlyServing;
+    expect(firstServing).not.toBeNull();
+
+    act(() => {
+      result.current.joinQueue('User B', 'regular');
+    });
+    act(() => {
+      result.current.callNext();
+    });
+
+    expect(result.current.doneItems.find(i => i.id === firstServing!.id)).toBeDefined();
+  });
+
   it('skipItem changes status to skipped', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const waitingItem = result.current.waitingItems[0];
+    let joined: any;
     act(() => {
-      result.current.skipItem(waitingItem.id);
+      joined = result.current.joinQueue('Skip Me', 'regular');
     });
 
-    const skipped = result.current.skippedItems.find(i => i.id === waitingItem.id);
+    act(() => {
+      result.current.skipItem(joined.id);
+    });
+
+    const skipped = result.current.skippedItems.find(i => i.id === joined.id);
     expect(skipped).toBeDefined();
     expect(skipped?.status).toBe('skipped');
   });
@@ -110,16 +128,20 @@ describe('QueueContext', () => {
   it('recallItem changes an item to serving', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const waitingItem = result.current.waitingItems[0];
+    let joined: any;
     act(() => {
-      result.current.skipItem(waitingItem.id);
+      joined = result.current.joinQueue('Recall Me', 'vip');
     });
 
     act(() => {
-      result.current.recallItem(waitingItem.id);
+      result.current.skipItem(joined.id);
     });
 
-    const recalled = result.current.items.find(i => i.id === waitingItem.id);
+    act(() => {
+      result.current.recallItem(joined.id);
+    });
+
+    const recalled = result.current.items.find(i => i.id === joined.id);
     expect(recalled?.status).toBe('serving');
     expect(recalled?.calledAt).toBeDefined();
   });
@@ -127,14 +149,20 @@ describe('QueueContext', () => {
   it('markDone sets completedAt and status to done', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const serving = result.current.currentlyServing;
-    expect(serving).not.toBeNull();
-
+    let joined: any;
     act(() => {
-      result.current.markDone(serving!.id);
+      joined = result.current.joinQueue('Done User', 'regular');
     });
 
-    const marked = result.current.doneItems.find(i => i.id === serving!.id);
+    act(() => {
+      result.current.callNext();
+    });
+
+    act(() => {
+      result.current.markDone(joined.id);
+    });
+
+    const marked = result.current.doneItems.find(i => i.id === joined.id);
     expect(marked).toBeDefined();
     expect(marked?.status).toBe('done');
     expect(marked?.completedAt).toBeDefined();
@@ -143,16 +171,34 @@ describe('QueueContext', () => {
   it('removeItem removes the item from queue entirely', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const waitingItem = result.current.waitingItems[0];
+    let joined: any;
     act(() => {
-      result.current.removeItem(waitingItem.id);
+      joined = result.current.joinQueue('Remove Me', 'regular');
     });
 
-    expect(result.current.items.find(i => i.id === waitingItem.id)).toBeUndefined();
+    act(() => {
+      result.current.removeItem(joined.id);
+    });
+
+    expect(result.current.items.find(i => i.id === joined.id)).toBeUndefined();
+    expect(result.current.items.length).toBe(0);
   });
 
   it('resetQueue marks all waiting/serving/skipped as done', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
+
+    act(() => {
+      result.current.joinQueue('User 1', 'regular');
+    });
+    act(() => {
+      result.current.joinQueue('User 2', 'vip');
+    });
+    act(() => {
+      result.current.callNext();
+    });
+
+    expect(result.current.waitingItems.length).toBe(1);
+    expect(result.current.currentlyServing).not.toBeNull();
 
     act(() => {
       result.current.resetQueue();
@@ -167,6 +213,13 @@ describe('QueueContext', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
     act(() => {
+      result.current.joinQueue('User 1', 'regular');
+    });
+    act(() => {
+      result.current.joinQueue('User 2', 'regular');
+    });
+
+    act(() => {
       result.current.clearAll();
     });
 
@@ -177,16 +230,17 @@ describe('QueueContext', () => {
   it('updatePriority changes item priority type', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const waitingItem = result.current.waitingItems[0];
-    const originalType = waitingItem.type;
-    const newType = originalType === 'vip' ? 'regular' : 'vip';
-
+    let joined: any;
     act(() => {
-      result.current.updatePriority(waitingItem.id, newType);
+      joined = result.current.joinQueue('Priority User', 'regular');
     });
 
-    const updated = result.current.items.find(i => i.id === waitingItem.id);
-    expect(updated?.type).toBe(newType);
+    act(() => {
+      result.current.updatePriority(joined.id, 'vip');
+    });
+
+    const updated = result.current.items.find(i => i.id === joined.id);
+    expect(updated?.type).toBe('vip');
   });
 
   it('adminLogin returns true for correct credentials', () => {
@@ -230,23 +284,43 @@ describe('QueueContext', () => {
   it('getPosition returns correct position for waiting items', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const waitingItem = result.current.waitingItems[0];
-    const pos = result.current.getPosition(waitingItem.id);
-    expect(pos).toBeGreaterThan(0);
+    act(() => {
+      result.current.joinQueue('First', 'regular');
+    });
+    act(() => {
+      result.current.joinQueue('Second', 'vip');
+    });
+
+    const waiting = result.current.waitingItems;
+    const firstPos = result.current.getPosition(waiting[0].id);
+    const secondPos = result.current.getPosition(waiting[1].id);
+
+    expect(firstPos).toBe(1);
+    expect(secondPos).toBe(2);
   });
 
   it('getPosition returns 0 for non-waiting items', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
-    const serving = result.current.currentlyServing;
-    expect(serving).not.toBeNull();
+    let joined: any;
+    act(() => {
+      joined = result.current.joinQueue('Serve Me', 'regular');
+    });
 
-    const pos = result.current.getPosition(serving!.id);
+    act(() => {
+      result.current.callNext();
+    });
+
+    const pos = result.current.getPosition(joined.id);
     expect(pos).toBe(0);
   });
 
   it('getEstimatedWait returns position * 3 minutes', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
+
+    act(() => {
+      result.current.joinQueue('Wait User', 'regular');
+    });
 
     const waitingItem = result.current.waitingItems[0];
     const pos = result.current.getPosition(waitingItem.id);
@@ -258,16 +332,25 @@ describe('QueueContext', () => {
   it('waitingItems are sorted by priority then FIFO', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
+    act(() => {
+      result.current.joinQueue('Regular1', 'regular');
+    });
+    act(() => {
+      result.current.joinQueue('VIP1', 'vip');
+    });
+    act(() => {
+      result.current.joinQueue('Senior1', 'senior');
+    });
+
     const waiting = result.current.waitingItems;
+    const priorityOrder: Record<string, number> = { vip: 3, senior: 2, regular: 1 };
+
     for (let i = 0; i < waiting.length - 1; i++) {
-      const priorityOrder: Record<string, number> = { vip: 3, senior: 2, regular: 1 };
-      const currentP = priorityOrder[waiting[i].type];
-      const nextP = priorityOrder[waiting[i + 1].type];
-      expect(currentP).toBeGreaterThanOrEqual(nextP);
+      expect(priorityOrder[waiting[i].type]).toBeGreaterThanOrEqual(priorityOrder[waiting[i + 1].type]);
     }
   });
 
-  it('notifications are created and can be dismissed', async () => {
+  it('notifications are created and can be dismissed', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
 
     act(() => {
