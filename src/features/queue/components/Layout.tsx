@@ -18,14 +18,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="relative overflow-hidden sticky top-0 z-40" style={{
+        background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
+      }}>
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full opacity-30" style={{
+            background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
+          }} />
+          <div className="absolute -bottom-1/2 -left-1/4 w-[500px] h-[500px] rounded-full opacity-20" style={{
+            background: 'radial-gradient(circle, #c026d3 0%, transparent 70%)',
+          }} />
+          <div className="absolute top-0 left-0 w-full h-full" style={{
+            background: 'linear-gradient(135deg, transparent 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%)',
+          }} />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
                 <Users size={16} className="text-white" />
               </div>
-              <span className="font-semibold text-gray-900">QueueSmart</span>
+              <span className="font-semibold text-white text-sm tracking-wide">QueueSmart</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
@@ -37,8 +51,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     to={href}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-colors ${
                       active
-                        ? 'bg-sky-50 text-sky-700 font-medium'
-                        : 'text-gray-600 hover:bg-gray-100'
+                        ? 'bg-white/20 text-white font-medium'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     <Icon size={15} />
@@ -49,23 +63,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+              <div className="hidden sm:flex items-center gap-2 text-xs text-white/60">
                 <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   {currentlyServing ? currentlyServing.number : '-'} serving
                 </span>
-                <span className="text-gray-300">|</span>
+                <span className="text-white/30">|</span>
                 <span>{waitingItems.length} waiting</span>
               </div>
 
               <div className="relative">
                 <button
                   onClick={() => setShowNotifs(!showNotifs)}
-                  className="relative p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
+                  className="relative p-1.5 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors"
                 >
                   {notifications.length > 0 ? <Bell size={16} /> : <BellOff size={16} />}
                   {notifications.length > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-medium">
+                    <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] rounded-full flex items-center justify-center font-medium">
                       {notifications.length}
                     </span>
                   )}
@@ -76,7 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       initial={{ opacity: 0, y: -4 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
-                      className="absolute right-0 top-10 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50 overflow-hidden"
+                      className="absolute right-0 top-10 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
                     >
                       <div className="px-4 py-2.5 border-b border-gray-100 flex items-center justify-between">
                         <span className="text-sm font-medium text-gray-700">Notifications</span>
@@ -90,9 +104,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         ) : (
                           notifications.map(n => (
                             <div key={n.id} className={`flex items-start gap-3 px-4 py-2.5 border-b border-gray-50 ${
-                              n.type === 'success' ? 'border-l-2 border-l-green-400' :
+                              n.type === 'success' ? 'border-l-2 border-l-emerald-400' :
                               n.type === 'warning' ? 'border-l-2 border-l-amber-400' :
-                              'border-l-2 border-l-sky-400'
+                              'border-l-2 border-l-violet-400'
                             }`}>
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm text-gray-700 truncate">{n.message}</p>
@@ -111,7 +125,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </div>
 
               <button
-                className="md:hidden p-1.5 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100"
+                className="md:hidden p-1.5 text-white/70 hover:text-white rounded-lg hover:bg-white/10"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
                 {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -126,7 +140,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden border-t border-gray-200 overflow-hidden"
+              className="md:hidden border-t border-white/10 overflow-hidden relative"
             >
               <div className="px-4 py-2 space-y-0.5">
                 {navLinks.map(({ href, label, icon: Icon }) => (
@@ -135,7 +149,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     to={href}
                     onClick={() => setMenuOpen(false)}
                     className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm ${
-                      location.pathname === href ? 'bg-sky-50 text-sky-700 font-medium' : 'text-gray-600 hover:bg-gray-100'
+                      location.pathname === href ? 'bg-white/20 text-white font-medium' : 'text-white/70 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     <Icon size={16} />
