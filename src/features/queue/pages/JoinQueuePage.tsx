@@ -5,7 +5,7 @@ import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
-  const { joinQueue, waitingItems, currentlyServing } = useQueue();
+  const { joinQueue, waitingItems, currentlyServing, avgServiceTime } = useQueue();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [joined, setJoined] = useState<{ number: string } | null>(null);
@@ -43,7 +43,7 @@ export function JoinQueuePage() {
             <div className="w-8 h-8 rounded-lg mx-auto mb-2 flex items-center justify-center bg-gray-100">
               <Clock size={16} className="text-gray-600" />
             </div>
-            <p className="text-xl font-bold text-gray-900">~3m</p>
+            <p className="text-xl font-bold text-gray-900">~{avgServiceTime}m</p>
             <p className="text-gray-500 text-xs">Avg. Wait</p>
           </div>
         </div>
