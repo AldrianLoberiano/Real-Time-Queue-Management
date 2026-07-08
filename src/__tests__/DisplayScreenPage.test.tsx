@@ -15,9 +15,9 @@ function renderDisplayPage() {
 }
 
 describe('DisplayScreenPage', () => {
-  it('renders Queue Display heading', () => {
+  it('renders Now Serving heading', () => {
     renderDisplayPage();
-    expect(screen.getByText('Queue Display')).toBeInTheDocument();
+    expect(screen.getByText('Now Serving')).toBeInTheDocument();
   });
 
   it('shows no one being served message when empty', () => {
