@@ -8,46 +8,44 @@ export function DisplayScreenPage() {
 
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Queue Display</h1>
-          <p className="text-gray-500">Live queue status \u2014 Now serving</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-1">Queue Display</h1>
+          <p className="text-gray-500 text-sm">Live queue status</p>
         </div>
 
-        {/* Currently serving - large display */}
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-10 mb-8 text-center">
+        <div className="bg-white rounded-lg border border-gray-200 p-8 mb-6 text-center">
           {currentlyServing ? (
             <>
-              <p className="text-gray-400 text-lg mb-2">Now Serving</p>
-              <p className="text-8xl font-bold text-sky-600 mb-4">{currentlyServing.number}</p>
-              <div className="flex items-center justify-center gap-3">
-                <PriorityBadge type={currentlyServing.type} size="lg" />
-                <span className="text-gray-600 text-lg">{currentlyServing.name}</span>
+              <p className="text-gray-400 text-sm uppercase tracking-wide mb-2">Now Serving</p>
+              <p className="text-7xl font-bold text-sky-600 mb-3">{currentlyServing.number}</p>
+              <div className="flex items-center justify-center gap-2">
+                <PriorityBadge type={currentlyServing.type} size="md" />
+                <span className="text-gray-600">{currentlyServing.name}</span>
               </div>
             </>
           ) : (
-            <div className="py-8">
-              <p className="text-gray-400 text-2xl font-medium">No one being served</p>
-              <p className="text-gray-300 text-sm mt-2">Waiting for the next customer...</p>
+            <div className="py-6">
+              <p className="text-gray-400 text-lg font-medium">No one being served</p>
+              <p className="text-gray-300 text-sm mt-1">Waiting for the next customer</p>
             </div>
           )}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* Waiting list */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-100">
-              <h2 className="font-semibold text-gray-800">Waiting ({waitingItems.length})</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="px-4 py-3 border-b border-gray-200">
+              <h2 className="font-medium text-gray-800 text-sm">Waiting ({waitingItems.length})</h2>
             </div>
-            <div className="divide-y divide-gray-50 max-h-80 overflow-y-auto">
+            <div className="divide-y divide-gray-100 max-h-72 overflow-y-auto">
               {waitingItems.length === 0 ? (
-                <p className="text-center text-gray-400 py-8">No one waiting</p>
+                <p className="text-center text-gray-400 py-8 text-sm">No one waiting</p>
               ) : (
                 waitingItems.map((item, idx) => (
-                  <div key={item.id} className="flex items-center gap-4 px-6 py-3 hover:bg-gray-50">
-                    <span className="text-gray-400 text-sm font-mono w-6">#{idx + 1}</span>
-                    <span className="font-bold text-gray-900 text-lg">{item.number}</span>
-                    <span className="text-gray-600 flex-1">{item.name}</span>
+                  <div key={item.id} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50">
+                    <span className="text-gray-400 text-xs font-mono w-5">#{idx + 1}</span>
+                    <span className="font-semibold text-gray-900">{item.number}</span>
+                    <span className="text-gray-500 text-sm flex-1">{item.name}</span>
                     <PriorityBadge type={item.type} size="sm" />
                   </div>
                 ))
@@ -55,20 +53,19 @@ export function DisplayScreenPage() {
             </div>
           </div>
 
-          {/* Recently served */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-100">
-              <h2 className="font-semibold text-gray-800">Recently Served</h2>
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="px-4 py-3 border-b border-gray-200">
+              <h2 className="font-medium text-gray-800 text-sm">Recently Served</h2>
             </div>
-            <div className="divide-y divide-gray-50 max-h-80 overflow-y-auto">
+            <div className="divide-y divide-gray-100 max-h-72 overflow-y-auto">
               {doneItems.length === 0 ? (
-                <p className="text-center text-gray-400 py-8">No one served yet</p>
+                <p className="text-center text-gray-400 py-8 text-sm">No one served yet</p>
               ) : (
                 doneItems.slice(0, 10).map(item => (
-                  <div key={item.id} className="flex items-center gap-4 px-6 py-3 hover:bg-gray-50">
-                    <span className="font-bold text-gray-900">{item.number}</span>
-                    <span className="text-gray-600 flex-1">{item.name}</span>
-                    <span className="text-green-600 text-sm font-medium">Completed</span>
+                  <div key={item.id} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50">
+                    <span className="font-semibold text-gray-900">{item.number}</span>
+                    <span className="text-gray-500 text-sm flex-1">{item.name}</span>
+                    <span className="text-green-600 text-xs font-medium">Done</span>
                   </div>
                 ))
               )}
