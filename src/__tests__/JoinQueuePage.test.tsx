@@ -64,6 +64,6 @@ describe('JoinQueuePage', () => {
     const input = screen.getByPlaceholderText(/juan dela cruz/i);
     fireEvent.change(input, { target: { value: 'Alice' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
-    expect(screen.getByText('View Display Screen')).toBeInTheDocument();
+    expect(screen.getByText('View Display')).toBeInTheDocument();
   });
 });
