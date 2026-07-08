@@ -28,7 +28,7 @@ describe('AdminAnalyticsPage', () => {
     renderAnalytics();
     expect(screen.getByText('Served Today')).toBeInTheDocument();
     expect(screen.getByText(/Avg\. Wait Time/)).toBeInTheDocument();
-    expect(screen.getByText('Efficiency Rate')).toBeInTheDocument();
+    expect(screen.getByText('Efficiency')).toBeInTheDocument();
     expect(screen.getByText('Peak Hour')).toBeInTheDocument();
   });
 
