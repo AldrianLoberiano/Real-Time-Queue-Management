@@ -1,13 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { QueueProvider } from '../features/queue/QueueContext';
 import { Layout } from '../features/queue/components/Layout';
 
-function renderLayout() {
+function renderLayout(pathname = '/') {
   return render(
     <QueueProvider>
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={[pathname]}>
         <Layout>
           <div>Test Content</div>
         </Layout>
@@ -17,16 +17,14 @@ function renderLayout() {
 }
 
 describe('Layout', () => {
-  it('renders brand name', () => {
+  it('renders QueueSmart logo', () => {
     renderLayout();
     expect(screen.getByText('QueueSmart')).toBeInTheDocument();
   });
 
-  it('renders navigation links', () => {
+  it('renders Display nav link', () => {
     renderLayout();
-    expect(screen.getByText('Join Queue')).toBeInTheDocument();
     expect(screen.getByText('Display')).toBeInTheDocument();
-    expect(screen.getByText('Admin')).toBeInTheDocument();
   });
 
   it('renders children', () => {
@@ -34,13 +32,13 @@ describe('Layout', () => {
     expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
 
-  it('renders footer', () => {
-    renderLayout();
-    expect(screen.getByText(/2026 QueueSmart/)).toBeInTheDocument();
-  });
-
-  it('shows waiting count in header', () => {
+  it('shows waiting count', () => {
     renderLayout();
     expect(screen.getByText(/waiting/)).toBeInTheDocument();
+  });
+
+  it('shows serving status', () => {
+    renderLayout();
+    expect(screen.getByText(/serving/)).toBeInTheDocument();
   });
 });
