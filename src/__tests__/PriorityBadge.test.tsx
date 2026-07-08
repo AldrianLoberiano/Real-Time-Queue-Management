@@ -21,13 +21,13 @@ describe('PriorityBadge', () => {
   it('applies sm size classes', () => {
     render(<PriorityBadge type="vip" size="sm" />);
     const badge = screen.getByText('VIP');
-    expect(badge.className).toContain('text-xs');
+    expect(badge.className).toContain('text-[11px]');
   });
 
   it('applies lg size classes', () => {
     render(<PriorityBadge type="vip" size="lg" />);
     const badge = screen.getByText('VIP');
-    expect(badge.className).toContain('text-base');
+    expect(badge.className).toContain('text-sm');
   });
 });
 
