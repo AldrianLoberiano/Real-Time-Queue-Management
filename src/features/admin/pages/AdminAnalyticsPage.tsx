@@ -1,9 +1,9 @@
-import React from 'react';
+
 import {
   AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from 'recharts';
-import { TrendingUp, Users, Clock, CheckCircle, Award } from 'lucide-react';
+import { TrendingUp, Clock, CheckCircle, Award } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../../queue/QueueContext';
 
