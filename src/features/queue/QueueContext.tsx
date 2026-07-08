@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback, useMemo, useEffect, useRef } from 'react';
 
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 
@@ -269,7 +269,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const skippedItems = items.filter(i => i.status === 'skipped');
   const totalServedToday = doneItems.length;
 
-  const avgServiceTime = useCallback((): number => {
+  const avgServiceTime = useMemo((): number => {
     const completed = items.filter(i => i.status === 'done' && i.calledAt && i.completedAt);
     if (completed.length === 0) return AVG_SERVICE_MINS;
     const totalMs = completed.reduce((sum, i) => {
@@ -410,7 +410,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       getEstimatedWait,
       getPosition,
       hourlyData,
-      avgServiceTime: avgServiceTime(),
+      avgServiceTime,
       totalServedToday,
       notifications,
       dismissNotification,
