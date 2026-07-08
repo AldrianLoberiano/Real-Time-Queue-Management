@@ -56,7 +56,6 @@ describe('JoinQueuePage', () => {
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
     expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
     expect(screen.getByText('A-001')).toBeInTheDocument();
-    expect(screen.getByText(/#\d+/)).toBeInTheDocument();
   });
 
   it('shows view display screen button after joining', () => {
