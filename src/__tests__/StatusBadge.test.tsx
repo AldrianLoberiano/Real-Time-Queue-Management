@@ -26,12 +26,12 @@ describe('StatusBadge', () => {
   it('applies sm size classes', () => {
     render(<StatusBadge status="waiting" size="sm" />);
     const badge = screen.getByText('Waiting');
-    expect(badge.className).toContain('text-xs');
+    expect(badge.className).toContain('text-[11px]');
   });
 
   it('applies default md size classes', () => {
     render(<StatusBadge status="waiting" />);
     const badge = screen.getByText('Waiting');
-    expect(badge.className).toContain('text-sm');
+    expect(badge.className).toContain('text-xs');
   });
 });
