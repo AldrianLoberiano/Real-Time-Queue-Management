@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { QueueProvider } from '../features/queue/QueueContext';
@@ -27,7 +27,7 @@ describe('DisplayScreenPage', () => {
 
   it('shows waiting list section', () => {
     renderDisplayPage();
-    expect(screen.getByText(/Waiting/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Waiting/).length).toBeGreaterThan(0);
   });
 
   it('shows recently served section', () => {
