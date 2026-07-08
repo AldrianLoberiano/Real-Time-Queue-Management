@@ -89,7 +89,7 @@ export function AdminDashboardPage() {
             {/* Call Next Button */}
             <button
               onClick={callNext}
-              disabled={waitingItems.length === 0}
+              disabled={!currentlyServing || waitingItems.length === 0}
               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all disabled:shadow-none flex items-center justify-center gap-2"
             >
               <PlayCircle size={18} />
