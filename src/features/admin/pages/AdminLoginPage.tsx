@@ -22,56 +22,56 @@ export function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)' }}>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="w-full max-w-sm mx-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0ea5e9, #38bdf8)' }}>
-              <ShieldCheck size={28} className="text-white" />
+        <div className="bg-white rounded-lg shadow-xl p-6">
+          <div className="text-center mb-6">
+            <div className="w-12 h-12 rounded-lg mx-auto mb-3 flex items-center justify-center bg-sky-500">
+              <ShieldCheck size={24} className="text-white" />
             </div>
-            <h1 className="text-xl font-bold text-gray-900">Admin Login</h1>
-            <p className="text-gray-500 text-sm mt-1">Sign in to manage the queue</p>
+            <h1 className="text-lg font-bold text-gray-900">Admin Login</h1>
+            <p className="text-gray-500 text-sm mt-0.5">Sign in to manage the queue</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Username</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
               <input
                 type="text"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-100 outline-none transition-all"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 outline-none transition-colors text-sm"
                 placeholder="Enter username"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-100 outline-none transition-all pr-10"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 outline-none transition-colors text-sm pr-9"
                   placeholder="Enter password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
               </div>
             </div>
 
             {error && (
-              <p className="text-red-500 text-sm text-center bg-red-50 py-2 rounded-lg">{error}</p>
+              <p className="text-red-600 text-sm text-center bg-red-50 py-2 rounded-lg border border-red-200">{error}</p>
             )}
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-medium transition-all"
+              className="w-full py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium transition-colors"
             >
               Sign In
             </button>
