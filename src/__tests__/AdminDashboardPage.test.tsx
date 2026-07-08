@@ -19,8 +19,8 @@ describe('AdminDashboardPage', () => {
     renderDashboard();
     expect(screen.getAllByText('Waiting').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Serving').length).toBeGreaterThan(0);
-    expect(screen.getByText('Served Today')).toBeInTheDocument();
-    expect(screen.getByText(/Avg\. Service/)).toBeInTheDocument();
+    expect(screen.getByText('Served')).toBeInTheDocument();
+    expect(screen.getByText(/Avg\. Time/)).toBeInTheDocument();
   });
 
   it('renders Currently Serving section', () => {
@@ -47,7 +47,7 @@ describe('AdminDashboardPage', () => {
 
   it('renders Reset and Clear All buttons', () => {
     renderDashboard();
-    expect(screen.getByText('Reset')).toBeInTheDocument();
+    expect(screen.getByText('Reset Queue')).toBeInTheDocument();
     expect(screen.getByText('Clear All')).toBeInTheDocument();
   });
 });
