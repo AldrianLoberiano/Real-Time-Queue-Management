@@ -23,6 +23,7 @@ export function AdminDashboardPage() {
   const [showRemove, setShowRemove] = useState(false);
   const [showReset, setShowReset] = useState(false);
   const [showClear, setShowClear] = useState(false);
+  const [recallTarget, setRecallTarget] = useState<{ id: string; number: string } | null>(null);
 
   const allItems = [
     ...(currentlyServing ? [currentlyServing] : []),
@@ -267,6 +268,14 @@ export function AdminDashboardPage() {
                       </p>
                     </div>
                     <StatusBadge status={item.status} size="sm" />
+                    {item.status === 'skipped' && (
+                      <button
+                        onClick={() => setRecallTarget({ id: item.id, number: item.number })}
+                        className="ml-2 px-2 py-1 rounded-lg bg-violet-50 hover:bg-violet-100 text-violet-600 text-[11px] font-medium transition-colors"
+                      >
+                        Recall
+                      </button>
+                    )}
                   </div>
                 ))
               )}
@@ -319,6 +328,15 @@ export function AdminDashboardPage() {
         variant="danger"
         onConfirm={() => { if (currentlyServing) removeItem(currentlyServing.id); }}
         onCancel={() => setShowRemove(false)}
+      />
+      <ConfirmModal
+        open={!!recallTarget}
+        title="Recall Customer"
+        message={`Recall ${recallTarget?.number}? They will be moved back to waiting.`}
+        confirmLabel="Recall"
+        variant="warning"
+        onConfirm={() => { if (recallTarget) recallItem(recallTarget.id); setRecallTarget(null); }}
+        onCancel={() => setRecallTarget(null)}
       />
       <ConfirmModal
         open={showReset}
