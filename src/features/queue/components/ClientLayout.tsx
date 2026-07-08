@@ -110,17 +110,9 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
       </AnimatePresence>
 
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="relative overflow-hidden sticky top-0 z-30" style={{
+        <header className="sticky top-0 z-30" style={{
           background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
         }}>
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-1/2 -right-1/4 w-[500px] h-[500px] rounded-full opacity-30" style={{
-              background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
-            }} />
-            <div className="absolute -bottom-1/2 -left-1/4 w-[400px] h-[400px] rounded-full opacity-20" style={{
-              background: 'radial-gradient(circle, #c026d3 0%, transparent 70%)',
-            }} />
-          </div>
 
           <div className="relative px-5 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
