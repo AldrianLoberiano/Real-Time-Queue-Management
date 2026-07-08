@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Users, ArrowRight, Clock, Hash } from 'lucide-react';
-import { Layout } from '../components/Layout';
+import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
@@ -19,7 +19,7 @@ export function JoinQueuePage() {
   };
 
   return (
-    <Layout>
+    <ClientLayout>
       <div className="max-w-2xl mx-auto px-4 py-10">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Join the Queue</h1>
@@ -111,6 +111,6 @@ export function JoinQueuePage() {
           </div>
         )}
       </div>
-    </Layout>
+    </ClientLayout>
   );
 }
