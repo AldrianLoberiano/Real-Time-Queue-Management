@@ -1,13 +1,11 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 
-export type PriorityType = 'regular' | 'vip' | 'senior';
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 
 export interface QueueItem {
   id: string;
   number: string;
   name: string;
-  type: PriorityType;
   status: StatusType;
   createdAt: Date;
   calledAt?: Date;
@@ -23,7 +21,7 @@ export interface HourlyData {
 interface QueueContextType {
   items: QueueItem[];
   counter: number;
-  joinQueue: (name: string, type: PriorityType) => QueueItem;
+  joinQueue: (name: string) => QueueItem;
   callNext: () => QueueItem | null;
   skipItem: (id: string) => void;
   recallItem: (id: string) => void;
@@ -40,7 +38,6 @@ interface QueueContextType {
   skippedItems: QueueItem[];
   getEstimatedWait: (id: string) => number;
   getPosition: (id: string) => number;
-  updatePriority: (id: string, type: PriorityType) => void;
   hourlyData: HourlyData[];
   avgServiceTime: number;
   totalServedToday: number;
@@ -55,15 +52,7 @@ interface Notification {
   timestamp: Date;
 }
 
-const PRIORITY_ORDER: Record<PriorityType, number> = {
-  vip: 3,
-  senior: 2,
-  regular: 1,
-};
-
 const AVG_SERVICE_MINS = 3;
-
-
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
@@ -114,11 +103,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const waitingItems = items
     .filter(i => i.status === 'waiting')
-    .sort((a, b) => {
-      const pDiff = PRIORITY_ORDER[b.type] - PRIORITY_ORDER[a.type];
-      if (pDiff !== 0) return pDiff;
-      return a.createdAt.getTime() - b.createdAt.getTime();
-    });
+    .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 
   const currentlyServing = items.find(i => i.status === 'serving') ?? null;
   const doneItems = items.filter(i => i.status === 'done').sort((a, b) =>
@@ -141,11 +126,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     if (!item || item.status !== 'waiting') return 0;
     const sorted = items
       .filter(i => i.status === 'waiting')
-      .sort((a, b) => {
-        const pDiff = PRIORITY_ORDER[b.type] - PRIORITY_ORDER[a.type];
-        if (pDiff !== 0) return pDiff;
-        return a.createdAt.getTime() - b.createdAt.getTime();
-      });
+      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
     return sorted.findIndex(i => i.id === id) + 1;
   }, [items]);
 
@@ -155,30 +136,25 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return pos * AVG_SERVICE_MINS;
   }, [getPosition]);
 
-  const joinQueue = useCallback((name: string, type: PriorityType): QueueItem => {
+  const joinQueue = useCallback((name: string): QueueItem => {
     const newCounter = counter + 1;
     setCounter(newCounter);
     const newItem: QueueItem = {
       id: generateId(),
       number: formatNumber(newCounter),
       name,
-      type,
       status: 'waiting',
       createdAt: new Date(),
     };
     setItems(prev => [...prev, newItem]);
-    addNotification(`${newItem.number} – ${name} joined the queue`, 'info');
+    addNotification(`${newItem.number} - ${name} joined the queue`, 'info');
     return newItem;
   }, [counter, addNotification]);
 
   const callNext = useCallback((): QueueItem | null => {
     const sorted = items
       .filter(i => i.status === 'waiting')
-      .sort((a, b) => {
-        const pDiff = PRIORITY_ORDER[b.type] - PRIORITY_ORDER[a.type];
-        if (pDiff !== 0) return pDiff;
-        return a.createdAt.getTime() - b.createdAt.getTime();
-      });
+      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
     const next = sorted[0];
     if (!next) return null;
 
@@ -187,7 +163,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       if (i.id === next.id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
       return i;
     }));
-    addNotification(`Now serving: ${next.number} – ${next.name}`, 'success');
+    addNotification(`Now serving: ${next.number} - ${next.name}`, 'success');
     return next;
   }, [items, addNotification]);
 
@@ -196,7 +172,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       i.id === id ? { ...i, status: 'skipped' as StatusType } : i
     ));
     const item = items.find(i => i.id === id);
-    if (item) addNotification(`${item.number} – ${item.name} was skipped`, 'warning');
+    if (item) addNotification(`${item.number} - ${item.name} was skipped`, 'warning');
   }, [items, addNotification]);
 
   const recallItem = useCallback((id: string) => {
@@ -216,13 +192,6 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const removeItem = useCallback((id: string) => {
     setItems(prev => prev.filter(i => i.id !== id));
   }, []);
-
-  const updatePriority = useCallback((id: string, type: PriorityType) => {
-    setItems(prev => prev.map(i =>
-      i.id === id ? { ...i, type } : i
-    ));
-    addNotification(`Priority updated to ${type.toUpperCase()}`, 'info');
-  }, [addNotification]);
 
   const resetQueue = useCallback(() => {
     setItems(prev => prev.map(i =>
@@ -278,7 +247,6 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       skippedItems,
       getEstimatedWait,
       getPosition,
-      updatePriority,
       hourlyData,
       avgServiceTime: avgServiceTime(),
       totalServedToday,
