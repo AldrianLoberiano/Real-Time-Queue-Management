@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
 
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 
@@ -53,6 +53,7 @@ interface Notification {
 }
 
 const AVG_SERVICE_MINS = 3;
+const STORAGE_KEY = 'qs_queue_state';
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
@@ -76,15 +77,39 @@ function generateHourlyData(): HourlyData[] {
   return hours;
 }
 
+function loadState(): { items: QueueItem[]; counter: number } {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { items: [], counter: 0 };
+    const data = JSON.parse(raw);
+    const items = (data.items || []).map((item: any) => ({
+      ...item,
+      createdAt: new Date(item.createdAt),
+      calledAt: item.calledAt ? new Date(item.calledAt) : undefined,
+      completedAt: item.completedAt ? new Date(item.completedAt) : undefined,
+    }));
+    return { items, counter: data.counter || 0 };
+  } catch {
+    return { items: [], counter: 0 };
+  }
+}
+
+function saveState(items: QueueItem[], counter: number) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, counter }));
+}
+
 const QueueContext = createContext<QueueContextType | null>(null);
 
 export function QueueProvider({ children }: { children: React.ReactNode }) {
-  const [counter, setCounter] = useState(0);
+  const [initialState] = useState(loadState);
+  const [counter, setCounter] = useState(initialState.counter);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return localStorage.getItem('qs_admin') === 'true';
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
+  const [items, setItems] = useState<QueueItem[]>(initialState.items);
+  const isInitialMount = useRef(true);
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
     const notif: Notification = {
@@ -99,7 +124,30 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     }, 5000);
   }, []);
 
-  const [items, setItems] = useState<QueueItem[]>([]);
+  // Sync state to localStorage and broadcast to other tabs
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    saveState(items, counter);
+    window.dispatchEvent(new Event('queue-sync'));
+  }, [items, counter]);
+
+  // Listen for cross-tab updates
+  useEffect(() => {
+    const handleSync = () => {
+      const { items: newItems, counter: newCounter } = loadState();
+      setItems(newItems);
+      setCounter(newCounter);
+    };
+    window.addEventListener('queue-sync', handleSync);
+    window.addEventListener('storage', handleSync);
+    return () => {
+      window.removeEventListener('queue-sync', handleSync);
+      window.removeEventListener('storage', handleSync);
+    };
+  }, []);
 
   const waitingItems = items
     .filter(i => i.status === 'waiting')
