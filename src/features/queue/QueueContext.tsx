@@ -294,8 +294,11 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [getPosition]);
 
   const joinQueue = useCallback((name: string): QueueItem => {
-    const newCounter = counter + 1;
-    setCounter(newCounter);
+    let newCounter = 0;
+    setCounter(prev => {
+      newCounter = prev + 1;
+      return newCounter;
+    });
     const newItem: QueueItem = {
       id: generateId(),
       number: formatNumber(newCounter),
@@ -306,7 +309,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setItems(prev => [...prev, newItem]);
     addNotification(`${newItem.number} - ${name} joined the queue`, 'info');
     return newItem;
-  }, [counter, addNotification]);
+  }, [addNotification]);
 
   const callNext = useCallback((): QueueItem | null => {
     const sorted = items
