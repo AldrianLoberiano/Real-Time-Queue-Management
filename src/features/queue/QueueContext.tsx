@@ -54,6 +54,8 @@ interface Notification {
 
 const AVG_SERVICE_MINS = 3;
 const STORAGE_KEY = 'qs_queue_state';
+const ACTIVITY_KEY = 'qs_last_activity';
+const INACTIVITY_MS = 30 * 60 * 1000; // 30 minutes
 const POLL_INTERVAL = 500;
 
 function generateId(): string {
@@ -111,6 +113,20 @@ function getStorageHash(): string {
   }
 }
 
+function getLastActivity(): number {
+  try {
+    return parseInt(localStorage.getItem(ACTIVITY_KEY) || '0', 10) || Date.now();
+  } catch {
+    return Date.now();
+  }
+}
+
+function updateActivity() {
+  try {
+    localStorage.setItem(ACTIVITY_KEY, String(Date.now()));
+  } catch {}
+}
+
 let channel: BroadcastChannel | null = null;
 try {
   if (typeof BroadcastChannel !== 'undefined') {
@@ -135,6 +151,13 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<QueueItem[]>(initialState.items);
   const isInitialMount = useRef(true);
   const lastHash = useRef(getStorageHash());
+
+  // Update activity timestamp on mount if queue has items
+  useEffect(() => {
+    if (initialState.items.length > 0) {
+      updateActivity();
+    }
+  }, []);
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
     const notif: Notification = {
@@ -166,11 +189,30 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       return;
     }
     saveState(items, counter);
+    updateActivity();
     lastHash.current = getStorageHash();
     if (channel) {
       try { channel.postMessage({ type: 'update' }); } catch {}
     }
   }, [items, counter]);
+
+  // Auto-reset on inactivity
+  useEffect(() => {
+    const checkInactivity = () => {
+      const last = getLastActivity();
+      const hasItems = items.length > 0;
+      if (hasItems && Date.now() - last > INACTIVITY_MS) {
+        setItems([]);
+        setCounter(0);
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(ACTIVITY_KEY);
+        } catch {}
+      }
+    };
+    const interval = setInterval(checkInactivity, 60 * 1000);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   // Listen for cross-tab updates via BroadcastChannel
   useEffect(() => {
