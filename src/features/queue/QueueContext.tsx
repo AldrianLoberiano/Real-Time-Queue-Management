@@ -333,9 +333,11 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, [items, addNotification]);
 
   const recallItem = useCallback((id: string) => {
-    setItems(prev => prev.map(i =>
-      i.id === id ? { ...i, status: 'serving' as StatusType, calledAt: new Date() } : i
-    ));
+    setItems(prev => prev.map(i => {
+      if (i.status === 'serving') return { ...i, status: 'done' as StatusType, completedAt: new Date() };
+      if (i.id === id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
+      return i;
+    }));
     const item = items.find(i => i.id === id);
     if (item) addNotification(`${item.number} recalled to serve`, 'info');
   }, [items, addNotification]);
