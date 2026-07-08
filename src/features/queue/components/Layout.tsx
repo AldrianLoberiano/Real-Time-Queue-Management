@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Users, Monitor, ShieldCheck, Menu, X, Bell, BellOff } from 'lucide-react';
+import { Monitor, Menu, X, Bell, BellOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
 
@@ -11,9 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [showNotifs, setShowNotifs] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Join Queue', icon: Users },
     { href: '/display', label: 'Display', icon: Monitor },
-    { href: '/admin', label: 'Admin', icon: ShieldCheck },
   ];
 
   return (
@@ -35,16 +33,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/display" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                <Users size={16} className="text-white" />
+                <Monitor size={16} className="text-white" />
               </div>
               <span className="font-semibold text-white text-sm tracking-wide">QueueSmart</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map(({ href, label, icon: Icon }) => {
-                const active = location.pathname === href || (href !== '/' && location.pathname.startsWith(href));
+                const active = location.pathname === href;
                 return (
                   <Link
                     key={href}
@@ -166,7 +164,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <footer className="text-center py-4 text-gray-400 text-xs border-t border-gray-200 bg-white mt-8">
+      <footer className="fixed bottom-0 right-0 px-4 py-2 text-gray-400 text-[10px]">
         <p>2026 QueueSmart - Real-Time Queue Management</p>
       </footer>
     </div>
