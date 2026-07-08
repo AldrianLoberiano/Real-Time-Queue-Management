@@ -10,7 +10,7 @@ beforeAll(() => {
     unobserve() {}
     disconnect() {}
   }
-  (global as any).ResizeObserver = MockResizeObserver;
+  (window as any).ResizeObserver = MockResizeObserver;
 });
 
 function renderAnalytics() {
