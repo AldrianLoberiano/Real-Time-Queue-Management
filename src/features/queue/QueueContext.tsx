@@ -54,6 +54,7 @@ interface Notification {
 
 const AVG_SERVICE_MINS = 3;
 const STORAGE_KEY = 'qs_queue_state';
+const POLL_INTERVAL = 500;
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
@@ -95,8 +96,27 @@ function loadState(): { items: QueueItem[]; counter: number } {
 }
 
 function saveState(items: QueueItem[], counter: number) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, counter }));
+  try {
+    const data = JSON.stringify({ items, counter, ts: Date.now() });
+    localStorage.setItem(STORAGE_KEY, data);
+  } catch {}
 }
+
+function getStorageHash(): string {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw || '';
+  } catch {
+    return '';
+  }
+}
+
+let channel: BroadcastChannel | null = null;
+try {
+  if (typeof BroadcastChannel !== 'undefined') {
+    channel = new BroadcastChannel('queue-sync');
+  }
+} catch {}
 
 const QueueContext = createContext<QueueContextType | null>(null);
 
@@ -104,12 +124,17 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [initialState] = useState(loadState);
   const [counter, setCounter] = useState(initialState.counter);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
-    return localStorage.getItem('qs_admin') === 'true';
+    try {
+      return localStorage.getItem('qs_admin') === 'true';
+    } catch {
+      return false;
+    }
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const [items, setItems] = useState<QueueItem[]>(initialState.items);
   const isInitialMount = useRef(true);
+  const lastHash = useRef(getStorageHash());
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
     const notif: Notification = {
@@ -124,30 +149,42 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     }, 5000);
   }, []);
 
-  // Sync state to localStorage and broadcast to other tabs
+  const syncFromStorage = useCallback(() => {
+    const currentHash = getStorageHash();
+    if (currentHash !== lastHash.current) {
+      lastHash.current = currentHash;
+      const { items: newItems, counter: newCounter } = loadState();
+      setItems(newItems);
+      setCounter(newCounter);
+    }
+  }, []);
+
+  // Sync state to localStorage and broadcast
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
       return;
     }
     saveState(items, counter);
-    window.dispatchEvent(new Event('queue-sync'));
+    lastHash.current = getStorageHash();
+    if (channel) {
+      try { channel.postMessage({ type: 'update' }); } catch {}
+    }
   }, [items, counter]);
 
-  // Listen for cross-tab updates
+  // Listen for cross-tab updates via BroadcastChannel
   useEffect(() => {
-    const handleSync = () => {
-      const { items: newItems, counter: newCounter } = loadState();
-      setItems(newItems);
-      setCounter(newCounter);
-    };
-    window.addEventListener('queue-sync', handleSync);
-    window.addEventListener('storage', handleSync);
-    return () => {
-      window.removeEventListener('queue-sync', handleSync);
-      window.removeEventListener('storage', handleSync);
-    };
-  }, []);
+    if (!channel) return;
+    const handler = () => syncFromStorage();
+    channel.addEventListener('message', handler);
+    return () => channel.removeEventListener('message', handler);
+  }, [syncFromStorage]);
+
+  // Fallback: poll localStorage for changes (handles storage event edge cases)
+  useEffect(() => {
+    const interval = setInterval(syncFromStorage, POLL_INTERVAL);
+    return () => clearInterval(interval);
+  }, [syncFromStorage]);
 
   const waitingItems = items
     .filter(i => i.status === 'waiting')
@@ -259,7 +296,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const adminLogin = useCallback((username: string, password: string): boolean => {
     if (username === 'admin' && password === 'admin123') {
       setIsAdminLoggedIn(true);
-      localStorage.setItem('qs_admin', 'true');
+      try { localStorage.setItem('qs_admin', 'true'); } catch {}
       return true;
     }
     return false;
@@ -267,7 +304,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const adminLogout = useCallback(() => {
     setIsAdminLoggedIn(false);
-    localStorage.removeItem('qs_admin');
+    try { localStorage.removeItem('qs_admin'); } catch {}
   }, []);
 
   const dismissNotification = useCallback((id: string) => {
