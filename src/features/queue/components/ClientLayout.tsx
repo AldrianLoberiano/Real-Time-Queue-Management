@@ -69,15 +69,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
         })}
       </nav>
 
-      <div className="p-3 border-t border-white/10">
-        <Link
-          to="/admin"
-          className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors text-sm"
-        >
-          <Users size={16} />
-          <span>Admin Panel</span>
-        </Link>
-      </div>
     </div>
   );
 
