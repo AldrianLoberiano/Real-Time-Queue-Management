@@ -16,6 +16,11 @@ export function AdminDashboardPage() {
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
+  const [showDone, setShowDone] = useState(false);
+  const [showDoneCallNext, setShowDoneCallNext] = useState(false);
+  const [showSkip, setShowSkip] = useState(false);
+  const [showRecall, setShowRecall] = useState(false);
+  const [showRemove, setShowRemove] = useState(false);
   const [showReset, setShowReset] = useState(false);
   const [showClear, setShowClear] = useState(false);
 
@@ -89,7 +94,7 @@ export function AdminDashboardPage() {
             {/* Call Next Button */}
             <button
               onClick={callNext}
-              disabled={!currentlyServing || waitingItems.length === 0}
+              disabled={!!currentlyServing || waitingItems.length === 0}
               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all disabled:shadow-none flex items-center justify-center gap-2"
             >
               <PlayCircle size={18} />
@@ -122,7 +127,7 @@ export function AdminDashboardPage() {
 
                     {/* Primary Action */}
                     <button
-                      onClick={() => { markDone(currentlyServing.id); setTimeout(callNext, 100); }}
+                      onClick={() => setShowDoneCallNext(true)}
                       className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
                     >
                       <CheckCircle size={16} />
@@ -132,21 +137,21 @@ export function AdminDashboardPage() {
                     {/* Secondary Actions */}
                     <div className="grid grid-cols-3 gap-2">
                       <button
-                        onClick={() => markDone(currentlyServing.id)}
+                        onClick={() => setShowDone(true)}
                         className="py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                       >
                         <CheckCircle size={13} />
                         Done
                       </button>
                       <button
-                        onClick={() => skipItem(currentlyServing.id)}
+                        onClick={() => setShowSkip(true)}
                         className="py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                       >
                         <SkipForward size={13} />
                         Skip
                       </button>
                       <button
-                        onClick={() => recallItem(currentlyServing.id)}
+                        onClick={() => setShowRecall(true)}
                         className="py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                       >
                         <RefreshCw size={13} />
@@ -156,7 +161,7 @@ export function AdminDashboardPage() {
 
                     {/* Remove */}
                     <button
-                      onClick={() => removeItem(currentlyServing.id)}
+                      onClick={() => setShowRemove(true)}
                       className="w-full py-2 rounded-xl border border-red-200 hover:bg-red-50 text-red-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                     >
                       <Trash2 size={12} />
@@ -260,6 +265,51 @@ export function AdminDashboardPage() {
         </div>
       </div>
 
+      <ConfirmModal
+        open={showDoneCallNext}
+        title="Done & Call Next"
+        message={`Mark ${currentlyServing?.number} as done and call the next customer?`}
+        confirmLabel="Done & Call Next"
+        variant="warning"
+        onConfirm={() => { if (currentlyServing) { markDone(currentlyServing.id); setTimeout(callNext, 100); } }}
+        onCancel={() => setShowDoneCallNext(false)}
+      />
+      <ConfirmModal
+        open={showDone}
+        title="Mark as Done"
+        message={`Mark ${currentlyServing?.number} as done?`}
+        confirmLabel="Done"
+        variant="warning"
+        onConfirm={() => { if (currentlyServing) markDone(currentlyServing.id); }}
+        onCancel={() => setShowDone(false)}
+      />
+      <ConfirmModal
+        open={showSkip}
+        title="Skip Customer"
+        message={`Skip ${currentlyServing?.number}? They will be moved to the skipped list.`}
+        confirmLabel="Skip"
+        variant="warning"
+        onConfirm={() => { if (currentlyServing) skipItem(currentlyServing.id); }}
+        onCancel={() => setShowSkip(false)}
+      />
+      <ConfirmModal
+        open={showRecall}
+        title="Recall Customer"
+        message={`Recall ${currentlyServing?.number}? They will be moved back to waiting.`}
+        confirmLabel="Recall"
+        variant="warning"
+        onConfirm={() => { if (currentlyServing) recallItem(currentlyServing.id); }}
+        onCancel={() => setShowRecall(false)}
+      />
+      <ConfirmModal
+        open={showRemove}
+        title="Remove from Queue"
+        message={`Permanently remove ${currentlyServing?.number} from the queue?`}
+        confirmLabel="Remove"
+        variant="danger"
+        onConfirm={() => { if (currentlyServing) removeItem(currentlyServing.id); }}
+        onCancel={() => setShowRemove(false)}
+      />
       <ConfirmModal
         open={showReset}
         title="Reset Queue"
