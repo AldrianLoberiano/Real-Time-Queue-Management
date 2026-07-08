@@ -55,7 +55,9 @@ interface Notification {
 const AVG_SERVICE_MINS = 3;
 const STORAGE_KEY = 'qs_queue_state';
 const ACTIVITY_KEY = 'qs_last_activity';
-const INACTIVITY_MS = 30 * 60 * 1000; // 30 minutes
+const RESET_DATE_KEY = 'qs_last_reset_date';
+const RESET_HOUR = 8; // 8:00 AM
+const INACTIVITY_MS = 24 * 60 * 60 * 1000; // 24 hours
 const POLL_INTERVAL = 500;
 
 function generateId(): string {
@@ -127,6 +129,22 @@ function updateActivity() {
   } catch {}
 }
 
+function checkDailyReset(): boolean {
+  try {
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
+    const lastReset = localStorage.getItem(RESET_DATE_KEY);
+    if (lastReset === today) return false;
+    if (now.getHours() >= RESET_HOUR) {
+      localStorage.setItem(RESET_DATE_KEY, today);
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 let channel: BroadcastChannel | null = null;
 try {
   if (typeof BroadcastChannel !== 'undefined') {
@@ -156,6 +174,18 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (initialState.items.length > 0) {
       updateActivity();
+    }
+  }, []);
+
+  // Daily reset at 8 AM
+  useEffect(() => {
+    if (checkDailyReset()) {
+      setItems([]);
+      setCounter(0);
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(ACTIVITY_KEY);
+      } catch {}
     }
   }, []);
 
