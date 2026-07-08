@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 
 export type PriorityType = 'regular' | 'vip' | 'senior';
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
@@ -63,12 +63,7 @@ const PRIORITY_ORDER: Record<PriorityType, number> = {
 
 const AVG_SERVICE_MINS = 3;
 
-const MOCK_NAMES = [
-  'Maria Santos', 'Juan dela Cruz', 'Ana Reyes', 'Pedro Garcia',
-  'Rosa Mendoza', 'Carlos Lopez', 'Elena Torres', 'Miguel Fernandez',
-  'Sofia Ramos', 'Luis Castillo', 'Isabella Morales', 'Diego Herrera',
-  'Valentina Jimenez', 'Alejandro Ruiz', 'Camila Vargas',
-];
+
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
@@ -101,7 +96,6 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
-  const simulationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
     const notif: Notification = {
@@ -275,44 +269,6 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const dismissNotification = useCallback((id: string) => {
     setNotifications(prev => prev.filter(n => n.id !== id));
-  }, []);
-
-  useEffect(() => {
-    const schedule = () => {
-      const delay = Math.random() * 20000 + 25000;
-      simulationRef.current = setTimeout(() => {
-        const name = MOCK_NAMES[Math.floor(Math.random() * MOCK_NAMES.length)];
-        const types: PriorityType[] = ['regular', 'regular', 'regular', 'senior', 'vip'];
-        const type = types[Math.floor(Math.random() * types.length)];
-        setCounter(prev => {
-          const newCounter = prev + 1;
-          const newItem: QueueItem = {
-            id: generateId(),
-            number: formatNumber(newCounter),
-            name,
-            type,
-            status: 'waiting',
-            createdAt: new Date(),
-          };
-          setItems(prev => [...prev, newItem]);
-          setNotifications(prev2 => {
-            const notif: Notification = {
-              id: generateId(),
-              message: `${newItem.number} – ${name} joined the queue`,
-              type: 'info',
-              timestamp: new Date(),
-            };
-            return [notif, ...prev2.slice(0, 4)];
-          });
-          return newCounter;
-        });
-        schedule();
-      }, delay);
-    };
-    schedule();
-    return () => {
-      if (simulationRef.current) clearTimeout(simulationRef.current);
-    };
   }, []);
 
   return (
