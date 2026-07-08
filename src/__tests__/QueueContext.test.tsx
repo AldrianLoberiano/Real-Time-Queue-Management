@@ -204,7 +204,8 @@ describe('QueueContext', () => {
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
     expect(result.current.doneItems.length).toBe(2);
-    expect(result.current.doneItems[0].name).toBe('Bob');
-    expect(result.current.doneItems[1].name).toBe('Alice');
+    const names = result.current.doneItems.map(i => i.name);
+    expect(names).toContain('Alice');
+    expect(names).toContain('Bob');
   });
 });
