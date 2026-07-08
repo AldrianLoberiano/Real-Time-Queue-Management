@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { QueueProvider } from './features/queue/QueueContext';
 import { JoinQueuePage } from './features/queue/pages/JoinQueuePage';
