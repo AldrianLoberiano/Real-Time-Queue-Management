@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
-  PlayCircle, Clock, RotateCcw, UserCheck,
+  PlayCircle, Clock, RotateCcw, UserCheck, AlertTriangle,
 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { ConfirmModal } from '../components/ConfirmModal';
@@ -86,6 +86,16 @@ export function AdminDashboardPage() {
             </div>
           </div>
         </div>
+
+        {/* Queue Full Alert */}
+        {waitingItems.length >= 5 && (
+          <div className="flex items-center gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl">
+            <AlertTriangle size={18} className="text-amber-500 shrink-0" />
+            <p className="text-amber-700 text-sm font-medium">
+              Queue is getting full! {waitingItems.length} customers waiting.
+            </p>
+          </div>
+        )}
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-5 gap-5">
