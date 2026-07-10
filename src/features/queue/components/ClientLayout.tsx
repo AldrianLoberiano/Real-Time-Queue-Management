@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Join Queue', icon: Users, exact: true },
-  { href: '/display', label: 'Display', icon: Monitor, exact: false },
+  { href: '/queue', label: 'Join Queue', icon: Users, exact: true },
+  { href: '/display-screen', label: 'Display', icon: Monitor, exact: false },
 ];
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
