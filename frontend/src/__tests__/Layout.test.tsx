@@ -17,9 +17,9 @@ function renderLayout(pathname = '/') {
 }
 
 describe('Layout', () => {
-  it('renders QueueSmart logo', () => {
+  it('renders BPLO Queue logo', () => {
     renderLayout();
-    expect(screen.getByText('QueueSmart')).toBeInTheDocument();
+    expect(screen.getByText('BPLO Queue')).toBeInTheDocument();
   });
 
   it('renders Display nav link', () => {
