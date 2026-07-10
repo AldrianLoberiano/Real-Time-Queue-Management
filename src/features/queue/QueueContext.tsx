@@ -23,6 +23,7 @@ interface QueueContextType {
   counter: number;
   joinQueue: (name: string) => QueueItem | null;
   callNext: () => QueueItem | null;
+  doneAndCallNext: (id: string) => QueueItem | null;
   skipItem: (id: string) => void;
   recallItem: (id: string) => void;
   markDone: (id: string) => void;
@@ -381,6 +382,29 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return next;
   }, [items, addNotification]);
 
+  const doneAndCallNext = useCallback((id: string): QueueItem | null => {
+    let calledItem: QueueItem | null = null;
+    setItems(prev => {
+      const sorted = prev
+        .filter(i => i.status === 'waiting')
+        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      const next = sorted[0];
+      return prev.map(i => {
+        if (i.id === id) return { ...i, status: 'done' as StatusType, completedAt: new Date() };
+        if (next && i.id === next.id) {
+          calledItem = next;
+          return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
+        }
+        return i;
+      });
+    });
+    if (calledItem) {
+      addNotification(`Now serving: ${calledItem.number} - ${calledItem.name}`, 'success');
+      if (isSoundEnabled()) playServeSound();
+    }
+    return calledItem;
+  }, [addNotification]);
+
   const skipItem = useCallback((id: string) => {
     setItems(prev => prev.map(i =>
       i.id === id ? { ...i, status: 'skipped' as StatusType } : i
@@ -456,6 +480,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       counter,
       joinQueue,
       callNext,
+      doneAndCallNext,
       skipItem,
       recallItem,
       markDone,
