@@ -2,12 +2,14 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
 import { QueueProvider, useQueue } from '../features/queue/QueueContext';
+import { api } from '../api';
 
-vi.mock('../../api', () => {
+vi.mock('../api', () => {
   let counter = 0;
   const items: any[] = [];
   return {
     api: {
+      _reset: () => { items.length = 0; counter = 0; },
       getItems: vi.fn(async () => items),
       getCounter: vi.fn(async () => ({ counter })),
       getSoundSetting: vi.fn(async () => ({ enabled: true })),
@@ -100,6 +102,7 @@ describe('QueueContext', () => {
     vi.useFakeTimers();
     localStorage.clear();
     sessionStorage.clear();
+    (api as any)._reset();
     wrapper = createWrapper();
   });
 
