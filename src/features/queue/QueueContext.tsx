@@ -43,6 +43,8 @@ interface QueueContextType {
   totalServedToday: number;
   notifications: Notification[];
   dismissNotification: (id: string) => void;
+  soundEnabled: boolean;
+  toggleSound: () => void;
 }
 
 interface Notification {
@@ -59,6 +61,36 @@ const RESET_DATE_KEY = 'qs_last_reset_date';
 const RESET_HOUR = 8; // 8:00 AM
 const INACTIVITY_MS = 24 * 60 * 60 * 1000; // 24 hours
 const POLL_INTERVAL = 500;
+const SOUND_ENABLED_KEY = 'qs_sound_enabled';
+
+function playServeSound() {
+  try {
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const playNote = (freq: number, start: number, duration: number) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.3, ctx.currentTime + start);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + start + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + start);
+      osc.stop(ctx.currentTime + start + duration);
+    };
+    playNote(523.25, 0, 0.15);
+    playNote(659.25, 0.12, 0.15);
+    playNote(783.99, 0.24, 0.25);
+  } catch {}
+}
+
+function isSoundEnabled(): boolean {
+  try {
+    return localStorage.getItem(SOUND_ENABLED_KEY) !== 'false';
+  } catch {
+    return true;
+  }
+}
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
@@ -165,6 +197,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     }
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [soundEnabled, setSoundEnabled] = useState(isSoundEnabled);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const [items, setItems] = useState<QueueItem[]>(initialState.items);
   const isInitialMount = useRef(true);
@@ -321,6 +354,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       return i;
     }));
     addNotification(`Now serving: ${next.number} - ${next.name}`, 'success');
+    if (isSoundEnabled()) playServeSound();
     return next;
   }, [items, addNotification]);
 
@@ -385,6 +419,14 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     setNotifications(prev => prev.filter(n => n.id !== id));
   }, []);
 
+  const toggleSound = useCallback(() => {
+    setSoundEnabled(prev => {
+      const next = !prev;
+      try { localStorage.setItem(SOUND_ENABLED_KEY, String(next)); } catch {}
+      return next;
+    });
+  }, []);
+
   return (
     <QueueContext.Provider value={{
       items,
@@ -411,6 +453,8 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       totalServedToday,
       notifications,
       dismissNotification,
+      soundEnabled,
+      toggleSound,
     }}>
       {children}
     </QueueContext.Provider>
