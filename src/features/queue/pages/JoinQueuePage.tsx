@@ -70,7 +70,7 @@ export function JoinQueuePage() {
                 <ArrowRight size={14} />
               </button>
               <button
-                onClick={() => navigate('/display')}
+                onClick={() => navigate('/display-screen')}
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium transition-colors"
               >
                 View Display
