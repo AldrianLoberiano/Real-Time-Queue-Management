@@ -5,15 +5,15 @@ import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
-  const { joinQueue, waitingItems, currentlyServing, avgServiceTime } = useQueue();
+  const { joinQueue, waitingItems, currentlyServing, avgServiceTime, cooldownRemaining } = useQueue();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [joined, setJoined] = useState<{ number: string } | null>(null);
 
   const handleJoin = () => {
-    if (!name.trim()) return;
+    if (!name.trim() || cooldownRemaining > 0) return;
     const item = joinQueue(name.trim());
-    setJoined({ number: item.number });
+    if (item) setJoined({ number: item.number });
   };
 
   return (
@@ -95,11 +95,11 @@ export function JoinQueuePage() {
 
               <button
                 onClick={handleJoin}
-                disabled={!name.trim()}
+                disabled={!name.trim() || cooldownRemaining > 0}
                 className="w-full py-2.5 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors flex items-center justify-center gap-1.5"
               >
-                Join Queue
-                <ArrowRight size={14} />
+                {cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Join Queue'}
+                {cooldownRemaining <= 0 && <ArrowRight size={14} />}
               </button>
             </div>
           </div>
