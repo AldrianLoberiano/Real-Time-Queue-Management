@@ -12,12 +12,13 @@ export default function App() {
     <QueueProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<JoinQueuePage />} />
-          <Route path="/display" element={<DisplayScreenPage />} />
+          <Route path="/queue" element={<JoinQueuePage />} />
+          <Route path="/display-screen" element={<DisplayScreenPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<Navigate to="/queue" replace />} />
+          <Route path="*" element={<Navigate to="/queue" replace />} />
         </Routes>
       </BrowserRouter>
     </QueueProvider>
