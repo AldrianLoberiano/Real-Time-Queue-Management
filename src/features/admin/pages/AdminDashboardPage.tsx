@@ -13,6 +13,7 @@ export function AdminDashboardPage() {
   const {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
+    doneAndCallNext,
     resetQueue, clearAll, totalServedToday, avgServiceTime,
     soundEnabled, toggleSound,
   } = useQueue();
@@ -174,7 +175,7 @@ export function AdminDashboardPage() {
                         Skip
                       </button>
                       <button
-                        onClick={() => setShowRecall(true)}
+                        onClick={() => { if (currentlyServing) { setRecallTarget({ id: currentlyServing.id, number: currentlyServing.number }); setShowRecall(true); } }}
                         className="py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                       >
                         <RefreshCw size={13} />
@@ -310,7 +311,7 @@ export function AdminDashboardPage() {
         message={`Mark ${currentlyServing?.number} as done and call the next customer?`}
         confirmLabel="Done & Call Next"
         variant="warning"
-        onConfirm={() => { if (currentlyServing) { markDone(currentlyServing.id); setTimeout(callNext, 100); } }}
+        onConfirm={() => { if (currentlyServing) doneAndCallNext(currentlyServing.id); }}
         onCancel={() => setShowDoneCallNext(false)}
       />
       <ConfirmModal
@@ -334,11 +335,11 @@ export function AdminDashboardPage() {
       <ConfirmModal
         open={showRecall}
         title="Recall Customer"
-        message={`Recall ${currentlyServing?.number}? They will be moved to serving.`}
+        message={`Recall ${recallTarget?.number}? They will be moved to serving.`}
         confirmLabel="Recall"
         variant="warning"
-        onConfirm={() => { if (currentlyServing) recallItem(currentlyServing.id); }}
-        onCancel={() => setShowRecall(false)}
+        onConfirm={() => { if (recallTarget) { recallItem(recallTarget.id); setRecallTarget(null); } }}
+        onCancel={() => { setShowRecall(false); setRecallTarget(null); }}
       />
       <ConfirmModal
         open={showRemove}
