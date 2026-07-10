@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import { Users, ArrowRight, Hash, Clock } from 'lucide-react';
+import { Users, ArrowRight, Hash, Clock, AlertTriangle } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
@@ -9,6 +10,17 @@ export function JoinQueuePage() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [joined, setJoined] = useState<{ number: string } | null>(null);
+  const [showLimitAlert, setShowLimitAlert] = useState(false);
+  const lastAlertCount = useRef(0);
+
+  const queueFull = waitingItems.length >= 15;
+
+  useEffect(() => {
+    if (queueFull && lastAlertCount.current < 15) {
+      setShowLimitAlert(true);
+    }
+    lastAlertCount.current = waitingItems.length;
+  }, [waitingItems.length, queueFull]);
 
   const handleJoin = async () => {
     if (!name.trim() || cooldownRemaining > 0) return;
@@ -95,16 +107,53 @@ export function JoinQueuePage() {
 
               <button
                 onClick={handleJoin}
-                disabled={!name.trim() || cooldownRemaining > 0}
+                disabled={!name.trim() || cooldownRemaining > 0 || queueFull}
                 className="w-full py-2.5 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors flex items-center justify-center gap-1.5"
               >
-                {cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Join Queue'}
-                {cooldownRemaining <= 0 && <ArrowRight size={14} />}
+                {queueFull ? 'Queue is Full' : cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Join Queue'}
+                {!queueFull && cooldownRemaining <= 0 && <ArrowRight size={14} />}
               </button>
             </div>
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {showLimitAlert && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setShowLimitAlert(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+              className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden"
+            >
+              <div className="p-6 text-center">
+                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center bg-amber-100">
+                  <AlertTriangle size={28} className="text-amber-500" />
+                </div>
+                <h3 className="text-gray-900 font-semibold text-lg mb-1">Queue is Full</h3>
+                <p className="text-gray-500 text-sm">The queue has reached 15 customers. Please try again later.</p>
+              </div>
+              <div className="border-t border-gray-100">
+                <button
+                  onClick={() => setShowLimitAlert(false)}
+                  className="w-full py-3.5 text-sm font-medium text-violet-600 hover:bg-violet-50 transition-colors"
+                >
+                  OK
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </ClientLayout>
   );
 }
