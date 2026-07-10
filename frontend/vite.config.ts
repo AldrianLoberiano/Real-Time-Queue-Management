@@ -14,5 +14,7 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    // SPA fallback: serve index.html for all routes so client-side routing works
+    appType: 'spa',
   },
 });
