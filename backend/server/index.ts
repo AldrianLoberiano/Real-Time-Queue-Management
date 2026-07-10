@@ -25,14 +25,24 @@ function formatNumber(n: number): string {
 
 // Get all queue items
 app.get('/api/items', async (_req, res) => {
-  const [rows] = await pool.query('SELECT * FROM queue_items ORDER BY created_at ASC');
-  res.json(rows);
+  try {
+    const [rows] = await pool.query('SELECT * FROM queue_items ORDER BY created_at ASC');
+    res.json(rows);
+  } catch (err) {
+    console.error('GET /api/items error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Get counter
 app.get('/api/counter', async (_req, res) => {
-  const [rows] = await pool.query('SELECT counter FROM queue_counter WHERE id = 1') as any;
-  res.json({ counter: rows[0]?.counter ?? 0 });
+  try {
+    const [rows] = await pool.query('SELECT counter FROM queue_counter WHERE id = 1') as any;
+    res.json({ counter: rows[0]?.counter ?? 0 });
+  } catch (err) {
+    console.error('GET /api/counter error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Join queue
@@ -148,22 +158,32 @@ app.post('/api/done-and-call-next', async (req, res) => {
 
 // Mark done
 app.post('/api/mark-done', async (req, res) => {
-  const { id } = req.body;
-  await pool.query(
-    'UPDATE queue_items SET status = ?, completed_at = NOW() WHERE id = ?',
-    ['done', id]
-  );
-  res.json({ success: true });
+  try {
+    const { id } = req.body;
+    await pool.query(
+      'UPDATE queue_items SET status = ?, completed_at = NOW() WHERE id = ?',
+      ['done', id]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    console.error('POST /api/mark-done error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Skip item
 app.post('/api/skip', async (req, res) => {
-  const { id } = req.body;
-  await pool.query(
-    'UPDATE queue_items SET status = ? WHERE id = ?',
-    ['skipped', id]
-  );
-  res.json({ success: true });
+  try {
+    const { id } = req.body;
+    await pool.query(
+      'UPDATE queue_items SET status = ? WHERE id = ?',
+      ['skipped', id]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    console.error('POST /api/skip error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Recall item
@@ -195,16 +215,26 @@ app.post('/api/recall', async (req, res) => {
 
 // Remove item
 app.delete('/api/items/:id', async (req, res) => {
-  await pool.query('DELETE FROM queue_items WHERE id = ?', [req.params.id]);
-  res.json({ success: true });
+  try {
+    await pool.query('DELETE FROM queue_items WHERE id = ?', [req.params.id]);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('DELETE /api/items/:id error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Reset queue
 app.post('/api/reset', async (_req, res) => {
-  await pool.query(
-    "UPDATE queue_items SET status = 'done', completed_at = NOW() WHERE status IN ('waiting', 'serving', 'skipped')"
-  );
-  res.json({ success: true });
+  try {
+    await pool.query(
+      "UPDATE queue_items SET status = 'done', completed_at = NOW() WHERE status IN ('waiting', 'serving', 'skipped')"
+    );
+    res.json({ success: true });
+  } catch (err) {
+    console.error('POST /api/reset error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Clear all
@@ -226,21 +256,38 @@ app.post('/api/clear', async (_req, res) => {
 
 // Get sound setting
 app.get('/api/settings/sound', async (_req, res) => {
-  const [rows] = await pool.query("SELECT value FROM settings WHERE key_name = 'sound_enabled'") as any;
-  res.json({ enabled: rows[0]?.value !== 'false' });
+  try {
+    const [rows] = await pool.query("SELECT value FROM settings WHERE key_name = 'sound_enabled'") as any;
+    res.json({ enabled: rows[0]?.value !== 'false' });
+  } catch (err) {
+    console.error('GET /api/settings/sound error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Update sound setting
 app.put('/api/settings/sound', async (req, res) => {
-  const { enabled } = req.body;
-  await pool.query(
-    "INSERT INTO settings (key_name, value) VALUES ('sound_enabled', ?) ON DUPLICATE KEY UPDATE value = ?",
-    [String(enabled), String(enabled)]
-  );
-  res.json({ success: true });
+  try {
+    const { enabled } = req.body;
+    await pool.query(
+      "INSERT INTO settings (key_name, value) VALUES ('sound_enabled', ?) ON DUPLICATE KEY UPDATE value = ?",
+      [String(enabled), String(enabled)]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    console.error('PUT /api/settings/sound error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 const PORT = process.env.PORT || 3001;
+
+// Global error handler
+app.use((err: any, _req: any, res: any, _next: any) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
