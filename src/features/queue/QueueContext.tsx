@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { api } from '../../api';
 
 export type StatusType = 'waiting' | 'serving' | 'done' | 'skipped';
 
@@ -21,15 +22,15 @@ export interface HourlyData {
 interface QueueContextType {
   items: QueueItem[];
   counter: number;
-  joinQueue: (name: string) => QueueItem | null;
-  callNext: () => QueueItem | null;
-  doneAndCallNext: (id: string) => QueueItem | null;
-  skipItem: (id: string) => void;
-  recallItem: (id: string) => void;
-  markDone: (id: string) => void;
-  removeItem: (id: string) => void;
-  resetQueue: () => void;
-  clearAll: () => void;
+  joinQueue: (name: string) => Promise<QueueItem | null>;
+  callNext: () => Promise<QueueItem | null>;
+  doneAndCallNext: (id: string) => Promise<QueueItem | null>;
+  skipItem: (id: string) => Promise<void>;
+  recallItem: (id: string) => Promise<void>;
+  markDone: (id: string) => Promise<void>;
+  removeItem: (id: string) => Promise<void>;
+  resetQueue: () => Promise<void>;
+  clearAll: () => Promise<void>;
   isAdminLoggedIn: boolean;
   adminLogin: (username: string, password: string) => boolean;
   adminLogout: () => void;
@@ -57,13 +58,7 @@ interface Notification {
 }
 
 const AVG_SERVICE_MINS = 3;
-const STORAGE_KEY = 'qs_queue_state';
-const ACTIVITY_KEY = 'qs_last_activity';
-const RESET_DATE_KEY = 'qs_last_reset_date';
-const RESET_HOUR = 8; // 8:00 AM
-const INACTIVITY_MS = 24 * 60 * 60 * 1000; // 24 hours
-const POLL_INTERVAL = 500;
-const SOUND_ENABLED_KEY = 'qs_sound_enabled';
+const POLL_INTERVAL = 2000;
 const JOIN_COOLDOWN_MS = 10000;
 
 function playServeSound() {
@@ -87,20 +82,20 @@ function playServeSound() {
   } catch {}
 }
 
-function isSoundEnabled(): boolean {
-  try {
-    return localStorage.getItem(SOUND_ENABLED_KEY) !== 'false';
-  } catch {
-    return true;
-  }
-}
-
 function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
 }
 
-function formatNumber(n: number): string {
-  return `A-${String(n).padStart(3, '0')}`;
+function mapItem(raw: any): QueueItem {
+  return {
+    id: raw.id,
+    number: raw.number,
+    name: raw.name,
+    status: raw.status,
+    createdAt: new Date(raw.created_at || raw.createdAt),
+    calledAt: raw.called_at ? new Date(raw.called_at) : raw.calledAt ? new Date(raw.calledAt) : undefined,
+    completedAt: raw.completed_at ? new Date(raw.completed_at) : raw.completedAt ? new Date(raw.completedAt) : undefined,
+  };
 }
 
 function generateHourlyData(): HourlyData[] {
@@ -117,115 +112,27 @@ function generateHourlyData(): HourlyData[] {
   return hours;
 }
 
-function loadState(): { items: QueueItem[]; counter: number } {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { items: [], counter: 0 };
-    const data = JSON.parse(raw);
-    const items = (data.items || []).map((item: any) => ({
-      ...item,
-      createdAt: new Date(item.createdAt),
-      calledAt: item.calledAt ? new Date(item.calledAt) : undefined,
-      completedAt: item.completedAt ? new Date(item.completedAt) : undefined,
-    }));
-    return { items, counter: data.counter || 0 };
-  } catch {
-    return { items: [], counter: 0 };
-  }
-}
-
-function saveState(items: QueueItem[], counter: number) {
-  try {
-    const data = JSON.stringify({ items, counter, ts: Date.now() });
-    localStorage.setItem(STORAGE_KEY, data);
-  } catch {}
-}
-
-function getStorageHash(): string {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw || '';
-  } catch {
-    return '';
-  }
-}
-
-function getLastActivity(): number {
-  try {
-    return parseInt(localStorage.getItem(ACTIVITY_KEY) || '0', 10) || Date.now();
-  } catch {
-    return Date.now();
-  }
-}
-
-function updateActivity() {
-  try {
-    localStorage.setItem(ACTIVITY_KEY, String(Date.now()));
-  } catch {}
-}
-
-function checkDailyReset(): boolean {
-  try {
-    const now = new Date();
-    const today = now.toISOString().split('T')[0];
-    const lastReset = localStorage.getItem(RESET_DATE_KEY);
-    if (lastReset === today) return false;
-    if (now.getHours() >= RESET_HOUR) {
-      localStorage.setItem(RESET_DATE_KEY, today);
-      return true;
-    }
-    return false;
-  } catch {
-    return false;
-  }
-}
-
-let channel: BroadcastChannel | null = null;
-try {
-  if (typeof BroadcastChannel !== 'undefined') {
-    channel = new BroadcastChannel('queue-sync');
-  }
-} catch {}
-
 const QueueContext = createContext<QueueContextType | null>(null);
 
 export function QueueProvider({ children }: { children: React.ReactNode }) {
-  const [initialState] = useState(loadState);
-  const [counter, setCounter] = useState(initialState.counter);
+  const [items, setItems] = useState<QueueItem[]>([]);
+  const [counter, setCounter] = useState(0);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
-    try {
-      return localStorage.getItem('qs_admin') === 'true';
-    } catch {
-      return false;
-    }
+    try { return sessionStorage.getItem('qs_admin') === 'true'; } catch { return false; }
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [soundEnabled, setSoundEnabled] = useState(isSoundEnabled);
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
-  const [items, setItems] = useState<QueueItem[]>(initialState.items);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
-  const isInitialMount = useRef(true);
-  const lastHash = useRef(getStorageHash());
+  const [loading, setLoading] = useState(true);
   const lastJoinTime = useRef(0);
+  const soundEnabledRef = useRef(true);
 
-  // Update activity timestamp on mount if queue has items
   useEffect(() => {
-    if (initialState.items.length > 0) {
-      updateActivity();
-    }
-  }, []);
+    soundEnabledRef.current = soundEnabled;
+  }, [soundEnabled]);
 
-  // Daily reset at 8 AM
-  useEffect(() => {
-    if (checkDailyReset()) {
-      setItems([]);
-      setCounter(0);
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(ACTIVITY_KEY);
-      } catch {}
-    }
-  }, []);
+  const isSoundEnabled = useCallback(() => soundEnabledRef.current, []);
 
   const addNotification = useCallback((message: string, type: Notification['type'] = 'info') => {
     const notif: Notification = {
@@ -252,74 +159,53 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       }
     }, 100);
     return () => clearInterval(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cooldownRemaining > 0]);
 
-  const syncFromStorage = useCallback(() => {
-    const currentHash = getStorageHash();
-    if (currentHash !== lastHash.current) {
-      lastHash.current = currentHash;
-      const { items: newItems, counter: newCounter } = loadState();
-      setItems(newItems);
-      setCounter(newCounter);
+  const fetchItems = useCallback(async () => {
+    try {
+      const [rawItems, counterRes, soundRes] = await Promise.all([
+        api.getItems(),
+        api.getCounter(),
+        api.getSoundSetting(),
+      ]);
+      setItems(rawItems.map(mapItem));
+      setCounter(counterRes.counter);
+      setSoundEnabled(soundRes.enabled);
+    } catch {
+      // API not available, keep current state
     }
   }, []);
 
-  // Sync state to localStorage and broadcast
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-    saveState(items, counter);
-    updateActivity();
-    lastHash.current = getStorageHash();
-    if (channel) {
-      try { channel.postMessage({ type: 'update' }); } catch {}
-    }
-  }, [items, counter]);
-
-  // Auto-reset on inactivity
-  useEffect(() => {
-    const checkInactivity = () => {
-      const last = getLastActivity();
-      const hasItems = items.length > 0;
-      if (hasItems && Date.now() - last > INACTIVITY_MS) {
-        setItems([]);
-        setCounter(0);
-        try {
-          localStorage.removeItem(STORAGE_KEY);
-          localStorage.removeItem(ACTIVITY_KEY);
-        } catch {}
-      }
-    };
-    const interval = setInterval(checkInactivity, 60 * 1000);
+    fetchItems().finally(() => setLoading(false));
+    const interval = setInterval(fetchItems, POLL_INTERVAL);
     return () => clearInterval(interval);
-  }, [items.length]);
+  }, [fetchItems]);
 
-  // Listen for cross-tab updates via BroadcastChannel
-  useEffect(() => {
-    if (!channel) return;
-    const handler = () => syncFromStorage();
-    channel.addEventListener('message', handler);
-    return () => channel.removeEventListener('message', handler);
-  }, [syncFromStorage]);
-
-  // Fallback: poll localStorage for changes (handles storage event edge cases)
-  useEffect(() => {
-    const interval = setInterval(syncFromStorage, POLL_INTERVAL);
-    return () => clearInterval(interval);
-  }, [syncFromStorage]);
-
-  const waitingItems = items
-    .filter(i => i.status === 'waiting')
-    .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-
-  const currentlyServing = items.find(i => i.status === 'serving') ?? null;
-  const doneItems = items.filter(i => i.status === 'done').sort((a, b) =>
-    (b.completedAt?.getTime() ?? 0) - (a.completedAt?.getTime() ?? 0)
+  const waitingItems = useMemo(() =>
+    items
+      .filter(i => i.status === 'waiting')
+      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime()),
+    [items]
   );
-  const skippedItems = items.filter(i => i.status === 'skipped');
+
+  const currentlyServing = useMemo(() =>
+    items.find(i => i.status === 'serving') ?? null,
+    [items]
+  );
+
+  const doneItems = useMemo(() =>
+    items.filter(i => i.status === 'done').sort((a, b) =>
+      (b.completedAt?.getTime() ?? 0) - (a.completedAt?.getTime() ?? 0)
+    ),
+    [items]
+  );
+
+  const skippedItems = useMemo(() =>
+    items.filter(i => i.status === 'skipped'),
+    [items]
+  );
+
   const totalServedToday = doneItems.length;
 
   const avgServiceTime = useMemo((): number => {
@@ -334,11 +220,8 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const getPosition = useCallback((id: string): number => {
     const item = items.find(i => i.id === id);
     if (!item || item.status !== 'waiting') return 0;
-    const sorted = items
-      .filter(i => i.status === 'waiting')
-      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-    return sorted.findIndex(i => i.id === id) + 1;
-  }, [items]);
+    return waitingItems.findIndex(i => i.id === id) + 1;
+  }, [items, waitingItems]);
 
   const getEstimatedWait = useCallback((id: string): number => {
     const pos = getPosition(id);
@@ -346,112 +229,102 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return pos * AVG_SERVICE_MINS;
   }, [getPosition]);
 
-  const joinQueue = useCallback((name: string): QueueItem | null => {
+  const joinQueue = useCallback(async (name: string): Promise<QueueItem | null> => {
     const now = Date.now();
     if (now - lastJoinTime.current < JOIN_COOLDOWN_MS) return null;
-    lastJoinTime.current = now;
-    setCooldownRemaining(10);
-    const newCounter = counter + 1;
-    setCounter(newCounter);
-    const newItem: QueueItem = {
-      id: generateId(),
-      number: formatNumber(newCounter),
-      name,
-      status: 'waiting',
-      createdAt: new Date(),
-    };
-    setItems(prev => [...prev, newItem]);
-    addNotification(`${newItem.number} - ${name} joined the queue`, 'info');
-    return newItem;
-  }, [counter, addNotification]);
-
-  const callNext = useCallback((): QueueItem | null => {
-    const sorted = items
-      .filter(i => i.status === 'waiting')
-      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-    const next = sorted[0];
-    if (!next) return null;
-
-    setItems(prev => prev.map(i => {
-      if (i.status === 'serving') return { ...i, status: 'done' as StatusType, completedAt: new Date() };
-      if (i.id === next.id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
-      return i;
-    }));
-    addNotification(`Now serving: ${next.number} - ${next.name}`, 'success');
-    if (isSoundEnabled()) playServeSound();
-    return next;
-  }, [items, addNotification]);
-
-  const doneAndCallNext = useCallback((id: string): QueueItem | null => {
-    let calledItem: QueueItem | null = null;
-    setItems(prev => {
-      const sorted = prev
-        .filter(i => i.status === 'waiting')
-        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-      const next = sorted[0];
-      return prev.map(i => {
-        if (i.id === id) return { ...i, status: 'done' as StatusType, completedAt: new Date() };
-        if (next && i.id === next.id) {
-          calledItem = next;
-          return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
-        }
-        return i;
-      });
-    });
-    if (calledItem) {
-      addNotification(`Now serving: ${calledItem.number} - ${calledItem.name}`, 'success');
-      if (isSoundEnabled()) playServeSound();
+    try {
+      const result = await api.joinQueue(name);
+      lastJoinTime.current = Date.now();
+      setCooldownRemaining(10);
+      addNotification(`${result.number} - ${name} joined the queue`, 'info');
+      await fetchItems();
+      return mapItem(result);
+    } catch {
+      return null;
     }
-    return calledItem;
-  }, [addNotification]);
+  }, [addNotification, fetchItems]);
 
-  const skipItem = useCallback((id: string) => {
-    setItems(prev => prev.map(i =>
-      i.id === id ? { ...i, status: 'skipped' as StatusType } : i
-    ));
-    const item = items.find(i => i.id === id);
-    if (item) addNotification(`${item.number} - ${item.name} was skipped`, 'warning');
-  }, [items, addNotification]);
+  const callNext = useCallback(async (): Promise<QueueItem | null> => {
+    try {
+      const result = await api.callNext();
+      if (result) {
+        addNotification(`Now serving: ${result.number} - ${result.name}`, 'success');
+        if (isSoundEnabled()) playServeSound();
+        await fetchItems();
+        return mapItem(result);
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  }, [addNotification, isSoundEnabled, fetchItems]);
 
-  const recallItem = useCallback((id: string) => {
-    setItems(prev => prev.map(i => {
-      if (i.status === 'serving') return { ...i, status: 'done' as StatusType, completedAt: new Date() };
-      if (i.id === id) return { ...i, status: 'serving' as StatusType, calledAt: new Date() };
-      return i;
-    }));
-    const item = items.find(i => i.id === id);
-    if (item) addNotification(`${item.number} recalled to serve`, 'info');
-  }, [items, addNotification]);
+  const doneAndCallNext = useCallback(async (id: string): Promise<QueueItem | null> => {
+    try {
+      const result = await api.doneAndCallNext(id);
+      if (result) {
+        addNotification(`Now serving: ${result.number} - ${result.name}`, 'success');
+        if (isSoundEnabled()) playServeSound();
+      }
+      await fetchItems();
+      return result ? mapItem(result) : null;
+    } catch {
+      return null;
+    }
+  }, [addNotification, isSoundEnabled, fetchItems]);
 
-  const markDone = useCallback((id: string) => {
-    setItems(prev => prev.map(i =>
-      i.id === id ? { ...i, status: 'done' as StatusType, completedAt: new Date() } : i
-    ));
-  }, []);
+  const skipItem = useCallback(async (id: string) => {
+    try {
+      const item = items.find(i => i.id === id);
+      await api.skip(id);
+      if (item) addNotification(`${item.number} - ${item.name} was skipped`, 'warning');
+      await fetchItems();
+    } catch {}
+  }, [items, addNotification, fetchItems]);
 
-  const removeItem = useCallback((id: string) => {
-    setItems(prev => prev.filter(i => i.id !== id));
-  }, []);
+  const recallItem = useCallback(async (id: string) => {
+    try {
+      await api.recall(id);
+      const item = items.find(i => i.id === id);
+      if (item) addNotification(`${item.number} recalled to serve`, 'info');
+      await fetchItems();
+    } catch {}
+  }, [items, addNotification, fetchItems]);
 
-  const resetQueue = useCallback(() => {
-    setItems(prev => prev.map(i =>
-      i.status === 'waiting' || i.status === 'serving' || i.status === 'skipped'
-        ? { ...i, status: 'done' as StatusType, completedAt: new Date() }
-        : i
-    ));
-    addNotification('Queue has been reset', 'warning');
-  }, [addNotification]);
+  const markDone = useCallback(async (id: string) => {
+    try {
+      await api.markDone(id);
+      await fetchItems();
+    } catch {}
+  }, [fetchItems]);
 
-  const clearAll = useCallback(() => {
-    setItems([]);
-    setCounter(0);
-    addNotification('All queue data cleared', 'warning');
-  }, [addNotification]);
+  const removeItem = useCallback(async (id: string) => {
+    try {
+      await api.removeItem(id);
+      await fetchItems();
+    } catch {}
+  }, [fetchItems]);
+
+  const resetQueue = useCallback(async () => {
+    try {
+      await api.reset();
+      addNotification('Queue has been reset', 'warning');
+      await fetchItems();
+    } catch {}
+  }, [addNotification, fetchItems]);
+
+  const clearAll = useCallback(async () => {
+    try {
+      await api.clearAll();
+      addNotification('All queue data cleared', 'warning');
+      await fetchItems();
+    } catch {}
+  }, [addNotification, fetchItems]);
 
   const adminLogin = useCallback((username: string, password: string): boolean => {
     if (username === 'admin' && password === 'admin123') {
       setIsAdminLoggedIn(true);
-      try { localStorage.setItem('qs_admin', 'true'); } catch {}
+      try { sessionStorage.setItem('qs_admin', 'true'); } catch {}
       return true;
     }
     return false;
@@ -459,7 +332,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
 
   const adminLogout = useCallback(() => {
     setIsAdminLoggedIn(false);
-    try { localStorage.removeItem('qs_admin'); } catch {}
+    try { sessionStorage.removeItem('qs_admin'); } catch {}
   }, []);
 
   const dismissNotification = useCallback((id: string) => {
@@ -469,7 +342,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const toggleSound = useCallback(() => {
     setSoundEnabled(prev => {
       const next = !prev;
-      try { localStorage.setItem(SOUND_ENABLED_KEY, String(next)); } catch {}
+      api.updateSoundSetting(next).catch(() => {});
       return next;
     });
   }, []);
