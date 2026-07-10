@@ -8,7 +8,7 @@ vi.mock('react-router', async () => {
 });
 
 describe('App routing', () => {
-  it('renders JoinQueuePage on /', () => {
+  it('renders JoinQueuePage on /queue', () => {
     render(<App />);
     expect(screen.getByText('Join the Queue')).toBeInTheDocument();
   });
