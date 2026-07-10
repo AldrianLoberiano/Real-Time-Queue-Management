@@ -23,7 +23,9 @@ export function AdminLoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{
-      background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
+      backgroundImage: 'url(/header-bg.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
     }}>
 
       <div className="w-full max-w-sm mx-4 relative z-10">
