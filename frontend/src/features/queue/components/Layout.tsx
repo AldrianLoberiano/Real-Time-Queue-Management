@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router';
 import { Monitor, Menu, X, Bell, BellOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
+import { BploLogo } from '../../../components/BploLogo';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -23,10 +24,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             <Link to="/display" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                <Monitor size={16} className="text-white" />
-              </div>
-              <span className="font-semibold text-white text-sm tracking-wide">QueueSmart</span>
+              <BploLogo size={32} className="rounded-full" />
+              <span className="font-semibold text-white text-sm tracking-wide">BPLO Queue</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
