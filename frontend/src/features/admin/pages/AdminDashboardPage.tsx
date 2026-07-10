@@ -325,7 +325,7 @@ export function AdminDashboardPage() {
         onCancel={() => { setShowSkip(false); setSkipTarget(null); }}
       />
       <ConfirmModal
-        open={showRecall}
+        open={(showRecall || !!recallTarget) && !!recallTarget}
         title="Recall Customer"
         message={`Recall ${recallTarget?.number}? They will be moved to serving.`}
         confirmLabel="Recall"
@@ -341,15 +341,6 @@ export function AdminDashboardPage() {
         variant="danger"
         onConfirm={() => { if (currentlyServing) removeItem(currentlyServing.id); }}
         onCancel={() => setShowRemove(false)}
-      />
-      <ConfirmModal
-        open={!!recallTarget}
-        title="Recall Customer"
-        message={`Recall ${recallTarget?.number}? They will be moved to serving.`}
-        confirmLabel="Recall"
-        variant="warning"
-        onConfirm={() => { if (recallTarget) recallItem(recallTarget.id); setRecallTarget(null); }}
-        onCancel={() => setRecallTarget(null)}
       />
       <ConfirmModal
         open={showReset}
