@@ -235,7 +235,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     try {
       const result = await api.joinQueue(name);
       lastJoinTime.current = Date.now();
-      setCooldownRemaining(10);
+      setCooldownRemaining(Math.ceil(JOIN_COOLDOWN_MS / 1000));
       addNotification(`${result.number} - ${name} joined the queue`, 'info');
       await fetchItems();
       return mapItem(result);
