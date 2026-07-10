@@ -1,8 +1,47 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { QueueProvider } from '../features/queue/QueueContext';
 import { JoinQueuePage } from '../features/queue/pages/JoinQueuePage';
+
+vi.mock('../api', () => {
+  let counter = 0;
+  const items: any[] = [];
+  return {
+    api: {
+      getItems: vi.fn(async () => items),
+      getCounter: vi.fn(async () => ({ counter })),
+      getSoundSetting: vi.fn(async () => ({ enabled: true })),
+      updateSoundSetting: vi.fn(async () => ({ success: true })),
+      joinQueue: vi.fn(async (name: string) => {
+        counter++;
+        const item = {
+          id: `id-${counter}`,
+          number: `A-${String(counter).padStart(3, '0')}`,
+          name,
+          status: 'waiting',
+          created_at: new Date().toISOString(),
+          called_at: null,
+          completed_at: null,
+        };
+        items.push(item);
+        return item;
+      }),
+      callNext: vi.fn(async () => null),
+      doneAndCallNext: vi.fn(async () => null),
+      markDone: vi.fn(async () => ({ success: true })),
+      skip: vi.fn(async () => ({ success: true })),
+      recall: vi.fn(async () => ({ success: true })),
+      removeItem: vi.fn(async () => ({ success: true })),
+      reset: vi.fn(async () => ({ success: true })),
+      clearAll: vi.fn(async () => {
+        items.length = 0;
+        counter = 0;
+        return { success: true };
+      }),
+    },
+  };
+});
 
 function renderJoinPage() {
   return render(
@@ -49,20 +88,26 @@ describe('JoinQueuePage', () => {
     expect(input).toHaveValue('Alice');
   });
 
-  it('can join queue with name', () => {
+  it('can join queue with name', async () => {
     renderJoinPage();
     const input = screen.getByPlaceholderText(/juan dela cruz/i);
     fireEvent.change(input, { target: { value: 'Alice' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
-    expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
-    expect(screen.getByText('A-001')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("You're in the Queue")).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(screen.getByText('A-001')).toBeInTheDocument();
+    });
   });
 
-  it('shows view display screen button after joining', () => {
+  it('shows view display screen button after joining', async () => {
     renderJoinPage();
     const input = screen.getByPlaceholderText(/juan dela cruz/i);
     fireEvent.change(input, { target: { value: 'Alice' } });
     fireEvent.click(screen.getByRole('button', { name: /join queue/i }));
-    expect(screen.getByText('View Display')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('View Display')).toBeInTheDocument();
+    });
   });
 });
