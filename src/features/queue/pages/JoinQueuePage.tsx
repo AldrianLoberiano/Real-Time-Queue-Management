@@ -10,9 +10,9 @@ export function JoinQueuePage() {
   const [name, setName] = useState('');
   const [joined, setJoined] = useState<{ number: string } | null>(null);
 
-  const handleJoin = () => {
+  const handleJoin = async () => {
     if (!name.trim() || cooldownRemaining > 0) return;
-    const item = joinQueue(name.trim());
+    const item = await joinQueue(name.trim());
     if (item) setJoined({ number: item.number });
   };
 
