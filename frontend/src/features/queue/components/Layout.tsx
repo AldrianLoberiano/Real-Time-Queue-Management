@@ -154,7 +154,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="fixed bottom-0 right-0 px-4 py-2 text-gray-400 text-[10px]">
-        <p>2026 QueueSmart - Real-Time Queue Management</p>
+        <p>2026 BPLO Queue - Real-Time Queue Management</p>
       </footer>
     </div>
   );
