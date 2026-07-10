@@ -23,7 +23,7 @@ describe('QueueContext', () => {
   });
 
   function joinAs(name: string) {
-    act(() => { vi.advanceTimersByTime(5100); });
+    act(() => { vi.advanceTimersByTime(8100); });
     act(() => { result!.current.joinQueue(name); });
   }
 
@@ -42,7 +42,7 @@ describe('QueueContext', () => {
     result = r.result;
     let newItem: any;
     act(() => {
-      vi.advanceTimersByTime(5100);
+      vi.advanceTimersByTime(8100);
       newItem = result.current.joinQueue('Alice');
     });
     expect(newItem.name).toBe('Alice');
@@ -55,8 +55,8 @@ describe('QueueContext', () => {
   it('joinQueue increments counter', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
     expect(result.current.counter).toBe(2);
     expect(result.current.items[0].number).toBe('A-001');
     expect(result.current.items[1].number).toBe('A-002');
@@ -65,8 +65,8 @@ describe('QueueContext', () => {
   it('callNext serves the first waiting item', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
     let served: any;
     act(() => { served = result.current.callNext(); });
     expect(served.name).toBe('Alice');
@@ -85,8 +85,8 @@ describe('QueueContext', () => {
   it('callNext marks previous serving as done', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
     expect(result.current.doneItems.length).toBe(1);
@@ -96,7 +96,7 @@ describe('QueueContext', () => {
   it('skipItem marks item as skipped', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.skipItem(id); });
     expect(result.current.skippedItems.length).toBe(1);
@@ -106,7 +106,7 @@ describe('QueueContext', () => {
   it('recallItem brings skipped item back to serving', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.skipItem(id); });
     act(() => { result.current.recallItem(id); });
@@ -117,7 +117,7 @@ describe('QueueContext', () => {
   it('markDone marks serving item as done', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.callNext(); });
     const id = result.current.items[0].id;
     act(() => { result.current.markDone(id); });
@@ -128,7 +128,7 @@ describe('QueueContext', () => {
   it('removeItem removes item from queue', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.removeItem(id); });
     expect(result.current.items.length).toBe(0);
@@ -137,8 +137,8 @@ describe('QueueContext', () => {
   it('resetQueue marks all waiting/skipped as done', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
     act(() => { result.current.resetQueue(); });
     expect(result.current.doneItems.length).toBe(2);
     expect(result.current.waitingItems.length).toBe(0);
@@ -147,7 +147,7 @@ describe('QueueContext', () => {
   it('clearAll empties the queue', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.clearAll(); });
     expect(result.current.items.length).toBe(0);
     expect(result.current.counter).toBe(0);
@@ -182,7 +182,7 @@ describe('QueueContext', () => {
   it('getPosition returns 0 for non-waiting items', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.callNext(); });
     const id = result.current.items[0].id;
     expect(result.current.getPosition(id)).toBe(0);
@@ -191,9 +191,9 @@ describe('QueueContext', () => {
   it('getPosition returns correct position for waiting items', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Charlie'); }); });
     const bobId = result.current.items[1].id;
     expect(result.current.getPosition(bobId)).toBe(2);
   });
@@ -201,8 +201,8 @@ describe('QueueContext', () => {
   it('getEstimatedWait returns correct estimate', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
     const bobId = result.current.items[1].id;
     expect(result.current.getEstimatedWait(bobId)).toBe(6);
   });
@@ -210,7 +210,7 @@ describe('QueueContext', () => {
   it('notifications are added and dismissed', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
     expect(result.current.notifications.length).toBe(1);
     const notifId = result.current.notifications[0].id;
     act(() => { result.current.dismissNotification(notifId); });
@@ -220,9 +220,9 @@ describe('QueueContext', () => {
   it('waitingItems are sorted by arrival time (FIFO)', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Charlie'); }); });
     expect(result.current.waitingItems[0].name).toBe('Alice');
     expect(result.current.waitingItems[1].name).toBe('Bob');
     expect(result.current.waitingItems[2].name).toBe('Charlie');
@@ -231,9 +231,9 @@ describe('QueueContext', () => {
   it('doneItems are sorted by completion time (newest first)', () => {
     const r = renderHook(() => useQueue(), { wrapper });
     result = r.result;
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
-    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(8100); act(() => { result.current.joinQueue('Charlie'); }); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
