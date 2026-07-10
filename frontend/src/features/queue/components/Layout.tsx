@@ -11,7 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [showNotifs, setShowNotifs] = useState(false);
 
   const navLinks = [
-    { href: '/display', label: 'Display', icon: Monitor },
+    { href: '/display-screen', label: 'Display', icon: Monitor },
   ];
 
   return (
@@ -24,7 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
-            <Link to="/display" className="flex items-center gap-2">
+            <Link to="/display-screen" className="flex items-center gap-2">
               <img src="/bplo-logo.png" alt="BPLO Logo" className="w-8 h-8 rounded-full object-cover" />
               <span className="font-semibold text-white text-sm tracking-wide">BPLO Queue</span>
             </Link>
