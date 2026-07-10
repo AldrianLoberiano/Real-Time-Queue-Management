@@ -1,8 +1,9 @@
 import { Layout } from '../components/Layout';
 import { useQueue } from '../QueueContext';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export function DisplayScreenPage() {
-  const { currentlyServing, waitingItems, doneItems } = useQueue();
+  const { currentlyServing, waitingItems, doneItems, soundEnabled, toggleSound } = useQueue();
 
   return (
     <Layout>
@@ -12,12 +13,21 @@ export function DisplayScreenPage() {
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="px-6 py-3 border-b border-gray-100 flex items-center justify-between">
               <h2 className="font-semibold text-gray-800 text-sm uppercase tracking-wider">Now Serving</h2>
-              {currentlyServing && (
-                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Live
-                </span>
-              )}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={toggleSound}
+                  className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors"
+                  title={soundEnabled ? 'Mute sound' : 'Enable sound'}
+                >
+                  {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                </button>
+                {currentlyServing && (
+                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-medium">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    Live
+                  </span>
+                )}
+              </div>
             </div>
             <div className="py-12 px-6">
               {currentlyServing ? (
