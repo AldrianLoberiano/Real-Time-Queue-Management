@@ -21,6 +21,7 @@ export function AdminDashboardPage() {
   const [showDone, setShowDone] = useState(false);
   const [showDoneCallNext, setShowDoneCallNext] = useState(false);
   const [showSkip, setShowSkip] = useState(false);
+  const [skipTarget, setSkipTarget] = useState<{ id: string; number: string } | null>(null);
   const [showRecall, setShowRecall] = useState(false);
   const [showRemove, setShowRemove] = useState(false);
   const [showReset, setShowReset] = useState(false);
@@ -166,7 +167,7 @@ export function AdminDashboardPage() {
                         Done
                       </button>
                       <button
-                        onClick={() => setShowSkip(true)}
+                        onClick={() => { if (currentlyServing) { setSkipTarget({ id: currentlyServing.id, number: currentlyServing.number }); setShowSkip(true); } }}
                         className="py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                       >
                         <SkipForward size={13} />
@@ -279,6 +280,14 @@ export function AdminDashboardPage() {
                       </p>
                     </div>
                     <StatusBadge status={item.status} size="sm" />
+                    {item.status === 'waiting' && (
+                      <button
+                        onClick={() => setSkipTarget({ id: item.id, number: item.number })}
+                        className="ml-2 px-2 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-600 text-[11px] font-medium transition-colors"
+                      >
+                        Skip
+                      </button>
+                    )}
                     {item.status === 'skipped' && (
                       <button
                         onClick={() => setRecallTarget({ id: item.id, number: item.number })}
@@ -316,11 +325,11 @@ export function AdminDashboardPage() {
       <ConfirmModal
         open={showSkip}
         title="Skip Customer"
-        message={`Skip ${currentlyServing?.number}? They will be moved to the skipped list.`}
+        message={`Skip ${skipTarget?.number}? They will be moved to the skipped list.`}
         confirmLabel="Skip"
         variant="warning"
-        onConfirm={() => { if (currentlyServing) skipItem(currentlyServing.id); }}
-        onCancel={() => setShowSkip(false)}
+        onConfirm={() => { if (skipTarget) { skipItem(skipTarget.id); setSkipTarget(null); } }}
+        onCancel={() => { setShowSkip(false); setSkipTarget(null); }}
       />
       <ConfirmModal
         open={showRecall}
