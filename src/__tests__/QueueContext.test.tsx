@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
 import { QueueProvider, useQueue } from '../features/queue/QueueContext';
@@ -13,21 +13,36 @@ describe('QueueContext', () => {
   let wrapper: ReturnType<typeof createWrapper>;
 
   beforeEach(() => {
+    vi.useFakeTimers();
     localStorage.clear();
     wrapper = createWrapper();
   });
 
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  function joinAs(name: string) {
+    act(() => { vi.advanceTimersByTime(5100); });
+    act(() => { result!.current.joinQueue(name); });
+  }
+
+  let result: ReturnType<typeof renderHook>['result'];
+
   it('provides initial state', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     expect(result.current.items).toEqual([]);
     expect(result.current.counter).toBe(0);
     expect(result.current.isAdminLoggedIn).toBe(false);
   });
 
   it('joinQueue adds a new item', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     let newItem: any;
     act(() => {
+      vi.advanceTimersByTime(5100);
       newItem = result.current.joinQueue('Alice');
     });
     expect(newItem.name).toBe('Alice');
@@ -38,18 +53,20 @@ describe('QueueContext', () => {
   });
 
   it('joinQueue increments counter', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
     expect(result.current.counter).toBe(2);
     expect(result.current.items[0].number).toBe('A-001');
     expect(result.current.items[1].number).toBe('A-002');
   });
 
   it('callNext serves the first waiting item', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
     let served: any;
     act(() => { served = result.current.callNext(); });
     expect(served.name).toBe('Alice');
@@ -58,16 +75,18 @@ describe('QueueContext', () => {
   });
 
   it('callNext returns null when queue is empty', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     let served: any;
     act(() => { served = result.current.callNext(); });
     expect(served).toBeNull();
   });
 
   it('callNext marks previous serving as done', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
     expect(result.current.doneItems.length).toBe(1);
@@ -75,8 +94,9 @@ describe('QueueContext', () => {
   });
 
   it('skipItem marks item as skipped', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.skipItem(id); });
     expect(result.current.skippedItems.length).toBe(1);
@@ -84,8 +104,9 @@ describe('QueueContext', () => {
   });
 
   it('recallItem brings skipped item back to serving', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.skipItem(id); });
     act(() => { result.current.recallItem(id); });
@@ -94,8 +115,9 @@ describe('QueueContext', () => {
   });
 
   it('markDone marks serving item as done', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.callNext(); });
     const id = result.current.items[0].id;
     act(() => { result.current.markDone(id); });
@@ -104,32 +126,36 @@ describe('QueueContext', () => {
   });
 
   it('removeItem removes item from queue', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     const id = result.current.items[0].id;
     act(() => { result.current.removeItem(id); });
     expect(result.current.items.length).toBe(0);
   });
 
   it('resetQueue marks all waiting/skipped as done', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
     act(() => { result.current.resetQueue(); });
     expect(result.current.doneItems.length).toBe(2);
     expect(result.current.waitingItems.length).toBe(0);
   });
 
   it('clearAll empties the queue', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.clearAll(); });
     expect(result.current.items.length).toBe(0);
     expect(result.current.counter).toBe(0);
   });
 
   it('adminLogin succeeds with correct credentials', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     let success: boolean = false;
     act(() => { success = result.current.adminLogin('admin', 'admin123'); });
     expect(success).toBe(true);
@@ -137,7 +163,8 @@ describe('QueueContext', () => {
   });
 
   it('adminLogin fails with wrong credentials', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     let success: boolean = true;
     act(() => { success = result.current.adminLogin('wrong', 'wrong'); });
     expect(success).toBe(false);
@@ -145,40 +172,45 @@ describe('QueueContext', () => {
   });
 
   it('adminLogout clears login state', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
     act(() => { result.current.adminLogin('admin', 'admin123'); });
     act(() => { result.current.adminLogout(); });
     expect(result.current.isAdminLoggedIn).toBe(false);
   });
 
   it('getPosition returns 0 for non-waiting items', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     act(() => { result.current.callNext(); });
     const id = result.current.items[0].id;
     expect(result.current.getPosition(id)).toBe(0);
   });
 
   it('getPosition returns correct position for waiting items', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
-    act(() => { result.current.joinQueue('Charlie'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
     const bobId = result.current.items[1].id;
     expect(result.current.getPosition(bobId)).toBe(2);
   });
 
   it('getEstimatedWait returns correct estimate', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
     const bobId = result.current.items[1].id;
     expect(result.current.getEstimatedWait(bobId)).toBe(6);
   });
 
   it('notifications are added and dismissed', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
     expect(result.current.notifications.length).toBe(1);
     const notifId = result.current.notifications[0].id;
     act(() => { result.current.dismissNotification(notifId); });
@@ -186,20 +218,22 @@ describe('QueueContext', () => {
   });
 
   it('waitingItems are sorted by arrival time (FIFO)', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
-    act(() => { result.current.joinQueue('Charlie'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
     expect(result.current.waitingItems[0].name).toBe('Alice');
     expect(result.current.waitingItems[1].name).toBe('Bob');
     expect(result.current.waitingItems[2].name).toBe('Charlie');
   });
 
   it('doneItems are sorted by completion time (newest first)', () => {
-    const { result } = renderHook(() => useQueue(), { wrapper });
-    act(() => { result.current.joinQueue('Alice'); });
-    act(() => { result.current.joinQueue('Bob'); });
-    act(() => { result.current.joinQueue('Charlie'); });
+    const r = renderHook(() => useQueue(), { wrapper });
+    result = r.result;
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Alice'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Bob'); }); });
+    act(() => { vi.advanceTimersByTime(5100); act(() => { result.current.joinQueue('Charlie'); }); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
     act(() => { result.current.callNext(); });
