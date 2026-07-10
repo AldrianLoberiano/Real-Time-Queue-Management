@@ -17,7 +17,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="sticky top-0 z-40" style={{
-        background: 'linear-gradient(135deg, rgba(168, 38, 120, 0.5) 0%, transparent 25%), linear-gradient(135deg, transparent 45%, rgba(88, 28, 135, 0.35) 45%, rgba(88, 28, 135, 0.35) 60%, transparent 60%), linear-gradient(135deg, #0d0118 0%, #1a0533 30%, #2d1065 60%, #1a0533 100%)',
+        backgroundImage: 'url(/header-bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
