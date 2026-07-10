@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, RefreshCw, Trash2,
   PlayCircle, Clock, RotateCcw, UserCheck, AlertTriangle,
+  Volume2, VolumeX,
 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { ConfirmModal } from '../components/ConfirmModal';
@@ -13,6 +14,7 @@ export function AdminDashboardPage() {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
     resetQueue, clearAll, totalServedToday, avgServiceTime,
+    soundEnabled, toggleSound,
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
@@ -43,14 +45,23 @@ export function AdminDashboardPage() {
         {/* Stats Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                <Users size={18} className="text-blue-500" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+                  <Users size={18} className="text-blue-500" />
+                </div>
+                <div>
+                  <p className="text-gray-400 text-[11px] font-medium uppercase tracking-wider">Waiting</p>
+                  <p className="text-gray-900 text-xl font-bold">{waitingItems.length}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-gray-400 text-[11px] font-medium uppercase tracking-wider">Waiting</p>
-                <p className="text-gray-900 text-xl font-bold">{waitingItems.length}</p>
-              </div>
+              <button
+                onClick={toggleSound}
+                className="p-2 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors"
+                title={soundEnabled ? 'Mute sound' : 'Enable sound'}
+              >
+                {soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+              </button>
             </div>
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
