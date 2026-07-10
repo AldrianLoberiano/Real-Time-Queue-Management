@@ -36,6 +36,13 @@ export function AdminDashboardPage() {
     ...doneItems,
   ];
 
+  useEffect(() => {
+    if (waitingItems.length >= 15 && lastAlertCount.current < 15) {
+      setShowLimitAlert(true);
+    }
+    lastAlertCount.current = waitingItems.length;
+  }, [waitingItems.length]);
+
   const filtered = filter === 'all' ? allItems
     : filter === 'waiting' ? [...waitingItems, ...(currentlyServing ? [currentlyServing] : [])]
     : filter === 'done' ? doneItems
@@ -102,7 +109,7 @@ export function AdminDashboardPage() {
         </div>
 
         {/* Queue Full Alert */}
-        {waitingItems.length >= 5 && (
+        {waitingItems.length >= 15 && (
           <div className="flex items-center gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl">
             <AlertTriangle size={18} className="text-amber-500 shrink-0" />
             <p className="text-amber-700 text-sm font-medium">
@@ -376,6 +383,15 @@ export function AdminDashboardPage() {
         variant="danger"
         onConfirm={clearAll}
         onCancel={() => setShowClear(false)}
+      />
+      <ConfirmModal
+        open={showLimitAlert}
+        title="Queue Limit Reached"
+        message={`The queue has reached ${waitingItems.length} waiting customers. Consider calling the next customer.`}
+        confirmLabel="OK"
+        variant="warning"
+        onConfirm={() => setShowLimitAlert(false)}
+        onCancel={() => setShowLimitAlert(false)}
       />
     </AdminLayout>
   );
