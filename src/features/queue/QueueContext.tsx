@@ -21,7 +21,7 @@ export interface HourlyData {
 interface QueueContextType {
   items: QueueItem[];
   counter: number;
-  joinQueue: (name: string) => QueueItem;
+  joinQueue: (name: string) => QueueItem | null;
   callNext: () => QueueItem | null;
   skipItem: (id: string) => void;
   recallItem: (id: string) => void;
@@ -45,6 +45,7 @@ interface QueueContextType {
   dismissNotification: (id: string) => void;
   soundEnabled: boolean;
   toggleSound: () => void;
+  cooldownRemaining: number;
 }
 
 interface Notification {
@@ -62,6 +63,7 @@ const RESET_HOUR = 8; // 8:00 AM
 const INACTIVITY_MS = 24 * 60 * 60 * 1000; // 24 hours
 const POLL_INTERVAL = 500;
 const SOUND_ENABLED_KEY = 'qs_sound_enabled';
+const JOIN_COOLDOWN_MS = 5000;
 
 function playServeSound() {
   try {
@@ -200,8 +202,10 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   const [soundEnabled, setSoundEnabled] = useState(isSoundEnabled);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const [items, setItems] = useState<QueueItem[]>(initialState.items);
+  const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const isInitialMount = useRef(true);
   const lastHash = useRef(getStorageHash());
+  const lastJoinTime = useRef(0);
 
   // Update activity timestamp on mount if queue has items
   useEffect(() => {
@@ -234,6 +238,17 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       setNotifications(prev => prev.filter(n => n.id !== notif.id));
     }, 5000);
   }, []);
+
+  useEffect(() => {
+    if (cooldownRemaining <= 0) return;
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - lastJoinTime.current;
+      const remaining = Math.max(0, Math.ceil((JOIN_COOLDOWN_MS - elapsed) / 1000));
+      setCooldownRemaining(remaining);
+      if (remaining <= 0) clearInterval(timer);
+    }, 100);
+    return () => clearInterval(timer);
+  }, [cooldownRemaining > 0]);
 
   const syncFromStorage = useCallback(() => {
     const currentHash = getStorageHash();
@@ -326,7 +341,11 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     return pos * AVG_SERVICE_MINS;
   }, [getPosition]);
 
-  const joinQueue = useCallback((name: string): QueueItem => {
+  const joinQueue = useCallback((name: string): QueueItem | null => {
+    const now = Date.now();
+    if (now - lastJoinTime.current < JOIN_COOLDOWN_MS) return null;
+    lastJoinTime.current = now;
+    setCooldownRemaining(5);
     const newCounter = counter + 1;
     setCounter(newCounter);
     const newItem: QueueItem = {
@@ -455,6 +474,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       dismissNotification,
       soundEnabled,
       toggleSound,
+      cooldownRemaining,
     }}>
       {children}
     </QueueContext.Provider>
