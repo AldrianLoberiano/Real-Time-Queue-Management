@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
+import { BploLogo } from '../../../components/BploLogo';
 
 const NAV_ITEMS = [
   { href: '/queue', label: 'Join Queue', icon: Users, exact: true },
@@ -24,12 +25,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-col h-full">
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-            <Users size={16} className="text-white" />
-          </div>
+          <BploLogo size={40} className="rounded-full" />
           <div>
-            <p className="text-white font-semibold text-sm leading-none">QueueSmart</p>
-            <p className="text-white/50 text-[11px]">Queue View</p>
+            <p className="text-white font-semibold text-sm leading-none">BPLO Queue</p>
+            <p className="text-white/50 text-[11px]">Business Permit & Licensing Office</p>
           </div>
         </div>
       </div>
