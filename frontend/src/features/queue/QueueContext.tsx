@@ -59,7 +59,7 @@ interface Notification {
 
 const AVG_SERVICE_MINS = 3;
 const POLL_INTERVAL = 2000;
-const JOIN_COOLDOWN_MS = 10000;
+const JOIN_COOLDOWN_MS = 5000;
 
 function playServeSound() {
   try {
