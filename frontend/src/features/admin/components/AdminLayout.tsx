@@ -73,7 +73,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
 
         <div className="pt-2 mt-2 border-t border-white/10">
           <Link
-            to="/"
+            to="/queue"
             onClick={() => setSidebarOpen(false)}
             className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors text-sm"
           >
@@ -81,7 +81,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <span>Queue View</span>
           </Link>
           <Link
-            to="/display"
+            to="/display-screen"
             onClick={() => setSidebarOpen(false)}
             className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors text-sm"
           >
