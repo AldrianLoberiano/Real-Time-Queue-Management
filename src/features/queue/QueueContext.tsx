@@ -63,7 +63,7 @@ const RESET_HOUR = 8; // 8:00 AM
 const INACTIVITY_MS = 24 * 60 * 60 * 1000; // 24 hours
 const POLL_INTERVAL = 500;
 const SOUND_ENABLED_KEY = 'qs_sound_enabled';
-const JOIN_COOLDOWN_MS = 8000;
+const JOIN_COOLDOWN_MS = 10000;
 
 function playServeSound() {
   try {
@@ -349,7 +349,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     const now = Date.now();
     if (now - lastJoinTime.current < JOIN_COOLDOWN_MS) return null;
     lastJoinTime.current = now;
-    setCooldownRemaining(8);
+    setCooldownRemaining(10);
     const newCounter = counter + 1;
     setCounter(newCounter);
     const newItem: QueueItem = {
