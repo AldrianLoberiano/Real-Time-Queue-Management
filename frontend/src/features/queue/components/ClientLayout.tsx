@@ -124,7 +124,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               </button>
               <div>
                 <h1 className="text-white font-semibold text-sm">
-                  {NAV_ITEMS.find(n => isActive(n.href, n.exact))?.label ?? 'QueueSmart'}
+                  {NAV_ITEMS.find(n => isActive(n.href, n.exact))?.label ?? 'BPLO Queue'}
                 </h1>
                 <p className="text-white/40 text-[11px]">
                   {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
