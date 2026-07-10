@@ -36,13 +36,6 @@ export function AdminDashboardPage() {
     ...doneItems,
   ];
 
-  useEffect(() => {
-    if (waitingItems.length >= 15 && lastAlertCount.current < 15) {
-      setShowLimitAlert(true);
-    }
-    lastAlertCount.current = waitingItems.length;
-  }, [waitingItems.length]);
-
   const filtered = filter === 'all' ? allItems
     : filter === 'waiting' ? [...waitingItems, ...(currentlyServing ? [currentlyServing] : [])]
     : filter === 'done' ? doneItems
@@ -288,14 +281,6 @@ export function AdminDashboardPage() {
                       </p>
                     </div>
                     <StatusBadge status={item.status} size="sm" />
-                    {item.status === 'waiting' && (
-                      <button
-                        onClick={() => setSkipTarget({ id: item.id, number: item.number })}
-                        className="ml-2 px-2 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-600 text-[11px] font-medium transition-colors"
-                      >
-                        Skip
-                      </button>
-                    )}
                     {item.status === 'skipped' && (
                       <button
                         onClick={() => setRecallTarget({ id: item.id, number: item.number })}
@@ -383,15 +368,6 @@ export function AdminDashboardPage() {
         variant="danger"
         onConfirm={clearAll}
         onCancel={() => setShowClear(false)}
-      />
-      <ConfirmModal
-        open={showLimitAlert}
-        title="Queue Limit Reached"
-        message={`The queue has reached ${waitingItems.length} waiting customers. Consider calling the next customer.`}
-        confirmLabel="OK"
-        variant="warning"
-        onConfirm={() => setShowLimitAlert(false)}
-        onCancel={() => setShowLimitAlert(false)}
       />
     </AdminLayout>
   );
