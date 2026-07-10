@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../../queue/QueueContext';
-import { BploLogo } from '../../../components/BploLogo';
 
 const NAV_ITEMS = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
@@ -30,7 +29,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-col h-full">
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-2.5">
-          <BploLogo size={40} className="rounded-full" />
+          <img src="/bplo-logo.png" alt="BPLO Logo" className="w-10 h-10 rounded-full object-cover" />
           <div>
             <p className="text-white font-semibold text-sm leading-none">BPLO Queue</p>
             <p className="text-white/50 text-[11px]">Admin Panel</p>
