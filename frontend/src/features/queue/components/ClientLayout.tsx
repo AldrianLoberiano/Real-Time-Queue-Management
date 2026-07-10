@@ -109,7 +109,9 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
 
       <div className="flex-1 flex flex-col min-w-0">
         <header className="sticky top-0 z-30" style={{
-          background: 'linear-gradient(135deg, #1a0533 0%, #2d1065 40%, #581c87 70%, #7c3aed 100%)',
+          backgroundImage: 'url(/header-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}>
 
           <div className="relative px-5 py-3 flex items-center justify-between">
