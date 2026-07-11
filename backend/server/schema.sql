@@ -28,5 +28,8 @@ CREATE TABLE IF NOT EXISTS settings (
 INSERT INTO settings (key_name, value) VALUES ('sound_enabled', 'true')
 ON DUPLICATE KEY UPDATE value = value;
 
+INSERT INTO settings (key_name, value) VALUES ('lunch_break', 'false')
+ON DUPLICATE KEY UPDATE value = value;
+
 CREATE INDEX idx_queue_status ON queue_items(status);
 CREATE INDEX idx_queue_created ON queue_items(created_at);
