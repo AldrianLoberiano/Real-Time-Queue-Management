@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import {
-  Users, Monitor, Menu, X, Bell, BellOff, ChevronRight,
+  Users, Monitor, Menu, X, ChevronRight,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
@@ -13,9 +13,8 @@ const NAV_ITEMS = [
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const { notifications, dismissNotification, waitingItems, currentlyServing } = useQueue();
+  const { waitingItems, currentlyServing } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showNotifs, setShowNotifs] = useState(false);
 
   const isActive = (href: string, exact: boolean) =>
     exact ? location.pathname === href : location.pathname.startsWith(href);
@@ -142,57 +141,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
                 <span>{waitingItems.length} waiting</span>
               </div>
 
-              <div className="relative">
-                <button
-                  onClick={() => setShowNotifs(!showNotifs)}
-                  className="relative p-1.5 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors"
-                >
-                  {notifications.length > 0 ? <Bell size={16} /> : <BellOff size={16} />}
-                  {notifications.length > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] rounded-full flex items-center justify-center font-medium">
-                      {notifications.length}
-                    </span>
-                  )}
-                </button>
-                <AnimatePresence>
-                  {showNotifs && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      className="absolute right-0 top-10 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
-                    >
-                      <div className="px-4 py-2.5 border-b border-gray-100 flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-700">Notifications</span>
-                        <button onClick={() => setShowNotifs(false)} className="text-gray-400 hover:text-gray-600">
-                          <X size={14} />
-                        </button>
-                      </div>
-                      <div className="max-h-64 overflow-y-auto">
-                        {notifications.length === 0 ? (
-                          <p className="text-center text-gray-400 text-sm py-8">No notifications</p>
-                        ) : (
-                          notifications.map(n => (
-                            <div key={n.id} className={`flex items-start gap-3 px-4 py-2.5 border-b border-gray-50 ${
-                              n.type === 'success' ? 'border-l-2 border-l-emerald-400' :
-                              n.type === 'warning' ? 'border-l-2 border-l-amber-400' :
-                              'border-l-2 border-l-violet-400'
-                            }`}>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm text-gray-700 truncate">{n.message}</p>
-                                <p className="text-xs text-gray-400 mt-0.5">{n.timestamp.toLocaleTimeString()}</p>
-                              </div>
-                              <button onClick={() => dismissNotification(n.id)} className="text-gray-300 hover:text-gray-500 shrink-0">
-                                <X size={12} />
-                              </button>
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+
             </div>
           </div>
         </header>
