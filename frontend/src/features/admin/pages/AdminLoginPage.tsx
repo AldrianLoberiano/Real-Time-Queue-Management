@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import { useQueue } from '../../queue/QueueContext';
@@ -10,11 +10,15 @@ export function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (adminLogin(username, password)) {
+    setLoading(true);
+    const success = await adminLogin(username, password);
+    setLoading(false);
+    if (success) {
       navigate('/admin');
     } else {
       setError('Invalid credentials');
@@ -76,9 +80,10 @@ export function AdminLoginPage() {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-white text-gray-900 text-sm font-semibold hover:bg-white/90 transition-colors"
+              disabled={loading}
+              className="w-full py-2.5 rounded-lg bg-white text-gray-900 text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-50"
             >
-              Sign In
+              {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
         </div>
