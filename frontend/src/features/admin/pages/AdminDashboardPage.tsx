@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, Trash2, RefreshCw,
-  PlayCircle, Clock, UserCheck, AlertTriangle, Coffee,
+  PlayCircle, Clock, UserCheck, AlertTriangle,
 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { ConfirmModal } from '../components/ConfirmModal';
