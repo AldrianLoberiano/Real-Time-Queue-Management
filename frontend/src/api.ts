@@ -83,4 +83,10 @@ export const api = {
       method: 'PUT',
       body: JSON.stringify({ enabled }),
     }),
+
+  adminLogin: (username: string, password: string) =>
+    request<{ success: boolean }>('/api/admin/login', {
+      method: 'POST',
+      body: JSON.stringify({ username, password }),
+    }),
 };
