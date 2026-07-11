@@ -132,7 +132,7 @@ export function AdminDashboardPage() {
             </button>
 
             {/* Currently Serving Card */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
               <div className="px-5 py-4 border-b border-gray-50 flex items-center justify-between">
                 <h2 className="font-bold text-gray-800 text-sm">Currently Serving</h2>
                 {currentlyServing && (
