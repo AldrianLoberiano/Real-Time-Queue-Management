@@ -6,7 +6,7 @@ import { ClientLayout } from '../components/ClientLayout';
 import { useQueue } from '../QueueContext';
 
 export function JoinQueuePage() {
-  const { joinQueue, waitingItems, currentlyServing, avgServiceTime, cooldownRemaining } = useQueue();
+  const { joinQueue, waitingItems, currentlyServing, avgServiceTime, cooldownRemaining, lunchBreak } = useQueue();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [joined, setJoined] = useState<{ number: string } | null>(null);
@@ -23,7 +23,7 @@ export function JoinQueuePage() {
   }, [waitingItems.length, queueFull]);
 
   const handleJoin = async () => {
-    if (!name.trim() || cooldownRemaining > 0) return;
+    if (!name.trim() || cooldownRemaining > 0 || lunchBreak) return;
     const item = await joinQueue(name.trim());
     if (item) setJoined({ number: item.number });
   };
@@ -31,10 +31,20 @@ export function JoinQueuePage() {
   return (
     <ClientLayout>
       <div className="max-w-2xl mx-auto px-4 py-10">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-1">Join the Queue</h1>
-          <p className="text-gray-500 text-sm">Enter your name to get a queue number</p>
-        </div>
+        {lunchBreak ? (
+          <div className="bg-amber-50 border border-amber-200/60 rounded-2xl py-12 px-4 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-4">
+              <AlertTriangle size={32} className="text-amber-600" />
+            </div>
+            <p className="text-amber-800 text-2xl font-bold mb-2">On Lunch Break</p>
+            <p className="text-amber-600 text-base">Queue is paused. Please try again later.</p>
+          </div>
+        ) : (
+          <>
+            <div className="text-center mb-8">
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">Join the Queue</h1>
+              <p className="text-gray-500 text-sm">Enter your name to get a queue number</p>
+            </div>
 
         <div className="grid grid-cols-3 gap-3 mb-8">
           <div className="bg-white rounded-lg border border-gray-200 p-4 text-center">
@@ -115,6 +125,8 @@ export function JoinQueuePage() {
               </button>
             </div>
           </div>
+        )}
+          </>
         )}
       </div>
 
