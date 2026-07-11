@@ -36,6 +36,21 @@ npm run dev            # Frontend only (http://localhost:5173)
 npm run dev:server     # Backend only (http://localhost:3001)
 ```
 
+### Access from Mobile/Tablet
+
+Both servers listen on `0.0.0.0`, so you can access from any device on the same network.
+
+1. Find your computer's local IP address:
+   ```bash
+   ipconfig    # Windows
+   ifconfig    # macOS/Linux
+   ```
+2. Open in your mobile browser:
+   - **Frontend:** `http://<your-ip>:5173`
+   - **Backend API:** `http://<your-ip>:3001`
+
+> Make sure your firewall allows connections on ports 5173 and 3001.
+
 ## Features
 
 - Real-time queue management with MySQL persistence (2-second polling)
