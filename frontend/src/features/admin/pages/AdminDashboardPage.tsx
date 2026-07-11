@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, Trash2, RefreshCw,
-  PlayCircle, Clock, UserCheck, AlertTriangle,
+  PlayCircle, Clock, UserCheck, AlertTriangle, Coffee,
 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { ConfirmModal } from '../components/ConfirmModal';
@@ -94,13 +94,13 @@ export function AdminDashboardPage() {
 
         {/* Queue Full Alert */}
         {waitingItems.length >= 15 && (
-          <div className="flex items-center gap-3 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
-            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-              <AlertTriangle size={18} className="text-black" />
+          <div className="flex items-center gap-4 px-6 py-4 bg-amber-50 border-l-4 border-amber-400 rounded-xl">
+            <div className="flex-shrink-0">
+              <AlertTriangle size={22} className="text-amber-500" />
             </div>
-            <div>
-              <p className="text-amber-800 text-sm font-semibold">Queue is getting full!</p>
-              <p className="text-amber-600 text-xs">{waitingItems.length} customers waiting</p>
+            <div className="flex-1">
+              <p className="text-amber-900 text-sm font-bold">Queue is getting full!</p>
+              <p className="text-amber-600 text-xs mt-0.5">{waitingItems.length} customers waiting</p>
             </div>
           </div>
         )}
@@ -111,13 +111,13 @@ export function AdminDashboardPage() {
           <div className="lg:col-span-2 space-y-4">
             {/* Lunch Break Banner */}
             {lunchBreak && (
-              <div className="flex items-center gap-3 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <AlertTriangle size={18} className="text-amber-600" />
+              <div className="flex items-center gap-4 px-6 py-5 bg-amber-50 border-l-4 border-amber-400 rounded-xl">
+                <div className="flex-shrink-0">
+                  <Coffee size={24} className="text-amber-500" />
                 </div>
-                <div>
-                  <p className="text-amber-800 text-sm font-semibold">On Lunch Break</p>
-                  <p className="text-amber-600 text-xs">Queue is paused</p>
+                <div className="flex-1">
+                  <p className="text-amber-900 text-base font-bold">On Lunch Break</p>
+                  <p className="text-amber-600 text-sm mt-0.5">Queue is paused</p>
                 </div>
               </div>
             )}
