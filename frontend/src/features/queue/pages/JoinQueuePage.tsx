@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Users, ArrowRight, Hash, Clock, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
