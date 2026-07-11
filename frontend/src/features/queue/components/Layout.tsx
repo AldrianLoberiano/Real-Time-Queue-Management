@@ -49,15 +49,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-xs text-white/60">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  {currentlyServing ? currentlyServing.number : '-'} serving
-                </span>
-              </div>
-
-              <div className="hidden sm:flex items-center text-xs text-white/50">
-                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+              <div className="hidden sm:flex items-center gap-1.5 text-xs text-white/60">
+                <Clock size={14} />
+                <span>{new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
 
               <button
