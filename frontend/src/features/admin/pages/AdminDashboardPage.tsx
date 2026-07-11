@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
   Users, CheckCircle, SkipForward, Trash2, RefreshCw,
   PlayCircle, Clock, UserCheck, AlertTriangle,
-  Volume2, VolumeX,
 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { ConfirmModal } from '../components/ConfirmModal';
@@ -15,7 +14,6 @@ export function AdminDashboardPage() {
     callNext, skipItem, recallItem, markDone, removeItem,
     doneAndCallNext,
     clearAll, totalServedToday, avgServiceTime,
-    soundEnabled, toggleSound,
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
@@ -55,13 +53,6 @@ export function AdminDashboardPage() {
                 <p className="text-gray-900 text-2xl font-bold">{waitingItems.length}</p>
               </div>
             </div>
-            <button
-              onClick={toggleSound}
-              className="mt-3 p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-black transition-colors"
-              title={soundEnabled ? 'Mute sound' : 'Enable sound'}
-            >
-              {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
-            </button>
           </div>
 
           <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:bg-gray-50 transition-colors">
