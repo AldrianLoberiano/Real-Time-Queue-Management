@@ -85,6 +85,14 @@ vi.mock('../api', () => {
         counter = 0;
         return { success: true };
       }),
+      getLunchBreakSetting: vi.fn(async () => ({ enabled: false })),
+      updateLunchBreakSetting: vi.fn(async () => ({ success: true })),
+      adminLogin: vi.fn(async (username: string, password: string) => {
+        if (username === 'admin' && password === 'admin123') {
+          return { success: true };
+        }
+        throw new Error('Invalid credentials');
+      }),
     },
   };
 });
@@ -225,7 +233,7 @@ describe('QueueContext', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
     await act(async () => {});
     let success: boolean = false;
-    act(() => { success = result.current.adminLogin('admin', 'admin123'); });
+    await act(async () => { success = await result.current.adminLogin('admin', 'admin123'); });
     expect(success).toBe(true);
     expect(result.current.isAdminLoggedIn).toBe(true);
   });
@@ -234,7 +242,7 @@ describe('QueueContext', () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
     await act(async () => {});
     let success: boolean = true;
-    act(() => { success = result.current.adminLogin('wrong', 'wrong'); });
+    await act(async () => { success = await result.current.adminLogin('wrong', 'wrong'); });
     expect(success).toBe(false);
     expect(result.current.isAdminLoggedIn).toBe(false);
   });
@@ -242,7 +250,7 @@ describe('QueueContext', () => {
   it('adminLogout clears login state', async () => {
     const { result } = renderHook(() => useQueue(), { wrapper });
     await act(async () => {});
-    act(() => { result.current.adminLogin('admin', 'admin123'); });
+    await act(async () => { await result.current.adminLogin('admin', 'admin123'); });
     act(() => { result.current.adminLogout(); });
     expect(result.current.isAdminLoggedIn).toBe(false);
   });
