@@ -48,6 +48,8 @@ interface QueueContextType {
   soundEnabled: boolean;
   toggleSound: () => void;
   cooldownRemaining: number;
+  lunchBreak: boolean;
+  toggleLunchBreak: () => void;
 }
 
 interface Notification {
@@ -122,6 +124,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [lunchBreak, setLunchBreak] = useState(false);
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -346,6 +349,10 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const toggleLunchBreak = useCallback(() => {
+    setLunchBreak(prev => !prev);
+  }, []);
+
   return (
     <QueueContext.Provider value={{
       items,
@@ -376,6 +383,8 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
       soundEnabled,
       toggleSound,
       cooldownRemaining,
+      lunchBreak,
+      toggleLunchBreak,
     }}>
       {children}
     </QueueContext.Provider>
