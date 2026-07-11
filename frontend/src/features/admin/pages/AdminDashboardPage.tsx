@@ -120,7 +120,7 @@ export function AdminDashboardPage() {
             <button
               onClick={callNext}
               disabled={!!currentlyServing || waitingItems.length === 0}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 hover:from-violet-600 hover:via-purple-600 hover:to-indigo-600 disabled:from-gray-100 disabled:to-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-sm transition-all shadow-lg shadow-purple-500/25 disabled:shadow-none flex items-center justify-center gap-2.5 active:scale-[0.98]"
+              className="w-full py-4 rounded-2xl bg-violet-500 hover:bg-violet-600 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-sm transition-all shadow-lg shadow-violet-500/25 disabled:shadow-none flex items-center justify-center gap-2.5 active:scale-[0.98]"
             >
               <PlayCircle size={20} />
               Call Next Customer
@@ -144,7 +144,7 @@ export function AdminDashboardPage() {
                 {currentlyServing ? (
                   <div className="space-y-4">
                     {/* Customer Info */}
-                    <div className="text-center py-6 bg-gradient-to-b from-gray-50 to-white rounded-xl">
+                    <div className="text-center py-6 bg-gray-50 rounded-xl">
                       <p className="text-gray-400 text-[10px] font-semibold uppercase tracking-widest mb-2">Queue Number</p>
                       <p className="text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">{currentlyServing.number}</p>
                       <p className="text-gray-500 text-sm font-medium">{currentlyServing.name}</p>
