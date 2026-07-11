@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import {
   LayoutDashboard, LogOut, Menu,
-  Users, Bell, ChevronRight, Volume2, VolumeX,
+  Users, ChevronRight, Volume2, VolumeX,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../../queue/QueueContext';
@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { adminLogout, waitingItems, currentlyServing, notifications, soundEnabled, toggleSound } = useQueue();
+  const { adminLogout, waitingItems, currentlyServing, soundEnabled, toggleSound } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
