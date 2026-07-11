@@ -57,7 +57,7 @@ export function AdminDashboardPage() {
             </div>
             <button
               onClick={toggleSound}
-              className="mt-3 p-1.5 rounded-lg hover:bg-gray-100 text-gray-300 hover:text-gray-500 transition-colors"
+              className="mt-3 p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-black transition-colors"
               title={soundEnabled ? 'Mute sound' : 'Enable sound'}
             >
               {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
@@ -105,7 +105,7 @@ export function AdminDashboardPage() {
         {waitingItems.length >= 15 && (
           <div className="flex items-center gap-3 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
             <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-              <AlertTriangle size={18} className="text-amber-600" />
+              <AlertTriangle size={18} className="text-black" />
             </div>
             <div>
               <p className="text-amber-800 text-sm font-semibold">Queue is getting full!</p>
@@ -191,7 +191,7 @@ export function AdminDashboardPage() {
                 ) : (
                   <div className="text-center py-10">
                     <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                      <PlayCircle size={28} className="text-gray-300" />
+                      <PlayCircle size={28} className="text-black" />
                     </div>
                     <p className="text-gray-400 text-sm font-medium">No one being served</p>
                     <p className="text-gray-300 text-xs mt-1">Click "Call Next Customer" to start</p>
