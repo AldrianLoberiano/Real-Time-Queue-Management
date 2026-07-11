@@ -137,8 +137,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   {currentlyServing ? currentlyServing.number : '-'} serving
                 </span>
-                <span className="text-white/30">|</span>
-                <span>{waitingItems.length} waiting</span>
               </div>
 
 
