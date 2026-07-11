@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import {
-  Users, Monitor, Menu, X, ChevronRight,
+  Users, Monitor, Menu, X, ChevronRight, Clock,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
@@ -15,6 +15,12 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const { waitingItems, currentlyServing } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const isActive = (href: string, exact: boolean) =>
     exact ? location.pathname === href : location.pathname.startsWith(href);
@@ -120,10 +126,9 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               >
                 <Menu size={18} />
               </button>
-              <div>
-                <p className="text-white/40 text-[11px]">
-                  {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-                </p>
+              <div className="hidden sm:flex items-center gap-2 text-sm text-white/80 font-medium">
+                <Clock size={16} />
+                <span>{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
             </div>
 
