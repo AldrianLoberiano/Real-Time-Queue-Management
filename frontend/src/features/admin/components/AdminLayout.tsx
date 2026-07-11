@@ -182,7 +182,6 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
 
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/20">
                 <ShieldCheck size={12} className="text-white/80" />
-                <span className="text-white/80 text-[11px] font-medium">Admin</span>
               </div>
             </div>
           </div>
