@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import {
   LayoutDashboard, LogOut, Menu,
-  Users, Bell, ChevronRight,
+  Users, Bell, ChevronRight, Volume2, VolumeX,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../../queue/QueueContext';
@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { adminLogout, waitingItems, currentlyServing, notifications } = useQueue();
+  const { adminLogout, waitingItems, currentlyServing, notifications, soundEnabled, toggleSound } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
@@ -168,15 +168,13 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 <span className="text-emerald-200 text-[11px] font-medium">Live</span>
               </div>
 
-              {notifications.length > 0 && (
-                <div className="relative">
-                  <Bell size={16} className="text-white/70" />
-                  <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 text-white text-[9px] rounded-full flex items-center justify-center font-medium">
-                    {notifications.length}
-                  </span>
-                </div>
-              )}
-
+              <button
+                onClick={toggleSound}
+                className="p-1.5 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                title={soundEnabled ? 'Mute sound' : 'Enable sound'}
+              >
+                {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+              </button>
 
             </div>
           </div>
