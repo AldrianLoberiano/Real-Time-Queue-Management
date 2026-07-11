@@ -91,15 +91,15 @@ export function DisplayScreenPage() {
                   {waitingItems.length}
                 </span>
               </div>
-              <div className="divide-y divide-gray-100/60 max-h-[420px] overflow-y-auto">
+              <div className="p-3 max-h-[420px] overflow-y-auto space-y-2">
                 {waitingItems.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-gray-400 text-sm">No one waiting</p>
                   </div>
                 ) : (
                   waitingItems.slice(0, 10).map((item, idx) => (
-                    <div key={item.id} className="flex items-center gap-4 px-6 py-4">
-                      <span className="w-7 h-7 rounded-lg bg-blue-50 text-blue-500 text-xs font-bold flex items-center justify-center">
+                    <div key={item.id} className="flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-50/80 border border-gray-100">
+                      <span className="w-8 h-8 rounded-lg bg-blue-500 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
                         {idx + 1}
                       </span>
                       <span className="font-bold text-gray-900 text-sm">{item.number}</span>
