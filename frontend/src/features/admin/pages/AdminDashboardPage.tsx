@@ -159,7 +159,7 @@ export function AdminDashboardPage() {
                     </button>
 
                     {/* Secondary Actions */}
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => setShowDone(true)}
                         className="py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
@@ -173,13 +173,6 @@ export function AdminDashboardPage() {
                       >
                         <SkipForward size={13} />
                         Skip
-                      </button>
-                      <button
-                        onClick={() => { if (currentlyServing) { setRecallTarget({ id: currentlyServing.id, number: currentlyServing.number }); setShowRecall(true); } }}
-                        className="py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
-                      >
-                        <RefreshCw size={13} />
-                        Recall
                       </button>
                     </div>
 
