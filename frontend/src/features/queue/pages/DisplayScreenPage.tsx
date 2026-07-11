@@ -1,6 +1,6 @@
 import { Layout } from '../components/Layout';
 import { useQueue } from '../QueueContext';
-import { Volume2, VolumeX, Coffee } from 'lucide-react';
+import { Volume2, VolumeX, Coffee, AlertTriangle } from 'lucide-react';
 
 export function DisplayScreenPage() {
   const { currentlyServing, waitingItems, doneItems, soundEnabled, toggleSound, lunchBreak } = useQueue();
@@ -10,10 +10,12 @@ export function DisplayScreenPage() {
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Lunch Break Banner */}
         {lunchBreak ? (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl py-20 px-6 text-center">
-            <Coffee size={64} className="text-amber-500 mx-auto mb-4" />
-            <p className="text-amber-800 text-3xl font-bold mb-2">Lunch Break</p>
-            <p className="text-amber-600 text-lg">We will resume shortly</p>
+          <div className="bg-amber-50 border-l-4 border-amber-400 rounded-xl py-20 px-6 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Coffee size={40} className="text-amber-500" />
+            </div>
+            <p className="text-amber-900 text-3xl font-bold mb-2">On Lunch Break</p>
+            <p className="text-amber-600 text-lg">Queue is paused</p>
           </div>
         ) : (
           <>
