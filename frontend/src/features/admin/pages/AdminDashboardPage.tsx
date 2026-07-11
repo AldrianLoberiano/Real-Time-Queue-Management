@@ -266,6 +266,14 @@ export function AdminDashboardPage() {
                       </p>
                     </div>
                     <StatusBadge status={item.status} size="sm" />
+                    {item.status === 'skipped' && (
+                      <button
+                        onClick={() => setRecallTarget({ id: item.id, number: item.number })}
+                        className="ml-2 px-2.5 py-1 rounded-lg bg-violet-50 hover:bg-violet-100 text-violet-600 text-[11px] font-semibold transition-colors border border-violet-200/60"
+                      >
+                        Recall
+                      </button>
+                    )}
                   </div>
                 ))
               )}
@@ -300,6 +308,19 @@ export function AdminDashboardPage() {
         variant="warning"
         onConfirm={() => { if (skipTarget) { skipItem(skipTarget.id); setSkipTarget(null); } }}
         onCancel={() => { setShowSkip(false); setSkipTarget(null); }}
+      />
+      <ConfirmModal
+        open={(showRecall || !!recallTarget) && !!recallTarget}
+        title="Recall Customer"
+        message={
+          currentlyServing && recallTarget
+            ? `Recall ${recallTarget?.number}? This will replace ${currentlyServing.number} who is currently being served.`
+            : `Recall ${recallTarget?.number}? They will be moved to serving.`
+        }
+        confirmLabel="Recall"
+        variant="warning"
+        onConfirm={() => { if (recallTarget) { recallItem(recallTarget.id); setRecallTarget(null); } }}
+        onCancel={() => { setShowRecall(false); setRecallTarget(null); }}
       />
       <ConfirmModal
         open={showRemove}
