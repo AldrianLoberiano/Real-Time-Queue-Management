@@ -1,23 +1,65 @@
+import { useState, useEffect } from 'react';
 import { Layout } from '../components/Layout';
 import { useQueue } from '../QueueContext';
-import { Volume2, VolumeX, Coffee, AlertTriangle } from 'lucide-react';
+import { Volume2, VolumeX, AlertTriangle, Coffee, Megaphone } from 'lucide-react';
+
+const ANNOUNCEMENTS = [
+  "Welcome to BPLO Queue Management System",
+  "Please wait for your number to be called",
+  "Ensure you have all required documents ready",
+  "Thank you for your patience",
+  "For assistance, please approach our staff",
+  "Have your queue number ready at all times",
+];
 
 export function DisplayScreenPage() {
   const { currentlyServing, waitingItems, doneItems, soundEnabled, toggleSound, lunchBreak } = useQueue();
+  const [announcementIndex, setAnnouncementIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnnouncementIndex(prev => (prev + 1) % ANNOUNCEMENTS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <Layout>
       <div className="max-w-6xl mx-auto px-4 py-6">
+        {/* Announcement Banner */}
+        <div className="mb-6 bg-violet-600 rounded-2xl px-6 py-4 flex items-center gap-4 overflow-hidden">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <Megaphone size={20} className="text-white" />
+            <span className="text-white/80 text-xs font-semibold uppercase tracking-wider">Announcement</span>
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <p
+              key={announcementIndex}
+              className="text-white text-lg font-medium animate-fade-in"
+            >
+              {ANNOUNCEMENTS[announcementIndex]}
+            </p>
+          </div>
+          <div className="flex-shrink-0 flex items-center gap-1.5">
+            {ANNOUNCEMENTS.map((_, idx) => (
+              <span
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  idx === announcementIndex ? 'bg-white' : 'bg-white/30'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Lunch Break Banner */}
         {lunchBreak ? (
-          <div className="flex items-center gap-3 px-6 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl mb-6">
-            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-              <AlertTriangle size={18} className="text-amber-600" />
+          <div className="bg-amber-50 border border-amber-200/60 rounded-2xl py-24 px-6 text-center">
+            <div className="w-20 h-20 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-6">
+              <AlertTriangle size={40} className="text-amber-600" />
             </div>
-            <div>
-              <p className="text-amber-800 text-sm font-semibold">On Lunch Break</p>
-              <p className="text-amber-600 text-xs">Queue is paused</p>
-            </div>
+            <p className="text-amber-800 text-4xl font-bold mb-2">On Lunch Break</p>
+            <p className="text-amber-600 text-xl">Queue is paused</p>
           </div>
         ) : (
           <>
