@@ -45,9 +45,8 @@ describe('AdminDashboardPage', () => {
     });
   });
 
-  it('renders Reset and Clear All buttons', () => {
+  it('renders Clear All button', () => {
     renderDashboard();
-    expect(screen.getByText('Reset Queue')).toBeInTheDocument();
     expect(screen.getByText('Clear All')).toBeInTheDocument();
   });
 });
