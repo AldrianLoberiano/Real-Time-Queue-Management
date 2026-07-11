@@ -156,9 +156,6 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 <Menu size={18} />
               </button>
               <div>
-                <h1 className="text-white font-semibold text-sm">
-                  {NAV_ITEMS.find(n => isActive(n.href, n.exact))?.label ?? 'Admin'}
-                </h1>
                 <p className="text-white/40 text-[11px]">
                   {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
                 </p>
@@ -180,9 +177,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 </div>
               )}
 
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/20">
-                <ShieldCheck size={12} className="text-white/80" />
-              </div>
+
             </div>
           </div>
         </header>
