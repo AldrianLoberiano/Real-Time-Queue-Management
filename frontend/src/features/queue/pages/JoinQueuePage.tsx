@@ -117,11 +117,11 @@ export function JoinQueuePage() {
 
               <button
                 onClick={handleJoin}
-                disabled={!name.trim() || cooldownRemaining > 0 || queueFull}
+                disabled={!name.trim() || cooldownRemaining > 0 || queueFull || lunchBreak}
                 className="w-full py-2.5 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors flex items-center justify-center gap-1.5"
               >
-                {queueFull ? 'Queue is Full' : cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Join Queue'}
-                {!queueFull && cooldownRemaining <= 0 && <ArrowRight size={14} />}
+                {lunchBreak ? 'Lunch Break' : queueFull ? 'Queue is Full' : cooldownRemaining > 0 ? `Wait ${cooldownRemaining}s` : 'Join Queue'}
+                {!lunchBreak && !queueFull && cooldownRemaining <= 0 && <ArrowRight size={14} />}
               </button>
             </div>
           </div>
