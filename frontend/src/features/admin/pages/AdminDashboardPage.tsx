@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Users, CheckCircle, SkipForward, Trash2,
+  Users, CheckCircle, SkipForward, Trash2, RefreshCw,
   PlayCircle, Clock, UserCheck, AlertTriangle,
   Volume2, VolumeX,
 } from 'lucide-react';
@@ -12,7 +12,7 @@ import { useQueue } from '../../queue/QueueContext';
 export function AdminDashboardPage() {
   const {
     waitingItems, currentlyServing, doneItems, skippedItems,
-    callNext, skipItem, markDone, removeItem,
+    callNext, skipItem, recallItem, markDone, removeItem,
     doneAndCallNext,
     clearAll, totalServedToday, avgServiceTime,
     soundEnabled, toggleSound,
@@ -24,7 +24,9 @@ export function AdminDashboardPage() {
   const [showSkip, setShowSkip] = useState(false);
   const [skipTarget, setSkipTarget] = useState<{ id: string; number: string } | null>(null);
   const [showRemove, setShowRemove] = useState(false);
+  const [showRecall, setShowRecall] = useState(false);
   const [showClear, setShowClear] = useState(false);
+  const [recallTarget, setRecallTarget] = useState<{ id: string; number: string } | null>(null);
 
   const allItems = [
     ...(currentlyServing ? [currentlyServing] : []),
