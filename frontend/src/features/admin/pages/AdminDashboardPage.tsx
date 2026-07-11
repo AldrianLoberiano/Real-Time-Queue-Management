@@ -199,22 +199,13 @@ export function AdminDashboardPage() {
 
             {/* Queue Management */}
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setShowReset(true)}
-                  className="flex-1 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 text-gray-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
-                >
-                  <RotateCcw size={12} />
-                  Reset Queue
-                </button>
-                <button
-                  onClick={() => setShowClear(true)}
-                  className="flex-1 py-2.5 rounded-xl border border-red-200 hover:bg-red-50 text-red-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
-                >
-                  <Trash2 size={12} />
-                  Clear All
-                </button>
-              </div>
+              <button
+                onClick={() => setShowClear(true)}
+                className="w-full py-2.5 rounded-xl border border-red-200 hover:bg-red-50 text-red-600 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
+              >
+                <Trash2 size={12} />
+                Clear All
+              </button>
             </div>
           </div>
 
@@ -274,14 +265,6 @@ export function AdminDashboardPage() {
                       </p>
                     </div>
                     <StatusBadge status={item.status} size="sm" />
-                    {item.status === 'skipped' && (
-                      <button
-                        onClick={() => setRecallTarget({ id: item.id, number: item.number })}
-                        className="ml-2 px-2 py-1 rounded-lg bg-violet-50 hover:bg-violet-100 text-violet-600 text-[11px] font-medium transition-colors"
-                      >
-                        Recall
-                      </button>
-                    )}
                   </div>
                 ))
               )}
@@ -316,19 +299,6 @@ export function AdminDashboardPage() {
         variant="warning"
         onConfirm={() => { if (skipTarget) { skipItem(skipTarget.id); setSkipTarget(null); } }}
         onCancel={() => { setShowSkip(false); setSkipTarget(null); }}
-      />
-      <ConfirmModal
-        open={(showRecall || !!recallTarget) && !!recallTarget}
-        title="Recall Customer"
-        message={
-          currentlyServing && recallTarget
-            ? `Recall ${recallTarget?.number}? This will replace ${currentlyServing.number} who is currently being served.`
-            : `Recall ${recallTarget?.number}? They will be moved to serving.`
-        }
-        confirmLabel="Recall"
-        variant="warning"
-        onConfirm={() => { if (recallTarget) { recallItem(recallTarget.id); setRecallTarget(null); } }}
-        onCancel={() => { setShowRecall(false); setRecallTarget(null); }}
       />
       <ConfirmModal
         open={showRemove}
