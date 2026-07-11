@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Monitor, Menu, X, Bell, BellOff } from 'lucide-react';
+import { Monitor, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { notifications, dismissNotification, waitingItems, currentlyServing } = useQueue();
-  const [showNotifs, setShowNotifs] = useState(false);
+  const { waitingItems, currentlyServing } = useQueue();
 
   const navLinks = [
     { href: '/display-screen', label: 'Display', icon: Monitor },
@@ -55,60 +54,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   {currentlyServing ? currentlyServing.number : '-'} serving
                 </span>
-                <span className="text-white/30">|</span>
-                <span>{waitingItems.length} waiting</span>
-              </div>
-
-              <div className="relative">
-                <button
-                  onClick={() => setShowNotifs(!showNotifs)}
-                  className="relative p-1.5 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors"
-                >
-                  {notifications.length > 0 ? <Bell size={16} /> : <BellOff size={16} />}
-                  {notifications.length > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] rounded-full flex items-center justify-center font-medium">
-                      {notifications.length}
-                    </span>
-                  )}
-                </button>
-                <AnimatePresence>
-                  {showNotifs && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      className="absolute right-0 top-10 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
-                    >
-                      <div className="px-4 py-2.5 border-b border-gray-100 flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-700">Notifications</span>
-                        <button onClick={() => setShowNotifs(false)} className="text-gray-400 hover:text-gray-600">
-                          <X size={14} />
-                        </button>
-                      </div>
-                      <div className="max-h-64 overflow-y-auto">
-                        {notifications.length === 0 ? (
-                          <p className="text-center text-gray-400 text-sm py-8">No notifications</p>
-                        ) : (
-                          notifications.map(n => (
-                            <div key={n.id} className={`flex items-start gap-3 px-4 py-2.5 border-b border-gray-50 ${
-                              n.type === 'success' ? 'border-l-2 border-l-emerald-400' :
-                              n.type === 'warning' ? 'border-l-2 border-l-amber-400' :
-                              'border-l-2 border-l-violet-400'
-                            }`}>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm text-gray-700 truncate">{n.message}</p>
-                                <p className="text-xs text-gray-400 mt-0.5">{n.timestamp.toLocaleTimeString()}</p>
-                              </div>
-                              <button onClick={() => dismissNotification(n.id)} className="text-gray-300 hover:text-gray-500 shrink-0">
-                                <X size={12} />
-                              </button>
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
 
               <button
