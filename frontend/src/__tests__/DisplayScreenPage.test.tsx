@@ -30,8 +30,8 @@ describe('DisplayScreenPage', () => {
     expect(screen.getAllByText(/Waiting/).length).toBeGreaterThan(0);
   });
 
-  it('shows recently served section', () => {
+  it('shows announcement section', () => {
     renderDisplayPage();
-    expect(screen.getByText('Recently Served')).toBeInTheDocument();
+    expect(screen.getByText('Announcement')).toBeInTheDocument();
   });
 });
