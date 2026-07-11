@@ -280,6 +280,32 @@ app.put('/api/settings/sound', async (req, res) => {
   }
 });
 
+// Get lunch break setting
+app.get('/api/settings/lunch-break', async (_req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT value FROM settings WHERE key_name = 'lunch_break'") as any;
+    res.json({ enabled: rows[0]?.value === 'true' });
+  } catch (err) {
+    console.error('GET /api/settings/lunch-break error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Update lunch break setting
+app.put('/api/settings/lunch-break', async (req, res) => {
+  try {
+    const { enabled } = req.body;
+    await pool.query(
+      "INSERT INTO settings (key_name, value) VALUES ('lunch_break', ?) ON DUPLICATE KEY UPDATE value = ?",
+      [String(enabled), String(enabled)]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    console.error('PUT /api/settings/lunch-break error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 const PORT = process.env.PORT || 3001;
 
 // Global error handler
