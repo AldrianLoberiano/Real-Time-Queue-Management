@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:3001`;
 
 export interface QueueItemResponse {
   id: string;
