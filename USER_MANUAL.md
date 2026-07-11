@@ -7,8 +7,9 @@
 3. [Client Guide](#client-guide)
 4. [Admin Guide](#admin-guide)
 5. [Display Screen](#display-screen)
-6. [Data Management](#data-management)
-7. [Troubleshooting](#troubleshooting)
+6. [Admin Settings](#admin-settings)
+7. [Data Management](#data-management)
+8. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -18,10 +19,11 @@ BPLO Queue is a real-time queue management system for the Business Permit & Lice
 
 ### Key Features
 
-- **Real-time updates** — Queue changes appear instantly via MySQL + polling
+- **Real-time updates** — Queue changes appear instantly via MySQL + polling (2-second interval)
 - **5-second cooldown** — Prevents rapid duplicate entries
 - **Queue limit (15)** — Maximum customers in queue with warning banner and popup alert
 - **Sound notifications** — Chime sound when customers are served (toggleable)
+- **Lunch break mode** — Pause queue with amber banner on display screen
 - **BPLO branding** — Official logo and header throughout
 - **Display screen** — Large, visible queue number for customers to see
 - **MySQL persistence** — Data stored in MySQL database, survives browser restarts
@@ -51,6 +53,7 @@ npm run dev:all
 | Display Screen | `http://localhost:5173/display-screen` | Public queue display |
 | Admin Login | `http://localhost:5173/admin/login` | Staff login |
 | Admin Dashboard | `http://localhost:5173/admin` | Queue management |
+| Admin Settings | `http://localhost:5173/admin/settings` | Sound & lunch break config |
 
 ---
 
@@ -136,7 +139,7 @@ When done, choose one:
 | Button | Action |
 |--------|--------|
 | **Reset Queue** | Mark all waiting/skipped as done |
-| **Clear All** | Delete all queue data permanently |
+| **Clear All** | Delete all queue data permanently and reset counter |
 
 ### Filtering the Queue List
 
@@ -186,6 +189,29 @@ Go to `http://localhost:5173/display-screen`
 
 ---
 
+## Admin Settings
+
+### Accessing Settings
+
+Go to `http://localhost:5173/admin/settings` or click **Settings** in the admin sidebar.
+
+### Available Settings
+
+| Setting | Description |
+|---------|-------------|
+| **Sound Notifications** | Toggle the chime sound when serving customers |
+| **Lunch Break** | Pause the queue and show an amber banner on the display screen |
+
+### Lunch Break Mode
+
+When enabled:
+- Customers cannot join the queue
+- Display screen shows a full amber "Lunch Break" banner
+- The admin dashboard shows a lunch break indicator
+- Queue resumes when disabled
+
+---
+
 ## Data Management
 
 ### How Data is Stored
@@ -200,19 +226,19 @@ Go to `http://localhost:5173/display-screen`
 |-------|---------|
 | `queue_items` | All queue entries with status |
 | `queue_counter` | Current queue number counter |
-| `settings` | Queue limit, cooldown, and other config |
+| `settings` | Sound and lunch break configuration |
 
 ### Settings
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Queue Limit | 15 | Max customers in queue |
-| Join Cooldown | 5000ms | Time between joins |
+| Sound Notifications | true | Chime on serve |
+| Lunch Break | false | Pause queue mode |
 
 ### Manual Reset
 
 - **Reset Queue** — Marks all as done (keeps history)
-- **Clear All** — Deletes everything permanently
+- **Clear All** — Deletes everything permanently and resets the queue counter to 0
 
 ---
 
@@ -228,18 +254,19 @@ Go to `http://localhost:5173/display-screen`
 
 1. Refresh the display page
 2. Check if admin tab is open and active
-3. The display polls every 500ms automatically
+3. The display polls every 2 seconds automatically
 
 ### Backend Server Not Starting
 
 1. Ensure MySQL is running
-2. Check database credentials in `backend/server/index.ts`
+2. Check database credentials in `backend/server/app.ts`
 3. Run `npm run db:setup` to create tables
 
 ### Admin Locked Out
 
 - Default credentials: `admin` / `admin123`
-- If changed and forgotten, reset the `admin_password` row in the `settings` table
+- Credentials are stored in the backend code (`backend/server/app.ts`)
+- If changed and forgotten, update the hardcoded values in `app.ts`
 
 ---
 
