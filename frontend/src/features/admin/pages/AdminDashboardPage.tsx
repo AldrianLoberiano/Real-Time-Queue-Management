@@ -310,15 +310,6 @@ export function AdminDashboardPage() {
         onCancel={() => setShowRemove(false)}
       />
       <ConfirmModal
-        open={showReset}
-        title="Reset Queue"
-        message="This will mark all queue items as done. Continue?"
-        confirmLabel="Reset"
-        variant="warning"
-        onConfirm={resetQueue}
-        onCancel={() => setShowReset(false)}
-      />
-      <ConfirmModal
         open={showClear}
         title="Clear All Data"
         message="This will permanently delete all queue data. This action cannot be undone."
