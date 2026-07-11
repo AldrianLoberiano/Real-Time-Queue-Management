@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import {
-  Users, Monitor, Menu, X, ChevronRight, Clock,
+  Users, Menu, X, ChevronRight, Clock,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../QueueContext';
 
 const NAV_ITEMS = [
   { href: '/queue', label: 'Join Queue', icon: Users, exact: true },
-  { href: '/display-screen', label: 'Display', icon: Monitor, exact: false },
 ];
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
