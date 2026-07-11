@@ -101,7 +101,7 @@ export function AdminDashboardPage() {
 
         {/* Queue Full Alert */}
         {waitingItems.length >= 15 && (
-          <div className="flex items-center gap-3 px-5 py-4 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/60 rounded-2xl">
+          <div className="flex items-center gap-3 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
             <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
               <AlertTriangle size={18} className="text-amber-600" />
             </div>
