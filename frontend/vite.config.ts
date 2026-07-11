@@ -7,9 +7,10 @@ export default defineConfig({
   root: path.resolve(__dirname),
   plugins: [react(), tailwindcss()],
   server: {
+    host: '0.0.0.0',
     hmr: {
       protocol: 'ws',
-      host: 'localhost',
+      host: '0.0.0.0',
     },
     watch: {
       usePolling: true,
