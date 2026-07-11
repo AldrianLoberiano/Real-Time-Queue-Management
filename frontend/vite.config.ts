@@ -8,14 +8,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     host: '0.0.0.0',
-    hmr: {
-      protocol: 'ws',
-      host: '0.0.0.0',
-    },
     watch: {
       usePolling: true,
     },
-    // SPA fallback: serve index.html for all routes so client-side routing works
     appType: 'spa',
   },
 });
