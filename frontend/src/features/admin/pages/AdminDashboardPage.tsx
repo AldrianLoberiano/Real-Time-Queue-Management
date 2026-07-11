@@ -47,8 +47,8 @@ export function AdminDashboardPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center">
-                <Users size={20} className="text-white" />
+              <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
+                <Users size={20} className="text-black" />
               </div>
               <div>
                 <p className="text-gray-400 text-[11px] font-semibold uppercase tracking-wider">Waiting</p>
@@ -66,8 +66,8 @@ export function AdminDashboardPage() {
 
           <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500 flex items-center justify-center">
-                <UserCheck size={20} className="text-white" />
+              <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
+                <UserCheck size={20} className="text-black" />
               </div>
               <div>
                 <p className="text-gray-400 text-[11px] font-semibold uppercase tracking-wider">Serving</p>
@@ -78,8 +78,8 @@ export function AdminDashboardPage() {
 
           <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-sky-500 flex items-center justify-center">
-                <CheckCircle size={20} className="text-white" />
+              <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
+                <CheckCircle size={20} className="text-black" />
               </div>
               <div>
                 <p className="text-gray-400 text-[11px] font-semibold uppercase tracking-wider">Served</p>
@@ -90,8 +90,8 @@ export function AdminDashboardPage() {
 
           <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center">
-                <Clock size={20} className="text-white" />
+              <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
+                <Clock size={20} className="text-black" />
               </div>
               <div>
                 <p className="text-gray-400 text-[11px] font-semibold uppercase tracking-wider">Avg. Time</p>
