@@ -74,7 +74,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
       <aside
         className="hidden lg:flex flex-col w-56 sticky top-0 h-screen shrink-0"
         style={{
-          background: 'linear-gradient(180deg, #1a0533 0%, #2d1065 50%, #1a0533 100%)',
+          background: '#1a0533',
         }}
       >
         <SidebarContent />
@@ -97,7 +97,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               className="fixed left-0 top-0 bottom-0 w-64 z-50 lg:hidden flex flex-col"
               style={{
-                background: 'linear-gradient(180deg, #1a0533 0%, #2d1065 50%, #1a0533 100%)',
+                background: '#1a0533',
               }}
             >
               <SidebarContent />
