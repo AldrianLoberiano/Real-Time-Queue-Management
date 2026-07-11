@@ -125,9 +125,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               >
                 <Menu size={18} />
               </button>
-              <div className="hidden sm:flex items-center gap-2 text-sm text-white/80 font-medium">
+              <div className="flex items-center gap-2 text-sm text-white/80 font-medium">
                 <Clock size={16} />
-                <span>{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
+                <span className="hidden sm:inline">{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | </span>
+                <span>{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
             </div>
 
