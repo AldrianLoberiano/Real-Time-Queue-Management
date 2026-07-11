@@ -56,6 +56,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </span>
               </div>
 
+              <div className="hidden sm:flex items-center text-xs text-white/50">
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+              </div>
+
               <button
                 className="md:hidden p-1.5 text-white/70 hover:text-white rounded-lg hover:bg-white/10"
                 onClick={() => setMenuOpen(!menuOpen)}
