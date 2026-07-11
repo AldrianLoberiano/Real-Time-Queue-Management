@@ -153,7 +153,7 @@ export function AdminDashboardPage() {
                     {/* Primary Action */}
                     <button
                       onClick={() => setShowDoneCallNext(true)}
-                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-[0.98]"
+                      className="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-[0.98]"
                     >
                       <CheckCircle size={18} />
                       Done & Call Next
@@ -239,11 +239,11 @@ export function AdminDashboardPage() {
                   <div
                     key={item.id}
                     className={`flex items-center gap-4 px-5 py-4 hover:bg-gray-50/80 transition-colors ${
-                      item.status === 'serving' ? 'bg-gradient-to-r from-emerald-50/80 to-transparent' : ''
+                      item.status === 'serving' ? 'bg-emerald-50/80' : ''
                     }`}
                   >
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xs font-bold ${
-                      item.status === 'serving' ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-md shadow-emerald-500/20' :
+                      item.status === 'serving' ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20' :
                       item.status === 'done' ? 'bg-gray-100 text-gray-500' :
                       item.status === 'skipped' ? 'bg-red-50 text-red-500 border border-red-100' :
                       'bg-blue-50 text-blue-600 border border-blue-100'
