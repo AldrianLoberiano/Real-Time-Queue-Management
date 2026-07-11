@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import {
   LayoutDashboard, LogOut, Menu,
-  Users, ChevronRight, Settings,
+  Users, ChevronRight, Settings, Clock,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../../queue/QueueContext';
@@ -16,6 +16,12 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const { adminLogout, waitingItems, currentlyServing } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleLogout = () => {
     adminLogout();
@@ -167,10 +173,9 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
               >
                 <Menu size={18} />
               </button>
-              <div>
-                <p className="text-white/40 text-[11px]">
-                  {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-                </p>
+              <div className="hidden sm:flex items-center gap-2 text-sm text-white/80 font-medium">
+                <Clock size={16} />
+                <span>{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
             </div>
 
