@@ -74,4 +74,13 @@ export const api = {
       method: 'PUT',
       body: JSON.stringify({ enabled }),
     }),
+
+  getLunchBreakSetting: () =>
+    request<{ enabled: boolean }>('/api/settings/lunch-break'),
+
+  updateLunchBreakSetting: (enabled: boolean) =>
+    request<{ success: boolean }>('/api/settings/lunch-break', {
+      method: 'PUT',
+      body: JSON.stringify({ enabled }),
+    }),
 };
