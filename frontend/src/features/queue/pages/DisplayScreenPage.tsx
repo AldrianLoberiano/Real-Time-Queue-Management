@@ -10,12 +10,14 @@ export function DisplayScreenPage() {
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Lunch Break Banner */}
         {lunchBreak ? (
-          <div className="bg-amber-50 border-l-4 border-amber-400 rounded-xl py-20 px-6 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Coffee size={40} className="text-amber-500" />
+          <div className="flex items-center gap-3 px-6 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl mb-6">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
+              <AlertTriangle size={18} className="text-amber-600" />
             </div>
-            <p className="text-amber-900 text-3xl font-bold mb-2">On Lunch Break</p>
-            <p className="text-amber-600 text-lg">Queue is paused</p>
+            <div>
+              <p className="text-amber-800 text-sm font-semibold">On Lunch Break</p>
+              <p className="text-amber-600 text-xs">Queue is paused</p>
+            </div>
           </div>
         ) : (
           <>
