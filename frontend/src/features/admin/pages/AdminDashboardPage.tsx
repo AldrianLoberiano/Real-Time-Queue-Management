@@ -327,7 +327,11 @@ export function AdminDashboardPage() {
       <ConfirmModal
         open={(showRecall || !!recallTarget) && !!recallTarget}
         title="Recall Customer"
-        message={`Recall ${recallTarget?.number}? They will be moved to serving.`}
+        message={
+          currentlyServing && recallTarget
+            ? `Recall ${recallTarget?.number}? This will replace ${currentlyServing.number} who is currently being served.`
+            : `Recall ${recallTarget?.number}? They will be moved to serving.`
+        }
         confirmLabel="Recall"
         variant="warning"
         onConfirm={() => { if (recallTarget) { recallItem(recallTarget.id); setRecallTarget(null); } }}
