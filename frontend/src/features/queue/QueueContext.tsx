@@ -124,7 +124,9 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   });
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [soundEnabled, setSoundEnabled] = useState(true);
-  const [lunchBreak, setLunchBreak] = useState(false);
+  const [lunchBreak, setLunchBreak] = useState(() => {
+    try { return localStorage.getItem('qs_lunchbreak') === 'true'; } catch { return false; }
+  });
   const [hourlyData] = useState<HourlyData[]>(generateHourlyData);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -350,7 +352,11 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const toggleLunchBreak = useCallback(() => {
-    setLunchBreak(prev => !prev);
+    setLunchBreak(prev => {
+      const next = !prev;
+      try { localStorage.setItem('qs_lunchbreak', String(next)); } catch {}
+      return next;
+    });
   }, []);
 
   return (
