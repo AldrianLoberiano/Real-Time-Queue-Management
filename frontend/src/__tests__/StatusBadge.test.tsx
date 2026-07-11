@@ -26,7 +26,7 @@ describe('StatusBadge', () => {
   it('applies sm size classes', () => {
     render(<StatusBadge status="waiting" size="sm" />);
     const badge = screen.getByText('Waiting');
-    expect(badge.className).toContain('text-[11px]');
+    expect(badge.className).toContain('text-[10px]');
   });
 
   it('applies default md size classes', () => {
