@@ -133,14 +133,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-xs text-white/60">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  {currentlyServing ? currentlyServing.number : '-'} serving
-                </span>
-              </div>
-
-
             </div>
           </div>
         </header>
