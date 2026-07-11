@@ -1,9 +1,9 @@
-import { Volume2 } from 'lucide-react';
+import { Volume2, Coffee } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../../queue/QueueContext';
 
 export function AdminSettingsPage() {
-  const { soundEnabled, toggleSound } = useQueue();
+  const { soundEnabled, toggleSound, lunchBreak, toggleLunchBreak } = useQueue();
 
   return (
     <AdminLayout>
@@ -33,6 +33,30 @@ export function AdminSettingsPage() {
                 <span
                   className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${
                     soundEnabled ? 'translate-x-5' : 'translate-x-0'
+                  }`}
+                />
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between py-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                  <Coffee size={18} className="text-black" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-800">Lunch Break</p>
+                  <p className="text-xs text-gray-400">Pause queue during lunch break</p>
+                </div>
+              </div>
+              <button
+                onClick={toggleLunchBreak}
+                className={`relative w-11 h-6 rounded-full transition-colors ${
+                  lunchBreak ? 'bg-amber-500' : 'bg-gray-200'
+                }`}
+              >
+                <span
+                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${
+                    lunchBreak ? 'translate-x-5' : 'translate-x-0'
                   }`}
                 />
               </button>
