@@ -32,13 +32,8 @@ describe('Layout', () => {
     expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
 
-  it('shows waiting count', () => {
+  it('renders display link', () => {
     renderLayout();
-    expect(screen.getByText(/waiting/)).toBeInTheDocument();
-  });
-
-  it('shows serving status', () => {
-    renderLayout();
-    expect(screen.getByText(/serving/)).toBeInTheDocument();
+    expect(screen.getByText('Display')).toBeInTheDocument();
   });
 });
