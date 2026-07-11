@@ -55,6 +55,14 @@ npm run dev:all
 | Admin Dashboard | `http://localhost:5173/admin` | Queue management |
 | Admin Settings | `http://localhost:5173/admin/settings` | Sound & lunch break config |
 
+### Access from Mobile/Tablet
+
+Replace `localhost` with your computer's local IP address (e.g., `http://192.168.1.100:5173`).
+
+To find your IP:
+- **Windows:** Run `ipconfig` in Command Prompt
+- **macOS/Linux:** Run `ifconfig` in Terminal
+
 ---
 
 ## Client Guide
