@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router';
-import { Monitor, Menu, X, Clock } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router';
+import { Clock } from 'lucide-react';
 import { useQueue } from '../QueueContext';
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const { waitingItems, currentlyServing } = useQueue();
 
@@ -14,10 +11,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
-
-  const navLinks = [
-    { href: '/display-screen', label: 'Display', icon: Monitor },
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -34,68 +27,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <span className="font-semibold text-white text-sm tracking-wide">BPLO Queue</span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map(({ href, label, icon: Icon }) => {
-                const active = location.pathname === href;
-                return (
-                  <Link
-                    key={href}
-                    to={href}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-colors ${
-                      active
-                        ? 'bg-white/20 text-white font-medium'
-                        : 'text-white/70 hover:bg-white/10 hover:text-white'
-                    }`}
-                  >
-                    <Icon size={15} />
-                    {label}
-                  </Link>
-                );
-              })}
-            </nav>
-
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-sm text-white/80 font-medium">
+              <div className="flex items-center gap-2 text-sm text-white/80 font-medium">
                 <Clock size={16} />
-                <span>{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
+                <span className="hidden sm:inline">{currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} | </span>
+                <span>{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
-
-              <button
-                className="md:hidden p-1.5 text-white/70 hover:text-white rounded-lg hover:bg-white/10"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                {menuOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
             </div>
           </div>
         </div>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="md:hidden border-t border-white/10 overflow-hidden relative"
-            >
-              <div className="px-4 py-2 space-y-0.5">
-                {navLinks.map(({ href, label, icon: Icon }) => (
-                  <Link
-                    key={href}
-                    to={href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm ${
-                      location.pathname === href ? 'bg-white/20 text-white font-medium' : 'text-white/70 hover:bg-white/10 hover:text-white'
-                    }`}
-                  >
-                    <Icon size={16} />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
 
       <main className="flex-1">
