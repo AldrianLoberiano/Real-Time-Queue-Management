@@ -1,4 +1,4 @@
-import { Settings } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { AdminLayout } from '../components/AdminLayout';
 import { useQueue } from '../../queue/QueueContext';
 
@@ -17,7 +17,7 @@ export function AdminSettingsPage() {
             <div className="flex items-center justify-between py-3 border-b border-gray-50">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-                  <Settings size={18} className="text-black" />
+                  <Volume2 size={18} className="text-black" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-800">Notification Sound</p>
