@@ -263,7 +263,6 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     try {
       const result = await api.doneAndCallNext(id);
       if (result) {
-        addNotification(`Now serving: ${result.number} - ${result.name}`, 'success');
         if (isSoundEnabled()) playServeSound();
       }
       await fetchItems();
@@ -271,7 +270,7 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     } catch {
       return null;
     }
-  }, [addNotification, isSoundEnabled, fetchItems]);
+  }, [isSoundEnabled, fetchItems]);
 
   const skipItem = useCallback(async (id: string) => {
     try {
