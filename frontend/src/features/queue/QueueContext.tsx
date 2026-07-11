@@ -32,7 +32,7 @@ interface QueueContextType {
   resetQueue: () => Promise<void>;
   clearAll: () => Promise<void>;
   isAdminLoggedIn: boolean;
-  adminLogin: (username: string, password: string) => boolean;
+  adminLogin: (username: string, password: string) => Promise<boolean>;
   adminLogout: () => void;
   currentlyServing: QueueItem | null;
   waitingItems: QueueItem[];
@@ -323,13 +323,15 @@ export function QueueProvider({ children }: { children: React.ReactNode }) {
     } catch {}
   }, [addNotification, fetchItems]);
 
-  const adminLogin = useCallback((username: string, password: string): boolean => {
-    if (username === 'admin' && password === 'admin123') {
+  const adminLogin = useCallback(async (username: string, password: string): Promise<boolean> => {
+    try {
+      await api.adminLogin(username, password);
       setIsAdminLoggedIn(true);
       try { sessionStorage.setItem('qs_admin', 'true'); } catch {}
       return true;
+    } catch {
+      return false;
     }
-    return false;
   }, []);
 
   const adminLogout = useCallback(() => {
