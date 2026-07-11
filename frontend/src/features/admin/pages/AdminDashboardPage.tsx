@@ -13,7 +13,7 @@ export function AdminDashboardPage() {
     waitingItems, currentlyServing, doneItems, skippedItems,
     callNext, skipItem, recallItem, markDone, removeItem,
     doneAndCallNext,
-    clearAll, totalServedToday, avgServiceTime,
+    clearAll, totalServedToday, avgServiceTime, lunchBreak,
   } = useQueue();
 
   const [filter, setFilter] = useState<'all' | 'waiting' | 'done' | 'skipped'>('all');
@@ -109,10 +109,23 @@ export function AdminDashboardPage() {
         <div className="grid lg:grid-cols-5 gap-6">
           {/* Left Panel - Currently Serving */}
           <div className="lg:col-span-2 space-y-4">
+            {/* Lunch Break Banner */}
+            {lunchBreak && (
+              <div className="flex items-center gap-3 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
+                  <AlertTriangle size={18} className="text-amber-600" />
+                </div>
+                <div>
+                  <p className="text-amber-800 text-sm font-semibold">On Lunch Break</p>
+                  <p className="text-amber-600 text-xs">Queue is paused</p>
+                </div>
+              </div>
+            )}
+
             {/* Call Next Button */}
             <button
               onClick={callNext}
-              disabled={!!currentlyServing || waitingItems.length === 0}
+              disabled={!!currentlyServing || waitingItems.length === 0 || lunchBreak}
               className="w-full py-4 rounded-2xl bg-violet-500 hover:bg-violet-600 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-sm transition-colors flex items-center justify-center gap-2.5"
             >
               <PlayCircle size={20} />
