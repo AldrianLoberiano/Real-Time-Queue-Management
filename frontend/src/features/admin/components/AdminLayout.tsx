@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import {
   LayoutDashboard, LogOut, Menu,
-  Users, ChevronRight, Volume2, VolumeX,
+  Users, ChevronRight, Settings,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useQueue } from '../../queue/QueueContext';
@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { adminLogout, waitingItems, currentlyServing, soundEnabled, toggleSound } = useQueue();
+  const { adminLogout, waitingItems, currentlyServing } = useQueue();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
@@ -87,6 +87,18 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           >
             <LayoutDashboard size={16} />
             <span>Display Screen</span>
+          </Link>
+          <Link
+            to="/admin/settings"
+            onClick={() => setSidebarOpen(false)}
+            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-colors text-sm ${
+              isActive('/admin/settings', false)
+                ? 'bg-white/20 text-white font-medium'
+                : 'text-white/60 hover:bg-white/10 hover:text-white'
+            }`}
+          >
+            <Settings size={16} />
+            <span>Settings</span>
           </Link>
         </div>
       </nav>
@@ -167,15 +179,6 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span className="text-emerald-200 text-[11px] font-medium">Live</span>
               </div>
-
-              <button
-                onClick={toggleSound}
-                className="p-1.5 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors"
-                title={soundEnabled ? 'Mute sound' : 'Enable sound'}
-              >
-                {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-              </button>
-
             </div>
           </div>
         </header>
