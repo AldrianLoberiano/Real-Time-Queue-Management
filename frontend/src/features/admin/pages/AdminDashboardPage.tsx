@@ -45,7 +45,7 @@ export function AdminDashboardPage() {
       <div className="space-y-6">
         {/* Stats Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
                 <Users size={20} className="text-black" />
@@ -64,7 +64,7 @@ export function AdminDashboardPage() {
             </button>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
                 <UserCheck size={20} className="text-black" />
@@ -76,7 +76,7 @@ export function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
                 <CheckCircle size={20} className="text-black" />
@@ -88,7 +88,7 @@ export function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:bg-gray-50 transition-colors">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center">
                 <Clock size={20} className="text-black" />
@@ -122,7 +122,7 @@ export function AdminDashboardPage() {
             <button
               onClick={callNext}
               disabled={!!currentlyServing || waitingItems.length === 0}
-              className="w-full py-4 rounded-2xl bg-violet-500 hover:bg-violet-600 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-sm transition-all shadow-lg shadow-violet-500/25 disabled:shadow-none flex items-center justify-center gap-2.5 active:scale-[0.98]"
+              className="w-full py-4 rounded-2xl bg-violet-500 hover:bg-violet-600 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold text-sm transition-colors flex items-center justify-center gap-2.5"
             >
               <PlayCircle size={20} />
               Call Next Customer
@@ -155,7 +155,7 @@ export function AdminDashboardPage() {
                     {/* Primary Action */}
                     <button
                       onClick={() => setShowDoneCallNext(true)}
-                      className="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-[0.98]"
+                      className="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2"
                     >
                       <CheckCircle size={18} />
                       Done & Call Next
@@ -232,7 +232,7 @@ export function AdminDashboardPage() {
               {filtered.length === 0 ? (
                 <div className="text-center py-16">
                   <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                    <Users size={22} className="text-gray-300" />
+                    <Users size={22} className="text-black" />
                   </div>
                   <p className="text-gray-400 text-sm font-medium">No items found</p>
                 </div>
@@ -245,7 +245,7 @@ export function AdminDashboardPage() {
                     }`}
                   >
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xs font-bold ${
-                      item.status === 'serving' ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20' :
+                      item.status === 'serving' ? 'bg-emerald-500 text-white' :
                       item.status === 'done' ? 'bg-gray-100 text-gray-500' :
                       item.status === 'skipped' ? 'bg-red-50 text-red-500 border border-red-100' :
                       'bg-blue-50 text-blue-600 border border-blue-100'
