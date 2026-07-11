@@ -45,7 +45,7 @@ describe('API Routes', () => {
   describe('GET /api/items', () => {
     it('returns all queue items', async () => {
       const items = [
-        { id: '1', number: 'A-001', name: 'Alice', status: 'waiting', created_at: new Date() },
+        { id: '1', number: 'A-001', name: 'Alice', status: 'waiting', created_at: '2026-07-11T10:08:24.134Z' },
       ];
       mockQuery.mockResolvedValueOnce([items]);
 
